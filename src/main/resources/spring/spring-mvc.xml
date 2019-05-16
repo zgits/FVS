@@ -15,13 +15,14 @@
 		(1)自动注册DefaultAnootationHandlerMapping,AnotationMethodHandlerAdapter 
 		(2)提供一些列：数据绑定，数字和日期的format @NumberFormat, @DateTimeFormat, xml,json默认读写支持 
 	-->
-	<mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
+<!--	<mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>-->
+<!--	<mvc:annotation-driven ></mvc:annotation-driven>-->
 	
 	<!-- 2.静态资源默认servlet配置
 		(1)加入对静态资源的处理：js,gif,png
 		(2)允许使用"/"做整体映射
 	 -->
-	 <!--<mvc:default-servlet-handler/>-->
+<!--	 <mvc:default-servlet-handler/>-->
 	 
 	 <!-- 3.配置jsp 显示ViewResolver -->
 	  <!--   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -32,38 +33,38 @@
 
 	 <!-- 4.配置html视图解析器 -->
 	 <!-- html视图解析器必须先配置freemarkerConfig,注意html是没有prefix前缀属性的 -->
-	 <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-	 	<property name="templateLoaderPath">
-	 		<value>/WEB-INF/jsp/home/</value>
-	 	</property>
-	 </bean>
+<!--	 <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">-->
+<!--	 	<property name="templateLoaderPath">-->
+<!--	 		<value>/WEB-INF/jsp/home/</value>-->
+<!--	 	</property>-->
+<!--	 </bean>-->
 
-	 <bean id="htmlviewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-	 	<property name="suffix" value=".html"></property>
-	 	<!-- 配置优先级，越小优先级越高 -->
-	 	<property name="contentType" value="text/html;charset=UTF-8"></property>
-	 	<property name="order" value="0"></property>
-	 </bean>
+<!--	 <bean id="htmlviewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">-->
+<!--	 	<property name="suffix" value=".html"></property>-->
+<!--	 	&lt;!&ndash; 配置优先级，越小优先级越高 &ndash;&gt;-->
+<!--	 	<property name="contentType" value="text/html;charset=UTF-8"></property>-->
+<!--	 	<property name="order" value="0"></property>-->
+<!--	 </bean>-->
 
-	 <!-- jsp视图解析器 -->
-	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-	 	<property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView"></property>
-	 	<property name="prefix" value="WEB-INF/jsp/"></property>
-	 	<property name="suffix" value=".jsp"></property>
-	 	<property name="contentType" value="text/html;charset=UTF-8"></property>
-	 	<property name="order" value="1"></property>
-	 </bean>
+<!--	 &lt;!&ndash; jsp视图解析器 &ndash;&gt;-->
+<!--	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+<!--	 	<property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView"></property>-->
+<!--	 	<property name="prefix" value="WEB-INF/jsp/"></property>-->
+<!--	 	<property name="suffix" value=".jsp"></property>-->
+<!--	 	<property name="contentType" value="text/html;charset=UTF-8"></property>-->
+<!--	 	<property name="order" value="1"></property>-->
+<!--	 </bean>-->
 
 	 <!--&lt;!&ndash; 4.扫描web相关的bean &ndash;&gt;-->
 	 <!--<context:component-scan base-package="com.lemonner.cgpt.controller" />-->
 
 	<!--4:扫描web相关的controller-->
 	<!--<context:component-scan base-package="com.ga.wact.controller"></context:component-scan>-->
-	<context:component-scan base-package="com.four.fvs.controller,com.four.fvs.exception" use-default-filters="false">
-		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-		<!--控制器增强，通常用来解决全局异常-->
-		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
-	</context:component-scan>
+<!--	<context:component-scan base-package="com.four.fvs.controller,com.four.fvs.exception" use-default-filters="false">-->
+<!--		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+<!--		&lt;!&ndash;控制器增强，通常用来解决全局异常&ndash;&gt;-->
+<!--		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>-->
+<!--	</context:component-scan>-->
 
 
 
