@@ -7,208 +7,132 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="217f3fe7-8722-4ddc-9520-a4b85d42e4ae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/FVS_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/bg/auditing.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/bg/class.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/bg/comment.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/bg/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/bg/manageruser.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/bg/message.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/bg/pass.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/bg/upload.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/dist/js/color.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/bg/ad.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/css/layui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/css/layui.mobile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/css/modules/code.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/css/modules/laydate/default/laydate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/css/modules/layer/default/icon-ext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/css/modules/layer/default/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/css/modules/layer/default/layer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/css/modules/layer/default/loading-0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/css/modules/layer/default/loading-1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/css/modules/layer/default/loading-2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/font/iconfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/font/iconfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/font/iconfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/font/iconfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/10.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/11.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/12.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/13.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/14.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/15.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/16.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/17.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/18.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/19.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/20.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/21.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/22.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/23.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/24.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/25.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/26.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/27.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/28.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/29.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/3.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/30.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/31.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/32.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/33.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/34.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/35.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/36.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/37.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/38.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/39.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/4.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/40.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/41.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/42.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/43.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/44.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/45.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/46.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/47.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/48.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/49.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/5.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/50.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/51.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/52.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/53.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/54.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/55.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/56.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/57.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/58.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/59.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/6.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/60.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/61.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/62.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/63.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/64.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/65.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/66.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/67.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/68.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/69.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/7.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/70.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/71.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/8.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/images/face/9.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/lay/modules/carousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/lay/modules/code.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/lay/modules/colorpicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/lay/modules/element.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/lay/modules/flow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/lay/modules/form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/lay/modules/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/lay/modules/laydate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/lay/modules/layedit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/lay/modules/layer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/lay/modules/laypage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/lay/modules/laytpl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/lay/modules/mobile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/lay/modules/rate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/lay/modules/slider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/lay/modules/table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/lay/modules/tree.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/lay/modules/upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/lay/modules/util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/layui.all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/layui/layui.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring/spring-mvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/bower_components/datatables.net/js/jquery.dataTables.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/bower_components/datatables.net/js/jquery.dataTables.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/classes/com/four/fvs/common/PageBean.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/classes/com/four/fvs/common/Result.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/classes/com/four/fvs/common/ResultUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/classes/com/four/fvs/controller/DemoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/classes/com/four/fvs/dao/DemoDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/classes/com/four/fvs/enums/CommonCode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/classes/com/four/fvs/exception/EcxeptionAdvice.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/classes/com/four/fvs/model/Demo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/classes/com/four/fvs/service/DemoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/classes/com/four/fvs/service/impl/DemoServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/classes/jdbc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/classes/mapper/demo.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/classes/mybatis-config.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/classes/spring/spring-dao.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/classes/spring/spring-mvc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/classes/spring/spring-service.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/aspectjrt-1.8.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/aspectjweaver-1.8.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/c3p0-0.9.1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/commons-logging-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/freemarker-gae-2.3.28.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/jackson-annotations-2.5.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/jackson-core-2.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/jackson-databind-2.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/javax.servlet-api-3.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/mybatis-3.3.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/mybatis-spring-1.2.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/mysql-connector-java-5.1.37.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/spring-aop-4.3.10.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/spring-beans-4.3.10.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/spring-context-4.3.10.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/spring-context-support-4.3.10.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/spring-core-4.3.10.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/spring-expression-4.3.10.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/spring-jdbc-4.3.10.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/spring-test-4.1.7.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/spring-tx-4.3.10.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/spring-web-4.3.10.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/spring-webmvc-4.3.10.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/lib/standard-1.1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/app.4417d0e4.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-078e4b10.ee4dbc24.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-098ca1fd.648c56a0.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-09f95ece.310d8994.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-0c5719ea.ab6b6f37.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-109d5536.ec4ebbd0.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-1789ada2.9b8c6c9b.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-18ffaffa.7a0c24ef.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-19bbb6ac.90a6ce5e.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-1d6f090d.cb8c5470.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-1e7bd770.f56950af.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-1f609d90.41fbd3e9.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-21beb4d4.37208ead.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-2ab32b3a.34edaca4.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-2afd8b30.75bb90a6.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-2bbf38d1.969aef38.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-2d1cfca6.8394d684.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-30ba508e.23e09610.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-33662c4b.81ed71f2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-3e4f4b34.7ac1b702.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-3e917caf.55203a7a.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-3ea2aa8a.b5c17e32.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-3f673a1c.71f264e2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-4b0004f6.860218f8.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-53ca8c3c.5b27f791.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-5ac911aa.0e4fa8b5.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-5e77a1ab.dc97a285.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-645a21a7.95371419.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-68d7102f.e2ce212c.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-6c9a56a0.1fc537f3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-70cff199.543e5073.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-7348d640.e5e4dfbf.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-7c15f77e.8c870b99.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-88ba84c4.c85e8332.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-9ffe1f34.9d8162eb.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-acf39d70.4b4aaa9c.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-b785df18.13e72ad6.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-beeb0ab8.703cef8e.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-c8ee2132.fc684471.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-commons.8df8f395.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-f2cfb098.17663d91.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-f77cdfb0.f314e1b9.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-ffb059ac.6d24dacd.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/css/chunk-libs.3dfb7769.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/fonts/element-icons.27c72091.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/fonts/element-icons.2fad952a.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/fonts/element-icons.6f0a7632.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/fonts/element-icons.9b70ee41.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/img/401.089007e7.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/img/404.a57b6f31.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/img/404_cloud.0f4bc32b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/img/tui-editor-2x.b4361244.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/img/tui-editor.30dd0f52.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/app.642c802b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-078e4b10.87cf2aed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-098ca1fd.3cb68bb5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-09f95ece.dea32bab.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-0c5719ea.588afc99.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-109d5536.1852f6e5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-14da9915.57ca63d6.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-1789ada2.3e22dd0b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-18ffaffa.0d230b8b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-19bbb6ac.b432518c.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-1d6f090d.205270bd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-1e7bd770.d27bb907.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-1f609d90.835e549a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-21beb4d4.733b6f63.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2ab32b3a.1227a32b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2afd8b30.bc43466c.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2bbf38d1.f5ab52d3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2d0a519f.5a09d273.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2d0ac416.673656f1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2d0c0353.b166ee13.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2d0c84d3.8abcb24f.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2d0c8bf7.5f33338f.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2d0d6710.6dd3e8e5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2d0e4e1f.a1049e3a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2d0e6c67.f9a6cdd5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2d0e944c.23bfdaf3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2d0f0a2e.39077b3e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2d1cfca6.8f3b5eeb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2d20f537.590b3685.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2d2104c6.230fab39.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2d2105d3.ce6e26e5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2d210b83.2d208b41.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2d226cab.4968a0b7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2d229205.8de5713c.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2d22d3c7.8cbc1e85.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-2d230fe7.9bb0c7e2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-30ba508e.1508ec0a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-33662c4b.86999b3e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-3e4f4b34.99ddc57b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-3e917caf.847b4be7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-3ea2aa8a.85cddb1b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-3f673a1c.50576fe5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-43f8ff7c.4716b0bd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-4b0004f6.7f68ce2f.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-4c9ef285.7efdb016.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-5164a781.d70c2177.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-53ca8c3c.730d17d9.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-56df7fd6.342902a8.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-58ada7f6.8286c640.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-5ac911aa.972781de.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-5bdd67a2.aefb6e12.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-5e77a1ab.b361035d.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-645a21a7.4ba5b285.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-68d7102f.e50af7d2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-6c9a56a0.f1c5836e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-6e83591c.3d060557.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-70cff199.cb8af7ad.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-71e93d33.89c87036.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-7348d640.0f963257.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-74926326.3340dbad.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-7c15f77e.40340cb4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-87968d96.6be8ef34.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-88ba84c4.ca671bcf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-9ffe1f34.592265db.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-acf39d70.ac56bbf5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-b785df18.f1e5aca3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-bacc0f62.093f2228.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-beeb0ab8.ed31fdce.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-c8ee2132.a7029b14.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-commons.175e3dc2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-elementUI.378fa49f.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-f2cfb098.bffd211a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-f77cdfb0.31b803de.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-f788de52.f4f772eb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-ffb059ac.e05bfd5a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/FVS/static/js/chunk-libs.46122d0a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/four/fvs/common/PageBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/four/fvs/common/PageBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/four/fvs/common/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/four/fvs/common/Result.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/four/fvs/common/ResultUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/four/fvs/common/ResultUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/four/fvs/controller/DemoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/four/fvs/controller/DemoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/four/fvs/dao/DemoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/four/fvs/dao/DemoDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/four/fvs/enums/CommonCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/four/fvs/enums/CommonCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/four/fvs/exception/EcxeptionAdvice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/four/fvs/exception/EcxeptionAdvice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/four/fvs/model/Demo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/four/fvs/model/Demo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/four/fvs/service/DemoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/four/fvs/service/DemoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/four/fvs/service/impl/DemoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/four/fvs/service/impl/DemoServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/spring/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring/spring-mvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/FVS_war_exploded/bg/auditing.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/FVS_war_exploded/bg/auditing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/FVS_war_exploded/bg/class.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/FVS_war_exploded/bg/class.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/FVS_war_exploded/bg/comment.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/FVS_war_exploded/bg/comment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/FVS_war_exploded/bg/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/FVS_war_exploded/bg/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/FVS_war_exploded/bg/manageruser.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/FVS_war_exploded/bg/manageruser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/FVS_war_exploded/bg/message.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/FVS_war_exploded/bg/message.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/FVS_war_exploded/bg/pass.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/FVS_war_exploded/bg/pass.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/FVS_war_exploded/bg/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/FVS_war_exploded/bg/upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/bg/auditing.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bg/auditing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/bg/class.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bg/class.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/bg/comment.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bg/comment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/bg/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bg/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/bg/manageruser.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bg/manageruser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/bg/message.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bg/message.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/bg/pass.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bg/pass.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/bg/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/bg/upload.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -240,8 +164,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="378" column="21" selection-start-line="378" selection-start-column="21" selection-end-line="378" selection-end-column="21" />
+            <state relative-caret-position="569">
+              <caret line="375" column="21" selection-start-line="375" selection-start-column="21" selection-end-line="375" selection-end-column="21" />
               <folding>
                 <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -250,14 +174,10 @@
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#li#4;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#6;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#canvas#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#canvas#0;n#div#0;n#div#1;n#div#0;n#div#2;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="e#57476#57482#0" expanded="true" />
                 <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#script#19;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
               </folding>
@@ -266,22 +186,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/auditing.html">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/ad.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="563">
-              <caret line="371" column="21" selection-start-line="371" selection-start-column="21" selection-end-line="371" selection-end-column="21" />
+            <state relative-caret-position="144">
+              <caret line="353" column="19" selection-start-line="353" selection-start-column="19" selection-end-line="353" selection-end-column="19" />
               <folding>
                 <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#li#3;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#4;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="e#27832#27838#0" expanded="true" />
                 <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
@@ -291,20 +208,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/class.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="371" column="21" selection-start-line="371" selection-start-column="21" selection-end-line="371" selection-end-column="21" />
+            <state relative-caret-position="515">
+              <caret line="368" column="21" selection-start-line="368" selection-start-column="21" selection-end-line="368" selection-end-column="21" />
               <folding>
                 <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#li#3;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#li#4;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="e#45746#45752#0" expanded="true" />
                 <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
@@ -314,20 +229,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/pass.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="371" column="21" selection-start-line="371" selection-start-column="21" selection-end-line="371" selection-end-column="21" />
+            <state relative-caret-position="353">
+              <caret line="368" column="21" selection-start-line="368" selection-start-column="21" selection-end-line="368" selection-end-column="21" />
               <folding>
                 <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#li#3;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#li#4;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="e#45860#45866#0" expanded="true" />
                 <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
@@ -335,32 +247,74 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/starter.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4649">
-              <caret line="402" column="20" selection-start-line="402" selection-start-column="20" selection-end-line="402" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/upload.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="366" column="20" selection-start-line="366" selection-start-column="20" selection-end-line="366" selection-end-column="20" />
+            <state relative-caret-position="432">
+              <caret line="24" column="4" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="77" />
               <folding>
                 <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#li#3;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#2;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#3;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#4;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#5;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#6;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#7;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#8;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#9;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#10;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#11;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#12;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#13;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#14;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#15;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#16;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#17;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#18;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#19;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#20;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#21;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="e#43030#43036#0" expanded="true" />
                 <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="e#50905#51348#0" />
+                <element signature="e#51396#51579#0" />
+                <element signature="e#51604#51843#0" />
+                <element signature="e#52302#52487#0" />
+                <element signature="e#52911#53148#0" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/static/pages/forms/general.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="786" column="22" lean-forward="true" selection-start-line="782" selection-start-column="16" selection-end-line="786" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/static/pages/UI/modals.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="538" column="108" selection-start-line="538" selection-start-column="60" selection-end-line="538" selection-end-column="108" />
+              <folding>
+                <element signature="n#div#2;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#5;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -369,50 +323,39 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/manageruser.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="342" column="29" selection-end-line="846" />
+            <state relative-caret-position="362">
+              <caret line="368" column="21" selection-start-line="364" selection-start-column="16" selection-end-line="368" selection-end-column="21" />
               <folding>
                 <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#li#3;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#li#4;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="e#45823#45829#0" expanded="true" />
                 <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/message.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="554" column="34" lean-forward="true" selection-start-line="542" selection-start-column="28" selection-end-line="554" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/comment.html">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/message.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="666">
-              <caret line="967" column="10" lean-forward="true" selection-start-line="967" selection-start-column="10" selection-end-line="967" selection-end-column="10" />
+            <state relative-caret-position="-1957">
+              <caret line="24" column="77" selection-start-line="24" selection-start-column="77" selection-end-line="24" selection-end-column="77" />
               <folding>
                 <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#li#3;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="e#42930#42936#0" expanded="true" />
                 <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
@@ -420,16 +363,20 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/static/pages/forms/advanced.html">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/comment.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="710">
-              <caret line="1161" selection-start-line="1161" selection-end-line="1227" selection-end-column="9" />
+            <state relative-caret-position="492">
+              <caret line="371" column="21" selection-start-line="371" selection-start-column="21" selection-end-line="371" selection-end-column="21" />
               <folding>
-                <element signature="n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#1;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#1;n#div#1;n#div#1;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#script#16;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -453,7 +400,9 @@
       <find>static</find>
       <find>Layout Options</find>
       <find>Flat green skin checkbox</find>
-      <find>Flat green skin checkbox</find>
+      <find>AdminLTE Custom Tabs</find>
+      <find>Camino 1.0</find>
+      <find>Input with success</find>
     </findStrings>
     <replaceStrings>
       <replace>../static</replace>
@@ -490,15 +439,16 @@
         <option value="$PROJECT_DIR$/src/main/webapp/index2.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/dist/js/color.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/pages/charts/chartjs.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/static/pages/forms/advanced.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/bg/manageruser.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/bg/auditing.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/bg/class.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/bg/index.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/bg/manageruser.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/bg/pass.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/bg/upload.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/static/pages/forms/advanced.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/bg/message.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/bg/comment.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/bg/index.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/bg/pass.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/bg/ad.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/bg/upload.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/bg/message.html" />
       </list>
     </option>
   </component>
@@ -533,6 +483,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -601,16 +553,6 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="tables" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FVS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FVS" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="UI" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -625,8 +567,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -635,7 +575,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/static/dist/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/static" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -645,18 +585,18 @@
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.four.fvs.service.impl" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\data\java\FVS\src\main\webapp\test" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\data\java\FVS\src\main\webapp\static" />
       <recent name="D:\data\java\FVS\src\main\webapp\static\dist\js" />
       <recent name="D:\data\java\FVS\src\main\webapp" />
-      <recent name="D:\data\java\FVS\src\main\webapp\static" />
       <recent name="D:\data\java\FVS\src\main\java\com\four\fvs\common" />
       <recent name="D:\data\java\FVS\src\main\java\com\four\fvs\exception" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\data\java\FVS\src\main\webapp\test" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.four.fvs.service.impl" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -838,7 +778,8 @@
       <workItem from="1557887945775" duration="4513000" />
       <workItem from="1557896334818" duration="2289000" />
       <workItem from="1557914179558" duration="612000" />
-      <workItem from="1557974000059" duration="28138000" />
+      <workItem from="1557974000059" duration="28327000" />
+      <workItem from="1558059020309" duration="21354000" />
     </task>
     <task id="LOCAL-00001" summary="前端文件，框架暂时不行">
       <created>1557847443656</created>
@@ -847,17 +788,24 @@
       <option name="project" value="LOCAL" />
       <updated>1557847443656</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="后台部分页面的完成">
+      <created>1558019118787</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1558019118787</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46031000" />
+    <option name="totallyTimeSpent" value="67574000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49920255" visible="true" weight="0.26599148" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49920255" visible="true" weight="0.26865673" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -867,7 +815,7 @@
       <window_info id="Web" order="7" sideWeight="0.50079745" side_tool="true" weight="0.26599148" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.31995663" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.14533623" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -898,19 +846,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="前端文件，框架暂时不行" />
-    <option name="LAST_COMMIT_MESSAGE" value="前端文件，框架暂时不行" />
+    <MESSAGE value="后台部分页面的完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="后台部分页面的完成" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/img/tui-editor.30dd0f52.png" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/img/404_cloud.0f4bc32b.png" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/img/404.a57b6f31.png" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/img/401.089007e7.gif" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/app.642c802b.js" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/chunk-libs.46122d0a.js" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/chunk-2d230fe7.9bb0c7e2.js" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/static/css/chunk-19bbb6ac.90a6ce5e.css" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/chunk-0c5719ea.588afc99.js" />
@@ -1001,13 +944,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/test/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/test/index.jsp" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-dao.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -1017,13 +954,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-config.xml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="1535" column="15" selection-start-line="1535" selection-start-column="15" selection-end-line="1535" selection-end-column="15" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-mvc.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1252,23 +1182,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/pages/UI/modals.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="643" column="14" lean-forward="true" selection-start-line="624" selection-start-column="8" selection-end-line="643" selection-end-column="14" />
-          <folding>
-            <element signature="n#div#5;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5148">
-          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/static/pages/tables/simple.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2214" />
@@ -1276,152 +1189,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/starter.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4649">
+        <state relative-caret-position="7236">
           <caret line="402" column="20" selection-start-line="402" selection-start-column="20" selection-end-line="402" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/auditing.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="371" column="21" selection-start-line="371" selection-start-column="21" selection-end-line="371" selection-end-column="21" />
-          <folding>
-            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#li#3;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#4;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="e#27832#27838#0" expanded="true" />
-            <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/class.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="371" column="21" selection-start-line="371" selection-start-column="21" selection-end-line="371" selection-end-column="21" />
-          <folding>
-            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#li#3;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#4;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="e#45746#45752#0" expanded="true" />
-            <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="378" column="21" selection-start-line="378" selection-start-column="21" selection-end-line="378" selection-end-column="21" />
-          <folding>
-            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#li#4;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#6;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#canvas#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#canvas#0;n#div#0;n#div#1;n#div#0;n#div#2;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="e#57476#57482#0" expanded="true" />
-            <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#script#19;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/upload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="366" column="20" selection-start-line="366" selection-start-column="20" selection-end-line="366" selection-end-column="20" />
-          <folding>
-            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#li#3;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="e#43030#43036#0" expanded="true" />
-            <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/pass.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="371" column="21" selection-start-line="371" selection-start-column="21" selection-end-line="371" selection-end-column="21" />
-          <folding>
-            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#li#3;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#4;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="e#45860#45866#0" expanded="true" />
-            <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/manageruser.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="342" column="29" selection-end-line="846" />
-          <folding>
-            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#li#3;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#4;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="e#45823#45829#0" expanded="true" />
-            <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/message.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="554" column="34" lean-forward="true" selection-start-line="542" selection-start-column="28" selection-end-line="554" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/static/pages/forms/advanced.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="710">
+        <state relative-caret-position="14004">
           <caret line="1161" selection-start-line="1161" selection-end-line="1227" selection-end-column="9" />
           <folding>
             <element signature="n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
@@ -1433,20 +1208,271 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/comment.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="967" column="10" lean-forward="true" selection-start-line="967" selection-start-column="10" selection-end-line="967" selection-end-column="10" />
+        <state relative-caret-position="374">
+          <caret line="1544" lean-forward="true" selection-start-line="1544" selection-end-line="1544" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/bower_components/datatables.net/js/jquery.dataTables.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="15122" column="28" selection-start-line="15122" selection-start-column="28" selection-end-line="15122" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/FVS_war_exploded/static/bower_components/jvectormap/converter/converter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4881" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-144">
+          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/pages/UI/general.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="893" column="28" lean-forward="true" selection-start-line="893" selection-start-column="28" selection-end-line="893" selection-end-column="28" />
+          <folding>
+            <element signature="n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/pages/UI/timeline.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="636" column="12" selection-start-line="520" selection-start-column="6" selection-end-line="636" selection-end-column="12" />
+          <folding>
+            <element signature="n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/auditing.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="368" column="21" selection-start-line="368" selection-start-column="21" selection-end-line="368" selection-end-column="21" />
           <folding>
             <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#li#3;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#4;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/class.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="368" column="21" selection-start-line="368" selection-start-column="21" selection-end-line="368" selection-end-column="21" />
+          <folding>
+            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#li#4;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/comment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="371" column="21" selection-start-line="371" selection-start-column="21" selection-end-line="371" selection-end-column="21" />
+          <folding>
+            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="375" column="21" selection-start-line="375" selection-start-column="21" selection-end-line="375" selection-end-column="21" />
+          <folding>
+            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#li#4;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#canvas#0;n#div#0;n#div#1;n#div#0;n#div#2;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/manageruser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="368" column="21" selection-start-line="364" selection-start-column="16" selection-end-line="368" selection-end-column="21" />
+          <folding>
+            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#li#4;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/pass.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="368" column="21" selection-start-line="368" selection-start-column="21" selection-end-line="368" selection-end-column="21" />
+          <folding>
+            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#li#4;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="e#42930#42936#0" expanded="true" />
+            <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/ad.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="353" column="19" selection-start-line="353" selection-start-column="19" selection-end-line="353" selection-end-column="19" />
+          <folding>
+            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/pages/forms/general.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="786" column="22" lean-forward="true" selection-start-line="782" selection-start-column="16" selection-end-line="786" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/pages/UI/modals.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="538" column="108" selection-start-line="538" selection-start-column="60" selection-end-line="538" selection-end-column="108" />
+          <folding>
+            <element signature="n#div#2;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#5;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/upload.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="4" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="77" />
+          <folding>
+            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#2;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#3;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#4;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#5;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#6;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#7;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#8;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#9;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#10;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#11;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#12;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#13;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#14;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#15;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#16;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#17;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#18;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#19;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#20;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#5;n#tr#21;n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="e#50905#51348#0" />
+            <element signature="e#51396#51579#0" />
+            <element signature="e#51604#51843#0" />
+            <element signature="e#52302#52487#0" />
+            <element signature="e#52911#53148#0" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/bg/message.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1957">
+          <caret line="24" column="77" selection-start-line="24" selection-start-column="77" selection-end-line="24" selection-end-column="77" />
+          <folding>
+            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#li#5;n#ul#0;n#section#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#aside#1;n#div#0;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>

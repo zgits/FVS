@@ -351,20 +351,11 @@
                     </a>
                 </li>
                 <!--                消息管理-->
-                <li class="treeview">
-                    <a href="#">
+                <li>
+                    <a href="message.html">
                         <i class="fa fa-pie-chart"></i>
                         <span>消息管理</span>
-                        <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
                     </a>
-                    <ul class="treeview-menu">
-                        <li><a href="../static/pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-                        <li><a href="../static/pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-                        <li><a href="../static/pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-                        <li><a href="../static/pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
-                    </ul>
                 </li>
                 <!--                评论管理-->
                 <li class="active">
@@ -374,18 +365,10 @@
                     </a>
                 </li>
                 <!--                广告管理-->
-                <li class="treeview">
-                    <a href="#">
+                <li>
+                    <a href="ad.html">
                         <i class="fa fa-edit"></i> <span>广告管理</span>
-                        <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
                     </a>
-                    <ul class="treeview-menu">
-                        <li><a href="../static/pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-                        <li><a href="../static/pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-                        <li><a href="../static/pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
-                    </ul>
                 </li>
             </ul>
         </section>
@@ -424,7 +407,7 @@
                                         <!-- checkbox -->
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox" class="flat-red" >
+                                                <input type="checkbox" class="flat-red" id="selectAll" >
                                             </label>
                                         </div>
                                     </th>
@@ -434,7 +417,7 @@
                                     <th>操作</th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="tablebody">
                                 <tr>
                                     <td>
                                         <div class="form-group">
@@ -626,7 +609,6 @@
                                     <td>9000</td>
                                     <td>
                                         <div class="btn-group">
-
                                             <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#modal-warning">删除</button>
                                         </div>
                                     </td>
@@ -966,14 +948,24 @@
             'info'        : true,
             'autoWidth'   : false
         })
+    })
+</script>
+
+<script>
+    $(function () {
         //Flat red color scheme for iCheck
         $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
             checkboxClass: 'icheckbox_flat-green',
             radioClass   : 'iradio_flat-green'
         })
-    })
+    });
+    $("#selectAll").click(function () {
+        alert('sd');
+        $("#tablebody input:checkbox").each(function () {
+            $(this).prop('checked', true);//
+
+        });
+    });
 </script>
-
-
 </body>
 </html>
