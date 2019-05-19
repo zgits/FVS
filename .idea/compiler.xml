@@ -9,5 +9,8 @@
         <module name="FVS" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="FVS" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
