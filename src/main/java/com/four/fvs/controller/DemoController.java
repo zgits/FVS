@@ -22,7 +22,6 @@ public class DemoController {
     @Autowired
     private DemoService demoService;
 
-
     /**
      *
      *
