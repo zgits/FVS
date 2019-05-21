@@ -21,6 +21,8 @@ public class VideoForHisPlay {
 
     private Integer commentNumber;//评论数
 
+    private String firstImagePath;//番剧封面地址
+
     private List<VideoComment> videoCommentList;//该集评论数集合
 
     @Override
@@ -32,8 +34,17 @@ public class VideoForHisPlay {
                 ", name='" + name + '\'' +
                 ", sort=" + sort +
                 ", commentNumber=" + commentNumber +
+                ", firstImagePath='" + firstImagePath + '\'' +
                 ", videoCommentList=" + videoCommentList +
                 '}';
+    }
+
+    public String getFirstImagePath() {
+        return firstImagePath;
+    }
+
+    public void setFirstImagePath(String firstImagePath) {
+        this.firstImagePath = firstImagePath;
     }
 
     public Integer getId() {

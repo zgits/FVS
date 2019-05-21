@@ -34,6 +34,8 @@ public class Video {
 
     private Integer status;//视频状态，1、审核中 2、审核通过 3、审核不通过
 
+    private String firstImagePath;//视频封面地址
+
     private List<VideoComment> videoCommentList;//视频的评论
 
     private List<BulletScreen> bulletScreenList;//弹幕集合
@@ -53,9 +55,18 @@ public class Video {
                 ", videoSrc='" + videoSrc + '\'' +
                 ", simpleIntroduce='" + simpleIntroduce + '\'' +
                 ", status=" + status +
+                ", firstImagePath='" + firstImagePath + '\'' +
                 ", videoCommentList=" + videoCommentList +
                 ", bulletScreenList=" + bulletScreenList +
                 '}';
+    }
+
+    public String getFirstImagePath() {
+        return firstImagePath;
+    }
+
+    public void setFirstImagePath(String firstImagePath) {
+        this.firstImagePath = firstImagePath;
     }
 
     public List<BulletScreen> getBulletScreenList() {
