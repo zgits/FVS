@@ -5,6 +5,8 @@ import com.four.fvs.model.User;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Date;
+
 import static org.junit.Assert.*;
 
 /**
@@ -22,6 +24,14 @@ public class UserDaoTest extends BaseTest {
         User user=new User();
         user.setPassword("1111");
         user.setUserName("test");
-        userDao.insert(user);
+        user.setCreateTime(new Date());
+        user.setIcon("test");
+        user.setIntroduce("sdf");
+        user.setRoleId(2);
+        user.setSex("man");
+        System.out.println(userDao.register(user));
+        //System.out.println(userDao.ifExist("test"));
+
+
     }
 }

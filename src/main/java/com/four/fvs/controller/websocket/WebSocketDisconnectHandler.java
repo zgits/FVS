@@ -21,7 +21,7 @@ public class WebSocketDisconnectHandler implements ApplicationListener<SessionDi
     public void onApplicationEvent(SessionDisconnectEvent sessionDisconnectEvent) {
 
     }
-//    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 //    @Autowired
 //    private SimpMessagingTemplate messagingTemplate;
 //
