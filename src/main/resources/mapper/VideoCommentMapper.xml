@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.four.fvs.dao.VideoCommentDao">
+
+    <sql id="base_sql">
+        content,
+        createTime,
+        userId,
+        videoId,
+        praiseNumber,
+        type,
+    </sql>
+
+    <insert id="insert" parameterType="com.four.fvs.model.VideoComment">
+        insert into videocomment
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <include refid="base_sql"></include>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            #{content},
+            #{createTime},
+            #{userId},
+            #{videoId},
+            #{praiseNumber},
+            #{type},
+        </trim>
+    </insert>
+
+</mapper>

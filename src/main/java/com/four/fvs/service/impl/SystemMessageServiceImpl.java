@@ -6,6 +6,7 @@ import com.four.fvs.model.SystemMessage;
 import com.four.fvs.service.SystemMessageService;
 import com.four.fvs.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
@@ -14,6 +15,7 @@ import java.util.Date;
  * @Date: 2019/5/23 23:10
  * @Description:
  */
+@Service
 public class SystemMessageServiceImpl implements SystemMessageService {
 
     @Autowired
@@ -23,16 +25,40 @@ public class SystemMessageServiceImpl implements SystemMessageService {
     private UserService userService;
 
 
+    /**
+     * 基本想法，
+     * 由于是下拉加载数据，根据前端传递的当前页数，即每次自动加1
+     *
+     * @param currPage
+     * @param receiveId 用户id
+     * @return
+     */
     @Override
-    public PageBean<SystemMessage> getHistorySystemMessage(int currPage, Integer size, int receiveId) {
+    public PageBean<SystemMessage> getHistorySystemMessage(int currPage, int receiveId) {
 
-        Date createTime=userService.getUserInfo(receiveId).getCreateTime();
+        Date createTime = userService.getUserInfo(receiveId).getCreateTime();
 
-        Integer begin=(currPage-1)*size;
+        Integer size = 0;
+        Integer begin = 0;
+        if (currPage == 1) {
+            size = 20;
+        } else if (currPage == 2) {
+            /**
+             * 第二次下拉加载时，直接开始设置为20，
+             */
+            begin = 20;
+            size = 10;
+        } else {
+            size = 10;
+            begin = (currPage - 1) * size;
+        }
 
-        PageBean<SystemMessage> result=new PageBean<>();
 
-        result.setLists(systemMessageDao.getHistorySystemMessage(begin,size,receiveId,createTime));
+        PageBean<SystemMessage> result = new PageBean<>();
+
+        result.setCurrPage(currPage);
+
+        result.setLists(systemMessageDao.getHistorySystemMessage(begin, size, receiveId, createTime));
 
         return result;
     }

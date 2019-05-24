@@ -25,10 +25,10 @@ public class UserDaoTest extends BaseTest {
         user.setPassword("1111");
         user.setUserName("test");
         user.setCreateTime(new Date());
-        user.setIcon("test");
+        user.setIcon("test0000");
         user.setIntroduce("sdf");
         user.setRoleId(2);
-        user.setSex("man");
+        user.setSex("男");
         System.out.println(userDao.register(user));
         //System.out.println(userDao.ifExist("test"));
 
