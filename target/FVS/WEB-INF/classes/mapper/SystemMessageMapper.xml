@@ -5,7 +5,7 @@
 <mapper namespace="com.four.fvs.dao.SystemMessageDao">
     <select id="getHistorySystemMessage" resultType="com.four.fvs.model.SystemMessage">
         select * from systemmessage
-        where (receiveId=#{receiveId} or receiveId is null) and sendTime>#{createTime}
+        where (receiveId=#{receiveId} or receiveId is null) and sendTime>#{createTime} and del=1
         order by sendTime desc
         limit #{begin},#{size}
     </select>

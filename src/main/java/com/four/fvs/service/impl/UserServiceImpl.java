@@ -35,6 +35,7 @@ public class UserServiceImpl implements UserService {
         user.setSex("男");
         user.setIntroduce("这个家伙很懒，什么都没有留下");
         user.setCreateTime(new Date());
+        user.setDel(1);
         return userDao.register(user)>0;
     }
 

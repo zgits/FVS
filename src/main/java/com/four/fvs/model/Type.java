@@ -11,12 +11,23 @@ public class Type {
 
     private String name;//分类名字
 
+    private Integer del;//删除标志 1 未删除，2 已删除
+
     @Override
     public String toString() {
         return "Type{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", del=" + del +
                 '}';
+    }
+
+    public Integer getDel() {
+        return del;
+    }
+
+    public void setDel(Integer del) {
+        this.del = del;
     }
 
     public Integer getId() {

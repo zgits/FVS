@@ -12,6 +12,7 @@
         introduce,
         createTime,
         roleId,
+        del,
     </sql>
 
     <insert id="register" parameterType="com.four.fvs.model.User">
@@ -27,18 +28,19 @@
             #{introduce},
             #{createTime},
             #{roleId},
+            #{del},
         </trim>
     </insert>
 
     <select id="ifExist" resultType="com.four.fvs.model.User">
-        select * from user where userName=#{userName}
+        select * from user where userName=#{userName} and del=1
     </select>
 
     <select id="login" resultType="com.four.fvs.model.User">
-        select * from user where userName=#{userName} and password=#{password}
+        select * from user where userName=#{userName} and password=#{password} and del=1
     </select>
 
     <select id="getUserInfo" resultType="com.four.fvs.model.User">
-        select * from user where id=#{id}
+        select * from user where id=#{id} and del=1
     </select>
 </mapper>

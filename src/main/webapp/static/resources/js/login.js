@@ -14,8 +14,8 @@ $(function () {
 
              */
             $.ajax({
-                type: "POST",
-                url: "/user/register",
+                type: "get",
+                url: "/user/checkusername",
                 data: {
                     "userName":userName
                 },

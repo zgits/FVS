@@ -13,7 +13,7 @@ public class BulletScreen {
 
     private String color;//颜色
 
-    private String position;//弹幕位置，默认在上,注：数据库中为int
+    private String position;//弹幕位置，默认在上
 
     private Integer size;//弹幕大小
 
@@ -22,6 +22,8 @@ public class BulletScreen {
     private Date bulletTime;//弹幕发送时间
 
     private Integer videoId;//对应的视频id
+
+    private Integer del;//删除标志 1 未删除，2 已删除
 
     @Override
     public String toString() {
@@ -33,7 +35,16 @@ public class BulletScreen {
                 ", text='" + text + '\'' +
                 ", bulletTime=" + bulletTime +
                 ", videoId=" + videoId +
+                ", del=" + del +
                 '}';
+    }
+
+    public Integer getDel() {
+        return del;
+    }
+
+    public void setDel(Integer del) {
+        this.del = del;
     }
 
     public Integer getId() {

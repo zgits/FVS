@@ -49,4 +49,15 @@ public class UserController {
         }
         return ResultUtils.success(userService.register(user));
     }
+
+
+    @GetMapping(value = "/checkusername")
+    @ResponseBody
+    public Result<Object> checkUserName(String userName){
+        if(userService.ifExist(userName)){
+            return ResultUtils.username_exist();
+        }
+        return ResultUtils.success(null);
+    }
+
 }

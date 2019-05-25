@@ -13,7 +13,8 @@
       #{sendTime},
       #{receiveId},
       #{sendId},
-      #{msgStatus}
+      #{msgStatus},
+      #{del}
       )
     </insert>
 </mapper>

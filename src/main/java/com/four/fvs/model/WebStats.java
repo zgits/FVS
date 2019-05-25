@@ -15,13 +15,24 @@ public class WebStats {
 
     private Integer userId;//访问用户id
 
+    private Integer del;//删除标志 1 未删除，2 已删除
+
     @Override
     public String toString() {
         return "WebStats{" +
                 "id=" + id +
                 ", visitTime=" + visitTime +
                 ", userId=" + userId +
+                ", del=" + del +
                 '}';
+    }
+
+    public Integer getDel() {
+        return del;
+    }
+
+    public void setDel(Integer del) {
+        this.del = del;
     }
 
     public Integer getId() {

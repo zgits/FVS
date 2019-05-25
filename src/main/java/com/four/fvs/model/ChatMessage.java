@@ -23,6 +23,8 @@ public class ChatMessage {
 
     private Integer msgStatus;//消息发送状态 1、发送成功(默认) 2、发送失败 3、发送中
 
+    private Integer del;//删除标志 1 未删除，2 已删除
+
     @Override
     public String toString() {
         return "ChatMessage{" +
@@ -33,7 +35,16 @@ public class ChatMessage {
                 ", receiveId=" + receiveId +
                 ", sendId=" + sendId +
                 ", msgStatus=" + msgStatus +
+                ", del=" + del +
                 '}';
+    }
+
+    public Integer getDel() {
+        return del;
+    }
+
+    public void setDel(Integer del) {
+        this.del = del;
     }
 
     public Integer getMesId() {

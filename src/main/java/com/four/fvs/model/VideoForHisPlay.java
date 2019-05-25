@@ -23,6 +23,9 @@ public class VideoForHisPlay {
 
     private String firstImagePath;//番剧封面地址
 
+    private Integer del;//删除标志 1 未删除，2 已删除
+
+
     private List<VideoComment> videoCommentList;//该集评论数集合
 
     @Override
@@ -35,8 +38,17 @@ public class VideoForHisPlay {
                 ", sort=" + sort +
                 ", commentNumber=" + commentNumber +
                 ", firstImagePath='" + firstImagePath + '\'' +
+                ", del=" + del +
                 ", videoCommentList=" + videoCommentList +
                 '}';
+    }
+
+    public Integer getDel() {
+        return del;
+    }
+
+    public void setDel(Integer del) {
+        this.del = del;
     }
 
     public String getFirstImagePath() {
