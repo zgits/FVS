@@ -2,14 +2,14 @@
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/logs/web.log" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/four/fvs/controller/websocket" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/four/fvs/controller/websocket/WebSocketConfig.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/four/fvs/controller/websocket/WebSocketDisconnectHandler.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/static/layui" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/static/plugins/sweetalert" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/static/resources" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/test/chatroom.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/logs/web.log" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/four/fvs/controller/websocket" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/four/fvs/controller/websocket/WebSocketConfig.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/four/fvs/controller/websocket/WebSocketDisconnectHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/layui" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/plugins/sweetalert" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/test/chatroom.js" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
