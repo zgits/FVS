@@ -11,11 +11,11 @@ public class BulletScreen {
 
     private Integer id;//id
 
-    private String color;//颜色
+    private String color;//颜色代码
 
-    private String position;//弹幕位置，默认在上
+    private Integer position;//弹幕位置，1.滚动 2.顶部 3.底部
 
-    private Integer size;//弹幕大小
+    private Integer size;//弹幕大小 1.正常大小 2. 小
 
     private String text;//弹幕内容
 
@@ -25,18 +25,27 @@ public class BulletScreen {
 
     private Integer del;//删除标志 1 未删除，2 已删除
 
+
     @Override
     public String toString() {
         return "BulletScreen{" +
                 "id=" + id +
                 ", color='" + color + '\'' +
-                ", position='" + position + '\'' +
+                ", position=" + position +
                 ", size=" + size +
                 ", text='" + text + '\'' +
                 ", bulletTime=" + bulletTime +
                 ", videoId=" + videoId +
                 ", del=" + del +
                 '}';
+    }
+
+    public Integer getPosition() {
+        return position;
+    }
+
+    public void setPosition(Integer position) {
+        this.position = position;
     }
 
     public Integer getDel() {
@@ -63,13 +72,6 @@ public class BulletScreen {
         this.color = color;
     }
 
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
 
     public Integer getSize() {
         return size;
