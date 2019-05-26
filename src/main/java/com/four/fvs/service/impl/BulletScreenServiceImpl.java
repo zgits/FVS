@@ -22,6 +22,7 @@ public class BulletScreenServiceImpl implements BulletScreenService {
     @Override
     public String addBulletScreen(BulletScreen bulletScreen) {
         bulletScreen.setDel(1);
-        return null;
+        bulletScreenDao.addBulletScreen(bulletScreen);
+        return bulletScreen.getText();
     }
 }

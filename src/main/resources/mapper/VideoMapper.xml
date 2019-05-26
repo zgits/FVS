@@ -56,4 +56,26 @@
         ) a
         left JOIN bulletscreen b on a.id=b.videoId and b.del=1
     </select>
+
+
+    <update id="givePraise">
+        update video
+        set praiseNumber=praiseNumber+#{number}
+        where id=#{id}
+
+    </update>
+
+    <update id="giveCollection">
+        update video
+        set collectNumber=collectNumber+#{number}
+        where id=#{id}
+
+    </update>
+
+    <update id="giveShare">
+        update video
+        set shareNumber=shareNumber+1
+        where id=#{id}
+
+    </update>
 </mapper>

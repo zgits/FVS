@@ -11,7 +11,7 @@ public class BulletScreen {
 
     private Integer id;//id
 
-    private String color;//颜色代码
+    private String color;//颜色代码 #FFD302
 
     private Integer position;//弹幕位置，1.滚动 2.顶部 3.底部
 
@@ -40,22 +40,6 @@ public class BulletScreen {
                 '}';
     }
 
-    public Integer getPosition() {
-        return position;
-    }
-
-    public void setPosition(Integer position) {
-        this.position = position;
-    }
-
-    public Integer getDel() {
-        return del;
-    }
-
-    public void setDel(Integer del) {
-        this.del = del;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -72,6 +56,13 @@ public class BulletScreen {
         this.color = color;
     }
 
+    public Integer getPosition() {
+        return position;
+    }
+
+    public void setPosition(Integer position) {
+        this.position = position;
+    }
 
     public Integer getSize() {
         return size;
@@ -103,5 +94,13 @@ public class BulletScreen {
 
     public void setVideoId(Integer videoId) {
         this.videoId = videoId;
+    }
+
+    public Integer getDel() {
+        return del;
+    }
+
+    public void setDel(Integer del) {
+        this.del = del;
     }
 }

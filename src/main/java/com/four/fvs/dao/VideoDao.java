@@ -18,4 +18,34 @@ public interface VideoDao {
      * @return
      */
     public Video getOneVideoById(@Param("id") Integer id);
+
+
+    /**
+     * 点赞数量增加
+     * @param videoId
+     * @param number +1或者-1，根据是否有点赞记录来决定
+     * @return
+     */
+    public Integer givePraise(@Param("id") Integer videoId,@Param("number")Integer number);
+
+
+
+    /**
+     * 分享数量的增加
+     * @param videoId
+     * @return
+     */
+    public Integer giveShare(@Param("id")Integer videoId);
+
+
+    /**
+     * 收藏数量的增加
+     * @param videoId
+     * @param number +1或者-1，根据是否有收藏记录来决定
+     * @return
+     */
+    public Integer giveCollection(@Param("id")Integer videoId,@Param("number")Integer number);
+
+
+
 }
