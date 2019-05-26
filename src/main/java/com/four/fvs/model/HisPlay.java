@@ -19,6 +19,9 @@ public class HisPlay {
 
     private Integer status;//状态，1、更新中 2、已下架 3、已完结
 
+    private Integer del;//删除标志 1 未删除，2 已删除
+
+
     private List<VideoForHisPlay> videoForHisPlayList;//该番剧对应的集数
 
     @Override
@@ -29,8 +32,17 @@ public class HisPlay {
                 ", playNumber=" + playNumber +
                 ", introduce='" + introduce + '\'' +
                 ", status=" + status +
+                ", del=" + del +
                 ", videoForHisPlayList=" + videoForHisPlayList +
                 '}';
+    }
+
+    public Integer getDel() {
+        return del;
+    }
+
+    public void setDel(Integer del) {
+        this.del = del;
     }
 
     public Integer getId() {

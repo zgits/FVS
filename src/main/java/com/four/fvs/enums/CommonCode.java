@@ -17,6 +17,8 @@ public enum CommonCode {
     MANAGER_INFO_ERROR("7","管理员信息错误"),
     REQUEST_METHOD_ERROR("8","请求方法错误"),
     PARAM_LOSS_ERROR("9","参数不匹配"),//参数错误，不满足限定条件，比如不为空，不为null，以及限定日期
+    LOGIN_FAILED("10","用户名或密码错误"),
+    USERNAME_EXIST("11","用户名已存在"),
     ;
 
     CommonCode(String code, String message) {

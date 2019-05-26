@@ -24,6 +24,8 @@ public class VideoComment {
 
     private Integer type;//评论的类型，1、对于普通视频 2、对于番剧的评论
 
+    private Integer del;//删除标志 1 未删除，2 已删除
+
     private List<CommentReply> commentReplyList;//评论回复的集合
 
     @Override
@@ -36,8 +38,17 @@ public class VideoComment {
                 ", videoId=" + videoId +
                 ", praiseNumber=" + praiseNumber +
                 ", type=" + type +
+                ", del=" + del +
                 ", commentReplyList=" + commentReplyList +
                 '}';
+    }
+
+    public Integer getDel() {
+        return del;
+    }
+
+    public void setDel(Integer del) {
+        this.del = del;
     }
 
     public List<CommentReply> getCommentReplyList() {
