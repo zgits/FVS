@@ -3,5 +3,6 @@
   <component name="Encoding" defaultCharsetForPropertiesFiles="GBK">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/static/layui" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/tempcss/layui" charset="GBK" />
   </component>
 </project>
