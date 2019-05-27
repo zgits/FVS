@@ -12,6 +12,7 @@
       text,
       bulletTime,
       videoId,
+      type,
       del,
     </sql>
 
@@ -27,6 +28,7 @@
           #{text},
           #{bulletTime},
           #{videoId},
+          #{type},
           #{del},
       </trim>
     </insert>

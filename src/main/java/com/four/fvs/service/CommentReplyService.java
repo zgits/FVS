@@ -2,6 +2,8 @@ package com.four.fvs.service;
 
 import com.four.fvs.model.CommentReply;
 
+import java.util.List;
+
 /**
  * @Author: zjf
  * @Date: 2019/5/25 15:08
@@ -24,4 +26,12 @@ public interface CommentReplyService {
      * @return
      */
     public boolean delCommentReply(Integer commentReplyId);
+
+
+    /**
+     * 根据评论id得到回复
+     * @param commentId
+     * @return
+     */
+    public List<CommentReply> getCommentReply(Integer commentId);
 }
