@@ -3486,11 +3486,22 @@ body .layui-table-tips .layui-layer-content {
 .layui-tree-drag i {
     padding-right: 5px
 }
+.layui-lump {
+    position: relative;
+    height: 180px;
+    background:url(../images/guide.png);
+    color: #fff;
+    border-radius: 2px;
+    font-size: 0;
+    box-sizing: border-box
+}
 
 .layui-nav {
     position: relative;
     padding: 0 20px;
     background-color: #393D49;
+    background-size: cover;
+    background: rgba(255, 255, 255, 0.7);
     color: #fff;
     border-radius: 2px;
     font-size: 0;
@@ -3501,13 +3512,25 @@ body .layui-table-tips .layui-layer-content {
     font-size: 14px
 }
 
-.layui-nav .layui-nav-user {
+.layui-nav .layui-nav-logo {
     position: relative;
     display: inline-block;
     *display: inline;
     *zoom: 1;
     vertical-align: middle;
     line-height: 60px
+}
+.layui-nav .layui-nav-logo a {
+    display: block;
+    padding: 0 20px;
+    color: #fff;
+    color: rgba(0, 0, 0, 0.7);
+    transition: all .3s;
+    -webkit-transition: all .3s
+}
+.layui-nav .layui-nav-logo a:hover{
+    background-color: rgba(242, 242, 242, 0.55);
+    color: #000
 }
 
 .layui-nav .layui-nav-item {
@@ -3523,11 +3546,14 @@ body .layui-table-tips .layui-layer-content {
     display: block;
     padding: 0 20px;
     color: #fff;
-    color: rgba(255, 255, 255, .7);
+    color: rgba(0, 0, 0, 0.7);
+
     transition: all .3s;
     -webkit-transition: all .3s
 }
+.layui-nav:before{
 
+}
 .layui-nav .layui-this:after, .layui-nav-bar, .layui-nav-tree .layui-nav-itemed:after {
     position: absolute;
     left: 0;
