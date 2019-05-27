@@ -1,6 +1,8 @@
 package com.four.fvs.service;
 
+import com.four.fvs.common.PageBean;
 import com.four.fvs.model.VideoComment;
+import com.four.fvs.vo.VideoCommentVo;
 
 /**
  * @Author: zjf
@@ -16,4 +18,22 @@ public interface VideoCommentService {
      * @return
      */
     public Integer addComment(VideoComment videoComment);
+
+
+    /**
+     * 分页查询视频下的评论
+     * @param currPage
+     * @param videoId
+     * @param type
+     * @return
+     */
+    public PageBean<VideoCommentVo> getCommentByPage(Integer currPage, Integer videoId, Integer type);
+
+
+    /**
+     * 根据评论id删除评论
+     * @param commentId
+     * @return
+     */
+    public boolean delComment(Integer commentId);
 }

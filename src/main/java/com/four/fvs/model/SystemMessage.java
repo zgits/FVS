@@ -19,6 +19,9 @@ public class SystemMessage {
 
     private Integer receiveId;//消息接受者，如果消息类型为1，填写接受者，为2不填写
 
+
+    private Integer del;//删除标志 1 未删除，2 已删除
+
     @Override
     public String toString() {
         return "SystemMessage{" +
@@ -27,7 +30,16 @@ public class SystemMessage {
                 ", sendType=" + sendType +
                 ", sendTime=" + sendTime +
                 ", receiveId=" + receiveId +
+                ", del=" + del +
                 '}';
+    }
+
+    public Integer getDel() {
+        return del;
+    }
+
+    public void setDel(Integer del) {
+        this.del = del;
     }
 
     public Integer getId() {

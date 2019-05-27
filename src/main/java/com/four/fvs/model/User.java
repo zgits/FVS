@@ -25,6 +25,31 @@ public class User {
 
     private Integer roleId;//默认为2，普通用户。2.普通用户 3.VIP 4.管理员
 
+    private Integer del;//删除标志 1 未删除，2 已删除
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", icon='" + icon + '\'' +
+                ", sex='" + sex + '\'' +
+                ", introduce='" + introduce + '\'' +
+                ", createTime=" + createTime +
+                ", roleId=" + roleId +
+                ", del=" + del +
+                '}';
+    }
+
+    public Integer getDel() {
+        return del;
+    }
+
+    public void setDel(Integer del) {
+        this.del = del;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -89,17 +114,4 @@ public class User {
         this.roleId = roleId;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", icon='" + icon + '\'' +
-                ", sex='" + sex + '\'' +
-                ", introduce='" + introduce + '\'' +
-                ", createTime=" + createTime +
-                ", roleId=" + roleId +
-                '}';
-    }
 }

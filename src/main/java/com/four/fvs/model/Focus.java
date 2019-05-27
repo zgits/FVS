@@ -13,7 +13,7 @@ public class Focus {
 
     private Integer fansId;//粉丝id
 
-    //去掉了数据库中的关注者id
+    private Integer del;//删除标志 1 未删除，2 已删除
 
     @Override
     public String toString() {
@@ -21,7 +21,16 @@ public class Focus {
                 "id=" + id +
                 ", userId=" + userId +
                 ", fansId=" + fansId +
+                ", del=" + del +
                 '}';
+    }
+
+    public Integer getDel() {
+        return del;
+    }
+
+    public void setDel(Integer del) {
+        this.del = del;
     }
 
     public Integer getId() {

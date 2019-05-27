@@ -27,6 +27,7 @@ public class ChatMessageServiceImpl implements ChatMessageService {
 //            String mes = DateUtils.DateToString(new Date());//生成聊天id，以当前日期+发送者id
 //            chatMessage.setMesId(Integer.parseInt(mes));
 //        }
+        chatMessage.setDel(1);
 
         return chatMessageDao.insertChatMessage(chatMessage);
     }

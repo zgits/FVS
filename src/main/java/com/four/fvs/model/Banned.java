@@ -21,6 +21,8 @@ public class Banned {
 
     private String reason;//禁言原因
 
+    private Integer del;//删除标志 1 未删除，2 已删除
+
     @Override
     public String toString() {
         return "Banned{" +
@@ -30,7 +32,16 @@ public class Banned {
                 ", endTime=" + endTime +
                 ", days=" + days +
                 ", reason='" + reason + '\'' +
+                ", del=" + del +
                 '}';
+    }
+
+    public Integer getDel() {
+        return del;
+    }
+
+    public void setDel(Integer del) {
+        this.del = del;
     }
 
     public Integer getId() {

@@ -19,6 +19,8 @@ public class Advertising {
 
     private String adSrc;//广告视频来源
 
+    private Integer del;//删除标志 1 未删除，2 已删除
+
     @Override
     public String toString() {
         return "Advertising{" +
@@ -27,7 +29,16 @@ public class Advertising {
                 ", info='" + info + '\'' +
                 ", validTime=" + validTime +
                 ", adSrc='" + adSrc + '\'' +
+                ", del=" + del +
                 '}';
+    }
+
+    public Integer getDel() {
+        return del;
+    }
+
+    public void setDel(Integer del) {
+        this.del = del;
     }
 
     public String getAdSrc() {

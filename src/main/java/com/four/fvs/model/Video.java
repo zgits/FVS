@@ -14,7 +14,7 @@ public class Video {
 
     private String name;//视频名
 
-    private Integer typeId;//分类id，注数据库中为type,varchar类型
+    private Integer typeId;//分类id
 
     private Integer userId;//视频上传人
 
@@ -36,6 +36,8 @@ public class Video {
 
     private String firstImagePath;//视频封面地址
 
+    private Integer del;//删除标志 1 未删除，2 已删除
+
     private List<VideoComment> videoCommentList;//视频的评论
 
     private List<BulletScreen> bulletScreenList;//弹幕集合
@@ -56,10 +58,21 @@ public class Video {
                 ", simpleIntroduce='" + simpleIntroduce + '\'' +
                 ", status=" + status +
                 ", firstImagePath='" + firstImagePath + '\'' +
+                ", del=" + del +
                 ", videoCommentList=" + videoCommentList +
                 ", bulletScreenList=" + bulletScreenList +
                 '}';
     }
+
+
+    public Integer getDel() {
+        return del;
+    }
+
+    public void setDel(Integer del) {
+        this.del = del;
+    }
+
 
     public String getFirstImagePath() {
         return firstImagePath;
