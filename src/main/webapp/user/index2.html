@@ -7,10 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="../tempcss/layui/css/layui.css">
-
 </head>
 <body>
+<li class="layui-lump">
 <ul class="layui-nav">
+    <li  class="layui-nav-logo" >
+        <a href=""><i class="layui-icon layui-icon-website"></i>FREE</a>
+    </li>
     <li style="float: right" class="layui-nav-item">
     <a href="">退出</a>
     </li>
@@ -28,17 +31,17 @@
         </dl>
     </li>
     <li style="float: right" class="layui-nav-item">
-        <a href=""><img class="layui-nav-img" src="//t.cn/RCzsdCq">用户名</a>
+        <a href=""><img class="layui-nav-img" src="//t.cn/RCzsdCq">哔了狗了</a>
     </li>
-    <li  class="layui-nav-item" >
-         <a href=""><i class="layui-icon layui-icon-face-smile"></i>FREE</a>
-        <!--<dl class="layui-nav-child">
-            <dd><a href="javascript:;">修改信息</a></dd>
-            <dd><a href="javascript:;">安全管理</a></dd>
-            <dd><a href="javascript:;">退了</a></dd>
-        </dl>-->
+    <li style="float: right" class="layui-nav-item">
+    <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
     </li>
+
+
 </ul>
+
+
+</li>
 <script src="../static/layui/layui.js" charset="utf-8"></script>
 <script>
     layui.use('element', function(){
