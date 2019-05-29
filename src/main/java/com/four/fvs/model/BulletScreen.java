@@ -23,8 +23,9 @@ public class BulletScreen {
 
     private Integer videoId;//对应的视频id
 
-    private Integer del;//删除标志 1 未删除，2 已删除
+    private Integer type;//弹幕所属视频的类型，1.普通视频 2.番剧
 
+    private Integer del;//删除标志 1 未删除，2 已删除
 
     @Override
     public String toString() {
@@ -36,8 +37,17 @@ public class BulletScreen {
                 ", text='" + text + '\'' +
                 ", bulletTime=" + bulletTime +
                 ", videoId=" + videoId +
+                ", type=" + type +
                 ", del=" + del +
                 '}';
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     public Integer getId() {

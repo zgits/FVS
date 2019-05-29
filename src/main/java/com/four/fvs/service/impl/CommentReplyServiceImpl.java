@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: zjf
@@ -29,5 +30,10 @@ public class CommentReplyServiceImpl implements CommentReplyService {
     @Override
     public boolean delCommentReply(Integer commentReplyId) {
         return commentReplyDao.delCommentReply(commentReplyId)>0;
+    }
+
+    @Override
+    public List<CommentReply> getCommentReply(Integer commentId) {
+        return commentReplyDao.getCommentReply(commentId);
     }
 }

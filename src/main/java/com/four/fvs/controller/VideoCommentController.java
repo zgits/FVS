@@ -3,6 +3,7 @@ package com.four.fvs.controller;
 import com.four.fvs.common.Result;
 import com.four.fvs.common.ResultUtils;
 import com.four.fvs.model.VideoComment;
+import com.four.fvs.model.VideoOpRecord;
 import com.four.fvs.service.VideoCommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -46,6 +47,12 @@ public class VideoCommentController {
     @ResponseBody
     public Result<Object> delComment(Integer commentId){
         return ResultUtils.success(videoCommentService.delComment(commentId));
+    }
+
+    @PatchMapping("/givePraise")
+    @ResponseBody
+    public Result<Object> givePraise(VideoOpRecord videoOpRecord){
+        return ResultUtils.success(videoCommentService.givePraise(videoOpRecord));
     }
 
 

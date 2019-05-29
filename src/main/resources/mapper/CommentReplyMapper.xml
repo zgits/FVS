@@ -34,4 +34,8 @@
       update commentreply set
       del=2 where id=#{id}
     </update>
+
+    <select id="getCommentReply" resultType="list">
+        select * from commentreply where commendId=#{commentId} and del=1
+    </select>
 </mapper>

@@ -4,6 +4,8 @@ import com.four.fvs.model.CommentReply;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @Author: zjf
  * @Date: 2019/5/24 12:03
@@ -27,4 +29,7 @@ public interface CommentReplyDao {
      * @return
      */
     public Integer delCommentReply(@Param("id") Integer id);
+
+
+    public List<CommentReply> getCommentReply(@Param("commentId") Integer commentId);
 }

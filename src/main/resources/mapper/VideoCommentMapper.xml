@@ -86,4 +86,10 @@
         where id=#{id}
     </update>
 
+    <update id="givePraise">
+        update videocomment
+        set praiseNumber=praiseNumber+#{number}
+        where id=#{id}
+    </update>
+
 </mapper>
