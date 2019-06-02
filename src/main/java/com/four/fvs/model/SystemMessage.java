@@ -11,6 +11,8 @@ public class SystemMessage {
 
     private Integer id;//id
 
+    private String title;//系统通知标题
+
     private String content;//消息内容
 
     private Integer sendType;//消息类型 1.单发 2.群发 数据库为varchar
@@ -22,16 +24,26 @@ public class SystemMessage {
 
     private Integer del;//删除标志 1 未删除，2 已删除
 
+
     @Override
     public String toString() {
         return "SystemMessage{" +
                 "id=" + id +
+                ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", sendType=" + sendType +
                 ", sendTime=" + sendTime +
                 ", receiveId=" + receiveId +
                 ", del=" + del +
                 '}';
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Integer getDel() {

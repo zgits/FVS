@@ -91,7 +91,7 @@ body{
     color: black;
 }
 .comment-content-user-time{
-    font-size: 10px;
+    font-size: 15px;
     margin-left: 5px;
 }
 .comment-content-user-delete{
@@ -103,7 +103,7 @@ body{
     color: red;
 }
 .comment-content-response{
-    font-size: 12px;
+    font-size: 17px;
     color: #202020;
 }
 .comment-content-remark{
@@ -117,7 +117,7 @@ body{
     padding: 5px 5px;
 }
 .comment-content-remark-content{
-    font-size: 12px;
+    font-size: 15px;
 }
 .my-news-user-list{
     width: 200px;

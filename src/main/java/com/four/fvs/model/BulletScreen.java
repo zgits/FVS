@@ -19,6 +19,8 @@ public class BulletScreen {
 
     private String text;//弹幕内容
 
+    private Integer time;//在视频中的发送时间，以秒为单位
+
     private Date bulletTime;//弹幕发送时间
 
     private Integer videoId;//对应的视频id
@@ -26,6 +28,7 @@ public class BulletScreen {
     private Integer type;//弹幕所属视频的类型，1.普通视频 2.番剧
 
     private Integer del;//删除标志 1 未删除，2 已删除
+
 
     @Override
     public String toString() {
@@ -35,11 +38,20 @@ public class BulletScreen {
                 ", position=" + position +
                 ", size=" + size +
                 ", text='" + text + '\'' +
+                ", time=" + time +
                 ", bulletTime=" + bulletTime +
                 ", videoId=" + videoId +
                 ", type=" + type +
                 ", del=" + del +
                 '}';
+    }
+
+    public Integer getTime() {
+        return time;
+    }
+
+    public void setTime(Integer time) {
+        this.time = time;
     }
 
     public Integer getType() {

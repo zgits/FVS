@@ -1,5 +1,7 @@
 package com.four.fvs.model;
 
+import org.springframework.web.socket.WebSocketMessage;
+
 import java.util.Date;
 
 /**
@@ -7,7 +9,7 @@ import java.util.Date;
  * @Date: 2019/5/21 13:28
  * @Description: 实时聊天实体类
  */
-public class ChatMessage {
+public class ChatMessage implements WebSocketMessage<Object> {
 
     private Integer id;//id
 
@@ -24,6 +26,10 @@ public class ChatMessage {
     private Integer msgStatus;//消息发送状态 1、发送成功(默认) 2、发送失败 3、发送中
 
     private Integer del;//删除标志 1 未删除，2 已删除
+
+    public ChatMessage(String toJson) {
+
+    }
 
     @Override
     public String toString() {
@@ -101,5 +107,20 @@ public class ChatMessage {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    @Override
+    public Object getPayload() {
+        return null;
+    }
+
+    @Override
+    public int getPayloadLength() {
+        return 0;
+    }
+
+    @Override
+    public boolean isLast() {
+        return false;
     }
 }

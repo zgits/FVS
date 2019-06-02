@@ -1,6 +1,8 @@
 package com.four.fvs.service;
 
+import com.four.fvs.common.PageBean;
 import com.four.fvs.model.CommentReply;
+import com.four.fvs.vo.CommentReplyVo;
 
 import java.util.List;
 
@@ -34,4 +36,13 @@ public interface CommentReplyService {
      * @return
      */
     public List<CommentReply> getCommentReply(Integer commentId);
+
+
+    /**
+     * 前端采用下拉式加载，根据页数加载
+     * @param currPage
+     * @param beReplyId
+     * @return
+     */
+    public PageBean<CommentReplyVo> getUserCommentReply(Integer currPage,Integer beReplyId);
 }
