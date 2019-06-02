@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../test/style.css">
+    <title>视频弹幕</title>
+</head>
+<body>
+<div id="cantainer">
+    <h2>Canvas + WebSocket + Redis 实现视频弹幕</h2>
+    <div id="content">
+        <canvas id="canvas"></canvas>
+        <video id="video" src="../test/test.mp4" controls></video>
+    </div>
+    <!-- 输入弹幕内容 -->
+    <input type="text" id="text">
+    <!-- 添加弹幕按钮 -->
+    <button id="add">发送</button>
+    <!-- 选择文字颜色 -->
+    <input type="color" id="color">
+    <!-- 调整字体大小 -->
+    <input type="range" max="40" min="20" id="range">
+</div>
+<!--<script src="../test/index.js"></script>-->
+</body>
+</html>

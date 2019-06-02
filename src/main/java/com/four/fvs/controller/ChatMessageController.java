@@ -30,8 +30,8 @@ public class ChatMessageController {
     @Autowired
     private ChatMessageService chatMessageService;
 
-    @Autowired
-    private SimpMessagingTemplate messagingTemplate;
+//    @Autowired
+//    private SimpMessagingTemplate messagingTemplate;
 
 
     /**
@@ -43,7 +43,7 @@ public class ChatMessageController {
         chatMessage.setSendTime(new Date());
         logger.info(chatMessage.getSendId()+" 发送消息给 "+chatMessage.getReceiveId()+":"+chatMessage.getMessage());
         chatMessageService.insertChatMessage(chatMessage);
-        messagingTemplate.convertAndSend(SUBSCRIBE_MESSAGE_URI,chatMessage);
+       // messagingTemplate.convertAndSend(SUBSCRIBE_MESSAGE_URI,chatMessage);
 
     }
 
