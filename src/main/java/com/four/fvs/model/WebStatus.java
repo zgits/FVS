@@ -7,7 +7,7 @@ import java.util.Date;
  * @Date: 2019/5/21 12:51
  * @Description:
  */
-public class WebStats {
+public class WebStatus {
 
     private Integer id;//id
 
@@ -15,25 +15,19 @@ public class WebStats {
 
     private Integer userId;//访问用户id
 
-    private Integer del;//删除标志 1 未删除，2 已删除
+    private Integer deleted;//删除标志 1 未删除，2 已删除
 
     @Override
     public String toString() {
-        return "WebStats{" +
+        return "WebStatus{" +
                 "id=" + id +
                 ", visitTime=" + visitTime +
                 ", userId=" + userId +
-                ", del=" + del +
+                ", deleted=" + deleted +
                 '}';
     }
 
-    public Integer getDel() {
-        return del;
-    }
 
-    public void setDel(Integer del) {
-        this.del = del;
-    }
 
     public Integer getId() {
         return id;
@@ -57,5 +51,13 @@ public class WebStats {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public Integer getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Integer deleted) {
+        this.deleted = deleted;
     }
 }
