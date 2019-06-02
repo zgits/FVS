@@ -321,9 +321,9 @@
             // stompClient.subscribe("/topic/login", function (message) {
             //     showNewUser(message.body);
             // });
-            stompClient.subscribe('/user/' + 3 + '/chat/message', function (message) {
+            stompClient.subscribe('/user/' + 1 + '/chat/message', function (message) {
                 var json = JSON.parse(message.body);
-                console.log("news消息");
+                console.log("news1");
                 console.log(json);
                 // var messageType = json.messageType;
                 // var user = json.userName;
@@ -371,9 +371,9 @@
         if (content.trim().length != 0) {
             $("#messageContent").val('');
             stompClient.send("/app/chat/message", {}, JSON.stringify({
-                'receiveId': 1,
+                'receiveId': 3,
                 'message': content,
-                'sendId': 3
+                'sendId': 1
             }));
         }
     }

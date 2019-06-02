@@ -15,5 +15,5 @@ public interface ChatMessageService {
      * @param chatMessage
      * @return
      */
-    public int insertChatMessage(ChatMessage chatMessage);
+    public ChatMessage insertChatMessage(ChatMessage chatMessage);
 }

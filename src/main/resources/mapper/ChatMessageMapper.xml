@@ -4,17 +4,32 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.four.fvs.dao.ChatMessageDao">
 
+
+  <sql id="base_sql">
+    mesId,
+    message,
+    sendTime,
+    receiveId,
+    sendId,
+    sendChatStatus,
+    receiveChatStatus,
+    del,
+  </sql>
+
     <insert id="insertChatMessage" parameterType="com.four.fvs.model.ChatMessage">
-      insert into chatmessage values
-      (
-      #{id},
-      #{mesId},
-      #{message},
-      #{sendTime},
-      #{receiveId},
-      #{sendId},
-      #{msgStatus},
-      #{del}
-      )
+      insert into chatmessage
+      <trim prefix="(" suffix=")" suffixOverrides=",">
+        <include refid="base_sql"></include>
+      </trim>
+      <trim prefix="values(" suffix=")" suffixOverrides=",">
+        #{mesId},
+        #{message},
+        #{sendTime},
+        #{receiveId},
+        #{sendId},
+        #{sendChatStatus},
+        #{receiveChatStatus},
+        #{del},
+      </trim>
     </insert>
 </mapper>

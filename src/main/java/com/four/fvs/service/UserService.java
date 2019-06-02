@@ -9,6 +9,12 @@ import com.four.fvs.model.User;
  */
 public interface UserService {
 
+    /**
+     * 用户登录
+     * @param userName
+     * @param password
+     * @return
+     */
     public User login(String userName,String password);
 
 
