@@ -196,10 +196,8 @@
 </div>
 <!-- jQuery 3 -->
 <script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
-<!--cookie-->
-<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-
 <script src="../static/tools.js"></script>
+
 
 <!--sockJS cdn-->
 <script src="https://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
@@ -207,11 +205,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 
 <script>
-    var userId = $.cookie('userId');
-    console.log(userId);
     $(function () {
+        var userId = 3;
         getCommentReplyData(userId, 1);
-        connect();
     })
 
     //从后台得到评论数据
@@ -296,6 +292,10 @@
     }
 
 
+    $(function () {
+        connect();
+    });
+
 
     /**
      * 客户端连接服务端websocket
@@ -311,9 +311,19 @@
         var socket = new SockJS("/websocket");
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
-            stompClient.subscribe('/user/' + userId + '/chat/message', function (message) {
+            // stompClient.subscribe("/app/chat/participants", function (message) {
+            //     showActiveUserNumber(message.body);
+            //     var user = "系统消息";
+            //     var date = null;
+            //     var msg = $("#myName").val() + "加入聊天！";
+            //     showNewMessage(user, date, msg);
+            // });
+            // stompClient.subscribe("/topic/login", function (message) {
+            //     showNewUser(message.body);
+            // });
+            stompClient.subscribe('/user/' + 1 + '/chat/message', function (message) {
                 var json = JSON.parse(message.body);
-                console.log("news消息");
+                console.log("news1");
                 console.log(json);
                 // var messageType = json.messageType;
                 // var user = json.userName;
@@ -326,6 +336,10 @@
                 // }
 
             })
+            // stompClient.subscribe("/topic/logout", function (message) {
+            //     showUserLogout(message.body);
+            // })
+
         });
     }
 
@@ -357,9 +371,9 @@
         if (content.trim().length != 0) {
             $("#messageContent").val('');
             stompClient.send("/app/chat/message", {}, JSON.stringify({
-                'receiveId': 1,
+                'receiveId': 3,
                 'message': content,
-                'sendId': userId
+                'sendId': 1
             }));
         }
     }

@@ -30,7 +30,6 @@ public class UserController {
             /**
              * 登录成功
              */
-
            return ResultUtils.success(user);
         }else{
             /**

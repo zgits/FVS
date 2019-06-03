@@ -106,10 +106,11 @@
     </div>
     <!--注册end-->
 </div>
-<div class="jianyi">推荐使用Chrome内核浏览器访问本站</div>
 
 <!-- jQuery 3 -->
 <script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
+
+<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="../static/plugins/sweetalert/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../static/plugins/sweetalert/sweetalert.css">
 <script type="text/javascript" src="../static/resources/js/login.js?v=20175131017 "></script>
@@ -142,10 +143,11 @@
                 var code = data.code;
                 if (code==0) {
                     console.log("登录成功");
+                    $.cookie('userId',data.data.id);
+                    $(location).attr('href', 'index.html');
                     // $("#login_form").submit();
-                    window.location.replace("/user/logintest");
-                } else {
 
+                } else {
                     if (code == 10) {
                         sweetAlert("出错了","用户名或密码错误", "error");
                         return;
