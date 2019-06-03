@@ -10,9 +10,11 @@ import com.four.fvs.vo.ChatMessageVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+
+import static java.util.Comparator.comparingLong;
+import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.toCollection;
 
 /**
  * @Author: zjf
@@ -70,8 +72,45 @@ public class ChatMessageServiceImpl implements ChatMessageService {
     }
 
     @Override
-    public List<ChatMessage> getChatMessageBox(Integer userId) {
-        return chatMessageDao.getChatMessageBox(userId);
+    public List<ChatMessageVo> getChatMessageBox(Integer userId) {
+
+        List<ChatMessage> chatMessages=chatMessageDao.getChatMessageBox(userId);
+
+        //set集合保存的是引用不同地址的对象
+        Set<ChatMessage> ts = new HashSet<ChatMessage>();
+        ts.addAll(chatMessages);
+        String mesId=chatMessages.get(0).getMesId();
+
+
+        User user1=userService.getUserInfo(userId);//得到发送者的用户基本信息
+
+        List<ChatMessageVo> chatMessageVos=new ArrayList<>();
+
+        ChatMessageVo chatMessageVo;
+
+        for (ChatMessage chatMessage : ts) {
+            chatMessageVo=new ChatMessageVo();
+            User user2=userService.getUserInfo(chatMessage.getReceiveId());//得到接收者的用户基本信息
+
+            //设置发送者的基本信息
+            chatMessageVo.setIcon(user1.getIcon());
+
+            chatMessageVo.setSendId(user1.getId());
+
+            chatMessageVo.setUserName(user1.getUserName());
+
+
+            //设置接收者基本信息
+            chatMessageVo.setReceiveIcon(user2.getIcon());
+
+            chatMessageVo.setReceiveId(user2.getId());
+
+            chatMessageVo.setReceiveName(user2.getUserName());
+
+            chatMessageVos.add(chatMessageVo);
+        }
+
+        return chatMessageVos;
     }
 
     @Override
@@ -116,4 +155,7 @@ public class ChatMessageServiceImpl implements ChatMessageService {
 
         return chatMessageVo;
     }
+
+
+
 }
