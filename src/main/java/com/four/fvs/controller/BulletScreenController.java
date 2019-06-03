@@ -26,8 +26,7 @@ public class BulletScreenController {
 
 
     /**
-     * 发送弹幕,前台传递颜色代码时，要去掉#，
-     * 不去掉#，相应的就为“”，暂时不知道原因
+     * 发送弹幕
      * @param bulletScreen
      * @return
      */

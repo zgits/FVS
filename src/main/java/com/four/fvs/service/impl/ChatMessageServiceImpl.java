@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: zjf
@@ -34,5 +35,20 @@ public class ChatMessageServiceImpl implements ChatMessageService {
         chatMessageDao.insertChatMessage(chatMessage);
 
         return chatMessage;
+    }
+
+    @Override
+    public List<ChatMessage> getChatMessageBox(Integer userId) {
+        return chatMessageDao.getChatMessageBox(userId);
+    }
+
+    @Override
+    public boolean updateChatMessageBox(Integer mesId) {
+        return chatMessageDao.updateChatMessageBox(mesId)>0;
+    }
+
+    @Override
+    public List<ChatMessage> getChatMessages(Integer mesId) {
+        return chatMessageDao.getChatMessages(mesId);
     }
 }

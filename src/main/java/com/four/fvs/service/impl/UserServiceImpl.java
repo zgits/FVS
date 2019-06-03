@@ -22,7 +22,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public User login(String userName, String password) {
         User user=userDao.login(userName, password);
-        user.setPassword("");
+        if(user!=null){
+            user.setPassword("");
+        }
         return user;
     }
 

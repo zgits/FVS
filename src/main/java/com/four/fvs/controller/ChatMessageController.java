@@ -1,6 +1,7 @@
 package com.four.fvs.controller;
 
 import com.four.fvs.common.Result;
+import com.four.fvs.common.ResultUtils;
 import com.four.fvs.model.ChatMessage;
 import com.four.fvs.model.User;
 import com.four.fvs.service.ChatMessageService;
@@ -12,9 +13,7 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.socket.WebSocketSession;
 
 import java.util.Date;
@@ -41,7 +40,7 @@ public class ChatMessageController {
     private UserService userService;
 
     /**
-     * 接收并且转发消息
+     * 接收、保存、转发消息
      * @param message
      */
     @MessageMapping("/chat/message")
@@ -62,8 +61,29 @@ public class ChatMessageController {
         messagingTemplate.convertAndSendToUser(user1.getId().toString(),"/chat/message",message);
        // messagingTemplate.convertAndSend(SUBSCRIBE_MESSAGE_URI, message);
 
-
     }
+
+
+    @GetMapping("/chat/getMessageBox")
+    @ResponseBody
+    public Result<Object> getChatMessageBox(Integer userId){
+        return ResultUtils.success(chatMessageService.getChatMessageBox(userId));
+    }
+
+
+    @DeleteMapping("/chat/delMessageBox")
+    @ResponseBody
+    public Result<Object> delChatMessageBox(Integer mesId){
+        return ResultUtils.success(chatMessageService.updateChatMessageBox(mesId));
+    }
+
+
+    @GetMapping("/chat/getMessages")
+    @ResponseBody
+    public Result<Object> getChatMessages(Integer mesId){
+        return ResultUtils.success(chatMessageService.getChatMessages(mesId));
+    }
+
 
 
 
