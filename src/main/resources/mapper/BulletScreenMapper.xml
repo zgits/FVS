@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.four.fvs.dao.BulletScreenDao">
+
+
+    <sql id="base_sql">
+      color,
+      position,
+      size,
+      text,
+      bulletTime,
+      videoId,
+      type,
+      del,
+    </sql>
+
+    <insert id="addBulletScreen" parameterType="com.four.fvs.model.BulletScreen">
+      insert into bulletscreen
+      <trim prefix="(" suffix=")" suffixOverrides=",">
+        <include refid="base_sql"></include>
+      </trim>
+      <trim prefix="values(" suffix=")" suffixOverrides=",">
+          #{color},
+          #{position},
+          #{size},
+          #{text},
+          #{bulletTime},
+          #{videoId},
+          #{type},
+          #{del},
+      </trim>
+    </insert>
+
+
+</mapper>
