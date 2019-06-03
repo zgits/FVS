@@ -536,7 +536,8 @@
                 currPage:currPage,
             },
             success: function (data) {
-                showVideoAuditing(data.data.lists);
+                console.log(data);
+                showVideoAuditing(data);
             }
         });
     }
@@ -544,13 +545,12 @@
         $("box-body-content").empty();
         var appendhtml = "";
         for(var i = 0; i < data.length; i++){
-            var VideoAuditing = data[i];
             appendhtml  +=  "<tr>\n" +
-                                "<td>" + Trident + "</td>" +
-                                "<td>" + "Internet Explorer 4.0" + "</td>" +
-                                "<td>" + "Win 95" + "</td>" +
-                                "<td>" + "鬼畜" + "</td>" +
-                                "<td>" + "待审核" + "</td>" +
+                                "<td>" + data[i].userId + "</td>" +
+                                "<td>" + data[i].name + "</td>" +
+                                "<td>" + data[i].upTime + "</td>" +
+                                "<td>" + data[i].typeId + "</td>" +
+                                "<td>" + data[i].status + "</td>" +
                                 "<td>\n" +
                                     "<div class=\"btn-group\">" +
                                         "<button type=\"button\" class=\"btn btn-success\">通过</button>\n" +
