@@ -124,5 +124,29 @@ public class ResultUtils {
     }
 
 
+    /**
+     * 登录失败
+     * @return
+     */
+    public static Result<Object> login_failed() {
+        Result<Object> result = new Result<Object>();
+        result.setCode(CommonCode.LOGIN_FAILED.getCode());
+        result.setMsg(CommonCode.LOGIN_FAILED.getMessage());
+        return result;
+    }
+
+
+    /**
+     * 用户名已存在
+     * @return
+     */
+    public static Result<Object> username_exist() {
+        Result<Object> result = new Result<Object>();
+        result.setCode(CommonCode.USERNAME_EXIST.getCode());
+        result.setMsg(CommonCode.USERNAME_EXIST.getMessage());
+        return result;
+    }
+
+
 
 }

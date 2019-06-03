@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.four.fvs.dao.VideoDao">
+
+    <resultMap id="video" type="com.four.fvs.model.Video">
+        <result property="id" column="id"></result>
+        <result property="name" column="name"></result>
+        <result property="typeId" column="typeId"></result>
+        <result property="userId" column="userId"></result>
+        <result property="upTime" column="upTime"></result>
+        <result property="vv" column="vv"></result>
+        <result property="collectNumber" column="collectNumber"></result>
+        <result property="shareNumber" column="shareNumber"></result>
+        <result property="praiseNumber" column="praiseNumber"></result>
+        <result property="videoSrc" column="videoSrc"></result>
+        <result property="simpleIntroduce" column="simpleIntroduce"></result>
+        <result property="status" column="status"></result>
+        <result property="firstImagePath" column="firstImagePath"></result>
+        <result property="del" column="del"></result>
+        <collection property="bulletScreenList" ofType="com.four.fvs.model.BulletScreen" columnPrefix="b_">
+            <result property="id" column="id"></result>
+            <result property="color" column="color"></result>
+            <result property="position" column="position"></result>
+            <result property="size" column="size"></result>
+            <result property="text" column="text"></result>
+            <result property="bulletTime" column="bulletTime"></result>
+            <result property="videoId" column="videoId"></result>
+            <result property="del" column="del"></result>
+        </collection>
+    </resultMap>
+
+    <sql id="otherbase_sql">
+        b.id b_id,
+        b.color b_color,
+        b.position b_position,
+        b.size b_size,
+        b.text b_text,
+        b.bulletTime b_bulletTime,
+        b.videoId b_videoId,
+        b.del b_del,
+    </sql>
+
+
+    <select id="getOneVideoById" resultMap="video">
+        select
+        a.*,
+        <trim suffixOverrides=",">
+            <include refid="otherbase_sql"></include>
+        </trim>
+        from
+        (
+        select *
+        from video where id=#{id} and del=1 and status=2
+        ) a
+        left JOIN bulletscreen b on a.id=b.videoId and b.del=1
+    </select>
+
+
+    <update id="givePraise">
+        update video
+        set praiseNumber=praiseNumber+#{number}
+        where id=#{id}
+
+    </update>
+
+    <update id="giveCollection">
+        update video
+        set collectNumber=collectNumber+#{number}
+        where id=#{id}
+
+    </update>
+
+    <update id="giveShare">
+        update video
+        set shareNumber=shareNumber+1
+        where id=#{id}
+
+    </update>
+</mapper>
