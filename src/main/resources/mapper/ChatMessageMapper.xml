@@ -46,6 +46,8 @@
 
 
   <select id="getChatMessages" resultType="com.four.fvs.model.ChatMessage">
-    select * from chatmessage where mesId=#{mesId} and sendChatStatus=1 and del=1
+    select * from chatmessage
+    where (mesId=#{mesId1} or mesId=#{mesId2}) and del=1
+    order by sendTime
   </select>
 </mapper>

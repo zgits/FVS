@@ -1,7 +1,9 @@
 package com.four.fvs.dao;
 
 import com.four.fvs.model.ChatMessage;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -39,10 +41,11 @@ public interface ChatMessageDao {
 
     /**
      * 根据聊天id获取聊天记录
-     * @param mesId
+     * @param mesId1 聊天标识，由于是组合而成，所以1_3 和3_1是同一个聊天，所以查询需要传递两个参数
+     * @param mesId2 聊天标识
      * @return
      */
-    public List<ChatMessage> getChatMessages(Integer mesId);
+    public List<ChatMessage> getChatMessages(@Param("mesId1") String mesId1, @Param("mesId2") String mesId2);
 
 
 }

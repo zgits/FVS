@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.four.fvs.dao.FocusDao">
+
+
+
+    <sql id="base_sql">
+        userId,
+        fansid,
+        del,
+    </sql>
+    <select id="getCountFocus">
+        select count(*) from focus where userId=#{userId} and del=1
+    </select>
+
+    <insert id="addFocus" parameterType="com.four.fvs.model.Focus">
+        insert into focus
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <include refid="base_sql"></include>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            #{userId},
+            #{fansId},
+            #{del},
+        </trim>
+    </insert>
+
+
+</mapper>

@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
  * @Date: 2019/6/3 12:55
  * @Description:
  */
-public class NotLoginException extends ServletException {
+public class NotLoginException extends RuntimeException {
 
 
     public NotLoginException() {
