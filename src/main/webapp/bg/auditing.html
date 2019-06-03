@@ -407,7 +407,7 @@
                                     <th>操作</th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="box-body-content">
                                 <tr>
                                     <td>Trident</td>
                                     <td>Internet
@@ -525,7 +525,44 @@
             'info'        : true,
             'autoWidth'   : false
         })
+        AuditingSelect(1);
     })
+    function AuditingSelect(currPage){
+        $.ajax({
+            url: "/Auditing/getAuditing",
+            type: "get",
+            dataType:"json",
+            data:{
+                currPage:currPage,
+            },
+            success: function (data) {
+                showVideoAuditing(data.data.lists);
+            }
+        });
+    }
+    function showVideoAuditing(data) {
+        $("box-body-content").empty();
+        var appendhtml = "";
+        for(var i = 0; i < data.length; i++){
+            var VideoAuditing = data[i];
+            appendhtml  +=  "<tr>\n" +
+                                "<td>" + Trident + "</td>" +
+                                "<td>" + "Internet Explorer 4.0" + "</td>" +
+                                "<td>" + "Win 95" + "</td>" +
+                                "<td>" + "鬼畜" + "</td>" +
+                                "<td>" + "待审核" + "</td>" +
+                                "<td>\n" +
+                                    "<div class=\"btn-group\">" +
+                                        "<button type=\"button\" class=\"btn btn-success\">通过</button>\n" +
+                                        "<button type=\"button\" class=\"btn btn-warning\"  data-toggle=\"modal\" data-target=\"#modal-warning\">驳回</button>\n" +
+                                    "</div>\n" +
+                                "</td>" +
+                            "</tr>"
+        }
+
+        $("box-body-content").append(appendhtml);
+    }
+
 </script>
 
 
