@@ -31,7 +31,7 @@ public class SystemMessageController {
      */
     @GetMapping("/getMessage")
     @ResponseBody
-    public Result<Object> getSystemMessage(@RequestParam(defaultValue = "1") Integer currPage, @RequestParam(value = "id") Integer receiveId){
+    public Result<Object> getSystemMessage(@RequestParam(defaultValue = "1") Integer currPage, @RequestParam(value = "userId") Integer receiveId){
         return ResultUtils.success(systemMessageService.getHistorySystemMessage(currPage,receiveId));
     }
 

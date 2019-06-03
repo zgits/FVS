@@ -36,7 +36,7 @@ body{
     color: #3d3d3d;
 }
 .new-comment{
-    margin-left: 130px;
+    margin-left: 9%;
 }
 .comment{
     width: 100%;
@@ -44,7 +44,7 @@ body{
 }
 
 .comment-catalog{
-    width: 100%;
+    width: 900px;
     height: 30px;
     background-color: white;
     border-radius:5px;
@@ -82,7 +82,7 @@ body{
 .comment-content-user{
     float: left;
     margin-left: 10px;
-    width: 650px;
+    width: 90%;
     height: 70px;
 }
 .comment-content-user-username a{
@@ -91,11 +91,11 @@ body{
     color: black;
 }
 .comment-content-user-time{
-    font-size: 10px;
+    font-size: 15px;
     margin-left: 5px;
 }
 .comment-content-user-delete{
-    margin-left: 450px;
+    margin-left: 430px;
 }
 .comment-content-user-delete a{
     font-size: 12px;
@@ -103,21 +103,21 @@ body{
     color: red;
 }
 .comment-content-response{
-    font-size: 12px;
+    font-size: 17px;
     color: #202020;
 }
 .comment-content-remark{
     clear: both;
     width: 650px;
     height: 60px;
-    margin-left: 50px;
+    margin-left: 8%;
     background-color: #cbcbcb;
     border-radius: 10px;
     opacity: 0.7;
     padding: 5px 5px;
 }
 .comment-content-remark-content{
-    font-size: 12px;
+    font-size: 15px;
 }
 .my-news-user-list{
     width: 200px;

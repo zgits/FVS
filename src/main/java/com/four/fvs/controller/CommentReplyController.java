@@ -1,15 +1,14 @@
 package com.four.fvs.controller;
 
+import com.four.fvs.common.LoginCheck;
 import com.four.fvs.common.Result;
 import com.four.fvs.common.ResultUtils;
+import com.four.fvs.exception.NotLoginException;
 import com.four.fvs.model.CommentReply;
 import com.four.fvs.service.CommentReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author: zjf
@@ -32,8 +31,17 @@ public class CommentReplyController {
 
 
     @DeleteMapping("/del")
+    @ResponseBody
     public Result<Object> delCommentReply(Integer commentReplyId){
         //验证用户是否登录,再删除
         return ResultUtils.success(commentReplyService.delCommentReply(commentReplyId));
+    }
+
+
+    @GetMapping("/getUserReply")
+    @ResponseBody
+    @LoginCheck
+    public Result<Object> getUserCommentReply(@RequestParam(defaultValue = "1") Integer currPage,Integer userId){
+        return ResultUtils.success(commentReplyService.getUserCommentReply(currPage,userId));
     }
 }

@@ -3,6 +3,8 @@ package com.four.fvs.vo;
 import com.four.fvs.model.User;
 import com.four.fvs.model.VideoComment;
 
+import java.util.List;
+
 /**
  * @Author: zjf
  * @Date: 2019/5/25 11:49
@@ -13,13 +15,15 @@ public class VideoCommentVo {
     private VideoComment videoComment;
 
     //用户相关信息
-    private Integer userId;
+    private Integer userId;//用户id
 
-    private String userName;
+    private String userName;//用户姓名
 
-    private String icon;
+    private String icon;//用户头像
 
-    private Integer replyNumber;
+    private Integer replyNumber;//回复数量
+
+    private List<CommentReplyVo> commentReplyVos;
 
     @Override
     public String toString() {
@@ -29,7 +33,16 @@ public class VideoCommentVo {
                 ", userName='" + userName + '\'' +
                 ", icon='" + icon + '\'' +
                 ", replyNumber=" + replyNumber +
+                ", commentReplyVos=" + commentReplyVos +
                 '}';
+    }
+
+    public List<CommentReplyVo> getCommentReplyVos() {
+        return commentReplyVos;
+    }
+
+    public void setCommentReplyVos(List<CommentReplyVo> commentReplyVos) {
+        this.commentReplyVos = commentReplyVos;
     }
 
     public Integer getReplyNumber() {

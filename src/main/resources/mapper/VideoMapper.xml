@@ -25,8 +25,10 @@
             <result property="position" column="position"></result>
             <result property="size" column="size"></result>
             <result property="text" column="text"></result>
+            <result property="time" column="time"></result>
             <result property="bulletTime" column="bulletTime"></result>
             <result property="videoId" column="videoId"></result>
+            <result property="type" column="type"></result>
             <result property="del" column="del"></result>
         </collection>
     </resultMap>
@@ -37,8 +39,10 @@
         b.position b_position,
         b.size b_size,
         b.text b_text,
+        b.time b_time,
         b.bulletTime b_bulletTime,
         b.videoId b_videoId,
+        b.type b_type,
         b.del b_del,
     </sql>
 
@@ -54,7 +58,7 @@
         select *
         from video where id=#{id} and del=1 and status=2
         ) a
-        left JOIN bulletscreen b on a.id=b.videoId and b.del=1
+        left JOIN bulletscreen b on a.id=b.videoId and b.type=1 and b.del=1
     </select>
 
 

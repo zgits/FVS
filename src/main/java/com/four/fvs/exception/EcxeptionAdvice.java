@@ -22,7 +22,7 @@ import javax.servlet.ServletException;
  */
 
 @ControllerAdvice
-public class EcxeptionAdvice {
+public class EcxeptionAdvice{
 
 
     /**
@@ -84,6 +84,13 @@ public class EcxeptionAdvice {
     public Result unsatisfiedservletrequestparameterexception(UnsatisfiedServletRequestParameterException e){
         e.printStackTrace();
         return ResultUtils.param_loss_error();
+    }
+
+    @ExceptionHandler(NotLoginException.class)
+    @ResponseBody
+    public Result notloginexception(NotLoginException e){
+        e.printStackTrace();
+        return ResultUtils.unloginerror();
     }
 
 

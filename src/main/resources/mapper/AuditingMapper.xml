@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.four.fvs.dao.AuditingDao">
+    <sql id="base_sql">
+      id,
+      name,
+      typeId,
+      userId,
+      upTime,
+      vv,
+      videoSrc,
+      simpleIntroduce,
+      collectNumber,
+      shareNumber,
+      praiseNumber,
+      status,
+      del,
+      firstImagePath,
+    </sql>
+
+    <select id="getAuditingDao" resultType="com.four.fvs.model.Video">
+        select * from video
+    </select>
+</mapper>

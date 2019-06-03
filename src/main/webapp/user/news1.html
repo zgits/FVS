@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>消息中心</title>
+    <link rel="stylesheet" href="../static/dist/css/news.css">
+</head>
+<style>
+    .comment-onclick {
+        display: none;
+    }
+</style>
+<script type="text/javascript">
+    window.onload = function () {
+        var catalogUl = document.getElementById("catalog-ul");
+        var ali = catalogUl.getElementsByTagName("li");
+        var comment = document.getElementById("new-comment");
+        var newComment = comment.children;
+        for (var i = 0; i < ali.length; i++) {
+            ali[i].index = i;
+            ali[i].onclick = function () {
+                for (var j = 0; j < ali.length; j++) {
+                    ali[j].className = "";
+                    newComment[j].className = "comment-onclick";
+                }
+                this.className = "active";
+                newComment[this.index].className = "";
+            }
+        }
+
+    }
+</script>
+<body>
+<div class="nav"></div>
+<div class="content">
+    <div class="catalog">
+        <div class="catalog-head">
+            <img style="width: 20px; height: 20px;" src="../static/dist/img/news-logo.png">
+            <span>消息中心</span>
+
+        </div>
+        <ul class="catalog-ul" id="catalog-ul">
+            <li class="active"><a href="#">回复我的</a></li>
+            <li><a href="#">收到的赞</a></li>
+            <li><a href="#" onclick="getSystemMessage(4,1)">系统通知</a></li>
+            <li><a href="#">我的消息</a></li>
+        </ul>
+    </div>
+
+    <div class="new-comment" id="new-comment">
+        <div class="comment" id="commentReply">
+            <div class="comment-catalog">&nbsp;&nbsp;回复我的</div>
+            <div class="comment-content">
+                <div class="comment-content-img">
+                    <a href="#"><img style="width: 50px; height: 50px;" src="../static/dist/img/head-portrait.png"></a>
+                </div>
+                <div class="comment-content-user">
+                    <span class="comment-content-user-username"><b><a href="#">科学声音</a></b></span>
+                    <span class="comment-content-user-time">2019年3月19日&nbsp;09:18</span>
+                    <span class="comment-content-user-delete"><a href="#">删除</a> </span>
+                    <br>
+                    <span class="comment-content-response"><span style="color: #00a65a">回复我</span> :民间抽样调查的方法，且不说样本很可能缺乏随机性的问题。更重要的是，它无法成为科学依据。</span>
+                </div>
+                <div class="comment-content-remark">
+                        <span class="comment-content-remark-content">不科学，1.百度了一下，没找到全国有机大米促进会，2.据研究，没有表明研究出处，
+                            3.被长期赞美大米比普通大米更有益健康，违反常识，没有科学依据，4.95％未标明</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="comment comment-onclick">
+            <div class="comment-catalog">&nbsp;&nbsp;收到的赞</div>
+            <div class="comment-content comment-content-praise">
+                <div class="comment-content-img" style="margin-top: 10px">
+                    <a href="#"><img style="width: 50px; height: 50px;" src="../static/dist/img/praise.png"></a>
+                </div>
+                <div class="comment-content-user" style="margin-top: 10px">
+                    <span class="comment-content-user-username"><b><a href="#">科学声音</a></b></span>
+                    <span class="comment-content-response" style="color: #0b58a2">不科学，1.百度了一下，没找到全国有机大米促进会，2.据研究，没有表明研究出处，
+                            3.被长期赞美大米比普通大米更有益健康，违反常识，没有科学依据，4.95％未标明。</span>
+                    <span class="comment-content-user-time">2019年3月19日&nbsp;09:18</span>
+                </div>
+            </div>
+            <div class="comment-content comment-content-praise">
+                <div class="comment-content-img" style="margin-top: 10px">
+                    <a href="#"><img style="width: 50px; height: 50px;" src="../static/dist/img/praise.png"></a>
+                </div>
+                <div class="comment-content-user" style="margin-top: 10px">
+                    <span class="comment-content-user-username"><b><a href="#">科学声音</a></b></span>
+                    <span class="comment-content-response" style="color: #0b58a2">不科学，1.百度了一下，没找到全国有机大米促进会，2.据研究，没有表明研究出处，
+                            3.被长期赞美大米比普通大米更有益健康，违反常识，没有科学依据，4.95％未标明。</span>
+                    <span class="comment-content-user-time">2019年3月19日&nbsp;09:18</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="comment comment-onclick" id="systemMessage">
+            <div class="comment-catalog">&nbsp;&nbsp;系统通知</div>
+            <div class="comment-content comment-content-praise">
+                <div class="comment-content-user">
+                    <span class="comment-content-user-username"><b><a href="#">科学声音</a></b></span>
+                    <span class="comment-content-user-time">2019年3月19日&nbsp;09:18</span>
+                    <br>
+                    <span class="comment-content-response">如果世界末日即将来临，导致地球毁灭的原因是什么？你又该如何生存呢？
+                            根据世界末日主题脑补一段故事来参加脑洞君活动，就有机会抽取大会员、B币券和百元贝壳等奖品哟！活动戳></span>
+                    <span class="comment-content-notify"><a href="#">点击前往</a></span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="comment comment-onclick">
+            <div class="comment-catalog">&nbsp;&nbsp;我的消息</div>
+            <div class="comment-content" style="height: 620px; padding: 0px 0px;">
+
+                <div class="my-news-user-list">
+                    <div class="my-news-last-news" style="border-right: 1px solid #b9b9b9;">
+                        <span>&nbsp;&nbsp;&nbsp;近期消息</span></div>
+                    <a href="#">
+                        <div class="my-news-user-name">
+                            <div class="comment-content-img"
+                                 style="margin-top: 5px; width: 40px; height: 40px;margin-left: 10px;">
+                                <img style="width: 40px; height: 40px;" src="../static/dist/img/head-portrait.png">
+                            </div>
+                            <div style="padding-top: 15px;">
+                                <span style="margin-left: 10px;font-size: 15px;">雨中的泡沫</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="my-news-user-name">
+                            <div class="comment-content-img"
+                                 style="margin-top: 5px; width: 40px; height: 40px;margin-left: 10px;">
+                                <img style="width: 40px; height: 40px;" src="../static/dist/img/head-portrait.png">
+                            </div>
+                            <div style="padding-top: 15px;">
+                                <span style="margin-left: 10px;font-size: 15px;">幻夜星辰</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="my-news-user-name">
+                            <div class="comment-content-img"
+                                 style="margin-top: 5px; width: 40px; height: 40px;margin-left: 10px;">
+                                <img style="width: 40px; height: 40px;" src="../static/dist/img/head-portrait.png">
+                            </div>
+                            <div style="padding-top: 15px;">
+                                <span style="margin-left: 10px;font-size: 15px;">陌上花开</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="my-news-user-name">
+                            <div class="comment-content-img"
+                                 style="margin-top: 5px; width: 40px; height: 40px;margin-left: 10px;">
+                                <img style="width: 40px; height: 40px;" src="../static/dist/img/head-portrait.png">
+                            </div>
+                            <div style="padding-top: 15px;">
+                                <span style="margin-left: 10px;font-size: 15px;">天才少年</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="my-news-user-name">
+                            <div class="comment-content-img"
+                                 style="margin-top: 5px; width: 40px; height: 40px;margin-left: 10px;">
+                                <img style="width: 40px; height: 40px;" src="../static/dist/img/head-portrait.png">
+                            </div>
+                            <div style="padding-top: 15px;">
+                                <span style="margin-left: 10px;font-size: 15px;">萌萌哒</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div>
+                    <div class="my-news-last-news" style="width: 572px; margin-left: 200px;">
+                        <center>
+                            <span>用户名</span>
+                        </center>
+
+                    </div>
+                    <div class="my-news-communication"></div>
+                    <div class="my-news-input">
+
+                        <textarea id="messageContent" type="text" class="my-news-input-text"
+                                  placeholder="回复一下吧"></textarea>
+                        <span style="margin-left: 450px;font-size: 12px">0/500</span>
+                        <button class="my-news-input-send" id="sendMessage" onclick="sendMessage(1)">发送</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- jQuery 3 -->
+<script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../static/tools.js"></script>
+
+
+<!--sockJS cdn-->
+<script src="https://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
+<!--stomp cdn-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
+<script>
+    $(function () {
+        var userId = 3;
+        getCommentReplyData(userId, 1);
+    })
+
+    //从后台得到评论数据
+    function getCommentReplyData(userId, currPage) {
+        $.ajax({
+            url: "/commentReply/getUserReply",
+            type: "get",
+            dataType: "json",
+            data: {
+                userId: userId,
+                currPage: currPage
+            },
+            success: function (data) {
+                console.log(data);
+                console.log(data.data.lists.length);
+                showCommentReplyData(data.data.lists);
+            }
+        });
+    }
+
+    //在前端页面展示数据
+    function showCommentReplyData(data) {
+        $("#commentReply").empty();
+        var appendhtml = "<div class=\"comment-catalog\">&nbsp;&nbsp;回复我的</div>";
+        for (var i = 0; i < data.length; i++) {
+            var commentReply = data[i].commentReply;
+            appendhtml += "<div class=\"comment-content\">\n" +
+                "                <div class=\"comment-content-img\">\n" +
+                "                    <a href=\"usercenter.html?id=" + data[i].userId + "\"><img style=\"width: 50px; height: 50px;\" src=\"../static/dist/img/head-portrait.png\"></a>\n" +
+                "                </div>\n" +
+                "                <div class=\"comment-content-user\">\n" +
+                "                    <span class=\"comment-content-user-username\"><b><a href=\"usercenter.html?id=" + data[i].userId + "\">" + data[i].userName + "</a></b></span>\n" +
+                "                    <span class=\"comment-content-user-time\">" + changeDateFormat(commentReply.replyTime) + "</span>\n" +
+                "                    <span class=\"comment-content-user-delete\"><a href=\"#\">删除</a> </span>\n" +
+                "                    <br>\n" +
+                "                    <span class=\"comment-content-response\"><span style=\"color: #00a65a\">回复我</span> :" + commentReply.content + "</span>\n" +
+                "                </div>\n" +
+                "                <div class=\"comment-content-remark\">\n" +
+                "                        <span class=\"comment-content-remark-content\">" + commentReply.myContent + "</span>\n" +
+                "                </div>\n" +
+                "            </div>"
+        }
+        $("#commentReply").append(appendhtml);
+    }
+
+
+    //从后台得到数据
+    function getSystemMessage(userId, currPage) {
+
+        $.ajax({
+            url: "/systemmessage/getMessage",
+            type: "get",
+            data: {
+                userId: userId,
+                currPage: currPage,
+            },
+            success: function (data) {
+                console.log(data);
+                showSystemMessage(data.data.lists);
+            }
+        });
+    }
+
+
+    //展示数据
+    function showSystemMessage(data) {
+        $("#systemMessage").empty();
+        var appendhtml = '<div class="comment-catalog">&nbsp;&nbsp;系统通知</div>';
+        for (var i = 0; i < data.length; i++) {
+            appendhtml += '<div class="comment-content comment-content-praise">\n' +
+                '                <div class="comment-content-user">\n' +
+                '                    <span class="comment-content-user-username"><b>' + data[i].title + '</b></span>\n' +
+                '                    <span class="comment-content-user-time">' + changeDateFormat(data[i].sendTime) + '</span>\n' +
+                '                    <br>\n' +
+                '                    <span class="comment-content-response">' + data[i].content + '</span>\n' +
+                '                    <span class="comment-content-notify"><a href="#">点击前往</a></span>\n' +
+                '                </div>\n' +
+                '            </div>';
+        }
+
+        $('#systemMessage').append(appendhtml);
+    }
+
+
+    $(function () {
+        connect();
+    });
+
+
+    /**
+     * 客户端连接服务端websocket
+     * 并且订阅一系列频道，用来接收不同种类的消息
+     * /app/chat/participants ：当前在线人数的消息，只会接收一次
+     * /topic/login ： 新登录用户的消息
+     * /topic/chat/message ： 聊天内容消息
+     * /topic/logout : 用户离线的消息
+     * 服务器发回json实例{"userName":"chris","sendDate":1494664021793,"content":"hello","messageType":"text"}
+     * messageType分为：text与image
+     */
+    function connect() {
+        var socket = new SockJS("/websocket");
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, function (frame) {
+            // stompClient.subscribe("/app/chat/participants", function (message) {
+            //     showActiveUserNumber(message.body);
+            //     var user = "系统消息";
+            //     var date = null;
+            //     var msg = $("#myName").val() + "加入聊天！";
+            //     showNewMessage(user, date, msg);
+            // });
+            // stompClient.subscribe("/topic/login", function (message) {
+            //     showNewUser(message.body);
+            // });
+            stompClient.subscribe('/user/' + 1 + '/chat/message', function (message) {
+                var json = JSON.parse(message.body);
+                console.log("news1");
+                console.log(json);
+                // var messageType = json.messageType;
+                // var user = json.userName;
+                // var date = json.sendDate;
+                // var msg = json.content;
+                // if (messageType == "text"){
+                //     showNewMessage(user, date, msg);
+                // }else if (messageType == "image"){
+                //     showNewImage(user, date, msg);
+                // }
+
+            })
+            // stompClient.subscribe("/topic/logout", function (message) {
+            //     showUserLogout(message.body);
+            // })
+
+        });
+    }
+
+    /**
+     * 显示新消息
+     * @param user 发消息的用户或者‘系统消息’
+     * @param date 发消息的时间（未格式化）
+     * @param msg  消息内容
+     */
+    function showNewMessage(user, date, msg) {
+        var container = document.getElementById("historyMsg");
+        var msgToDisplay = document.createElement('p');
+        if (user == "系统消息") {
+            msgToDisplay.style.color = 'red';
+        }
+        var dateTime = formatDate(date);
+        msg = showEmoji(msg);
+        msgToDisplay.innerHTML = '<span class="timespan">' + dateTime + '</span><br/>[' + user + "] : " + msg;
+        container.append(msgToDisplay);
+        container.scrollTop = container.scrollHeight;
+    }
+
+    /**
+     * 发送输入框中的信息
+     */
+    function sendMessage(test) {
+        var content = $("#messageContent").val();
+        console.log('发送消息内容' + content);
+        if (content.trim().length != 0) {
+            $("#messageContent").val('');
+            stompClient.send("/app/chat/message", {}, JSON.stringify({
+                'receiveId': 3,
+                'message': content,
+                'sendId': 1
+            }));
+        }
+    }
+
+
+</script>
+</body>
+</html>

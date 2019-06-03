@@ -1,7 +1,10 @@
 package com.four.fvs.dao;
 
 import com.four.fvs.model.BulletScreen;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @Author: zjf
@@ -17,4 +20,7 @@ public interface BulletScreenDao {
      * @return
      */
     public Integer addBulletScreen(BulletScreen bulletScreen);
+
+
+    public List<BulletScreen> getBulletScreen(@Param("videoId") Integer videoId, @Param("type") Integer type);
 }

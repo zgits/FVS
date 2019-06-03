@@ -2,6 +2,7 @@ package com.four.fvs.service;
 
 import com.four.fvs.common.PageBean;
 import com.four.fvs.model.VideoComment;
+import com.four.fvs.model.VideoOpRecord;
 import com.four.fvs.vo.VideoCommentVo;
 
 /**
@@ -36,4 +37,12 @@ public interface VideoCommentService {
      * @return
      */
     public boolean delComment(Integer commentId);
+
+
+    /**
+     * 对评论的点赞
+     * @param videoOpRecord
+     * @return
+     */
+    public boolean givePraise(VideoOpRecord videoOpRecord);
 }

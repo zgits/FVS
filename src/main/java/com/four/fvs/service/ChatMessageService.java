@@ -1,6 +1,9 @@
 package com.four.fvs.service;
 
 import com.four.fvs.model.ChatMessage;
+import com.four.fvs.vo.ChatMessageVo;
+
+import java.util.List;
 
 /**
  * @Author: zjf
@@ -15,5 +18,29 @@ public interface ChatMessageService {
      * @param chatMessage
      * @return
      */
-    public int insertChatMessage(ChatMessage chatMessage);
+    public ChatMessageVo insertChatMessage(ChatMessage chatMessage);
+
+
+    /**
+     * 查询聊天窗口
+     * @param userId
+     * @return
+     */
+    public List<ChatMessage> getChatMessageBox(Integer userId);
+
+
+    /**
+     * 删除某个聊天窗口
+     * @param mesId
+     * @return
+     */
+    public boolean updateChatMessageBox(Integer mesId);
+
+
+    /**
+     * 根据聊天id获取聊天记录
+     * @param mesId
+     * @return
+     */
+    public ChatMessageVo getChatMessages(String mesId);
 }

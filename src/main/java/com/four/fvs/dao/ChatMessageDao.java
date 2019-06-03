@@ -1,7 +1,11 @@
 package com.four.fvs.dao;
 
 import com.four.fvs.model.ChatMessage;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 /**
  * @Author: zjf
@@ -17,5 +21,31 @@ public interface ChatMessageDao {
      * @return 影响的行数
      */
     public Integer insertChatMessage(ChatMessage chatMessage);
+
+
+    /**
+     * 根据用户id得到未被删除的聊天框
+     * @param userId
+     * @return
+     */
+    public List<ChatMessage> getChatMessageBox(Integer userId);
+
+
+    /**
+     * 根据聊天id删除与某个用户的聊天框
+     * @param mesId
+     * @return
+     */
+    public Integer updateChatMessageBox(Integer mesId);
+
+
+    /**
+     * 根据聊天id获取聊天记录
+     * @param mesId1 聊天标识，由于是组合而成，所以1_3 和3_1是同一个聊天，所以查询需要传递两个参数
+     * @param mesId2 聊天标识
+     * @return
+     */
+    public List<ChatMessage> getChatMessages(@Param("mesId1") String mesId1, @Param("mesId2") String mesId2);
+
 
 }
