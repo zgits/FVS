@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: zjf
@@ -21,14 +22,33 @@ public class ChatMessageServiceImpl implements ChatMessageService {
     private ChatMessageDao chatMessageDao;
 
     @Override
-    public int insertChatMessage(ChatMessage chatMessage) {
+    public ChatMessage insertChatMessage(ChatMessage chatMessage) {
 
-//        if(chatMessage.getMesId()==null){
-//            String mes = DateUtils.DateToString(new Date());//生成聊天id，以当前日期+发送者id
-//            chatMessage.setMesId(Integer.parseInt(mes));
-//        }
+        chatMessage.setSendTime(new Date());
         chatMessage.setDel(1);
+        chatMessage.setReceiveChatStatus(1);
+        chatMessage.setSendChatStatus(1);
+        String msgId=String.valueOf(chatMessage.getSendId())+"_"+String.valueOf(chatMessage.getReceiveId());
 
-        return chatMessageDao.insertChatMessage(chatMessage);
+        chatMessage.setMesId(msgId);
+
+        chatMessageDao.insertChatMessage(chatMessage);
+
+        return chatMessage;
+    }
+
+    @Override
+    public List<ChatMessage> getChatMessageBox(Integer userId) {
+        return chatMessageDao.getChatMessageBox(userId);
+    }
+
+    @Override
+    public boolean updateChatMessageBox(Integer mesId) {
+        return chatMessageDao.updateChatMessageBox(mesId)>0;
+    }
+
+    @Override
+    public List<ChatMessage> getChatMessages(Integer mesId) {
+        return chatMessageDao.getChatMessages(mesId);
     }
 }

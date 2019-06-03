@@ -10,8 +10,10 @@
       position,
       size,
       text,
+      time,
       bulletTime,
       videoId,
+      type,
       del,
     </sql>
 
@@ -25,11 +27,17 @@
           #{position},
           #{size},
           #{text},
+          #{time},
           #{bulletTime},
           #{videoId},
+          #{type},
           #{del},
       </trim>
     </insert>
+
+    <select id="getBulletScreen" resultType="com.four.fvs.model.BulletScreen">
+        select * from bulletscreen where videoId=#{videoId} and type=#{type}
+    </select>
 
 
 </mapper>

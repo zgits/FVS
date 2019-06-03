@@ -31,8 +31,16 @@
 	</bean>
 
 	<!-- 4.扫描web相关的bean -->
-	<context:component-scan base-package="com.four.fvs.controller,com.four.fvs.exception">
-	</context:component-scan>
+<!--	<context:component-scan base-package="com.four.fvs.controller,com.four.fvs.exception">-->
+<!--	</context:component-scan>-->
+
+
+	<!--	4:扫描web相关的controller-->
+		<context:component-scan base-package="com.four.fvs.controller,com.four.fvs.exception" use-default-filters="false">
+			<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+			<!--控制器增强，通常用来解决全局异常-->
+			<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+		</context:component-scan>
 </beans>
 
 
@@ -76,12 +84,7 @@
 
 
 
-<!--&lt;!&ndash;	4:扫描web相关的controller&ndash;&gt;-->
-<!--	<context:component-scan base-package="com.four.fvs.controller" use-default-filters="false">-->
-<!--&lt;!&ndash;		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>&ndash;&gt;-->
-<!--&lt;!&ndash;		&lt;!&ndash;控制器增强，通常用来解决全局异常&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>&ndash;&gt;-->
-<!--	</context:component-scan>-->
+
 
 
 

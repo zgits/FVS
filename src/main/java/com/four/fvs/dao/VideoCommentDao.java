@@ -52,12 +52,15 @@ public interface VideoCommentDao {
      */
     public Integer delComment(@Param("id")Integer id);
 
-//
-//    /**
-//     * 由于字段缺失，暂不填写参数
-//     * @return
-//     */
-//    public Integer praise();
+
+    /**
+     * 评论的点赞操作
+     * @param commentId
+     * @param number
+     * @return
+     */
+    public Integer givePraise(@Param("id") Integer commentId,@Param("number")Integer number);
+
 
 
 }

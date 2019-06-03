@@ -6,6 +6,7 @@ import com.four.fvs.model.BulletScreen;
 import com.four.fvs.service.BulletScreenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,8 +26,7 @@ public class BulletScreenController {
 
 
     /**
-     * 发送弹幕,前台传递颜色代码时，要去掉#，
-     * 不去掉#，相应的就为“”，暂时不知道原因
+     * 发送弹幕
      * @param bulletScreen
      * @return
      */
@@ -35,5 +35,11 @@ public class BulletScreenController {
     public Result<Object> addBullet(BulletScreen bulletScreen){
         System.out.println(bulletScreen);
         return ResultUtils.success(bulletScreenService.addBulletScreen(bulletScreen));
+    }
+
+    @GetMapping(value = "/get")
+    @ResponseBody
+    public Result<Object> getBullet(Integer videoId,Integer type){
+        return ResultUtils.success(bulletScreenService.getBulletScreen(videoId, type));
     }
 }
