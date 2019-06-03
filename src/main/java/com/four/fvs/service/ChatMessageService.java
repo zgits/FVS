@@ -1,6 +1,7 @@
 package com.four.fvs.service;
 
 import com.four.fvs.model.ChatMessage;
+import com.four.fvs.vo.ChatMessageVo;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public interface ChatMessageService {
      * @param chatMessage
      * @return
      */
-    public ChatMessage insertChatMessage(ChatMessage chatMessage);
+    public ChatMessageVo insertChatMessage(ChatMessage chatMessage);
 
 
     /**
@@ -41,5 +42,5 @@ public interface ChatMessageService {
      * @param mesId
      * @return
      */
-    public List<ChatMessage> getChatMessages(Integer mesId);
+    public ChatMessageVo getChatMessages(String mesId);
 }

@@ -6,6 +6,7 @@ import com.four.fvs.model.ChatMessage;
 import com.four.fvs.model.User;
 import com.four.fvs.service.ChatMessageService;
 import com.four.fvs.service.UserService;
+import com.four.fvs.vo.ChatMessageVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,19 +47,11 @@ public class ChatMessageController {
     @MessageMapping("/chat/message")
     public void receiveMessage(ChatMessage message){
 
-        //获得发送者用户信息
-        User user=userService.getUserInfo(message.getSendId());
-
-        //获得接收者用户信息
-        User user1=userService.getUserInfo(message.getReceiveId());
-
-
-        logger.info(message.getSendTime() + "," + user.getUserName() + "发送消息给" + user1.getUserName()+":"+message.getMessage());
         //保存聊天信息
-        message=chatMessageService.insertChatMessage(message);
+        ChatMessageVo chatMessageVo =chatMessageService.insertChatMessage(message);
 
 
-        messagingTemplate.convertAndSendToUser(user1.getId().toString(),"/chat/message",message);
+        messagingTemplate.convertAndSendToUser(chatMessageVo.getReceiveId().toString(),"/chat/message",chatMessageVo);
        // messagingTemplate.convertAndSend(SUBSCRIBE_MESSAGE_URI, message);
 
     }
@@ -80,11 +73,9 @@ public class ChatMessageController {
 
     @GetMapping("/chat/getMessages")
     @ResponseBody
-    public Result<Object> getChatMessages(Integer mesId){
+    public Result<Object> getChatMessages(String mesId){
         return ResultUtils.success(chatMessageService.getChatMessages(mesId));
     }
-
-
 
 
 }

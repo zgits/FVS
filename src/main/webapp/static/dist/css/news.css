@@ -36,7 +36,7 @@ body{
     color: #3d3d3d;
 }
 .new-comment{
-    margin-left: 15%;
+    margin-left: 9%;
 }
 .comment{
     width: 100%;
@@ -44,7 +44,7 @@ body{
 }
 
 .comment-catalog{
-    width: 100%;
+    width: 900px;
     height: 30px;
     background-color: white;
     border-radius:5px;
@@ -82,7 +82,7 @@ body{
 .comment-content-user{
     float: left;
     margin-left: 10px;
-    width: 650px;
+    width: 90%;
     height: 70px;
 }
 .comment-content-user-username a{

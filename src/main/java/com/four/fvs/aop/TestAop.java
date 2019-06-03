@@ -20,11 +20,11 @@ public class TestAop {
     @Before(value = "execution(* com.four.fvs.controller.*.*(..))")
     public Result<Object> aop(){
         System.out.println("前置aop测试");
-        try {
-            throw new NotLoginException();
-        } catch (NotLoginException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            throw new RuntimeException("用户未登录");
+//        } catch (NotLoginException e) {
+//            e.printStackTrace();
+//        }
         return ResultUtils.unloginerror();
     }
 }

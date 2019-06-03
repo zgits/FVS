@@ -1,7 +1,9 @@
 package com.four.fvs.controller;
 
+import com.four.fvs.common.LoginCheck;
 import com.four.fvs.common.Result;
 import com.four.fvs.common.ResultUtils;
+import com.four.fvs.exception.NotLoginException;
 import com.four.fvs.model.CommentReply;
 import com.four.fvs.service.CommentReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +37,10 @@ public class CommentReplyController {
         return ResultUtils.success(commentReplyService.delCommentReply(commentReplyId));
     }
 
+
     @GetMapping("/getUserReply")
     @ResponseBody
+    @LoginCheck
     public Result<Object> getUserCommentReply(@RequestParam(defaultValue = "1") Integer currPage,Integer userId){
         return ResultUtils.success(commentReplyService.getUserCommentReply(currPage,userId));
     }
