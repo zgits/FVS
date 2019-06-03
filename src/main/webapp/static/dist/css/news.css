@@ -82,7 +82,7 @@ body{
 .comment-content-user{
     float: left;
     margin-left: 10px;
-    width: 650px;
+    width: 90%;
     height: 70px;
 }
 .comment-content-user-username a{
