@@ -30,7 +30,7 @@
       .on('mouseleave.bs.carousel', $.proxy(this.cycle, this))
   }
 
-  Carousel.VERSION  = '3.4.1'
+  Carousel.VERSION  = '1'
 
   Carousel.TRANSITION_DURATION = 600
 

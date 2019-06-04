@@ -62,5 +62,13 @@ public interface VideoCommentDao {
     public Integer givePraise(@Param("id") Integer commentId,@Param("number")Integer number);
 
 
+    /**
+     * 根据id获取评论
+     * @param id
+     * @return
+     */
+    public VideoComment getOneVideoCommentById(Integer id);
+
+
 
 }

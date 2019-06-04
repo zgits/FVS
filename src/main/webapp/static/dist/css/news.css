@@ -20,7 +20,7 @@ body{
     float: left;
     position: fixed;
     background-color: white;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 .catalog-head{
     margin-top: 10px;
@@ -50,14 +50,14 @@ body{
     border-radius:5px;
     padding-top: 4px;
     padding-left: 14px;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 .comment-content{
     width: 100%;
     height: 150px;
     margin-top: 5px;
     border-radius:5px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 10px 10px;
 
 }
@@ -75,7 +75,7 @@ body{
     height: 50px;
     border-radius:30px;
     background-color: #0b93d5;
-    opacity: 1;
+    opacity: 0.9;
     float: left;
 
 }
@@ -113,7 +113,7 @@ body{
     margin-left: 8%;
     background-color: #cbcbcb;
     border-radius: 10px;
-    opacity: 0.7;
+    opacity: 0.9;
     padding: 5px 5px;
 }
 .comment-content-remark-content{
@@ -124,7 +124,7 @@ body{
     height: 620px;
     background: white;
     float: left;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 .my-news-user-list a{
     text-decoration: none;
@@ -133,7 +133,7 @@ body{
     height: 25px;
     background-color: white;
     border-bottom: 1px solid #f4f4f4;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 .my-news-last-news span{
     font-size: 12px;
@@ -159,14 +159,14 @@ body{
     margin-left: 200px;
     background-color: #f4f4f4;
     border-bottom: 1px solid #464646;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 .my-news-input{
     width: 572px;
     height: 194px;
     margin-left: 200px;
     background-color: #f4f4f4;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 .my-news-input-text{
     width: 535px;
@@ -182,6 +182,6 @@ body{
     border: 1px solid #0084ff;
     background-color: white;
     border-radius: 4px;
-    opacity: 0.8;
+    opacity: 0.9;
     width: 50px;
 }

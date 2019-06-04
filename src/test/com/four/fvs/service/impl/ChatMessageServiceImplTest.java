@@ -21,7 +21,7 @@ public class ChatMessageServiceImplTest extends BaseTest {
     @Test
     public void getChatMessageBox() {
 
-        System.out.println(chatMessageService.getChatMessageBox(1).size());
+        System.out.println(chatMessageService.getChatMessageBox(3).size());
 
     }
 }

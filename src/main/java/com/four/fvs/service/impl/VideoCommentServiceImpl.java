@@ -125,6 +125,11 @@ public class VideoCommentServiceImpl implements VideoCommentService {
         }else{
             videoOpRecordDao.addRecord(videoOpRecord);
         }
-        return videoCommentDao.givePraise(videoOpRecord.getRecordId(),number)>0;
+        return videoCommentDao.givePraise(videoOpRecord.getCommentId(),number)>0;
+    }
+
+    @Override
+    public VideoComment getOneCommentById(Integer id) {
+        return videoCommentDao.getOneVideoCommentById(id);
     }
 }

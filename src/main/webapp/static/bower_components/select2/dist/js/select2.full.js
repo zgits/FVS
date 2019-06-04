@@ -6190,7 +6190,7 @@ S2.define('select2/selection/stopPropagation',[
     }
 
     var special = $.event.special.mousewheel = {
-        version: '3.1.12',
+        version: '1.12',
 
         setup: function() {
             if ( this.addEventListener ) {

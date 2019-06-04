@@ -92,4 +92,9 @@
         where id=#{id}
     </update>
 
+
+    <select id="getOneVideoCommentById" resultType="com.four.fvs.model.VideoComment">
+        select * from videocomment where id=#{id}
+    </select>
+
 </mapper>

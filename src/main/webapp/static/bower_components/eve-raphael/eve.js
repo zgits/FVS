@@ -18,7 +18,7 @@
 // └────────────────────────────────────────────────────────────┘ \\
 
 (function (glob) {
-    var version = "0.5.0",
+    var version = "5.0",
         has = "hasOwnProperty",
         separator = /[\.\/]/,
         comaseparator = /\s*,\s*/,

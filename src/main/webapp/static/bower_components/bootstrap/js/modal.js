@@ -34,7 +34,7 @@
     }
   }
 
-  Modal.VERSION = '3.4.1'
+  Modal.VERSION = '1'
 
   Modal.TRANSITION_DURATION = 300
   Modal.BACKDROP_TRANSITION_DURATION = 150

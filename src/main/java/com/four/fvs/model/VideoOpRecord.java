@@ -1,5 +1,7 @@
 package com.four.fvs.model;
 
+import java.util.Date;
+
 /**
  * @Author: zjf
  * @Date: 2019/5/25 21:38
@@ -11,24 +13,77 @@ public class VideoOpRecord {
 
     private Integer userId;//操作的用户id
 
-    private Integer recordId;//操作对象的id，视频，评论，番剧
-
     private Integer type;//操作对象类型，1 视频，2 番剧 3 评论（因为评论也有点赞的功能）
 
     private Integer opType;//操作类型 1 点赞 2 分享 3 收藏
 
-    private Integer del=1;//删除标志 1 未删除，2 已删除
+    private Date time;//操作的时间
+
+    private Integer del = 1;//删除标志 1 未删除，2 已删除
+
+    private Integer commentId;//点赞评论的id
+
+    private Integer videoId;//点赞视频的id
+
+    private Integer hisplayId;//点赞番剧的id
+
+    private Integer beUserId;//被操作对象人的id
+
 
     @Override
     public String toString() {
         return "VideoOpRecord{" +
                 "id=" + id +
                 ", userId=" + userId +
-                ", recordId=" + recordId +
                 ", type=" + type +
                 ", opType=" + opType +
+                ", time=" + time +
                 ", del=" + del +
+                ", commentId=" + commentId +
+                ", videoId=" + videoId +
+                ", hisplayId=" + hisplayId +
+                ", beUserId=" + beUserId +
                 '}';
+    }
+
+    public Integer getBeUserId() {
+        return beUserId;
+    }
+
+    public void setBeUserId(Integer beUserId) {
+        this.beUserId = beUserId;
+    }
+
+    public Integer getCommentId() {
+        return commentId;
+    }
+
+    public void setCommentId(Integer commentId) {
+        this.commentId = commentId;
+    }
+
+    public Integer getVideoId() {
+        return videoId;
+    }
+
+    public void setVideoId(Integer videoId) {
+        this.videoId = videoId;
+    }
+
+    public Integer getHisplayId() {
+        return hisplayId;
+    }
+
+    public void setHisplayId(Integer hisplayId) {
+        this.hisplayId = hisplayId;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
     }
 
     public Integer getId() {
@@ -47,13 +102,6 @@ public class VideoOpRecord {
         this.userId = userId;
     }
 
-    public Integer getRecordId() {
-        return recordId;
-    }
-
-    public void setRecordId(Integer recordId) {
-        this.recordId = recordId;
-    }
 
     public Integer getType() {
         return type;

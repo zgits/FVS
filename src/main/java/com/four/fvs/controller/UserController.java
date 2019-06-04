@@ -4,6 +4,7 @@ import com.four.fvs.common.Result;
 import com.four.fvs.common.ResultUtils;
 import com.four.fvs.model.User;
 import com.four.fvs.service.UserService;
+import com.four.fvs.service.VideoOpRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,10 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+
+    @Autowired
+    private VideoOpRecordService videoOpRecordService;
 
 
     @PostMapping(value="/userlogin")
@@ -58,6 +63,20 @@ public class UserController {
             return ResultUtils.username_exist();
         }
         return ResultUtils.success(null);
+    }
+
+    @GetMapping(value = "/getUserInfo")
+    @ResponseBody
+    public Result<Object> getUserInfo(Integer userId){
+        return ResultUtils.success(userService.getUserInfo(userId));
+    }
+
+
+
+    @GetMapping(value = "/getPraiseInfo")
+    @ResponseBody
+    public Result<Object> getPraiseInfo(@RequestParam(defaultValue = "1") Integer currPage,Integer userId){
+        return ResultUtils.success(videoOpRecordService.getUserPraise(currPage,userId));
     }
 
 }

@@ -41,7 +41,7 @@
 
   <select id="getChatMessageBox" resultType="com.four.fvs.model.ChatMessage">
     select * from chatmessage
-    where mesId like concat(#{userId},"_%" ) and sendChatStatus=1 and del=1
+    where mesId REGEXP #{regexp}  and sendChatStatus=1 and del=1
     order by sendTime desc
   </select>
 
