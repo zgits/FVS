@@ -8,6 +8,11 @@
     </context-param>
     <!-- 如果是用mvn命令生成的xml，需要修改servlet版本为3.1 -->
 
+    <!--添加session监听器-->
+    <listener>
+        <listener-class>com.four.fvs.listener.OnlineListener</listener-class>
+    </listener>
+
 <!--    解决post提交中文乱码-->
     <filter>
         <filter-name>CharacterEncodingFilter</filter-name>

@@ -5,6 +5,9 @@ import com.four.fvs.dao.SystemMessageDao;
 import com.four.fvs.model.SystemMessage;
 import com.four.fvs.service.SystemMessageService;
 import com.four.fvs.service.UserService;
+import io.goeasy.GoEasy;
+import io.goeasy.publish.GoEasyError;
+import io.goeasy.publish.PublishListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -61,5 +64,37 @@ public class SystemMessageServiceImpl implements SystemMessageService {
         result.setLists(systemMessageDao.getHistorySystemMessage(begin, size, receiveId, createTime));
 
         return result;
+    }
+
+
+    @Override
+    public Integer insertSystemMessage(SystemMessage systemMessage) {
+        return systemMessageDao.insertSystemMessage(systemMessage);
+    }
+
+
+    @Override
+    public void sendMes(Integer userId, String content) {
+        //声明GoEasy，实现消息推送
+        GoEasy goEasy = new GoEasy("http://rest-hangzhou.goeasy.io/publish",
+                "BC-ba1fdee766924b6ab8b658f2a2c23645");
+        try {
+            if (userId != null) {
+                String channel = userId.toString();
+                goEasy.publish(channel, content, new PublishListener() {
+                    @Override
+                    public void onSuccess() {
+                        System.out.print("消息发布成功。");
+                    }
+
+                    @Override
+                    public void onFailed(GoEasyError error) {
+                        System.out.print("消息发布失败, 错误编码：" + error.getCode() + " 错误信息： " + error.getContent());
+                    }
+                });
+            }
+        }catch(Exception e){
+           System.out.println("转化失败");
+        }
     }
 }

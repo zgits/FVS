@@ -407,24 +407,6 @@
                                     <th>操作</th>
                                 </tr>
                                 </thead>
-                                <tbody id="box-body-content">
-                                <tr>
-                                    <td>Trident</td>
-                                    <td>Internet
-                                        Explorer 4.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td>鬼畜</td>
-
-                                    <td>待审核</td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-success">通过</button>
-                                            <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#modal-warning">驳回</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
 
                             </table>
                         </div>
@@ -515,53 +497,141 @@
 <script src="../static/dist/js/color.js"></script>
 <!-- page script -->
 <script>
+
+        $(document).ready(function() {
+            $("#example1").dataTable({
+                "processing": true,
+                "serverSide": true,
+                'paging'      : true,
+                'lengthChange': false,
+                'searching'   : true,
+                'ordering'    : true,
+                'info'        : true,
+                'autoWidth'   : false,
+                "ajax" : {
+                    "url":"/Auditing/getAuditing",
+                    "data": function (d) {
+                        var info = $('#example1').DataTable().page.info();
+                        d.pageNo = info.page;
+                        d.pageSize = info.pageSize;
+                        d.searchValue = info.search;
+                    }
+                },
+                "columns": [
+                    {"data": 'user.userName' },
+                    {"data": 'name'},
+                    {"data": 'upTime'},
+                    {"data": 'typeId'},
+                    {"data": 'status'},
+                ],
+                "columnDefs": [
+                    {
+                        "targets": [5],
+                        "data": "id",
+                        "render": function(data, type, full) {
+                            return "<a href='/update?id=" + data + "'>Update</a>";
+                        }
+                    }
+                ]
+            });
+
+        });
+/*
     $(function () {
-        $('#example1').DataTable()
-        $('#example2').DataTable({
-            'paging'      : true,
-            'lengthChange': false,
-            'searching'   : true,
-            'ordering'    : true,
-            'info'        : true,
-            'autoWidth'   : false
-        })
-        AuditingSelect(1);
+        SelectInfo();
     })
-    function AuditingSelect(currPage){
+
+    function SelectInfo(){
         $.ajax({
-            url: "/Auditing/getAuditing",
-            type: "get",
-            dataType:"json",
-            data:{
-                currPage:currPage,
+            type : "get",
+            url : "/Auditing/getAuditing",
+            dataType : "json",
+            data : {
+                data : "data",
             },
-            success: function (data) {
+            error : function() {
+            },
+            success : function(data) {
                 console.log(data);
-                showVideoAuditing(data);
+                $('#example1').DataTable( {
+                    'paging'      : true,
+                    'lengthChange': false,
+                    'searching'   : true,
+                    'ordering'    : true,
+                    'info'        : true,
+                    'autoWidth'   : false,
+                    "serverSide"  : true,
+                    columns: [
+                        { data: 'user.userName' },
+                        { data: 'name'},
+                        { data: 'upTime'},
+                        { data: 'typeId'},
+                        { data: 'status'},
+                        { data: 'vv'}
+                    ]
+                } );
             }
         });
     }
-    function showVideoAuditing(data) {
-        $("box-body-content").empty();
-        var appendhtml = "";
-        for(var i = 0; i < data.length; i++){
-            appendhtml  +=  "<tr>\n" +
-                                "<td>" + data[i].userId + "</td>" +
-                                "<td>" + data[i].name + "</td>" +
-                                "<td>" + data[i].upTime + "</td>" +
-                                "<td>" + data[i].typeId + "</td>" +
-                                "<td>" + data[i].status + "</td>" +
-                                "<td>\n" +
-                                    "<div class=\"btn-group\">" +
-                                        "<button type=\"button\" class=\"btn btn-success\">通过</button>\n" +
-                                        "<button type=\"button\" class=\"btn btn-warning\"  data-toggle=\"modal\" data-target=\"#modal-warning\">驳回</button>\n" +
-                                    "</div>\n" +
-                                "</td>" +
-                            "</tr>"
-        }
 
-        $("box-body-content").append(appendhtml);
-    }
+      $(function () {
+          $('#example1').DataTable({
+              'paging'      : true,
+              'lengthChange': false,
+              'searching'   : true,
+              'ordering'    : true,
+              'info'        : true,
+              'autoWidth'   : false,
+
+          });
+          AuditingSelect();
+      });
+
+      function AuditingSelect(){
+          $.ajax({
+              url: "/Auditing/getAuditing",
+              type: "get",
+              dataType:"json",
+              success: function (data) {
+                  console.log(data.data);
+                  showVideoAuditing(data);
+              }
+          });
+      }
+      function showVideoAuditing(data) {
+          $("#example1").empty();
+          console.log("第二次：" + data.data.length);
+          var appendhtml = "<thead>\n" +
+                                  "<tr>\n" +
+                                      "<th>" + "上传者" + "</th>" +
+                                      "<th>" + "上传视频" + "</th>" +
+                                      "<th>" + "上传时间" + "</th>" +
+                                      "<th>" + "所属分类" + "</th>" +
+                                      "<th>" + "状态" + "</th>" +
+                                      "<th>" + "操作" + "</th>" +
+                                  "</tr>" +
+                          "</thead>";
+          for(var i = 0; i < data.data.length; i++){
+              appendhtml  += "<tbody>\n" +
+                                  "<tr>\n" +
+                                      "<td>" + data.data[i].user.userName + "</td>" +
+                                      "<td>" + data.data[i].name + "</td>" +
+                                      "<td>" + data.data[i].upTime + "</td>" +
+                                      "<td>" + data.data[i].typeId + "鬼畜" + "</td>" +
+                                      "<td>" + data.data[i].status + "未审核" + "</td>" +
+                                      "<td>\n" +
+                                          "<div class=\"btn-group\">" +
+                                              "<button type=\"button\" class=\"btn btn-success\">通过</button>\n" +
+                                              "<button type=\"button\" class=\"btn btn-warning\"  data-toggle=\"modal\" data-target=\"#modal-warning\">驳回</button>\n" +
+                                          "</div>\n" +
+                                      "</td>" +
+                                  "</tr>"
+                              "</tbody>";
+          }
+          $("#example1").append(appendhtml);
+      }
+   */
+
 
 </script>
 

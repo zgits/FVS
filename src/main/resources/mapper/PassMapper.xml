@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.four.fvs.dao.AuditingDao">
+<mapper namespace="com.four.fvs.dao.PassDao">
     <resultMap id="video" type="com.four.fvs.model.Video">
         <result property="id" column="id"></result>
         <result property="name" column="name"></result>
@@ -31,32 +31,9 @@
         </association >
     </resultMap>
 
-
-    <sql id="video_sql">
-      id,
-      name,
-      typeId,
-      userId,
-      upTime,
-      vv,
-      videoSrc,
-      simpleIntroduce,
-      collectNumber,
-      shareNumber,
-      praiseNumber,
-      status,
-      del,
-      firstImagePath,
-    </sql>
-
-    <!--sql标签作用，为对象的属性命名别名-->
-
-
-    <select id="getAuditingDao" resultMap="video">
-
-                        select v.*,u.userName from (
-                        select * from video where status = 1
+    <select id="getPassDao" resultMap="video">
+        select v.*,u.userName from (
+                        select * from video where status = 2
                         ) v left join user u on v.userId = u.id;
-
-            </select>
-        </mapper>
+    </select>
+</mapper>
