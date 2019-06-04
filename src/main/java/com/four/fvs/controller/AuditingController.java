@@ -25,11 +25,24 @@ public class AuditingController {
      * 遍历未审核视频信息
      * @param
      * @return
+     * @ResponseBody：代表返回json数据格式
      */
     @ResponseBody
     @GetMapping("getAuditing")
-    public Result<Object> getAuditing(@RequestParam(name = "pageNo")Integer pageNo, @RequestParam(name = "pageSize")Integer pageSize,
-                                      @RequestParam(name="searchValue")String searchValue){
-        return ResultUtils.success(auditingService.getAuditingServiceByPage(pageNo, pageSize));
+    public Result<Object> getAuditing(){
+        return ResultUtils.success(auditingService.getAuditingService());
+    }
+
+    /**
+     * 未审核视频审核通过
+     * @param
+     * @return
+     *
+     */
+    @ResponseBody
+    @GetMapping("passAuditing")
+    public Result<Object> passAuditing(@RequestParam("id")Integer videoId){
+        auditingService.passAuditing(videoId);
+        return getAuditing();
     }
 }

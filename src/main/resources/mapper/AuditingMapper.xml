@@ -58,5 +58,10 @@
                         select * from video where status = 1
                         ) v left join user u on v.userId = u.id;
 
-            </select>
-        </mapper>
+    </select>
+
+    <update id="passAuditingDao">
+        update video set
+        status = 2 where id=#{id}
+    </update>
+</mapper>

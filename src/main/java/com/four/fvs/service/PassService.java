@@ -18,4 +18,10 @@ public interface PassService {
      */
     public List<Video> getPassService();
 
+    /**
+     * 删除视频
+     * @param
+     * @return
+     */
+    public boolean delVideoService(Integer videoId);
 }

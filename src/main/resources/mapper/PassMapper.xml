@@ -33,7 +33,12 @@
 
     <select id="getPassDao" resultMap="video">
         select v.*,u.userName from (
-                        select * from video where status = 2
+                        select * from video where status = 2 and del = 1
                         ) v left join user u on v.userId = u.id;
     </select>
+
+    <update id="delVideoDao">
+         update video set
+        del = 2 where id=#{id}
+    </update>
 </mapper>

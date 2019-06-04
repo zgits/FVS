@@ -15,6 +15,12 @@ public interface AuditingService {
      * @param
      * @return
      */
-    public List<Video> getAuditingServiceByPage(int pageNo, int pageSize);
+    public List<Video> getAuditingService();
 
+    /**
+     * 未审核视频审核通过
+     * @param
+     * @return
+     */
+    public boolean passAuditing(Integer videoId);
 }

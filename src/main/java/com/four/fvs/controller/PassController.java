@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -30,5 +31,18 @@ public class PassController {
     @GetMapping("getPass")
     public Result<Object> getPass(){
         return ResultUtils.success(passService.getPassService());
+    }
+
+    /**
+     * 删除视频
+     * @param
+     * @return
+     *
+     */
+    @ResponseBody
+    @GetMapping("delVideo")
+    public Result<Object> delVideo(@RequestParam("id")Integer videoId){
+        passService.delVideoService(videoId);
+        return getPass();
     }
 }

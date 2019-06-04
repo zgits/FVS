@@ -12,6 +12,7 @@ import java.util.List;
  * @Author: hejiang
  * @Date: 2019/6/4 16:51
  * @Description:
+ * @Service：标志着这个类属于Service实现层
  */
 @Service
 public class AuditingServicel implements AuditingService {
@@ -25,9 +26,18 @@ public class AuditingServicel implements AuditingService {
      * @return
      */
     @Override
-    public List<Video> getAuditingServiceByPage(int pageNo ,int pageSize){
+    public List<Video> getAuditingService(){
         List<Video> listVideo = auditingDao.getAuditingDao();
 
         return listVideo;
+    }
+
+    /**
+     * 未审核视频审核通过
+     * @param
+     * @return
+     */
+    public boolean passAuditing(Integer videoId){
+        return auditingDao.passAuditingDao(videoId)>0;
     }
 }

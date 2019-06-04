@@ -1,6 +1,7 @@
 package com.four.fvs.dao;
 
 import com.four.fvs.model.Video;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,5 +21,10 @@ public interface PassDao {
      */
     public List<Video> getPassDao();
 
-
+    /**
+     * 删除视频
+     * @param
+     * @return
+     */
+    public Integer delVideoDao(@Param("id") Integer videoId);
 }

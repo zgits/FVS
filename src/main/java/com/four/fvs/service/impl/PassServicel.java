@@ -29,4 +29,13 @@ public class PassServicel implements PassService {
 
         return passDao.getPassDao();
     }
+
+    /**
+     * 删除视频
+     * @param
+     * @return
+     */
+    public boolean delVideoService(Integer videoId){
+        return passDao.delVideoDao(videoId)>0;
+    }
 }
