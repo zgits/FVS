@@ -20,7 +20,7 @@ public class ChatMessageDaoTest extends BaseTest {
     @Test
     public void getChatMessageBox() {
 
-        System.out.println(chatMessageDao.getChatMessageBox(3));
+        System.out.println(chatMessageDao.getChatMessageBox(1));
 
     }
 }

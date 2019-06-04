@@ -4,13 +4,34 @@
     <meta charset="UTF-8">
     <title>消息中心</title>
     <link rel="stylesheet" href="../static/dist/css/news.css">
+
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="../static/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../static/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="../static/bower_components/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../static/dist/css/AdminLTE.min.css">
 </head>
 <style>
     .comment-onclick {
         display: none;
     }
+
+    .direct-chat-messages {
+        -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        -o-transform: translate(0, 0);
+        transform: translate(0, 0);
+        padding: 10px;
+        height: 450px;
+        overflow: auto
+    }
 </style>
 <script type="text/javascript">
+
+
     window.onload = function () {
         var catalogUl = document.getElementById("catalog-ul");
         var ali = catalogUl.getElementsByTagName("li");
@@ -43,11 +64,11 @@
             <li class="active"><a href="#">回复我的</a></li>
             <li><a href="#">收到的赞</a></li>
             <li><a href="#" onclick="getSystemMessage(4,1)">系统通知</a></li>
-            <li><a href="#">我的消息</a></li>
+            <li><a href="#" onclick="getMessageBox()">我的消息</a></li>
         </ul>
     </div>
 
-    <div class="new-comment" id="new-comment">
+    <div class="new-comment" id="new-comment" style="position: fixed;">
         <div class="comment" id="commentReply">
             <div class="comment-catalog">&nbsp;&nbsp;回复我的</div>
             <div class="comment-content">
@@ -70,7 +91,7 @@
 
         <div class="comment comment-onclick">
             <div class="comment-catalog">&nbsp;&nbsp;收到的赞</div>
-            <div class="comment-content comment-content-praise">
+            <div class="comment-content comment-content-praise" style="width: 900px">
                 <div class="comment-content-img" style="margin-top: 10px">
                     <a href="#"><img style="width: 50px; height: 50px;" src="../static/dist/img/praise.png"></a>
                 </div>
@@ -81,7 +102,7 @@
                     <span class="comment-content-user-time">2019年3月19日&nbsp;09:18</span>
                 </div>
             </div>
-            <div class="comment-content comment-content-praise">
+            <div class="comment-content comment-content-praise"  style="width: 900px">
                 <div class="comment-content-img" style="margin-top: 10px">
                     <a href="#"><img style="width: 50px; height: 50px;" src="../static/dist/img/praise.png"></a>
                 </div>
@@ -110,12 +131,13 @@
         </div>
 
         <div class="comment comment-onclick">
-            <div class="comment-catalog">&nbsp;&nbsp;我的消息</div>
-            <div class="comment-content" style="height: 620px; padding: 0px 0px;">
+            <div class="comment-catalog" style="width: 900px;">&nbsp;&nbsp;我的消息</div>
+            <div class="comment-content" style="height: 620px; padding: 0px 0px;width: 900px;">
 
                 <div class="my-news-user-list">
                     <div class="my-news-last-news" style="border-right: 1px solid #b9b9b9;">
                         <span>&nbsp;&nbsp;&nbsp;近期消息</span></div>
+                    <div id="showUser">
                     <a href="#">
                         <div class="my-news-user-name">
                             <div class="comment-content-img"
@@ -124,6 +146,8 @@
                             </div>
                             <div style="padding-top: 15px;">
                                 <span style="margin-left: 10px;font-size: 15px;">雨中的泡沫</span>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i
+                                        class="fa fa-times"></i></button>
                             </div>
                         </div>
                     </a>
@@ -171,29 +195,143 @@
                             </div>
                         </div>
                     </a>
+                    </div>
                 </div>
 
                 <div>
-                    <div class="my-news-last-news" style="width: 572px; margin-left: 200px;">
-                        <center>
-                            <span>用户名</span>
-                        </center>
+                    <!--                    聊天框-->
+                    <div class="row">
+                        <div class="col-md-8">
+                            <!-- DIRECT CHAT SUCCESS -->
+                            <div class="box box-success direct-chat direct-chat-success" id="messageshow">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">对面的用户名</h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <!-- 聊天消息框 -->
+                                    <div class="direct-chat-messages" id="showMessage">
+                                        <!-- 消息显示，默认在左边 -->
+                                        <div class="direct-chat-msg">
+                                            <div class="direct-chat-info clearfix">
+                                                <span class="direct-chat-timestamp pull-right">2019-06-03 18:41:41</span>
+                                            </div>
+                                            <!-- /.direct-chat-info -->
+                                            <img class="direct-chat-img" src="../static/dist/img/user1-128x128.jpg"
+                                                 alt="Message User Image"><!-- /.direct-chat-img -->
+                                            <div class="direct-chat-text">
+                                                测试发送消息
+                                            </div>
+                                            <!-- /.direct-chat-text -->
+                                        </div>
+                                        <!-- /.direct-chat-msg -->
 
+                                        <!-- 消息显示，默认在左边 -->
+                                        <div class="direct-chat-msg">
+                                            <div class="direct-chat-info clearfix">
+                                                <span class="direct-chat-timestamp pull-right">2019-06-03 18:41:41</span>
+                                            </div>
+                                            <!-- /.direct-chat-info -->
+                                            <img class="direct-chat-img" src="../static/dist/img/user1-128x128.jpg"
+                                                 alt="Message User Image"><!-- /.direct-chat-img -->
+                                            <div class="direct-chat-text">
+                                                测试发送消息
+                                            </div>
+                                            <!-- /.direct-chat-text -->
+                                        </div>
+                                        <!-- /.direct-chat-msg -->
+
+                                        <!-- 消息显示，右边 -->
+                                        <div class="direct-chat-msg right">
+                                            <div class="direct-chat-info clearfix">
+                                                <span class="direct-chat-timestamp pull-left">2019-06-03 18:43:43</span>
+                                            </div>
+                                            <!-- /.direct-chat-info -->
+                                            <img class="direct-chat-img" src="../static/dist/img/user3-128x128.jpg"
+                                                 alt="Message User Image"><!-- /.direct-chat-img -->
+                                            <div class="direct-chat-text">
+                                                You better believe it!
+                                            </div>
+                                            <!-- /.direct-chat-text -->
+                                        </div>
+                                        <!-- /.direct-chat-msg -->
+
+                                        <!-- Message to the right -->
+                                        <div class="direct-chat-msg right">
+                                            <div class="direct-chat-info clearfix">
+                                                <span class="direct-chat-timestamp pull-left">2019-06-03 18:43:43</span>
+                                            </div>
+                                            <!-- /.direct-chat-info -->
+                                            <img class="direct-chat-img" src="../static/dist/img/user3-128x128.jpg"
+                                                 alt="Message User Image"><!-- /.direct-chat-img -->
+                                            <div class="direct-chat-text">
+                                                You better believe it!
+                                            </div>
+                                            <!-- /.direct-chat-text -->
+                                        </div>
+                                        <!-- /.direct-chat-msg -->
+
+                                        <!-- Message to the right -->
+                                        <div class="direct-chat-msg right">
+                                            <div class="direct-chat-info clearfix">
+                                                <span class="direct-chat-timestamp pull-left">2019-06-03 18:43:43</span>
+                                            </div>
+                                            <!-- /.direct-chat-info -->
+                                            <img class="direct-chat-img" src="../static/dist/img/user3-128x128.jpg"
+                                                 alt="Message User Image"><!-- /.direct-chat-img -->
+                                            <div class="direct-chat-text">
+                                                You better believe it!
+                                            </div>
+                                            <!-- /.direct-chat-text -->
+                                        </div>
+                                        <!-- /.direct-chat-msg -->
+
+
+                                        <!-- 消息显示，默认在左边 -->
+                                        <div class="direct-chat-msg">
+                                            <div class="direct-chat-info clearfix">
+                                                <span class="direct-chat-timestamp pull-right">2019-06-03 18:41:41</span>
+                                            </div>
+                                            <!-- /.direct-chat-info -->
+                                            <img class="direct-chat-img" src="../static/dist/img/user1-128x128.jpg"
+                                                 alt="Message User Image"><!-- /.direct-chat-img -->
+                                            <div class="direct-chat-text">
+                                                测试发送消息，这条消息很长长长长长长长长长长长长长长长长长长
+                                                长长长长长长长长长长长长长长长长长长长长长长长长
+                                            </div>
+                                            <!-- /.direct-chat-text -->
+                                        </div>
+                                        <!-- /.direct-chat-msg -->
+
+
+                                    </div>
+                                    <!--/.direct-chat-messages-->
+
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <form action="#" method="post">
+                                        <div class="input-group">
+                                            <input type="text" name="message" placeholder="Type Message ..."
+                                                   class="form-control">
+                                            <span class="input-group-btn">
+                        <button type="submit" class="btn btn-success btn-flat">Send</button>
+                      </span>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /.box-footer-->
+                            </div>
+                            <!--/.direct-chat -->
+                        </div>
                     </div>
-                    <div class="my-news-communication"></div>
-                    <div class="my-news-input">
-
-                        <textarea id="messageContent" type="text" class="my-news-input-text"
-                                  placeholder="回复一下吧"></textarea>
-                        <span style="margin-left: 450px;font-size: 12px">0/500</span>
-                        <button class="my-news-input-send" id="sendMessage" onclick="sendMessage(1)">发送</button>
-
-                    </div>
+                    <!--                    ./聊天框-->
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <!-- jQuery 3 -->
 <script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
 <!--cookie-->
@@ -206,11 +344,21 @@
 <!--stomp cdn-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 
+<!-- Bootstrap 3.3.7 -->
+<script src="../static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Slimscroll -->
+<script src="../static/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../static/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../static/dist/js/adminlte.min.js"></script>
+
 <script>
     var userId = $.cookie('userId');
+
     console.log(userId);
     $(function () {
-        getCommentReplyData(userId, 1);
+        //getCommentReplyData(userId, 1);
         connect();
     })
 
@@ -258,7 +406,7 @@
     }
 
 
-    //从后台得到数据
+    //从后台得到系统通知数据
     function getSystemMessage(userId, currPage) {
 
         $.ajax({
@@ -276,7 +424,7 @@
     }
 
 
-    //展示数据
+    //展示系统通知数据
     function showSystemMessage(data) {
         $("#systemMessage").empty();
         var appendhtml = '<div class="comment-catalog">&nbsp;&nbsp;系统通知</div>';
@@ -312,18 +460,40 @@
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
             stompClient.subscribe('/user/' + userId + '/chat/message', function (message) {
+
+
                 var json = JSON.parse(message.body);
-                console.log("news消息");
-                console.log(json);
-                // var messageType = json.messageType;
-                // var user = json.userName;
-                // var date = json.sendDate;
-                // var msg = json.content;
-                // if (messageType == "text"){
-                //     showNewMessage(user, date, msg);
-                // }else if (messageType == "image"){
-                //     showNewImage(user, date, msg);
-                // }
+                var data = json;
+                var chatMessages = data.chatMessages;
+                var sendId = data.sendId;
+                var userName = data.userName;
+                var icon = data.icon;
+                var receiveId = data.receiveId;
+                var receiveName = data.receiveName;
+                var receiveIcon = data.receiveIcon;
+
+
+                var appendhtml = '';
+                for (var i = 0; i < chatMessages.length; i++) {
+                    var chatMessage = chatMessages[i];
+                    appendhtml += '<div class="direct-chat-msg">\n' +
+                        '                                            <div class="direct-chat-info clearfix">\n' +
+                        '                                                <span class="direct-chat-timestamp pull-right">' + changeDateFormat(chatMessage.sendTime) + '</span>\n' +
+                        '                                            </div>\n' +
+                        '                                            <!-- /.direct-chat-info -->\n' +
+                        '                                            <img class="direct-chat-img" src="../static/dist/img/user1-128x128.jpg"\n' +
+                        '                                                 alt="Message User Image"><!-- /.direct-chat-img -->\n' +
+                        '                                            <div class="direct-chat-text">\n' +
+                        '                                                ' + chatMessage.message + '\n' +
+                        '                                            </div>\n' +
+                        '                                            <!-- /.direct-chat-text -->\n' +
+                        '                                        </div>'
+                }
+
+                var divid = sendId + "_" + receiveId;
+                $("#messagesbox").append(appendhtml);
+                var container = document.getElementById("messagesbox");
+                container.scrollTop = container.scrollHeight;
 
             })
         });
@@ -351,17 +521,173 @@
     /**
      * 发送输入框中的信息
      */
-    function sendMessage(test) {
-        var content = $("#messageContent").val();
+    function sendMessage(sendId, receiveId) {
+        var content = $("#content").val();
         console.log('发送消息内容' + content);
         if (content.trim().length != 0) {
-            $("#messageContent").val('');
+            $("#content").val('');
             stompClient.send("/app/chat/message", {}, JSON.stringify({
-                'receiveId': 1,
+                'receiveId': receiveId,
                 'message': content,
-                'sendId': userId
+                'sendId': sendId
             }));
+
+            console.log(new Date());
+
+            var appendhtml = '<div class="direct-chat-msg right">\n' +
+                '                                            <div class="direct-chat-info clearfix">\n' +
+                '                                                <span class="direct-chat-timestamp pull-left">' + changeDateFormat(new Date().getTime()) + '</span>\n' +
+                '                                            </div>\n' +
+                '                                            <!-- /.direct-chat-info -->\n' +
+                '                                            <img class="direct-chat-img" src="../static/dist/img/user3-128x128.jpg"\n' +
+                '                                                 alt="Message User Image"><!-- /.direct-chat-img -->\n' +
+                '                                            <div class="direct-chat-text">\n' +
+                '                                                ' + content + '\n' +
+                '                                            </div>\n' +
+                '                                            <!-- /.direct-chat-text -->\n' +
+                '                                        </div>'
+
+
+            var divid = sendId + "_" + receiveId;
+            $("#messagesbox").append(appendhtml);
+            var container = document.getElementById("messagesbox");
+            container.scrollTop = container.scrollHeight;
+
         }
+    }
+
+
+    /**
+     * 展示历史消息记录
+     * @param userId 自己的id
+     * @param receiveId 接收者的id
+     */
+    function showHistoryMessage(userId, receiveId) {
+        $.ajax({
+            url: '/chat/getMessages',
+            type: 'get',
+            data: {
+                mesId: userId + '_' + receiveId
+            },
+            success: function (data) {
+
+                if (data.code == 0) {
+                    $("#messageshow").empty()
+                    var data = data.data;//获取返回数据中的实际数据
+
+                    var chatMessages = data.chatMessages;
+                    var sendId = data.sendId;
+                    var userName = data.userName;
+                    var icon = data.icon;
+                    var receiveId = data.receiveId;
+                    var receiveName = data.receiveName;
+                    var receiveIcon = data.receiveIcon;
+
+                    var appendhtml = '<div class="box-header with-border">\n' +
+                        '                                    <h3 class="box-title">' + receiveName + '</h3>\n' +
+                        '                                </div>\n' +
+                        '                                <!-- /.box-header -->\n' +
+                        '                                <div class="box-body">\n' +
+                        '                                    <!-- 聊天消息框 -->\n' +
+                        '                                    <div class="direct-chat-messages" id="messagesbox">';
+
+                    for (var i = 0; i < chatMessages.length; i++) {
+                        var chatMessage = chatMessages[i];
+
+                        if (chatMessage.sendId == sendId) {
+                            appendhtml += '<div class="direct-chat-msg right">\n' +
+                                '                                            <div class="direct-chat-info clearfix">\n' +
+                                '                                                <span class="direct-chat-timestamp pull-left">' + changeDateFormat(chatMessage.sendTime) + '</span>\n' +
+                                '                                            </div>\n' +
+                                '                                            <!-- /.direct-chat-info -->\n' +
+                                '                                            <img class="direct-chat-img" src="../static/dist/img/user3-128x128.jpg"\n' +
+                                '                                                 alt="Message User Image"><!-- /.direct-chat-img -->\n' +
+                                '                                            <div class="direct-chat-text">\n' +
+                                '                                                ' + chatMessage.message + '\n' +
+                                '                                            </div>\n' +
+                                '                                            <!-- /.direct-chat-text -->\n' +
+                                '                                        </div>'
+                        } else {
+                            appendhtml += '<div class="direct-chat-msg">\n' +
+                                '                                            <div class="direct-chat-info clearfix">\n' +
+                                '                                                <span class="direct-chat-timestamp pull-right">' + changeDateFormat(chatMessage.sendTime) + '</span>\n' +
+                                '                                            </div>\n' +
+                                '                                            <!-- /.direct-chat-info -->\n' +
+                                '                                            <img class="direct-chat-img" src="../static/dist/img/user1-128x128.jpg"\n' +
+                                '                                                 alt="Message User Image"><!-- /.direct-chat-img -->\n' +
+                                '                                            <div class="direct-chat-text">\n' +
+                                '                                                ' + chatMessage.message + '\n' +
+                                '                                            </div>\n' +
+                                '                                            <!-- /.direct-chat-text -->\n' +
+                                '                                        </div>'
+                        }
+
+
+                    }
+
+                    appendhtml += ' </div>\n' +
+                        '                                    <!--/.direct-chat-messages-->\n' +
+                        '\n' +
+                        '                                </div>\n' +
+                        '                                <!-- /.box-body -->\n' +
+                        '                                <div class="box-footer">\n' +
+                        '                                    <div>\n' +
+                        '                                        <div class="input-group">\n' +
+                        '                                            <input id="content" type="text" name="message"\n' +
+                        '                                                   class="form-control">\n' +
+                        '                                            <span class="input-group-btn">\n' +
+                        '                        <button class="btn btn-success btn-flat" onclick="sendMessage(' + sendId + ',' + receiveId + ')">发送</button>\n' +
+                        '                      </span>\n' +
+                        '                                        </div>\n' +
+                        '                                    </div>\n' +
+                        '                                </div>';
+
+
+                    $("#messageshow").append(appendhtml);
+                    var container = document.getElementById("messagesbox");
+                    container.scrollTop = container.scrollHeight;
+                }
+
+            }
+        });
+    }
+
+
+    function getMessageBox() {
+
+        $.ajax({
+            url: '/chat/getMessageBox',
+            type:'get',
+            data:{
+                userId:userId
+            },
+            success:function (data) {
+                var data=data.data;
+                console.log(data);
+
+                var receiveId;
+
+                $("#showUser").empty();
+                var appendhtml='';
+                for (var i = 0; i < data.length; i++) {
+                    receiveId=data[0].receiveId;
+                    appendhtml+='<a href="#">\n' +
+                        '                        <div class="my-news-user-name">\n' +
+                        '                            <div class="comment-content-img"\n' +
+                        '                                 style="margin-top: 5px; width: 40px; height: 40px;margin-left: 10px;">\n' +
+                        '                                <img style="width: 40px; height: 40px;" src="../static/dist/img/head-portrait.png">\n' +
+                        '                            </div>\n' +
+                        '                            <div style="padding-top: 15px;">\n' +
+                        '                                <span style="margin-left: 10px;font-size: 15px;">'+data[i].receiveName+'</span>\n' +
+                        '                            </div>\n' +
+                        '                        </div>\n' +
+                        '                    </a>';
+                }
+
+                $("#showUser").append(appendhtml);
+                showHistoryMessage(userId,receiveId);
+            }
+        });
     }
 
 

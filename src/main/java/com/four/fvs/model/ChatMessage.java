@@ -4,6 +4,7 @@ import org.springframework.web.socket.WebSocketMessage;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * @Author: zjf
@@ -29,6 +30,19 @@ public class ChatMessage {
     private Integer receiveChatStatus;//接收者聊天框的状态，是已关闭还是未关闭 1 未关闭 2 已关闭
 
     private Integer del;//删除标志 1 未删除，2 已删除
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ChatMessage)) return false;
+        ChatMessage that = (ChatMessage) o;
+        return getMesId().equals(that.getMesId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getMesId());
+    }
 
     public ChatMessage() {
     }
