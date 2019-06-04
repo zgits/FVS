@@ -39,6 +39,8 @@ public class UserServiceImpl implements UserService {
         user.setSex("男");
         user.setIntroduce("这个家伙很懒，什么都没有留下");
         user.setCreateTime(new Date());
+        int image= (int) (Math.random()*8)+1;
+        user.setIcon("/static/resources/image/"+String.valueOf(image)+".png");
         user.setDel(1);
         return userDao.register(user)>0;
     }
@@ -46,6 +48,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserInfo(Integer id) {
         User user=userDao.getUserInfo(id);
+        if(user!=null)
         user.setPassword("");
         return user;
     }

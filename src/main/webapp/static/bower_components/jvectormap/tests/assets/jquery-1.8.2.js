@@ -1259,7 +1259,7 @@ jQuery.support = (function() {
 
 	all = div.getElementsByTagName("*");
 	a = div.getElementsByTagName("a")[ 0 ];
-	a.style.cssText = "top:1px;float:left;opacity:.5";
+	a.style.cssText = "5";
 
 	// Can't get basic test support
 	if ( !all || !all.length ) {

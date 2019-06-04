@@ -25,10 +25,10 @@ public interface ChatMessageDao {
 
     /**
      * 根据用户id得到未被删除的聊天框
-     * @param userId
+     * @param regexp 正则表达式字符串
      * @return
      */
-    public List<ChatMessage> getChatMessageBox(Integer userId);
+    public List<ChatMessage> getChatMessageBox(String regexp);
 
 
     /**

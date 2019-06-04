@@ -4,9 +4,15 @@ import com.four.fvs.common.Result;
 import com.four.fvs.common.ResultUtils;
 import com.four.fvs.model.User;
 import com.four.fvs.service.UserService;
+import com.four.fvs.service.VideoOpRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.HashSet;
 
 /**
  * @Author: zjf
@@ -21,22 +27,53 @@ public class UserController {
     private UserService userService;
 
 
+    @Autowired
+    private VideoOpRecordService videoOpRecordService;
+
+
     @PostMapping(value="/userlogin")
     @ResponseBody
-    public Result<Object> login(String userName,String password){
+    public Result<Object> login(HttpServletRequest request, String userName, String password){
         System.out.println("userName = [" + userName + "], password = [" + password + "]");
         User user=userService.login(userName, password);
         if(user!=null){
+
             /**
              * 登录成功
+             * 记录用户名，方便做在线人数登记
              */
-           return ResultUtils.success(user);
+            HttpSession session = request.getSession();
+            session.setAttribute("nickname",userName);
+            return ResultUtils.success(user);
         }else{
             /**
              * 登录失败
              */
             return ResultUtils.login_failed();
         }
+    }
+
+    /**
+     * 当用户注销时，手动删除session
+     *
+     * @param request
+     * @return
+     */
+    @PostMapping(value="/loginOut")
+    @ResponseBody
+    public Result<Object> loginOut(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        ServletContext context = session.getServletContext();
+        //在线人数减1
+        Integer lineCount = (Integer) context.getAttribute("linecount");
+        context.setAttribute("linecount",lineCount-1);
+        //移除session
+        HashSet<HttpSession> httpSessions = (HashSet<HttpSession>) context.getAttribute("sessionHashSet");
+        if (httpSessions != null){
+            httpSessions.remove(session);
+            return ResultUtils.success(1);
+        }
+        return ResultUtils.serviceerror();
     }
 
 
@@ -58,6 +95,20 @@ public class UserController {
             return ResultUtils.username_exist();
         }
         return ResultUtils.success(null);
+    }
+
+    @GetMapping(value = "/getUserInfo")
+    @ResponseBody
+    public Result<Object> getUserInfo(Integer userId){
+        return ResultUtils.success(userService.getUserInfo(userId));
+    }
+
+
+
+    @GetMapping(value = "/getPraiseInfo")
+    @ResponseBody
+    public Result<Object> getPraiseInfo(@RequestParam(defaultValue = "1") Integer currPage,Integer userId){
+        return ResultUtils.success(videoOpRecordService.getUserPraise(currPage,userId));
     }
 
 }

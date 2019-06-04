@@ -45,4 +45,12 @@ public interface VideoCommentService {
      * @return
      */
     public boolean givePraise(VideoOpRecord videoOpRecord);
+
+
+    /**
+     * 根据评论id获取评论信息
+     * @param id
+     * @return
+     */
+    public VideoComment getOneCommentById(Integer id);
 }

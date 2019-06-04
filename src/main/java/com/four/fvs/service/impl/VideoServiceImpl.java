@@ -8,6 +8,8 @@ import com.four.fvs.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 /**
  * @Author: zjf
  * @Date: 2019/5/25 16:38
@@ -31,6 +33,7 @@ public class VideoServiceImpl implements VideoService {
     @Override
     public boolean givePraise(VideoOpRecord videoOpRecord) {
         videoOpRecord.setOpType(1);
+        videoOpRecord.setTime(new Date());
         VideoOpRecord videoOpRecord1=videoOpRecordDao.getRecord(videoOpRecord);
         System.out.println(videoOpRecord1);
         int number=videoOpRecord1!=null?-1:1;
@@ -39,14 +42,15 @@ public class VideoServiceImpl implements VideoService {
         }else{
             videoOpRecordDao.addRecord(videoOpRecord);
         }
-        return videoDao.givePraise(videoOpRecord.getRecordId(),number)>0;
+        return videoDao.givePraise(videoOpRecord.getVideoId(),number)>0;
     }
 
     @Override
     public boolean giveShare(VideoOpRecord videoOpRecord) {
         videoOpRecord.setOpType(2);
+        videoOpRecord.setTime(new Date());
         videoOpRecordDao.addRecord(videoOpRecord);
-        return videoDao.giveShare(videoOpRecord.getRecordId())>0;
+        return videoDao.giveShare(videoOpRecord.getVideoId())>0;
     }
 
     /**
@@ -57,6 +61,7 @@ public class VideoServiceImpl implements VideoService {
     @Override
     public boolean giveCollection(VideoOpRecord videoOpRecord) {
         videoOpRecord.setOpType(3);
+        videoOpRecord.setTime(new Date());
         VideoOpRecord videoOpRecord1=videoOpRecordDao.getRecord(videoOpRecord);
         System.out.println(videoOpRecord1);
         if(videoOpRecord1!=null){
@@ -65,6 +70,6 @@ public class VideoServiceImpl implements VideoService {
             videoOpRecordDao.addRecord(videoOpRecord);
         }
         int number=videoOpRecord1!=null?-1:1;
-        return videoDao.giveCollection(videoOpRecord.getRecordId(),number)>0;
+        return videoDao.giveCollection(videoOpRecord.getVideoId(),number)>0;
     }
 }

@@ -11,6 +11,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.lang.reflect.Method;
 import java.util.Date;
 import java.util.List;
 
@@ -74,6 +78,20 @@ public class WebStatusController {
         else{
             return ResultUtils.paramerror();
         }
+    }
+
+    /**
+     * 在线人数统计
+     *
+     * @param request 服务请求
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
+    public Result<Object> get(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        ServletContext servletContext = session.getServletContext();
+        return ResultUtils.success(servletContext.getAttribute("linecount"));
     }
 
 

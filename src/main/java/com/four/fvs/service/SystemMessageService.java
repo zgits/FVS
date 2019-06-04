@@ -19,4 +19,22 @@ public interface SystemMessageService {
      * @return
      */
     PageBean<SystemMessage> getHistorySystemMessage(int currPage,int receiveId);
+
+    /**
+     * 插入数据
+     *
+     * @param systemMessage
+     * @return
+     */
+    Integer insertSystemMessage(SystemMessage systemMessage);
+
+
+    /**
+     * 根据用户ID来发送消息
+     *
+     * @param userId 用户ID
+     * @param content 消息内容
+     */
+    void sendMes( Integer userId, String content);
+
 }

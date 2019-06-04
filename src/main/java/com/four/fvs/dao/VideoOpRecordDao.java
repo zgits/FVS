@@ -4,6 +4,8 @@ import com.four.fvs.model.VideoOpRecord;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @Author: zjf
  * @Date: 2019/5/25 22:00
@@ -35,4 +37,12 @@ public interface VideoOpRecordDao {
      * @return
      */
     public Integer delRecord(VideoOpRecord videoOpRecord);
+
+
+    /**
+     * 根据userId得到用户得到的赞
+     * @param userId
+     * @return
+     */
+    public List<VideoOpRecord> getUserPraise(@Param("userId") Integer userId,@Param("begin")Integer begin,@Param("size") Integer size);
 }

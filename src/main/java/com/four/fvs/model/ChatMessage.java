@@ -36,12 +36,13 @@ public class ChatMessage {
         if (this == o) return true;
         if (!(o instanceof ChatMessage)) return false;
         ChatMessage that = (ChatMessage) o;
-        return getMesId().equals(that.getMesId());
+        return getReceiveId().equals(that.getReceiveId()) &&
+                getSendId().equals(that.getSendId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getMesId());
+        return Objects.hash(getReceiveId(), getSendId());
     }
 
     public ChatMessage() {

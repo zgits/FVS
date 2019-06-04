@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>goeasy_test</title>
+</head>
+<script type="text/javascript" src="https://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+<script type="text/javascript">
+    if(typeof GoEasy !== 'undefined'){
+        var goEasy = new GoEasy({
+            appkey: 'BC-ba1fdee766924b6ab8b658f2a2c23645'
+        });
+    }
+
+    //页面一加载就订阅
+    goEasy.subscribe({
+        channel: 'test1',
+        onMessage: function(message){
+            alert('Meessage received:'+message.content);
+        }
+    });
+</script>
+<body>
+
+</body>
+</html>
