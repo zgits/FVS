@@ -8,6 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.HashSet;
+
 /**
  * @Author: zjf
  * @Date: 2019/5/23 14:58
@@ -23,20 +28,47 @@ public class UserController {
 
     @PostMapping(value="/userlogin")
     @ResponseBody
-    public Result<Object> login(String userName,String password){
+    public Result<Object> login(HttpServletRequest request, String userName, String password){
         System.out.println("userName = [" + userName + "], password = [" + password + "]");
         User user=userService.login(userName, password);
         if(user!=null){
+
             /**
              * 登录成功
+             * 记录用户名，方便做在线人数登记
              */
-           return ResultUtils.success(user);
+            HttpSession session = request.getSession();
+            session.setAttribute("nickname",userName);
+            return ResultUtils.success(user);
         }else{
             /**
              * 登录失败
              */
             return ResultUtils.login_failed();
         }
+    }
+
+    /**
+     * 当用户注销时，手动删除session
+     *
+     * @param request
+     * @return
+     */
+    @PostMapping(value="/loginOut")
+    @ResponseBody
+    public Result<Object> loginOut(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        ServletContext context = session.getServletContext();
+        //在线人数减1
+        Integer lineCount = (Integer) context.getAttribute("linecount");
+        context.setAttribute("linecount",lineCount-1);
+        //移除session
+        HashSet<HttpSession> httpSessions = (HashSet<HttpSession>) context.getAttribute("sessionHashSet");
+        if (httpSessions != null){
+            httpSessions.remove(session);
+            return ResultUtils.success(1);
+        }
+        return ResultUtils.serviceerror();
     }
 
 
