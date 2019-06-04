@@ -1,5 +1,7 @@
 package com.four.fvs.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +20,8 @@ public class Video {
 
     private Integer userId;//视频上传人
 
+    //防止显示时间乱码
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date upTime;//视频上传时间
 
     private Integer vv;//视频播放量
@@ -42,6 +46,8 @@ public class Video {
 
     private List<BulletScreen> bulletScreenList;//弹幕集合
 
+    private User user;//用户信息
+
     @Override
     public String toString() {
         return "Video{" +
@@ -61,6 +67,7 @@ public class Video {
                 ", del=" + del +
                 ", videoCommentList=" + videoCommentList +
                 ", bulletScreenList=" + bulletScreenList +
+                ", user=" + user +
                 '}';
     }
 
@@ -192,5 +199,12 @@ public class Video {
 
     public void setSimpleIntroduce(String simpleIntroduce) {
         this.simpleIntroduce = simpleIntroduce;
+    }
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
