@@ -839,15 +839,15 @@
     });
 
     function PassSelect(){
-        $.ajax({
-            url: "/Pass/getPass",
-            type: "get",
-            dataType:"json",
-            success: function (data) {
-                console.log(data.data);
-                showVideoPass(data);
-            }
-        });
+            $.ajax({
+                url: "/Pass/getPass",
+                type: "get",
+                dataType:"json",
+                success: function (data) {
+                    console.log(data.data);
+                    showVideoPass(data);
+                }
+            });
     }
     function showVideoPass(data) {
         $("#example1").empty();

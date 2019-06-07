@@ -71,4 +71,24 @@ public interface VideoCommentDao {
 
 
 
+    /**
+     * @Author: yzh
+     * @Date: 2019/6/6 13:31
+     * @Description： 评论信息的管理
+     * /
+
+     /**
+     * 遍历所有评论信息
+     * @param
+     * @return
+     */
+    public List<VideoComment> getVideoCommentDao();
+
+    /**
+     * 删除某条评论
+     * @param
+     * @return
+     */
+    public Integer delVideoCommentDao(@Param("id")Integer videoCommentId);
+
 }
