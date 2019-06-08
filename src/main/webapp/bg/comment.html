@@ -1061,9 +1061,8 @@
 -->
 <script>
     $(function () {
-
-
         VideoCommentSelect();
+
     });
     function VideoCommentSelect() {
         $.ajax({
@@ -1073,6 +1072,7 @@
             success: function (data) {
                 console.log(data.data);
                 showVideoComment(data);
+                alert("获取评论信息成功！");
             }
         });
 
@@ -1092,7 +1092,7 @@
             "</thead>";
         for (var i = 0; i < data.data.length; i++) {
             appendhtml += "<tbody>\n" +
-                "<tr>" +
+                "<tr>\n" +
                 "<td>" + data.data[i].user.userName + "</td>" +
                 "<td>" + data.data[i].content + "</td>" +
                 "<td>" + data.data[i].createTime + "</td>" +
@@ -1105,7 +1105,10 @@
             "</tbody>";
         }
         $("#example3").append(appendhtml);
+
     }
+
+
 </script>
 
 

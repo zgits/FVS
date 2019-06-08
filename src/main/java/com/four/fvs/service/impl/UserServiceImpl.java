@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: zjf
@@ -52,4 +53,20 @@ public class UserServiceImpl implements UserService {
         user.setPassword("");
         return user;
     }
+
+    /**
+     * @Author: yzh
+     * @Date: 2019/6/8 18:01
+     * @Description: 用戶信息的管理
+     */
+
+    /**
+     * 遍历所有的用戶信息
+     * @param
+     * @return
+     */
+    public List<User> getAllUserService(){
+        return userDao.getAllUserDao();
+    }
+
 }

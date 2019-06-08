@@ -25,6 +25,6 @@ public interface PassDao {
      * 删除视频
      * @param
      * @return
-     */
+             */
     public Integer delVideoDao(@Param("id") Integer videoId);
 }

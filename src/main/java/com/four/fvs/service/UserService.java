@@ -2,6 +2,9 @@ package com.four.fvs.service;
 
 import com.four.fvs.model.User;
 
+import java.util.List;
+
+
 /**
  * @Author: zjf
  * @Date: 2019/5/23 14:44
@@ -40,4 +43,19 @@ public interface UserService {
      * @return
      */
     public User getUserInfo(Integer id);
+
+    /**
+     * @Author: yzh
+     * @Date: 2019/6/8 17:56
+     * @Description: 用户信息的管理
+     */
+
+    /**
+     * 遍历所有的用户信息
+     * @param
+     * @return
+     */
+
+    public List<User> getAllUserService();
+
 }

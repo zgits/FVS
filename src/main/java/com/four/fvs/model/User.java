@@ -27,6 +27,18 @@ public class User {
 
     private Integer del;//删除标志 1 未删除，2 已删除
 
+
+//    //用戶信息
+//    private User user;
+//
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
+
     @Override
     public String toString() {
         return "User{" +
