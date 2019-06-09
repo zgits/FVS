@@ -108,4 +108,33 @@ public class VideoCommentServiceImpl implements VideoCommentService {
     public VideoComment getOneCommentById(Integer id) {
         return videoCommentDao.getOneVideoCommentById(id);
     }
+
+    /**
+     * @Author: yzh
+     * @Date: 2019/6/6 14:02
+     * @Description： 评论信息的管理
+     * /
+
+    /**
+     * 遍历所有评论信息
+     * @param
+     * @return
+     */
+    @Override
+    public List<VideoComment> getVideoCommentService(){
+        return videoCommentDao.getVideoCommentDao();
+    }
+
+    /**
+     * 删除某条评论
+     * @param
+     * @return
+     */
+    @Override
+    public boolean  delVideoCommentService(Integer videoCommentId){
+        return videoCommentDao.delVideoCommentDao(videoCommentId)>0;
+    }
+
 }
+
+

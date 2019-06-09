@@ -839,17 +839,19 @@
     });
 
     function PassSelect(){
-        $.ajax({
-            url: "/Pass/getPass",
-            type: "get",
-            dataType:"json",
-            success: function (data) {
-                console.log(data.data);
-                showVideoPass(data);
-            }
-        });
+            $.ajax({
+                url: "/Pass/getPass",
+                type: "get",
+                dataType:"json",
+
+                success: function (data) {
+                    console.log(data.data);
+                    showVideoPass(data);
+                }
+            });
     }
     function showVideoPass(data) {
+
         $("#example1").empty();
         console.log("第二次：" + data.data.length);
         var appendhtml = "<thead>\n" +
