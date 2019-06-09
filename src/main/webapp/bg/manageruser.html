@@ -885,9 +885,9 @@
 
 <script>
     $(function () {
+        //把前面的静态数据置空
+        $("#example3").empty();
         SelectAllUser();
-
-
     });
 
     function SelectAllUser() {
@@ -895,18 +895,24 @@
             url: "/user/getAllUser",
             type: "get",
             dataType: "json",
+            //默认执行成功
             success: function (data) {
+                alert("获取用户信息成功！");
+                //控制台打印
                 console.log(data.data);
                 showAllUser(data);
-
+            },
+            error: function(data){
+                alert("获取用户信息失败！");
             }
         });
 
     }
 
     function showAllUser(data) {
-        $("#example3").empty();
+        //控制台打印
         console.log("第一次：" + data.data.length);
+        //按格式从数据库取数据
         var appendhtml =
             "<thead>\n" +
             "<tr>\n" +
@@ -924,7 +930,8 @@
                 "<td>" + data.data[i].sex + "</td>" +
                 "<td>\n" +
                 "<div class=\"btn-group\">" +
-                "<button type=\"button\" class=\"btn btn-info\">查看</button>\n" +
+                "<button type=\"button\" class=\"btn btn-info\" " +
+                "onclick=\"window.location.href='../bg/test.html'\">查看</button>\n" +
                 "<button type=\"button\" class=\"btn btn-success\">解禁</button>\n" +
                 "<button type=\"button\" class=\"btn btn-warning\"  data-toggle=\"modal\" data-target=\"#modal-warning\">禁言</button>\n" +
                 "</div>\n" +
@@ -932,16 +939,12 @@
                 "</tr>"
             "</tbody>";
         }
+        //将取得的数据追加进去
         $("#example3").append(appendhtml);
 
     }
 
-    if (data.data.length=0) {
-        alert("获取用戶信息失败！");
-    } else {
-        alert("获取用戶信息成功！");
 
-    }
 
 </script>
 

@@ -154,6 +154,7 @@ public class VideoCommentServiceImpl implements VideoCommentService {
      * @param
      * @return
      */
+    @Override
     public boolean  delVideoCommentService(Integer videoCommentId){
         return videoCommentDao.delVideoCommentDao(videoCommentId)>0;
     }

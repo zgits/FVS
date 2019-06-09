@@ -60,7 +60,18 @@ public interface UserDao {
      * @param
      * @return
      */
-
     public List<User> getAllUserDao();
 
+    /**
+     * @Author: yzh
+     * @Date: 2019/6/8 23:16
+     * @Description: 用戶信息的管理
+     */
+
+    /**
+     * 通过id得到某个用戶的信息
+     * @param id
+     * @return
+     */
+    public User getUserDao(@Param("id") Integer id);
 }
