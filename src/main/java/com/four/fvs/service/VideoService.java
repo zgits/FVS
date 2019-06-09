@@ -2,6 +2,9 @@ package com.four.fvs.service;
 
 import com.four.fvs.model.Video;
 import com.four.fvs.model.VideoOpRecord;
+import com.four.fvs.vo.VideoVo;
+
+import java.util.List;
 
 /**
  * @Author: zjf
@@ -15,7 +18,7 @@ public interface VideoService {
      * @param videoId
      * @return
      */
-    public Video getOneVideoById(Integer videoId);
+    public VideoVo getOneVideoById(Integer videoId);
 
 
     /**
@@ -41,4 +44,13 @@ public interface VideoService {
      * @return
      */
     public boolean giveCollection(VideoOpRecord videoOpRecord);
+
+
+    /**
+     *得到相同类型的视频信息
+     * @param userId
+     * @param type
+     * @return
+     */
+    public List<VideoVo> getTheSameVideo(Integer userId,Integer type);
 }

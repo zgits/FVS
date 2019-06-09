@@ -24,4 +24,19 @@ public interface FocusService {
      */
     public boolean addFocus(Focus focus);
 
+
+    /**
+     * 取消对某个用户的关注
+     * @param focus
+     * @return
+     */
+    public boolean delFocus(Focus focus);
+
+    /**
+     * 判断某个关注是否存在
+     * @param focus
+     * @return
+     */
+    public boolean ifExist(Focus focus);
+
 }
