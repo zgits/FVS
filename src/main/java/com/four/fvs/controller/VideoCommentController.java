@@ -30,7 +30,6 @@ public class VideoCommentController {
 
 
     /**
-     * 有一个问题，无法获得回复的用户信息，暂未解决 2019-5-25
      * @param currPage
      * @param videoId
      * @param type
