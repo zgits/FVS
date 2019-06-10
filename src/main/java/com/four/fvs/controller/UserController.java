@@ -111,4 +111,40 @@ public class UserController {
         return ResultUtils.success(videoOpRecordService.getUserPraise(currPage,userId));
     }
 
+    /**
+     * @Author: yzh
+     * @Date: 2019/6/8 16:32
+     * @Description: 用户信息的管理
+     */
+
+    /**
+     * 遍历所有的用户信息
+     * @param
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/getAllUser")
+    public Result<Object> getAllUser(){
+        return ResultUtils.success(userService.getAllUserService());
+    }
+
+    /**
+     * @Author: yzh
+     * @Date: 2019/6/8 23:04
+     * @Description: 用户信息的管理
+     */
+
+    /**
+     * 得到某个用户的信息
+     * @param
+     * @return
+     */
+
+    @ResponseBody
+    @GetMapping(value = "/getUser")
+    public Result<Object> getUser(Integer userId){
+            return ResultUtils.success(userService.getUserService(userId));
+
+    }
+
 }

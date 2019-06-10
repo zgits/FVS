@@ -72,32 +72,8 @@ public class VideoCommentServiceImpl implements VideoCommentService {
 
         for (VideoComment videoComment : videoComments) {
 
-            List<CommentReplyVo> commentReplyVos=new ArrayList<>();
-            List<CommentReply> commentReplies=commentReplyService.getCommentReply(videoComment.getId());
-
-            CommentReplyVo commentReplyVo;
-
-            for (CommentReply commentReply : commentReplies) {
-                commentReplyVo=new CommentReplyVo();
-                commentReplyVo.setCommentReply(commentReply);
-                User user=userService.getUserInfo(commentReply.getReplyId());
-                commentReplyVo.setIcon(user.getIcon());
-                commentReplyVo.setUserId(user.getId());
-                commentReplyVo.setUserName(user.getUserName());
-
-                User user1=userService.getUserInfo(commentReply.getBeReplyId());
-
-                commentReplyVo.setBeIcon(user1.getIcon());
-                commentReplyVo.setBeUserId(user1.getId());
-                commentReplyVo.setBeUserName(user1.getUserName());
-
-                commentReplyVos.add(commentReplyVo);
-            }
-
-
             videoCommentVo=new VideoCommentVo();
             videoCommentVo.setVideoComment(videoComment);
-            videoCommentVo.setCommentReplyVos(commentReplyVos);
             User user=userService.getUserInfo(videoComment.getUserId());
             videoCommentVo.setIcon(user.getIcon());//设置该条评论用户的头像地址
             videoCommentVo.setUserId(user.getId());
@@ -132,4 +108,33 @@ public class VideoCommentServiceImpl implements VideoCommentService {
     public VideoComment getOneCommentById(Integer id) {
         return videoCommentDao.getOneVideoCommentById(id);
     }
+
+    /**
+     * @Author: yzh
+     * @Date: 2019/6/6 14:02
+     * @Description： 评论信息的管理
+     * /
+
+    /**
+     * 遍历所有评论信息
+     * @param
+     * @return
+     */
+    @Override
+    public List<VideoComment> getVideoCommentService(){
+        return videoCommentDao.getVideoCommentDao();
+    }
+
+    /**
+     * 删除某条评论
+     * @param
+     * @return
+     */
+    @Override
+    public boolean  delVideoCommentService(Integer videoCommentId){
+        return videoCommentDao.delVideoCommentDao(videoCommentId)>0;
+    }
+
 }
+
+

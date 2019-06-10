@@ -28,6 +28,8 @@ public class VideoComment {
 
     private List<CommentReply> commentReplyList;//评论回复的集合
 
+    private User user;   //调用的用户信息
+
     @Override
     public String toString() {
         return "VideoComment{" +
@@ -113,5 +115,13 @@ public class VideoComment {
 
     public void setPraiseNumber(Integer praiseNumber) {
         this.praiseNumber = praiseNumber;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

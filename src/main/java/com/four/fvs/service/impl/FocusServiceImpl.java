@@ -24,6 +24,27 @@ public class FocusServiceImpl implements FocusService {
 
     @Override
     public boolean addFocus(Focus focus) {
-        return focusDao.addFocus(focus)>0;
+        focus.setDel(1);
+        if (ifExist(focus)) {
+            return false;
+        } else {
+            return focusDao.addFocus(focus) > 0;
+        }
+
+    }
+
+    @Override
+    public boolean delFocus(Focus focus) {
+        if (ifExist(focus)) {
+            return focusDao.delFocus(focus) > 0;
+        } else {
+            return false;
+        }
+
+    }
+
+    @Override
+    public boolean ifExist(Focus focus) {
+        return focusDao.ifExist(focus) != null;
     }
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>FREE视频-待审核视频</title>
+    <title>AdminLTE 2 | Data Tables</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -14,11 +14,37 @@
     <link rel="stylesheet" href="../static/bower_components/Ionicons/css/ionicons.min.css">
     <!-- DataTables -->
     <link rel="stylesheet" href="../static/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
     <!-- Theme style -->
     <link rel="stylesheet" href="../static/dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../static/dist/css/skins/_all-skins.min.css">
+
+<!--    -->
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="../static/dist/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<!--    <script src="../static/dist/bootstrap/jquery/jquery.min.js"></script>-->
+    <script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="../static/dist/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <link href="../static/dist/Admin/nav/fonts/iconfont.css" rel="stylesheet">
+
+    <script src="../static/dist/Admin/nav/js/nav.js"></script>
+
+    <!--table需要的静态资源-->
+
+    <link href="../static/dist/Admin/label/bootstrap-table.css" rel="stylesheet" media="screen">
+    <script src="../static/dist/Admin/label/bootstrap-table.js" type="text/javascript"></script>
+    <script src="../static/dist/Admin/label/bootstrap-table-zh-CN.js" charset="UTF-8"
+            type="text/javascript"></script>
+<!--    -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -407,7 +433,7 @@
                                     <th>操作</th>
                                 </tr>
                                 </thead>
-                                <li><a onclick="check1(name)"><%=arr.get(j).getTitle() %></a></li>
+
                             </table>
                         </div>
                         <!-- /.box-body -->
@@ -480,13 +506,63 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery 3 -->
-<script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="../static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- DataTables -->
-<script src="../static/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="../static/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+        $('#reportTable').bootstrapTable({
+            url: '/Auditing/getAuditing', // 请求后台的URL（*）
+            dataType: "json",
+            pagination: true, //前端处理分页
+            singleSelect: false,//是否只能单选
+            search: true, //显示搜索框，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+            //toolbar: '#toolbar1', //工具按钮用哪个容器
+            striped: true, //是否显示行间隔色
+            cache: false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+            pageNumber: 1, //初始化加载第10页，默认第一页
+            pageSize: 8, //每页的记录行数（*）
+            pageList: [5, 10, 50, 100], //可供选择的每页的行数（*）
+            strictSearch: true,//设置为 true启用 全匹配搜索，false为模糊搜索
+            showColumns: true, //显示内容列下拉框
+            showRefresh: true, //显示刷新按钮
+            minimumCountColumns: 2, //当列数小于此值时，将隐藏内容列下拉框
+            clickToSelect: true, //设置true， 将在点击某行时，自动勾选rediobox 和 checkbox
+            height: 450, //表格高度，如果没有设置height属性，表格自动根据记录条数决定表格高度#}
+            uniqueId: "id", //每一行的唯一标识，一般为主键列
+            showToggle: true, //是否显示详细视图和列表视图的切换按钮
+            cardView: false, //是否显示详细视图
+            //detailView: true, //是否显示父子表，设置为 true 可以显示详细页面模式,在每行最前边显示+号#}
+            sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
+            responseHandler: function(res) {
+                return {
+                    "rows": res.data   //数据
+                };
+            },
+            columns: [
+                {
+                    checkbox: true
+                },
+                //定义表头,这个表头必须定义,下边field后边跟的字段名字必须与后端传递的字段名字相同.如:id、name、price
+                //跟后端的字段名id  name price是完全一样的
+
+                {
+                    field: 'name',
+                    title: '视频名',
+                    align: 'center'
+                }, {
+                    field: 'upTime',
+                    title: '上传时间',
+                    align: 'center',
+                },
+                {
+                    title: "状态",
+                    field: 'status',
+                    align: 'center'
+                },
+            ],
+        });
+    });
+</script>
+
 <!-- SlimScroll -->
 <script src="../static/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
@@ -495,52 +571,50 @@
 <script src="../static/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../static/dist/js/color.js"></script>
+
+
 <!-- page script -->
+
 <script>
 
-        $(document).ready(function() {
-            $("#example1").dataTable({
-                "processing": true,
-                "serverSide": true,
-                'paging'      : true,
-                'lengthChange': false,
-                'searching'   : true,
-                'ordering'    : true,
-                'info'        : true,
-                'autoWidth'   : false,
-                "ajax" : {
-                    "url":"/Auditing/getAuditing",
-                    "data": function (d) {
-                        var info = $('#example1').DataTable().page.info();
-                        d.pageNo = info.page;
-                        d.pageSize = info.pageSize;
-                        d.searchValue = info.search;
-                    }
-                },
-                "columns": [
-                    {"data": 'user.userName' },
-                    {"data": 'name'},
-                    {"data": 'upTime'},
-                    {"data": 'typeId'},
-                    {"data": 'status'},
-                ],
-                "columnDefs": [
-                    {
-                        "targets": [5],
-                        "data": "id",
-                        "render": function(data, type, full) {
-                            return "<a href='/update?id=" + data + "'>Update</a>";
-                        }
-                    }
-                ]
-            });
-
-        });
-
-
-        function check1(name){
-            window.open ("videoPlay.html.jsp?id="+name, "newwindow", "height=320, width=550, top=250px, left=550px, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no")
-        }
+        // $(document).ready(function() {
+        //     $("#example1").dataTable({
+        //         "processing": true,
+        //         "serverSide": true,
+        //         'paging'      : true,
+        //         'lengthChange': false,
+        //         'searching'   : true,
+        //         'ordering'    : true,
+        //         'info'        : true,
+        //         'autoWidth'   : false,
+        //         "ajax" : {
+        //             "url":"/Auditing/getAuditing",
+        //             "data": function (d) {
+        //                 var info = $('#example1').DataTable().page.info();
+        //                 d.pageNo = info.page;
+        //                 d.pageSize = info.pageSize;
+        //                 d.searchValue = info.search;
+        //             }
+        //         },
+        //         "columns": [
+        //             {"data": 'user.userName' },
+        //             {"data": 'name'},
+        //             {"data": 'upTime'},
+        //             {"data": 'typeId'},
+        //             {"data": 'status'},
+        //         ],
+        //         "columnDefs": [
+        //             {
+        //                 "targets": [5],
+        //                 "data": "id",
+        //                 "render": function(data, type, full) {
+        //                     return "<a href='/update?id=" + data + "'>Update</a>";
+        //                 }
+        //             }
+        //         ]
+        //     });
+        //
+        // });
 /*
     $(function () {
         SelectInfo();

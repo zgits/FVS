@@ -5,13 +5,13 @@
 <mapper namespace="com.four.fvs.dao.VideoForHisPlayDao">
 
     <select id="getOneHisPlayById" resultType="com.four.fvs.model.VideoForHisPlay">
-        select * from videoforhispay
+        select * from videoforhisplay
         where id=#{id} and del=1
     </select>
 
 
     <select id="getTheSameHisPlayInfo" resultType="com.four.fvs.model.VideoForHisPlay">
-        select id,hisPlayId,name,sort from videoforhispay
+        select id,hisPlayId,name,sort from videoforhisplay
         where hisPlayId=#{hisPlayId} and del=1
     </select>
 

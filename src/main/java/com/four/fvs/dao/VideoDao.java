@@ -4,6 +4,8 @@ import com.four.fvs.model.Video;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @Author: zjf
  * @Date: 2019/5/25 16:30
@@ -45,6 +47,17 @@ public interface VideoDao {
      * @return
      */
     public Integer giveCollection(@Param("id")Integer videoId,@Param("number")Integer number);
+
+
+    /**
+     * 根据视频的类型或者是用户id得到相似的视频信息
+     * @param type
+     * @param userId
+     * @return
+     */
+    public List<Video> getTheSameVideo(@Param("userId")Integer userId, @Param("type") Integer type);
+
+
 
 
 

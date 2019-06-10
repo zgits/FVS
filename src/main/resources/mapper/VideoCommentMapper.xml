@@ -13,6 +13,17 @@
         <result property="praiseNumber" column="praiseNumber"></result>
         <result property="type" column="type"></result>
         <result property="del" column="del"></result>
+        <association property="user" javaType="com.four.fvs.model.User">
+            <result property="id" column="id"></result>
+            <result property="userName" column="userName"></result>
+            <result property="password" column="password"></result>
+            <result property="icon" column="icon"></result>
+            <result property="sex" column="sex"></result>
+            <result property="introduce" column="introduce"></result>
+            <result property="createTime" column="createTime"></result>
+            <result property="roleId" column="roleId"></result>
+            <result property="del" column="del"></result>
+        </association>
         <collection property="commentReplyList" ofType="com.four.fvs.model.CommentReply" columnPrefix="b_">
             <result property="id" column="id"></result>
             <result property="content" column="content"></result>
@@ -22,6 +33,7 @@
             <result property="commentId" column="commentId"></result>
             <result property="del" column="del"></result>
         </collection>
+
     </resultMap>
 
     <sql id="base_sql">
@@ -72,7 +84,7 @@
         from videocomment where videoId=#{videoId} and type=#{type} and del=1 limit #{begin},#{size}
         ) a
         left JOIN commentreply b on a.id=b.commentId and b.del=1
-        order by a.praiseNumber
+        order by a.createTime
     </select>
 
     <select id="getCount" resultType="Integer">
@@ -97,4 +109,34 @@
         select * from videocomment where id=#{id}
     </select>
 
+    <!--/**
+    * @Author: yzh
+    * @Date: 2019/6/6 14:22
+    * @Description： 评论信息的管理
+    * /
+
+    /**
+    * 遍历所有评论信息
+    * @param
+    * @return
+    */-->
+    <select id="getVideoCommentDao" resultMap="videocomment">
+--         select v.content,v.createTime,(
+--         select userName from user where u.id = v.userId) u
+--         from user,videocommnet;
+           select v.*,u.userName from (
+           select * from videocomment where del = 1
+           ) v left join user u on v.userId = u.id
+    </select>
+
+    <!--  /**
+     * 删除某条评论
+     * @param videoCommentId
+     * @return
+     */-->
+    <update id="delVideoCommentDao">
+        update videocomment
+        set del = 2
+        where id=#{id}
+    </update>
 </mapper>

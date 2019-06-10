@@ -51,4 +51,10 @@ public class VideoController {
         return ResultUtils.success(videoService.giveShare(videoOpRecord));
     }
 
+    @GetMapping("/getTheSameVideo")
+    @ResponseBody
+    public Result<Object> getTheSameVideo(Integer userId,Integer type){
+        return ResultUtils.success(videoService.getTheSameVideo(userId, type));
+    }
+
 }
