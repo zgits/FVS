@@ -13,7 +13,7 @@ describe 'Morris.Bar', ->
       gridTextSize: 12
       verticalGridCondition: (index) -> index % 2
       verticalGridColor: '#888888'
-      verticalGridOpacity: '0.2'
+      verticalGridOpacity: '2'
 
     describe 'svg structure', ->
       it 'should contain extra rectangles for vertical grid', ->

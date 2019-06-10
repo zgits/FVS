@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.four.fvs.dao.VideoOpRecordDao">
+
+
+    <sql id="base_sql">
+      userId,
+      type,
+      opType,
+      time,
+      del,
+      commentId,
+      videoId,
+      hisplayId,
+      beUserId,
+    </sql>
+
+    <insert id="addRecord" parameterType="com.four.fvs.model.VideoOpRecord">
+        insert into videooprecord
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <include refid="base_sql"></include>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            #{userId},
+            #{type},
+            #{opType},
+            #{time},
+            #{del},
+            #{commentId},
+            #{videoId},
+            #{hisplayId},
+            #{beUserId},
+        </trim>
+    </insert>
+
+
+    <update id="delRecord">
+        update videooprecord set
+        del=2
+        where userId=#{userId}
+        <if test="commentId != null">
+            and commentId=#{commentId}
+        </if>
+        <if test="hisplayId != null">
+            and hisplayId=#{hisplayId}
+        </if>
+        <if test="videoId != null">
+            and videoId=#{videoId}
+        </if>
+        and opType=#{opType}
+    </update>
+
+
+    <select id="getRecord" resultType="com.four.fvs.model.VideoOpRecord">
+        select * from videooprecord
+        where userId=#{userId}
+        <if test="commentId != null">
+            and commentId=#{commentId}
+        </if>
+        <if test="hisplayId != null">
+            and hisplayId=#{hisplayId}
+        </if>
+        <if test="videoId != null">
+            and videoId=#{videoId}
+        </if>
+        and opType=#{opType} and del=1
+    </select>
+
+
+    <select id="getUserPraise" resultType="com.four.fvs.model.VideoOpRecord">
+        select * from videooprecord
+        where beUserId=#{userId} and opType=1 and del=1
+        order by time desc
+        limit #{begin},#{size}
+    </select>
+</mapper>

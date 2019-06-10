@@ -1,6 +1,6 @@
 describe 'Morris.Grid#setData', ->
 
-  it 'should not alter user-supplied data', ->
+  it 'should not alter User-supplied data', ->
     my_data = [{x: 1, y: 1}, {x: 2, y: 2}]
     expected_data = [{x: 1, y: 1}, {x: 2, y: 2}]
     Morris.Line
@@ -19,7 +19,7 @@ describe 'Morris.Grid#setData', ->
         ykeys: ['y', 'z']
         labels: ['y', 'z']
 
-    it 'should use a user-specified minimum and maximum value', ->
+    it 'should use a User-specified minimum and maximum value', ->
       line = Morris.Line $.extend @defaults,
         data: [{x: 1, y: 1}]
         ymin: 10
@@ -63,7 +63,7 @@ describe 'Morris.Grid#setData', ->
         line.ymin.should.equal 11
         line.ymax.should.equal 13
 
-      it 'should use a user-specified minimum and maximum value', ->
+      it 'should use a User-specified minimum and maximum value', ->
         line = Morris.Line $.extend @defaults,
           data: [{x: 1, y: 10}, {x: 2, y: 15}, {x: 3, y: null}, {x: 4}]
           ymin: 'auto 5'
@@ -71,7 +71,7 @@ describe 'Morris.Grid#setData', ->
         line.ymin.should.equal 5
         line.ymax.should.equal 20
 
-      it 'should use a user-specified minimum and maximum value given no data', ->
+      it 'should use a User-specified minimum and maximum value given no data', ->
         line = Morris.Line $.extend @defaults,
           data: [{x: 1}, {x: 2}, {x: 3}, {x: 4}]
           ymin: 'auto 5'
@@ -147,7 +147,7 @@ describe 'Morris.Grid#setData', ->
         labels: ['y']
       line.data.map((row) -> row.label).should.deep.equal d.map((t) -> t.toString())
 
-    it 'should use a user-supplied formatter for labels', ->
+    it 'should use a User-supplied formatter for labels', ->
       line = Morris.Line
         element: 'graph'
         data: [
@@ -166,7 +166,7 @@ describe 'Morris.Grid#setData', ->
   it 'should parse y-values in strings', ->
     line = Morris.Line
       element: 'graph'
-      data: [{x: 2, y: '12'}, {x: 1, y: '13.5'}, {x: 4, y: '14'}, {x: 3, y: '16'}]
+      data: [{x: 2, y: '12'}, {x: 1, y: '5'}, {x: 4, y: '14'}, {x: 3, y: '16'}]
       xkey: 'x'
       ykeys: ['y']
       labels: ['y']
@@ -177,14 +177,14 @@ describe 'Morris.Grid#setData', ->
   it 'should clear the chart when empty data is supplied', ->
     line = Morris.Line
       element: 'graph',
-      data: [{x: 2, y: '12'}, {x: 1, y: '13.5'}, {x: 4, y: '14'}, {x: 3, y: '16'}]
+      data: [{x: 2, y: '12'}, {x: 1, y: '5'}, {x: 4, y: '14'}, {x: 3, y: '16'}]
       xkey: 'x'
       ykeys: ['y']
       labels: ['y']
     line.data.length.should.equal 4
     line.setData([])
     line.data.length.should.equal 0
-    line.setData([{x: 2, y: '12'}, {x: 1, y: '13.5'}, {x: 4, y: '14'}, {x: 3, y: '16'}])
+    line.setData([{x: 2, y: '12'}, {x: 1, y: '5'}, {x: 4, y: '14'}, {x: 3, y: '16'}])
     line.data.length.should.equal 4
 
   it 'should be able to add data if the chart is initialised with empty data', ->
@@ -195,7 +195,7 @@ describe 'Morris.Grid#setData', ->
       ykeys: ['y']
       labels: ['y']
     line.data.length.should.equal 0
-    line.setData([{x: 2, y: '12'}, {x: 1, y: '13.5'}, {x: 4, y: '14'}, {x: 3, y: '16'}])
+    line.setData([{x: 2, y: '12'}, {x: 1, y: '5'}, {x: 4, y: '14'}, {x: 3, y: '16'}])
     line.data.length.should.equal 4
 
   it 'should automatically choose significant numbers for y-labels', ->

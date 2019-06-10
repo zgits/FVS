@@ -93,7 +93,7 @@ module.exports = function (grunt) {
       tests: {
         options: {
           base: '.',
-          hostname: '127.0.0.1',
+          hostname: '1',
           port: 9999
         }
       }

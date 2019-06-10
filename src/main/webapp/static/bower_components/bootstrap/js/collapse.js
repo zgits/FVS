@@ -30,7 +30,7 @@
     if (this.options.toggle) this.toggle()
   }
 
-  Collapse.VERSION  = '3.4.1'
+  Collapse.VERSION  = '1'
 
   Collapse.TRANSITION_DURATION = 350
 

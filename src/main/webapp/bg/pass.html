@@ -827,16 +827,61 @@
 <!-- page script -->
 <script>
     $(function () {
-        $('#example1').DataTable()
-        $('#example2').DataTable({
+        $('#example1').DataTable({
             'paging'      : true,
             'lengthChange': false,
             'searching'   : true,
             'ordering'    : true,
             'info'        : true,
             'autoWidth'   : false
-        })
-    })
+        });
+        PassSelect();
+    });
+
+    function PassSelect(){
+            $.ajax({
+                url: "/Pass/getPass",
+                type: "get",
+                dataType:"json",
+
+                success: function (data) {
+                    console.log(data.data);
+                    showVideoPass(data);
+                }
+            });
+    }
+    function showVideoPass(data) {
+
+        $("#example1").empty();
+        console.log("第二次：" + data.data.length);
+        var appendhtml = "<thead>\n" +
+            "<tr>\n" +
+            "<th>" + "上传者" + "</th>" +
+            "<th>" + "上传视频" + "</th>" +
+            "<th>" + "上传时间" + "</th>" +
+            "<th>" + "所属分类" + "</th>" +
+            "<th>" + "状态" + "</th>" +
+            "<th>" + "操作" + "</th>" +
+            "</tr>" +
+            "</thead>";
+        for(var i = 0; i < data.data.length; i++){
+            appendhtml  += "<tbody>\n" +
+                "<tr>\n" +
+                "<td>" + data.data[i].user.userName + "</td>" +
+                "<td>" + data.data[i].name + "</td>" +
+                "<td>" + data.data[i].upTime + "</td>" +
+                "<td>" + data.data[i].typeId + "鬼畜" + "</td>" +
+                "<td>" + data.data[i].status + "未审核" + "</td>" +
+                "<td>\n" +
+                "<div class=\"btn-group\">" +
+                "<button type=\"button\" class=\"btn btn-warning\"  data-toggle=\"modal\" data-target=\"#modal-warning\">删除</button>\n" +
+                "</div>\n" +
+                "</td>" +
+                "</tr>"
+            "</tbody>";
+        }
+        $("#example1").append(appendhtml);
+    }
 </script>
 
 

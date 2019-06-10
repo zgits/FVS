@@ -15,9 +15,18 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
+
+  <!-- 添加GoEasy 专属Maven库 -->
+  <repositories>
+    <repository>
+      <id>goeasy</id>
+      <name>goeasy</name>
+      <url>http://maven.goeasy.io/content/repositories/releases/</url>
+    </repository>
+  </repositories>
 
   <dependencies>
     <dependency>
@@ -26,6 +35,31 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+
+    <!--日志相关依赖，采用slf4j和log4j2的组合-->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.25</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+      <version>2.8.1</version>
+    </dependency>
+<!--    log4j2-->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>2.8.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>2.8.2</version>
+    </dependency>
+<!--    ./log4j2-->
+<!--    ./日志相关依赖，采用slf4j和log4j2的组合-->
 
     <!-- 2.数据库 -->
     <dependency>
@@ -143,7 +177,70 @@
       <version>1.8.0</version>
     </dependency>
 
+<!--    解析视频的依赖-->
 
+    <dependency>
+      <groupId>org.bytedeco</groupId>
+      <artifactId>javacv</artifactId>
+      <version>1.4.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.bytedeco</groupId>
+      <artifactId>javacpp</artifactId>
+      <version>1.4.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.bytedeco.javacpp-presets</groupId>
+      <artifactId>opencv-platform</artifactId>
+      <version>3.4.1-1.4.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.bytedeco.javacpp-presets</groupId>
+      <artifactId>ffmpeg-platform</artifactId>
+      <version>3.4.2-1.4.1</version>
+    </dependency>
+<!--    ./解析视频的依赖-->
+
+    <!--spring websocket相关依赖-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-messaging</artifactId>
+      <version>4.3.10.RELEASE</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-websocket</artifactId>
+      <version>4.3.10.RELEASE</version>
+    </dependency>
+<!--    ./spring websocket相关依赖-->
+
+    <!--jackson绑定相关依赖-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.8.8</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.8.8</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>2.8.8</version>
+    </dependency>
+<!--    ./jackson绑定相关依赖-->
+
+    <!-- GoEasy依赖 -->
+    <dependency>
+      <groupId>io.goeasy</groupId>
+      <artifactId>goeasy-sdk</artifactId>
+      <version>0.3.8</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -181,5 +278,26 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+        </includes>
+        <filtering>false</filtering>
+      </resource>
+    </resources>
   </build>
 </project>
