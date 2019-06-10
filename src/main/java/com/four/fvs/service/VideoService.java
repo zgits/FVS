@@ -3,6 +3,8 @@ package com.four.fvs.service;
 import com.four.fvs.model.Video;
 import com.four.fvs.model.VideoOpRecord;
 
+import java.util.List;
+
 /**
  * @Author: zjf
  * @Date: 2019/5/25 16:37
@@ -41,4 +43,10 @@ public interface VideoService {
      * @return
      */
     public boolean giveCollection(VideoOpRecord videoOpRecord);
+
+    /**
+     *获取首页视频信息
+     * @return
+     */
+    public List<Video> getAllVideo();
 }

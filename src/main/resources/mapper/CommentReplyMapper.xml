@@ -10,6 +10,7 @@
       replyTime,
       replyId,
       beReplyId,
+      myContent,
       commentId,
       del,
     </sql>
@@ -24,6 +25,7 @@
         #{replyTime},
         #{replyId},
         #{beReplyId},
+        #{myContent},
         #{commentId},
         #{del},
       </trim>
@@ -35,7 +37,12 @@
       del=2 where id=#{id}
     </update>
 
-    <select id="getCommentReply" resultType="list">
-        select * from commentreply where commendId=#{commentId} and del=1
+    <select id="getCommentReply" resultType="com.four.fvs.model.CommentReply">
+        select * from commentreply where commentId=#{commentId} and del=1
+    </select>
+
+
+    <select id="getUserCommentReply" resultType="com.four.fvs.model.CommentReply">
+        select * from commentreply where beReplyId=#{beReplyId} and del=1 order by replyTime desc limit #{begin},#{size}
     </select>
 </mapper>

@@ -2,13 +2,11 @@ package com.four.fvs.controller;
 
 import com.four.fvs.common.Result;
 import com.four.fvs.common.ResultUtils;
+import com.four.fvs.model.SystemMessage;
 import com.four.fvs.service.SystemMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author: zjf
@@ -31,8 +29,33 @@ public class SystemMessageController {
      */
     @GetMapping("/getMessage")
     @ResponseBody
-    public Result<Object> getSystemMessage(@RequestParam(defaultValue = "1") Integer currPage, @RequestParam(value = "id") Integer receiveId){
+    public Result<Object> getSystemMessage(@RequestParam(defaultValue = "1") Integer currPage, @RequestParam(value = "userId") Integer receiveId){
         return ResultUtils.success(systemMessageService.getHistorySystemMessage(currPage,receiveId));
     }
+
+    /**
+     * 发送消息
+     *
+     * @param systemMessage 消息
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.POST)
+    @ResponseBody
+    public Result<Object> add(@RequestBody SystemMessage systemMessage){
+        if (systemMessage != null) {
+            int result = systemMessageService.insertSystemMessage(systemMessage);
+            //当写完消息时，发送消息
+            boolean flag = false;
+            if(result > 0){
+                systemMessageService.sendMes(systemMessage.getReceiveId(), systemMessage.getContent());
+                flag = true;
+            }
+            return flag == true ? ResultUtils.success(result) : ResultUtils.serviceerror();
+        }
+        return ResultUtils.paramerror();
+    }
+
+
+
 
 }

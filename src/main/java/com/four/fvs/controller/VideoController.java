@@ -51,4 +51,10 @@ public class VideoController {
         return ResultUtils.success(videoService.giveShare(videoOpRecord));
     }
 
+    @GetMapping("/getAllVideo")
+    @ResponseBody
+    public  Result<Object> getAllVideo(){
+        return ResultUtils.success(videoService.getAllVideo());
+    }
+
 }

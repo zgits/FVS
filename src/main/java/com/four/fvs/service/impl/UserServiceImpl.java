@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: zjf
@@ -21,7 +22,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User login(String userName, String password) {
-        return userDao.login(userName, password);
+        User user=userDao.login(userName, password);
+        if(user!=null){
+            user.setPassword("");
+        }
+        return user;
     }
 
     @Override
@@ -35,6 +40,8 @@ public class UserServiceImpl implements UserService {
         user.setSex("男");
         user.setIntroduce("这个家伙很懒，什么都没有留下");
         user.setCreateTime(new Date());
+        int image= (int) (Math.random()*8)+1;
+        user.setIcon("/static/resources/image/"+String.valueOf(image)+".png");
         user.setDel(1);
         return userDao.register(user)>0;
     }
@@ -42,7 +49,24 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserInfo(Integer id) {
         User user=userDao.getUserInfo(id);
+        if(user!=null)
         user.setPassword("");
         return user;
     }
+
+    /**
+     * @Author: yzh
+     * @Date: 2019/6/8 18:01
+     * @Description: 用戶信息的管理
+     */
+
+    /**
+     * 遍历所有的用戶信息
+     * @param
+     * @return
+     */
+    public List<User> getAllUserService(){
+        return userDao.getAllUserDao();
+    }
+
 }

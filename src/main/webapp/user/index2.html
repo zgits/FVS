@@ -224,17 +224,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="storey-box clearfix">
+                    <div class="storey-box clearfix" id="introduce">
 
                         <!--各视频介绍-->
-                        <div class="spread-module"><a href="/video/av52546182" target="_blank">
+                        <div class="spread-module" >
+                            <a href="/video/av52546182" target="_blank">
                             <div class="pic">
                                 <div class="lazy-img"><img alt=""
                                                            src="../static/layui/images/face/1.gif">
                                 </div>
 
                                 <div class="mask-video"></div>
-                                <span class="dur">03:54</span><!--播放时长-->
+                                <span class="dur"><p>03:54</p></span><!--播放时长-->
                                 <div class="watch-later-trigger w-later"></div>
                             </div>
                             <p title="杏辞洛天依 - 极乐净土" class="t">杏辞洛天依 - 极乐净土</p>
@@ -924,7 +925,7 @@
 
 </div>
 
-
+<script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
 
 <script src="../static/layui/layui.js" charset="utf-8"></script>
 <script>
@@ -942,7 +943,80 @@
         document.documentElement.scrollTop = 0;
     }
 </script>
+<script>
+    $(function () {
+        SelectAllVideo();
 
+
+    });
+
+    function SelectAllVideo() {
+        $.ajax({
+            url: "/video/getAllVideo",
+            type: "get",
+            dataType: "json",
+            success: function (data) {
+                console.log(data.data);
+                showAllvideo(data);
+
+            }
+        });
+
+    }
+
+    function showAllvideo(data) {
+        $("#introduce").empty();
+        console.log("第一次：" + data.data.length);
+        /*appendhtml += "<tbody>\n" +
+            "<tr>\n" +
+            "<td>" + data.data[i].userName + "</td>" +
+            "<td>" + data.data[i].introduce + "</td>" +
+            "<td>" + data.data[i].sex + "</td>" +
+            "<td>\n" +
+            "<div class=\"btn-group\">" +
+            "<button type=\"button\" class=\"btn btn-info\">查看</button>\n" +
+            "<button type=\"button\" class=\"btn btn-success\">解禁</button>\n" +
+            "<button type=\"button\" class=\"btn btn-warning\"  data-toggle=\"modal\" data-target=\"#modal-warning\">禁言</button>\n" +
+            "</div>\n" +
+            "</td>" +
+            "</tr>"+
+            "</tbody>";*/
+
+        var appendhtml='';
+        for (var i = 0; i < data.data.length; i++) {
+             if(data.data[i].typeId==1) {
+
+                 appendhtml += '<div class="spread-module" >' +
+                     '<a href="/video.html?videoId=" target="_blank">\n' +
+                     '            <div class="pic">\n' +
+                     '            <div class="lazy-img"><img alt=""\n' +
+                     '        src="..' + data.data[i].firstImagePath + '">\n' +
+                     '            </div>\n' +
+                     '\n' +
+                     '            <div class="mask-video"></div>\n' +
+                     '            <span class="dur"><p>'+data.data[i].videoLength+'</p></span><!--播放时长-->\n' +
+                     '        <div class="watch-later-trigger w-later"></div>\n' +
+                     '            </div>\n' +
+                     '            <p title="' + data.data[i].name + '" class="t">' + data.data[i].name + '</p>\n' +
+                     '            <p class="num"><span class="play"><i class="icon"></i><!--播放量-->' + data.data[i].vv + '</span>\n' +
+                     '        <span class="danmu"><i class="icon"></i>1343</span>\n' +
+                     '        </p></a>' +
+                     '</div>';
+             }
+        }
+
+        $("#introduce").append(appendhtml);
+
+    }
+
+    if (data.length=0) {
+        alert("获取用戶信息失败！");
+    } else {
+        alert("获取用戶信息成功！");
+
+    }
+
+</script>
 
 </body>
 </html>

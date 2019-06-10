@@ -5,6 +5,8 @@ import com.four.fvs.model.VideoComment;
 import com.four.fvs.model.VideoOpRecord;
 import com.four.fvs.vo.VideoCommentVo;
 
+import java.util.List;
+
 /**
  * @Author: zjf
  * @Date: 2019/5/24 12:18
@@ -45,4 +47,32 @@ public interface VideoCommentService {
      * @return
      */
     public boolean givePraise(VideoOpRecord videoOpRecord);
+
+
+    /**
+     * 根据评论id获取评论信息
+     * @param id
+     * @return
+     */
+    public VideoComment getOneCommentById(Integer id);
+
+    /**
+     * @Author: yzh
+     * @Date: 2019/6/6 13:55
+     * @Description： 评论信息的管理
+     * /
+
+    /**
+     * 遍历所有评论信息
+     * @param
+     * @return
+     */
+    public List<VideoComment> getVideoCommentService();
+
+    /**
+     * 删除评论信息
+     * @param
+     * @return
+     */
+    public boolean delVideoCommentService(Integer videoCommentId);
 }

@@ -4,17 +4,51 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.four.fvs.dao.ChatMessageDao">
 
+
+  <sql id="base_sql">
+    mesId,
+    message,
+    sendTime,
+    receiveId,
+    sendId,
+    sendChatStatus,
+    receiveChatStatus,
+    del,
+  </sql>
+
     <insert id="insertChatMessage" parameterType="com.four.fvs.model.ChatMessage">
-      insert into chatmessage values
-      (
-      #{id},
-      #{mesId},
-      #{message},
-      #{sendTime},
-      #{receiveId},
-      #{sendId},
-      #{msgStatus},
-      #{del}
-      )
+      insert into chatmessage
+      <trim prefix="(" suffix=")" suffixOverrides=",">
+        <include refid="base_sql"></include>
+      </trim>
+      <trim prefix="values(" suffix=")" suffixOverrides=",">
+        #{mesId},
+        #{message},
+        #{sendTime},
+        #{receiveId},
+        #{sendId},
+        #{sendChatStatus},
+        #{receiveChatStatus},
+        #{del},
+      </trim>
     </insert>
+
+
+  <update id="updateChatMessageBox">
+    update chatmessage set sendChatStatus=2 where mesId=#{mesId}
+  </update>
+
+
+  <select id="getChatMessageBox" resultType="com.four.fvs.model.ChatMessage">
+    select * from chatmessage
+    where mesId REGEXP #{regexp}  and sendChatStatus=1 and del=1
+    order by sendTime desc
+  </select>
+
+
+  <select id="getChatMessages" resultType="com.four.fvs.model.ChatMessage">
+    select * from chatmessage
+    where (mesId=#{mesId1} or mesId=#{mesId2}) and del=1
+    order by sendTime
+  </select>
 </mapper>

@@ -4,6 +4,8 @@ import com.four.fvs.model.Video;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @Author: zjf
  * @Date: 2019/5/25 16:30
@@ -46,6 +48,10 @@ public interface VideoDao {
      */
     public Integer giveCollection(@Param("id")Integer videoId,@Param("number")Integer number);
 
-
+    /**
+     * 获取首页视频
+     * @return
+     */
+    public List<Video> getAllVideo();
 
 }

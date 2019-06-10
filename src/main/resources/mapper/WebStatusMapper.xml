@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.four.fvs.dao.WebStatusDao">
+    <resultMap id="webStatus" type="com.four.fvs.model.WebStatus">
+        <id property="id" column="id"/>
+        <result property="visitTime" column="visit_time"/>
+        <result property="userId" column="user_id"/>
+        <result property="deleted" column="is_deleted"/>
+    </resultMap>
+
+    <resultMap id="videoPlayList" type="com.four.fvs.model.VideoPlayList">
+        <id property="id" column="id"/>
+        <result property="videoId" column="video_id"/>
+        <result property="watchTime" column="watch_time"/>
+    </resultMap>
+
+    <resultMap id="video" type="com.four.fvs.model.Video">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="typeId" column="typeId"/>
+        <result property="userId" column="userId"/>
+        <result property="vv" column="vv"/>
+        <result property="videoSrc" column="videoSrc"/>
+    </resultMap>
+
+    <insert id="insertWebStatus" parameterType="webStatus">
+        insert into web_status(user_id) values(#{userId})
+    </insert>
+
+    <select id="countVisitForWeek" resultType="int">
+        select count(id) from web_status
+         where visit_time between DATE_SUB(#{visitTime} ,INTERVAL 1 WEEK) and #{visitTime}
+    </select>
+
+    <select id="countVisitForTimeQuantum" resultType="int">
+        select count(id) from web_status
+         where visit_time between DATE_SUB(#{visitTime} ,INTERVAL 2 hour ) and #{visitTime}
+    </select>
+
+    <select id="listTopVideoForVVs" resultType="video">
+        select a.id,a.name,a.typeId,a.userId,a.vv,a.videoSrc from video a ,video_play_list b
+          where  watch_time between DATE_SUB(#{watchTime} ,INTERVAL 1 WEEK) and #{watchTime}
+            and a.id = b.video_id group by a.id order by count(a.id) desc limit 10
+    </select>
+</mapper>

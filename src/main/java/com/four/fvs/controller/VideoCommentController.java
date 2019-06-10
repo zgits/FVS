@@ -55,5 +55,33 @@ public class VideoCommentController {
         return ResultUtils.success(videoCommentService.givePraise(videoOpRecord));
     }
 
+    /**
+     * @Author: yzh
+     * @Date: 2019/6/6 13:49
+     * @Description: 评论信息的管理
+     */
 
+    /**
+     * 遍历所有的评论信息
+     * @param
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/getVideoComment")
+    public Result<Object> getVideoComment() {
+        return ResultUtils.success(videoCommentService.getVideoCommentService());
+    }
+
+    /**
+     * 删除评论信息
+     * @param
+     * @return
+     */
+
+    @ResponseBody
+    @DeleteMapping("/delVideoComment")
+    public Result<Object> delVideoComment(@RequestParam("id")Integer videoCommentId){
+        videoCommentService.delVideoCommentService(videoCommentId);
+        return getVideoComment();
+    }
 }

@@ -17,6 +17,7 @@ public interface SystemMessageDao {
 
     /**
      * 分页查询系统通知
+     *
      * @param begin 开始位置
      * @param size 每页大小
      * @param receiveId 用户id
@@ -28,4 +29,15 @@ public interface SystemMessageDao {
             @Param("size") int size,
             @Param("receiveId") int receiveId,
             @Param("createTime")Date createTime);
+
+
+    /**
+     * 系统通知消息录入
+     *
+     * @param systemMessage
+     * @return
+     */
+    Integer insertSystemMessage(SystemMessage systemMessage);
+
+
 }

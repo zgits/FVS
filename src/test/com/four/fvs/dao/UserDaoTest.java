@@ -23,7 +23,7 @@ public class UserDaoTest extends BaseTest {
     public void insert() {
         User user=new User();
         user.setPassword("1111");
-        user.setUserName("test");
+        user.setUserName("test1221");
         user.setCreateTime(new Date());
         user.setIcon("test000220");
         user.setIntroduce("这个家伙很懒");

@@ -3,10 +3,26 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.four.fvs.dao.SystemMessageDao">
+
+    <resultMap id="systemMessage" type="com.four.fvs.model.SystemMessage">
+        <id property="id" column="id"/>
+        <result property="content" column="content"/>
+        <result property="sendType" column="sendType"/>
+        <result property="sendTime" column="sendTime"/>
+        <result property="receiveId" column="receiveId"/>
+        <result property="del" column="del"/>
+        <result property="title" column="title"/>
+    </resultMap>
+
     <select id="getHistorySystemMessage" resultType="com.four.fvs.model.SystemMessage">
         select * from systemmessage
         where (receiveId=#{receiveId} or receiveId is null) and sendTime>#{createTime} and del=1
         order by sendTime desc
         limit #{begin},#{size}
     </select>
+
+    <insert id="insertSystemMessage" parameterType="systemMessage">
+        insert into systemmessage(content,sendType,receiveId,title)
+          values (#{content}, #{sendType}, #{receiveId}, #{title})
+    </insert>
 </mapper>

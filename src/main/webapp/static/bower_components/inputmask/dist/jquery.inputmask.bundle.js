@@ -2171,7 +2171,7 @@
                 alias: "mm/dd/yyyy"
             },
             "yyyy.mm.dd": {
-                mask: "y.1.2",
+                mask: "1.2",
                 placeholder: "yyyy.mm.dd",
                 leapday: ".02.29",
                 separator: ".",

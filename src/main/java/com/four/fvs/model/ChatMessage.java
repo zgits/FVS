@@ -1,6 +1,10 @@
 package com.four.fvs.model;
 
+import org.springframework.web.socket.WebSocketMessage;
+
+import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * @Author: zjf
@@ -11,7 +15,7 @@ public class ChatMessage {
 
     private Integer id;//id
 
-    private Integer mesId;//聊天id,系统自动生成，一份聊天就一个标识
+    private String mesId;//聊天id,系统自动生成，两位用户之间以“sendId_receiveId"生成聊天标识
 
     private String message;//消息内容
 
@@ -21,9 +25,41 @@ public class ChatMessage {
 
     private Integer sendId;//消息发送者
 
-    private Integer msgStatus;//消息发送状态 1、发送成功(默认) 2、发送失败 3、发送中
+    private Integer sendChatStatus;//发送者聊天框的状态，是已关闭还是未关闭 1 未关闭 2 已关闭
+
+    private Integer receiveChatStatus;//接收者聊天框的状态，是已关闭还是未关闭 1 未关闭 2 已关闭
 
     private Integer del;//删除标志 1 未删除，2 已删除
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ChatMessage)) return false;
+        ChatMessage that = (ChatMessage) o;
+        return getReceiveId().equals(that.getReceiveId()) &&
+                getSendId().equals(that.getSendId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getReceiveId(), getSendId());
+    }
+
+    public ChatMessage() {
+    }
+
+    public ChatMessage(Integer id, String mesId, String message, Date sendTime, Integer receiveId, Integer sendId, Integer sendChatStatus, Integer receiveChatStatus, Integer del) {
+        this.id = id;
+        this.mesId = mesId;
+        this.message = message;
+        this.sendTime = sendTime;
+        this.receiveId = receiveId;
+        this.sendId = sendId;
+        this.sendChatStatus = sendChatStatus;
+        this.receiveChatStatus = receiveChatStatus;
+        this.del = del;
+    }
+
 
     @Override
     public String toString() {
@@ -34,24 +70,25 @@ public class ChatMessage {
                 ", sendTime=" + sendTime +
                 ", receiveId=" + receiveId +
                 ", sendId=" + sendId +
-                ", msgStatus=" + msgStatus +
+                ", sendChatStatus=" + sendChatStatus +
+                ", receiveChatStatus=" + receiveChatStatus +
                 ", del=" + del +
                 '}';
     }
 
-    public Integer getDel() {
-        return del;
+    public Integer getId() {
+        return id;
     }
 
-    public void setDel(Integer del) {
-        this.del = del;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Integer getMesId() {
+    public String getMesId() {
         return mesId;
     }
 
-    public void setMesId(Integer mesId) {
+    public void setMesId(String mesId) {
         this.mesId = mesId;
     }
 
@@ -87,19 +124,27 @@ public class ChatMessage {
         this.sendId = sendId;
     }
 
-    public Integer getMsgStatus() {
-        return msgStatus;
+    public Integer getSendChatStatus() {
+        return sendChatStatus;
     }
 
-    public void setMsgStatus(Integer msgStatus) {
-        this.msgStatus = msgStatus;
+    public void setSendChatStatus(Integer sendChatStatus) {
+        this.sendChatStatus = sendChatStatus;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getReceiveChatStatus() {
+        return receiveChatStatus;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setReceiveChatStatus(Integer receiveChatStatus) {
+        this.receiveChatStatus = receiveChatStatus;
+    }
+
+    public Integer getDel() {
+        return del;
+    }
+
+    public void setDel(Integer del) {
+        this.del = del;
     }
 }

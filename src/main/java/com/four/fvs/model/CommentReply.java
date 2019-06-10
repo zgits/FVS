@@ -21,6 +21,8 @@ public class CommentReply {
 
     private Integer commentId;//评论id
 
+    private String myContent;//自己的关于某条评论的回复内容
+
     private Integer del;//删除标志 1 未删除，2 已删除
 
 
@@ -33,8 +35,17 @@ public class CommentReply {
                 ", replyId=" + replyId +
                 ", beReplyId=" + beReplyId +
                 ", commentId=" + commentId +
+                ", myContent='" + myContent + '\'' +
                 ", del=" + del +
                 '}';
+    }
+
+    public String getMyContent() {
+        return myContent;
+    }
+
+    public void setMyContent(String myContent) {
+        this.myContent = myContent;
     }
 
     public Integer getDel() {

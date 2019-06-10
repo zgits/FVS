@@ -4194,7 +4194,7 @@ $.extend(Datepicker.prototype, {
 			target.disabled = true;
 			inst.trigger.filter("button").
 				each(function() { this.disabled = true; }).end().
-				filter("img").css({opacity: "0.5", cursor: "default"});
+				filter("img").css({opacity: "5", cursor: "default"});
 		} else if (nodeName === "div" || nodeName === "span") {
 			inline = $target.children("." + this._inlineClass);
 			inline.children().addClass("ui-state-disabled");
