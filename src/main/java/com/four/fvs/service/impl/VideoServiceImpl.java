@@ -120,4 +120,9 @@ public class VideoServiceImpl implements VideoService {
         return result;
 
     }
+
+    @Override
+    public boolean getIfExistOpRecord(VideoOpRecord videoOpRecord) {
+        return videoOpRecordDao.getRecord(videoOpRecord)!=null;
+    }
 }

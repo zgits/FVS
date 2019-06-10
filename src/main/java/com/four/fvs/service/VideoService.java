@@ -53,4 +53,12 @@ public interface VideoService {
      * @return
      */
     public List<VideoVo> getTheSameVideo(Integer userId,Integer type);
+
+
+    /**
+     * 查询某个操作记录是否存在
+     * @param videoOpRecord
+     * @return
+     */
+    public boolean getIfExistOpRecord(VideoOpRecord videoOpRecord);
 }

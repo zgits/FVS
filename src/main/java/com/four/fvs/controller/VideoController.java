@@ -6,10 +6,7 @@ import com.four.fvs.model.VideoOpRecord;
 import com.four.fvs.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author: zjf
@@ -33,21 +30,21 @@ public class VideoController {
 
     @PatchMapping("/givePraise")
     @ResponseBody
-    public Result<Object> givePraise(VideoOpRecord videoOpRecord){
+    public Result<Object> givePraise(@RequestBody VideoOpRecord videoOpRecord){
         return ResultUtils.success(videoService.givePraise(videoOpRecord));
     }
 
 
     @PatchMapping("/giveCollection")
     @ResponseBody
-    public Result<Object> giveCollection(VideoOpRecord videoOpRecord){
+    public Result<Object> giveCollection(@RequestBody VideoOpRecord videoOpRecord){
         return ResultUtils.success(videoService.giveCollection(videoOpRecord));
     }
 
 
     @PatchMapping("/giveShare")
     @ResponseBody
-    public Result<Object> giveShare(VideoOpRecord videoOpRecord){
+    public Result<Object> giveShare(@RequestBody VideoOpRecord videoOpRecord){
         return ResultUtils.success(videoService.giveShare(videoOpRecord));
     }
 
@@ -55,6 +52,13 @@ public class VideoController {
     @ResponseBody
     public Result<Object> getTheSameVideo(Integer userId,Integer type){
         return ResultUtils.success(videoService.getTheSameVideo(userId, type));
+    }
+
+
+    @GetMapping("/ifExistOp")
+    @ResponseBody
+    public Result<Object> ifExistOp(VideoOpRecord videoOpRecord){
+        return ResultUtils.success(videoService.getIfExistOpRecord(videoOpRecord));
     }
 
 }
