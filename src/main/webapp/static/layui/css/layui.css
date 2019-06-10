@@ -3,6 +3,10 @@
     display: inline-block;
     vertical-align: middle
 }
+.layui-inline, imgfans {
+    display: inline-block;
+    vertical-align: middle
+}
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 400
@@ -21,6 +25,9 @@ h1, h2, h3, h4, h5, h6 {
     vertical-align: middle
 }
 
+.layui-btn, .layui-edge, .layui-inline, imgfans {
+    vertical-align: middle
+}
 .layui-btn, .layui-disabled, .layui-icon, .layui-unselect {
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -40,7 +47,9 @@ a:active, a:hover {
 img {
     border: none
 }
-
+imgfans {
+    border: none
+}
 li {
     list-style: none
 }
@@ -2853,6 +2862,9 @@ a cite {
 .layui-table img {
     max-width: 100px
 }
+.layui-table imgfans{
+    max-width: 100px
+}
 
 .layui-table[lay-size=lg] td, .layui-table[lay-size=lg] th {
     padding: 15px 30px
@@ -3561,6 +3573,13 @@ body .layui-table-tips .layui-layer-content {
     width: 30px;
     height: 30px;
     margin-right: 10px;
+    border-radius: 50%
+}
+
+.layui-nav-imgfans {
+    width: 30px;
+    height: 30px;
+    margin-right: 50px;
     border-radius: 50%
 }
 
