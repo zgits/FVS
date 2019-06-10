@@ -41,4 +41,18 @@
          update video set
         del = 2 where id=#{id}
     </update>
+
+    <select id="searchPassDao" resultMap="video">
+        select v.*,u.userName from (
+                        select * from video where status = 2 and del = 1
+                        ) v left join user u on v.userId = u.id
+                        where v.name like CONCAT('%',#{searchContent},'%') or u.userName like CONCAT('%',#{searchContent},'%')
+
+    </select>
+
+    <update id="editVideoDao" parameterType="com.four.fvs.model.Video">
+        update video set
+        typeId = #{typeId}
+        where id=#{id}
+    </update>
 </mapper>

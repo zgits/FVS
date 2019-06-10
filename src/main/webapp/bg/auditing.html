@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Data Tables</title>
+    <title>FREE视频-待审核视频</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -407,7 +407,7 @@
                                     <th>操作</th>
                                 </tr>
                                 </thead>
-
+                                <li><a onclick="check1(name)"><%=arr.get(j).getTitle() %></a></li>
                             </table>
                         </div>
                         <!-- /.box-body -->
@@ -536,6 +536,11 @@
             });
 
         });
+
+
+        function check1(name){
+            window.open ("videoPlay.html.jsp?id="+name, "newwindow", "height=320, width=550, top=250px, left=550px, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no")
+        }
 /*
     $(function () {
         SelectInfo();
