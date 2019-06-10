@@ -1061,6 +1061,8 @@
 -->
 <script>
     $(function () {
+        //把前面的静态数据置空
+        $("#example3").empty();
         VideoCommentSelect();
 
     });
@@ -1069,24 +1071,30 @@
             url: "/videoComment/getVideoComment",
             type: "get",
             dataType: "json",
+            //默认执行成功
             success: function (data) {
+                //控制台打印
                 console.log(data.data);
                 showVideoComment(data);
                 alert("获取评论信息成功！");
+            },
+            error: function(){
+                alert("获取评论信息失败！");
             }
         });
 
     }
 
     function showVideoComment(data) {
-        $("#example3").empty();
+        //控制台打印
         console.log("第一次：" + data.data.length);
+        //按格式从数据库取数据
         var appendhtml =
             "<thead>\n" +
             "<tr>\n" +
             "<th>" + "评论者" + "</th>" +
             "<th>" + "评论内容" + "</th>" +
-            "<th>" + "时间" + "</th>" +
+            "<th>" + "评论时间" + "</th>" +
             "<th>" + "操作" + "</th>" +
             "</tr>" +
             "</thead>";
@@ -1104,6 +1112,7 @@
                 "</tr>"
             "</tbody>";
         }
+        //将取得的数据追加进去
         $("#example3").append(appendhtml);
 
     }

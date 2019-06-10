@@ -84,7 +84,7 @@
         from videocomment where videoId=#{videoId} and type=#{type} and del=1 limit #{begin},#{size}
         ) a
         left JOIN commentreply b on a.id=b.commentId and b.del=1
-        order by a.praiseNumber
+        order by a.createTime
     </select>
 
     <select id="getCount" resultType="Integer">

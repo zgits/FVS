@@ -20,7 +20,7 @@ public class Video {
 
     private Integer userId;//视频上传人
 
-    //防止显示时间乱码
+    //防止显示时间乱码,前端有个tool.js文件，里面可以将时间戳转换为特定格式的字符串
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date upTime;//视频上传时间
 

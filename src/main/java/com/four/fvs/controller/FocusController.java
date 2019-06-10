@@ -6,10 +6,7 @@ import com.four.fvs.model.Focus;
 import com.four.fvs.service.FocusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Description:
@@ -35,5 +32,19 @@ public class FocusController {
     @ResponseBody
     public Result<Object> addFocus(Focus focus){
         return ResultUtils.success(focusService.addFocus(focus));
+    }
+
+
+    @DeleteMapping("/delFocus")
+    @ResponseBody
+    public Result<Object> delFocus(@RequestBody Focus focus){
+        return ResultUtils.success(focusService.delFocus(focus));
+    }
+
+
+    @GetMapping("/ifExist")
+    @ResponseBody
+    public Result<Object> ifExist(Focus focus){
+        return ResultUtils.success(focusService.ifExist(focus));
     }
 }

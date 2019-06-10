@@ -60,9 +60,10 @@
         ) a
         left JOIN bulletscreen b on a.id=b.videoId and b.type=1 and b.del=1
     </select>
+
     <!--首页获取-->
     <select id="getAllVideo" resultType="com.four.fvs.model.Video" >
-        select id,vv,name,typeId,firstImagepath,videoSrc,videoLength
+        select id,vv,name,typeId,firstImagepath,videoSrc,videoLength,upTime
         from video
         where del=1
         ORDER BY upTime desc
@@ -87,6 +88,13 @@
         update video
         set shareNumber=shareNumber+1
         where id=#{id}
-
     </update>
+
+
+    <select id="getTheSameVideo" resultType="com.four.fvs.model.Video">
+        select * from video
+        where (typeId=#{type} or userId=#{userId}) and del =1 and status=2
+    </select>
+
+
 </mapper>

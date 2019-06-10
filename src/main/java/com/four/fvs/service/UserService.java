@@ -58,4 +58,17 @@ public interface UserService {
 
     public List<User> getAllUserService();
 
+    /**
+     * @Author: yzh
+     * @Date: 2019/6/8 23:06
+     * @Description: 用户信息的管理
+     */
+
+    /**
+     * 通过用户id得到某个用户的信息
+     * @param id
+     * @return
+     */
+
+    public User getUserService(Integer id);
 }

@@ -35,7 +35,7 @@ public interface CommentReplyService {
      * @param commentId
      * @return
      */
-    public List<CommentReply> getCommentReply(Integer commentId);
+    public List<CommentReplyVo> getCommentReply(Integer commentId);
 
 
     /**

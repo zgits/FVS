@@ -32,6 +32,7 @@ public class VideoServiceImplTest extends BaseTest {
 
     @Test
     public void getAllVideo() {
+       // videoService.getAllVideo();
         System.out.println(videoService.getAllVideo());
     }
 }

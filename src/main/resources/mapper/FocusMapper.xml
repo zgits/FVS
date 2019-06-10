@@ -11,7 +11,7 @@
         fansid,
         del,
     </sql>
-    <select id="getCountFocus">
+    <select id="getCountFocus" resultType="integer">
         select count(*) from focus where userId=#{userId} and del=1
     </select>
 
@@ -26,6 +26,18 @@
             #{del},
         </trim>
     </insert>
+
+
+    <update id="delFocus">
+        update focus set
+        del=2
+        where userId=#{userId} and fansId=#{fansId}
+    </update>
+
+
+    <select id="ifExist" resultType="com.four.fvs.model.Focus">
+        select * from focus where userId=#{userId,jdbcType=INTEGER} and fansId=#{fansId} and del=1
+    </select>
 
 
 </mapper>

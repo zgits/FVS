@@ -60,4 +60,20 @@
     <select id="getAllUserDao" resultType="com.four.fvs.model.User">
         select * from user where del=1
     </select>
+
+    <!--
+   * @Author: yzh
+   * @Date: 2019/6/8 23:09
+   * @Description: 用戶信息的管理
+    -->
+
+    <!--
+   * 通过id得到某个用戶的信息
+   * @param id
+   * @return
+    -->
+    <select id="getUserDao" resultType="com.four.fvs.model.User">
+         select * from user where id=#{id} and del=1
+    </select>
+
 </mapper>

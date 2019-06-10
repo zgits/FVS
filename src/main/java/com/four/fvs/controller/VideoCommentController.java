@@ -30,7 +30,6 @@ public class VideoCommentController {
 
 
     /**
-     * 有一个问题，无法获得回复的用户信息，暂未解决 2019-5-25
      * @param currPage
      * @param videoId
      * @param type
@@ -51,7 +50,7 @@ public class VideoCommentController {
 
     @PatchMapping("/givePraise")
     @ResponseBody
-    public Result<Object> givePraise(VideoOpRecord videoOpRecord){
+    public Result<Object> givePraise(@RequestBody VideoOpRecord videoOpRecord){
         return ResultUtils.success(videoCommentService.givePraise(videoOpRecord));
     }
 

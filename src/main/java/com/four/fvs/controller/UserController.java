@@ -128,4 +128,23 @@ public class UserController {
         return ResultUtils.success(userService.getAllUserService());
     }
 
+    /**
+     * @Author: yzh
+     * @Date: 2019/6/8 23:04
+     * @Description: 用户信息的管理
+     */
+
+    /**
+     * 得到某个用户的信息
+     * @param
+     * @return
+     */
+
+    @ResponseBody
+    @GetMapping(value = "/getUser")
+    public Result<Object> getUser(Integer userId){
+            return ResultUtils.success(userService.getUserService(userId));
+
+    }
+
 }

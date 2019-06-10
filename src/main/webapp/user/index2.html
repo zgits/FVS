@@ -962,32 +962,17 @@
             }
         });
 
+
     }
 
     function showAllvideo(data) {
         $("#introduce").empty();
         console.log("第一次：" + data.data.length);
-        /*appendhtml += "<tbody>\n" +
-            "<tr>\n" +
-            "<td>" + data.data[i].userName + "</td>" +
-            "<td>" + data.data[i].introduce + "</td>" +
-            "<td>" + data.data[i].sex + "</td>" +
-            "<td>\n" +
-            "<div class=\"btn-group\">" +
-            "<button type=\"button\" class=\"btn btn-info\">查看</button>\n" +
-            "<button type=\"button\" class=\"btn btn-success\">解禁</button>\n" +
-            "<button type=\"button\" class=\"btn btn-warning\"  data-toggle=\"modal\" data-target=\"#modal-warning\">禁言</button>\n" +
-            "</div>\n" +
-            "</td>" +
-            "</tr>"+
-            "</tbody>";*/
-
         var appendhtml='';
         for (var i = 0; i < data.data.length; i++) {
              if(data.data[i].typeId==1) {
-
                  appendhtml += '<div class="spread-module" >' +
-                     '<a href="/video.html?videoId=" target="_blank">\n' +
+                     '<a href="/video.html?videoId=1" target="_blank">\n' +
                      '            <div class="pic">\n' +
                      '            <div class="lazy-img"><img alt=""\n' +
                      '        src="..' + data.data[i].firstImagePath + '">\n' +
@@ -999,7 +984,7 @@
                      '            </div>\n' +
                      '            <p title="' + data.data[i].name + '" class="t">' + data.data[i].name + '</p>\n' +
                      '            <p class="num"><span class="play"><i class="icon"></i><!--播放量-->' + data.data[i].vv + '</span>\n' +
-                     '        <span class="danmu"><i class="icon"></i>1343</span>\n' +
+                     '        <span class="danmu"><i class="icon"></i>'+data.data[i].commentCount+'</span><!--评论数-->\n' +
                      '        </p></a>' +
                      '</div>';
              }
@@ -1009,12 +994,6 @@
 
     }
 
-    if (data.length=0) {
-        alert("获取用戶信息失败！");
-    } else {
-        alert("获取用戶信息成功！");
-
-    }
 
 </script>
 
