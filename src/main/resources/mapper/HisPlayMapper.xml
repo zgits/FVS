@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.four.fvs.dao.UploadDao">
+
+    <sql id="sql_hisplay">
+        id,
+        name,
+        playNumber,
+        time,
+        introduce,
+        status,
+        del，
+    </sql>
+
+    <select id="getUploadDao" resultType="com.four.fvs.model.HisPlay">
+        select * from hisplay where del=1
+    </select>
+
+    <update id="editUploadDao" parameterType="com.four.fvs.model.HisPlay">
+        update hisplay set
+        name=#{name},
+        playNumber=#{playNumber},
+        time=#{time},
+        introduce=#{introduce}，
+        status=#{status}，
+        del=#{del}
+        where id=#{id} and del=1
+    </update>
+
+    <select id="getDesignateDao" resultType="com.four.fvs.model.HisPlay">
+        select * from hisplay where id=#{id} and del=1
+    </select>
+
+    <insert id="addHisPlayServicel" parameterType="com.four.fvs.model.HisPlay">
+        insert into hisplay
+        (name, playNumber, time, introduce, status, del)
+        values
+        (#{name}, #{playNumber}, CURRENT_DATE(), #{introduce}, 1, 1 )
+
+    </insert>
+
+    <update id="delHisPlayDao">
+        update hisplay set
+        del=2
+        where
+        id=#{id}
+    </update>
+</mapper>

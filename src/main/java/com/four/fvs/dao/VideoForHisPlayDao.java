@@ -28,4 +28,36 @@ public interface VideoForHisPlayDao {
      * @return
      */
     public List<VideoForHisPlay> getTheSameHisPlayInfo(Integer hisPlayId);
+
+    /**
+     * 遍历指定番剧视频VideoForHisPlay信息
+     * @param
+     * @return
+     * @ResponseBody：代表返回json数据格式
+     */
+    public List<VideoForHisPlay> getVideoForHisPlayDao(Integer id);
+
+    /**
+     * 添加番剧视频VideoForHisPlay信息
+     * @param
+     * @return
+     *
+     */
+    public Integer addVideoForHisPlayDao(VideoForHisPlay videoForHisPlay);
+
+    /**
+     * 修改指定番剧视频VideoForHisPlay信息
+     * @param
+     * @return
+     *
+     */
+    public Integer editVideoForHisPlayDao(VideoForHisPlay videoForHisPlay);
+
+    /**
+     * 删除指定番剧视频VideoForHisPlay
+     * @param
+     * @return
+     *
+     */
+    public Integer deldelVideoForHisPlayDao(Integer id);
 }

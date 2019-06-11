@@ -1,5 +1,7 @@
 package com.four.fvs.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 /**
@@ -15,6 +17,7 @@ public class Advertising {
 
     private String info;//广告基本信息
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date validTime;//广告有效期
 
     private String adSrc;//广告视频来源
