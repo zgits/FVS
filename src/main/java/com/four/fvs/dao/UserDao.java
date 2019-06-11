@@ -4,6 +4,7 @@ import com.four.fvs.model.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -74,4 +75,17 @@ public interface UserDao {
      * @return
      */
     public User getUserDao(@Param("id") Integer id);
+
+    /**
+     * 禁言某个用户
+     * @param
+     * @return
+     */
+//    public User banUserDao(@Param("id") Integer id,
+//                           @Param("startTime")String startTime,
+//                           @Param("endTime")String endTime,
+//                           @Param("days")Integer days,
+//                           @Param("reason")String reason);
+    public Integer banUserDao(@Param("id")Integer id);
 }
+

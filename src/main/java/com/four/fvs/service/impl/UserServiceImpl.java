@@ -78,12 +78,9 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 通过id得到某个用戶的信息
-     *
      * @param id
      * @return
      */
-
-
     public User getUserService(Integer id) {
         User user = userDao.getUserDao(id);
         //判断用户是否存在
@@ -92,4 +89,18 @@ public class UserServiceImpl implements UserService {
             user.setPassword("");
         return user;
     }
+
+    /**
+     * 禁言某个用户
+     * @param
+     * @return
+     */
+//    public User banUserService(Integer id,String startTime, String endTime,Integer days,String reason){
+//        User user=userDao.banUserDao(id,startTime,endTime,days,reason);
+//        return user;
+//    }
+    public boolean banUserService(Integer UserId){
+        return userDao.banUserDao(UserId)>0;
+    }
+
 }

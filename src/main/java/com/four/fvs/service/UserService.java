@@ -2,6 +2,7 @@ package com.four.fvs.service;
 
 import com.four.fvs.model.User;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -71,4 +72,14 @@ public interface UserService {
      */
 
     public User getUserService(Integer id);
+
+    /**
+     * 通过用户id禁言某个用户
+     * @param id
+     * @return
+     */
+//    public User banUserService(Integer id,String startTime, String endTime,Integer days,String reason);
+    public  boolean banUserService(Integer id);
+
 }
+
