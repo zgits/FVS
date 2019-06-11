@@ -1,5 +1,6 @@
 package com.four.fvs.service.impl;
 
+import com.four.fvs.dao.VideoCommentDao;
 import com.four.fvs.dao.VideoDao;
 import com.four.fvs.dao.VideoOpRecordDao;
 import com.four.fvs.model.User;
@@ -9,6 +10,7 @@ import com.four.fvs.service.FocusService;
 import com.four.fvs.service.TypeService;
 import com.four.fvs.service.UserService;
 import com.four.fvs.service.VideoService;
+import com.four.fvs.vo.VideoIndexVo;
 import com.four.fvs.vo.VideoVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +29,11 @@ public class VideoServiceImpl implements VideoService {
 
     @Autowired
     private VideoDao videoDao;
+    @Autowired
+    private VideoCommentDao videoCommentDao;
+
+    @Autowired
+    private VideoService videoService;
 
     @Autowired
     private VideoOpRecordDao videoOpRecordDao;
@@ -102,6 +109,45 @@ public class VideoServiceImpl implements VideoService {
         return videoDao.giveCollection(videoOpRecord.getVideoId(),number)>0;
     }
 
+    /**
+     * 首页获取信息
+     * @return
+     */
+    @Override
+    public List<VideoIndexVo> getAllVideo(){
+        List<Video> video=videoDao.getAllVideo();
+       List<VideoIndexVo> videoIndexVo=new ArrayList<VideoIndexVo>();
+        Integer videoId;
+        //Integer type=0;
+        for(int i=0;i<video.size();i++){
+            VideoIndexVo vi=new VideoIndexVo();
+            videoId=video.get(i).getId();
+            if(video.get(i).getVv()==null){
+                video.get(i).setVv(0);
+            }
+
+            vi.setDel(video.get(i).getDel());
+            vi.setTypeId(video.get(i).getTypeId());
+            vi.setFirstImagePath(video.get(i).getFirstImagePath());
+            vi.setId(video.get(i).getId());
+            vi.setName(video.get(i).getName());
+            vi.setUpTime(video.get(i).getUpTime());
+            vi.setVv(video.get(i).getVv());
+            vi.setVideoLength(video.get(i).getVideoLength());
+            vi.setVideoSrc(video.get(i).getVideoSrc());
+
+            //type=videoCommentDao.getOneVideoCommentById(videoId).getType();
+            vi.setCommentCount(videoCommentDao.getCount(videoId,1));
+
+            videoIndexVo.add(vi);
+            System.out.println(video.get(i).getVv());
+        }
+        /*for(VideoIndexVo vii: videoIndexVo){
+            System.out.println(vii);
+        }*/
+        return videoIndexVo;
+    }
+
     @Override
     public List<VideoVo> getTheSameVideo(Integer userId, Integer type) {
         List<Video> videos=videoDao.getTheSameVideo(userId,type);
@@ -119,5 +165,10 @@ public class VideoServiceImpl implements VideoService {
         }
         return result;
 
+    }
+
+    @Override
+    public boolean getIfExistOpRecord(VideoOpRecord videoOpRecord) {
+        return videoOpRecordDao.getRecord(videoOpRecord)!=null;
     }
 }

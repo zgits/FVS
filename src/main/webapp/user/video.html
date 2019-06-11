@@ -113,7 +113,7 @@
 
                     <p>视频的简介</p>
                     <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
-                    <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
+                    <button type="button" class="btn btn-default btn-xs bg-blue"><i class="fa fa-thumbs-o-up"></i> Like</button>
                     <span class="pull-right text-muted">127 likes - 3 comments</span>
                 </div>
                 <!-- /.box-body -->
@@ -149,16 +149,10 @@
                                 It is a long established fact that a reader will be distracted
                                 by the readable content of a page when looking at its layout.
                                 <button class="btn btn-success btn-xs pull-right">回复</button>
-                                <a class="pull-right" data-toggle="collapse"
-                                   href="#collapseThree">查看回复</a>
+                                <a class="pull-right" data-toggle="collapse" href="#collapseThree">查看回复</a>
                             </div>
 
                             <div id="collapseThree" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                                    cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                                    vice lomo.
-                                </div>
                             </div>
                         <!-- /.comment-text -->
                     </div>
@@ -477,6 +471,50 @@
     }
 
 
+    function getCommentReply(commentId) {
+        $.ajax({
+            url:'/commentReply/get',
+            type:'get',
+            data:{
+                commentId:commentId
+            },
+            success:function(data){
+                var data=data.data;
+                showCommentReply(data,commentId);
+            }
+        })
+    }
+
+
+    function showCommentReply(data,id) {
+        $("#videoComment"+id).empty();
+        var appendhtml='';
+        if(data.length==0){
+            appendhtml+='无回复';
+        }
+        for (var i = 0; i < data.length; i++) {
+
+            var commentReply=data[i].commentReply;
+            appendhtml+='<div class="panel-body">';
+            appendhtml += '<div class="box-comment">\n' +
+                '                        <!-- User image -->\n' +
+                '                        <img class="img-circle img-sm" src="..' + data[i].icon + '" alt="User Image">\n' +
+                '\n' +
+                '                        <div class="comment-text">\n' +
+                '                      <span class="username">\n' +
+                '                        ' + data[i].userName + '&nbsp;&nbsp;回复\n' +data[i].beUserName+
+                '                        <span class="text-muted pull-right">' + changeDateFormat(commentReply.replyTime) + '</span>\n' +
+                '                      </span><!-- /.username -->\n' +
+                '                            ' + commentReply.content + '\n' +
+                '                        </div>\n' +
+                '                        <!-- /.comment-text -->\n' +
+                '                    </div>';
+             appendhtml+='</div>';
+        }
+        $("#videoComment"+id).append(appendhtml);
+    }
+
+
     /**
      * 显示视频的评论信息
      * @param data
@@ -489,7 +527,7 @@
         var lists = data.lists;
         for (var i = 0; i < lists.length; i++) {
             var videoComment = lists[i].videoComment;
-            appendhtml += '<div class="box-comment">\n' +
+            appendhtml += '<div class="box-comment" id="'+videoComment.id+'">\n' +
                 '                        <!-- User image -->\n' +
                 '                        <img class="img-circle img-sm" src="..' + lists[i].icon + '" alt="User Image">\n' +
                 '\n' +
@@ -500,7 +538,11 @@
                 '                        <span class="text-muted pull-right">' + changeDateFormat(videoComment.createTime) + '</span>\n' +
                 '                      </span><!-- /.username -->\n' +
                 '                            ' + videoComment.content + '\n' +
+                '                        <a class="" onclick="addCommentReplyInput('+videoComment.id+',\''+videoComment.content+'\','+videoComment.userId+')" href="#'+videoComment.id+'">回复</a>'+
+                '                        <a class="pull-right" data-toggle="collapse" onclick="getCommentReply('+videoComment.id+')" href="#videoComment'+videoComment.id+'">查看回复</a>&nbsp;&nbsp;&nbsp;&nbsp;'+
                 '                        </div>\n' +
+                '                        <div id="videoComment'+videoComment.id+'" class="panel-collapse collapse">\n' +
+                '                            </div>'+
                 '                        <!-- /.comment-text -->\n' +
                 '                    </div>';
 
@@ -511,29 +553,119 @@
     }
 
 
-    function giveCommentPraise(commentId) {
+    function addCommentReplyInput(id,myContent,beReplyId) {
+        var inputid='input'+id;
+        var divinputid='divinput'+id;
+        $("#"+divinputid).empty();
+        var appendhtml='';
+        appendhtml+='<div class="img-push" id="'+divinputid+'">\n' +
+            '                  <input id="'+inputid+'" type="text" class="form-control input-sm" placeholder="说点什么吧">\n' +
+            '                  <button onclick="sendCommentReply('+id+',\''+myContent+'\','+beReplyId+')">回复</button>'+
+            '         </div>';
+        $("#"+id).append(appendhtml);
+    }
 
+    /**
+     * 给评论点赞
+     * @param commentId
+     */
+    
+    function giveCommentPraise(commentId) {
+        var json = {"userId": videoUserId, "fansId": userId};
         $.ajax({
-            url:'',
+            url:'/videoComment/givePraise',
+            type:'patch',
+            data: JSON.stringify(json),
+            contentType: 'application/json',
+            success:function (data) {
+                if(data.code==0){
+                    if(data.data){
+
+                    }
+                }
+            }
+
+        })
+    };
+    
+
+    /**
+     * 给视频点赞
+     *
+     */
+
+    function giveVideoPraise() {
+        var json = {"userId": videoUserId, "fansId": userId};
+        $.ajax({
+            url:'/video/givePraise',
+            type:'patch',
+            data: JSON.stringify(json),
+            contentType: 'application/json',
+            success:function (data) {
+                if(data.code==0){
+                    if(data.data){
+
+                    }
+
+                }
+            }
+
+        })
+    }
+
+
+    function giveVideoShare() {
+        var json = {"userId": videoUserId, "fansId": userId};
+        $.ajax({
+            url:'/video/givePraise',
+            type:'patch',
+            data: JSON.stringify(json),
+            contentType: 'application/json',
+            success:function (data) {
+                if(data.code==0){
+                    if(data.data){
+
+                    }
+
+                }
+            }
+
+        })
+    }
+
+
+    function giveVideoCollection() {
+        var json = {"userId": videoUserId, "fansId": userId};
+        $.ajax({
+            url:'/video/givePraise',
+            type:'patch',
+            data: JSON.stringify(json),
+            contentType: 'application/json',
+            success:function (data) {
+                if(data.code==0){
+                    if(data.data){
+
+                    }
+
+                }
+            }
+
         })
     }
 
     /**
      *发送回复消息
      */
-    function sendCommentReply() {
-        var content;
-        var beReplyId;
-        var commentId;
-        var myContent;
+    function sendCommentReply(id,myContent,beReplyId) {
+        var content=$("#input"+id).val();
         $.ajax({
             url: '/commentReply/add',
             type: 'post',
             data: {
-                content: 'asd',
+                content: content,
                 replyId: userId,
                 beReplyId: beReplyId,
-                commentId: commentId,
+                commentId: id,
                 myContent: myContent
             },
             success: function (data) {

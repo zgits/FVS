@@ -50,7 +50,7 @@ public class VideoCommentController {
 
     @PatchMapping("/givePraise")
     @ResponseBody
-    public Result<Object> givePraise(VideoOpRecord videoOpRecord){
+    public Result<Object> givePraise(@RequestBody VideoOpRecord videoOpRecord){
         return ResultUtils.success(videoCommentService.givePraise(videoOpRecord));
     }
 

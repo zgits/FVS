@@ -37,6 +37,12 @@ public class CommentReplyController {
         return ResultUtils.success(commentReplyService.delCommentReply(commentReplyId));
     }
 
+    @GetMapping("/get")
+    @ResponseBody
+    public Result<Object> getCommentReply(Integer commentId){
+        return ResultUtils.success(commentReplyService.getCommentReply(commentId));
+    }
+
 
     @GetMapping("/getUserReply")
     @ResponseBody

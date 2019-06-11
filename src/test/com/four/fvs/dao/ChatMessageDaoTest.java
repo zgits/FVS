@@ -17,6 +17,7 @@ public class ChatMessageDaoTest extends BaseTest {
     private ChatMessageDao chatMessageDao;
 
 
+
     @Test
     public void getChatMessageBox() {
 

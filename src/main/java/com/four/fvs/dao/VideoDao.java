@@ -1,6 +1,7 @@
 package com.four.fvs.dao;
 
 import com.four.fvs.model.Video;
+import com.four.fvs.vo.VideoIndexVo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -48,6 +49,11 @@ public interface VideoDao {
      */
     public Integer giveCollection(@Param("id")Integer videoId,@Param("number")Integer number);
 
+    /**
+     * 获取首页视频
+     * @return
+     */
+    public List<Video> getAllVideo();
 
     /**
      * 根据视频的类型或者是用户id得到相似的视频信息
