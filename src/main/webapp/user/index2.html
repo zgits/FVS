@@ -378,22 +378,39 @@
                     </header>
                     <div class="rank-list-wrap" id="rank">
                         <ul class="rank-list hot-list"><!---->
-                            <li class="rank-item  highlight"><i class="ri-num">1</i><a
+                            <!--<li class="rank-item  highlight"><i class="ri-num">1</i><a
                                     title="野兽巨人就由我来解决！巨人史上最巅峰的一集！ 播放:230524 4:12" class="ri-info-wrap clearfix"
-                                    href="/video/av53793138/" target="_blank"><!---->
+                                    href="/video/av53793138/" target="_blank">
+
                                 <div class="ri-detail"><p class="ri-title">野兽巨人就由我来解决！巨人史上最巅峰的一集！</p>
-                                    <p class="ri-point">综合评分：30.4万</p></div><!----></a>
+                                    <p class="ri-point">综合评分：30.4万</p></div></a>
                             </li>
                             <li class="rank-item  highlight"><i class="ri-num">2</i><a
                                     title="野兽巨人就由我来解决！巨人史上最巅峰的一集！ 播放:230524 4:12" class="ri-info-wrap clearfix"
-                                    href="/video/av53793138/" target="_blank"><!---->
+                                    href="/video/av53793138/" target="_blank">
                                 <div class="ri-detail"><p class="ri-title">野兽巨人就由我来解决！巨人史上最巅峰的一集！</p>
-                                    <p class="ri-point">综合评分：30.4万</p></div><!----></a>
+                                    <p class="ri-point">综合评分：30.4万</p></div></a>
                             </li>
 
                             <li class="rank-item  highlight"><i class="ri-num">3</i><a
                                     title="【巴啦啦小魔仙】摸仙等级全国统一考试，测试一下你的摸仙等级！ 播放:248210 3:20" class="ri-info-wrap clearfix"
-                                    href="/video/av53809073/" target="_blank"><!---->
+                                    href="/video/av53809073/" target="_blank">
+                                    -->
+                            <li class="rank-item"><i class="ri-num">1</i><a title="【明日方舟手书】银灰和刀客塔的罰ゲーム 播放:85377 4:07"
+                                                                            class="ri-info-wrap clearfix"
+                                                                            href="/video/av53920958/" target="_blank">
+                                <div class="ri-detail"><p class="ri-title">【巴啦啦小魔仙】摸仙等级全国统一考试，测试一下你的摸仙等级！</p>
+                                    <p class="ri-point">综合评分：26.2万</p></div><!----></a></li>
+
+
+                            <li class="rank-item"><i class="ri-num">2</i><a title="【明日方舟手书】银灰和刀客塔的罰ゲーム 播放:85377 4:07"
+                                                                            class="ri-info-wrap clearfix"
+                                                                            href="/video/av53920958/" target="_blank">
+                                <div class="ri-detail"><p class="ri-title">【巴啦啦小魔仙】摸仙等级全国统一考试，测试一下你的摸仙等级！</p>
+                                    <p class="ri-point">综合评分：26.2万</p></div><!----></a></li>
+                            <li class="rank-item"><i class="ri-num">3</i><a title="【明日方舟手书】银灰和刀客塔的罰ゲーム 播放:85377 4:07"
+                                                                            class="ri-info-wrap clearfix"
+                                                                            href="/video/av53920958/" target="_blank">
                                 <div class="ri-detail"><p class="ri-title">【巴啦啦小魔仙】摸仙等级全国统一考试，测试一下你的摸仙等级！</p>
                                     <p class="ri-point">综合评分：26.2万</p></div><!----></a></li>
                             <li class="rank-item"><i class="ri-num">4</i><a title="【明日方舟手书】银灰和刀客塔的罰ゲーム 播放:85377 4:07"
@@ -970,6 +987,8 @@
 
             }
         });
+
+        //根据id获取类型名
     function getTypeName(typeId) {
         var typename;
         $.ajax({
@@ -988,6 +1007,7 @@
         });
         return typename;
     }
+    //获取所有分区
     function getAllType() {
         var type;
         $.ajax({
@@ -1004,17 +1024,38 @@
         return type;
 
     }
+    //各分区排行榜
+    function getVideoRank(typeId){
+        var ranks;
+        $.ajax({
+            url:'/video/getVideoRank',
+            type:'get',
+            dataType:'json',
+            data:{
+                typeId:typeId
+            },
+            async:false,
+            success:function(rank){
+                if(rank.code==0){
+                    ranks=rank.data;
+                }
+            }
 
+        });
+        return ranks;
+    }
 
+    //首页主要内容
     function showAllvideo(data,typess) {
         $("#display").empty();
         console.log("第一次：" + data.data.length);
         var appendhtml='';
         var type=[];
+        var ranks=[];
         type=getAllType();
-        alert(type[0].id);
         for(var i=0;i<type.length;i++) {
             //var typename=getTypeName(typess[i]);
+            ranks=getVideoRank(type[i].id);
              appendhtml +='<div class="bili-wrapper" >\n' +
                  '        <div class="zone-wrap-module report-wrap-module report-scroll-module clearfix"\n' +
                  '             scrollshow="true">\n' +
@@ -1039,7 +1080,7 @@
                   for(var j=0;j<data.data.length;j++) {
                       if(data.data[j].typeId==type[i].id) {
                           appendhtml += '<div class="spread-module" >' +
-                              '<a href="/video.html?videoId=' + data.data[j].videoId + '" target="_blank">\n' +
+                              '<a href="/user/video.html?videoId=' + data.data[j].id + '" target="_blank">\n' +
                               '            <div class="pic">\n' +
                               '            <div class="lazy-img"><img alt=""\n' +
                               '        src="..' + data.data[j].firstImagePath + '">\n' +
@@ -1057,66 +1098,37 @@
                   }
                            appendhtml +='</div>';
                            appendhtml +='</div>';
-                      appendhtml +=' <!--分区排行-->\n' +
+
+                           appendhtml +=' <!--分区排行-->\n' +
                           '                <section class="sec-rank report-wrap-module zone-rank">\n' +
                           '                    <header class="rank-head"><h3>排行</h3>\n' +
                           '                        <div class="bili-tab rank-tab">\n' +
                           '                        </div>\n' +
                           '                    </header>\n' +
                           '                    <div class="rank-list-wrap">\n' +
-                          '                        <ul class="rank-list hot-list"><!---->\n' +
-                          '                            <li class="rank-item  highlight"><i class="ri-num">1</i><a\n' +
-                          '                                    title="野兽巨人就由我来解决！巨人史上最巅峰的一集！ 播放:230524 4:12" class="ri-info-wrap clearfix"\n' +
-                          '                                    href="/video/av53793138/" target="_blank"><!---->\n' +
-                          '                                <div class="ri-detail"><p class="ri-title">野兽巨人就由我来解决！巨人史上最巅峰的一集！</p>\n' +
-                          '                                    <p class="ri-point">综合评分：30.4万</p></div><!----></a>\n' +
-                          '                            </li>\n' +
-                          '                            <li class="rank-item  highlight"><i class="ri-num">2</i><a\n' +
-                          '                                    title="野兽巨人就由我来解决！巨人史上最巅峰的一集！ 播放:230524 4:12" class="ri-info-wrap clearfix"\n' +
-                          '                                    href="/video/av53793138/" target="_blank"><!---->\n' +
-                          '                                <div class="ri-detail"><p class="ri-title">野兽巨人就由我来解决！巨人史上最巅峰的一集！</p>\n' +
-                          '                                    <p class="ri-point">综合评分：30.4万</p></div><!----></a>\n' +
-                          '                            </li>\n' +
-                          '\n' +
-                          '                            <li class="rank-item  highlight"><i class="ri-num">3</i><a\n' +
-                          '                                    title="【巴啦啦小魔仙】摸仙等级全国统一考试，测试一下你的摸仙等级！ 播放:248210 3:20" class="ri-info-wrap clearfix"\n' +
-                          '                                    href="/video/av53809073/" target="_blank"><!---->\n' +
-                          '                                <div class="ri-detail"><p class="ri-title">【巴啦啦小魔仙】摸仙等级全国统一考试，测试一下你的摸仙等级！</p>\n' +
-                          '                                    <p class="ri-point">综合评分：26.2万</p></div><!----></a></li>\n' +
-                          '                            <li class="rank-item"><i class="ri-num">4</i><a title="【明日方舟手书】银灰和刀客塔的罰ゲーム 播放:85377 4:07"\n' +
-                          '                                                                            class="ri-info-wrap clearfix"\n' +
-                          '                                                                            href="/video/av53920958/" target="_blank">\n' +
-                          '                                <!---->\n' +
-                          '                                <div class="ri-detail"><p class="ri-title">【明日方舟手书】银灰和刀客塔的罰ゲーム</p>\n' +
-                          '                                    <p class="ri-point">综合评分：22.6万</p></div><!----></a></li>\n' +
-                          '                            <li class="rank-item"><i class="ri-num">5</i><a title="领导强行给你分配对象，你愿意吗？ 播放:176585 5:45"\n' +
-                          '                                                                            class="ri-info-wrap clearfix"\n' +
-                          '                                                                            href="/video/av53869241/" target="_blank">\n' +
-                          '                                <!---->\n' +
-                          '                                <div class="ri-detail"><p class="ri-title">领导强行给你分配对象，你愿意吗？</p>\n' +
-                          '                                    <p class="ri-point">综合评分：20.9万</p></div><!----></a></li>\n' +
-                          '                            <li class="rank-item"><i class="ri-num">6</i><a\n' +
-                          '                                    title="爱尔敏：我不入地狱谁入地狱，利威尔秒杀野兽巨人，铠之巨人又双叒被放到了 播放:194345 5:54"\n' +
-                          '                                    class="ri-info-wrap clearfix"\n' +
-                          '                                    href="/video/av53888366/" target="_blank"><!---->\n' +
-                          '                                <div class="ri-detail"><p class="ri-title">爱尔敏：我不入地狱谁入地狱，利威尔秒杀野兽巨人，铠之巨人又双叒被放到了</p>\n' +
-                          '                                    <p class="ri-point">综合评分：17.8万</p></div><!----></a></li>\n' +
-                          '                            <li class="rank-item"><i class="ri-num">7</i><a title="【夏季新番】2019年7月新番介绍 播放:80548 28:11"\n' +
-                          '                                                                            class="ri-info-wrap clearfix"\n' +
-                          '                                                                            href="/video/av53867002/" target="_blank">\n' +
-                          '                                <!---->\n' +
-                          '                                <div class="ri-detail"><p class="ri-title">【夏季新番】2019年7月新番介绍</p>\n' +
-                          '                                    <p class="ri-point">综合评分：14.9万</p></div><!----></a></li>\n' +
-                          '                        </ul>\n' +
-                          '                        <ul class="rank-list origin-list">\n' +
-                          '                            <li class="state">\n' +
-                          '                                <div class="b-loading"><!----><!----></div>\n' +
-                          '                            </li>\n' +
-                          '                        </ul>\n' +
-                          '                    </div>\n' +
-                          '                    <a class="more-link" href="/ranking/all/1/1/3/" target="_blank">查看更多<i\n' +
-                          '                            class="icon icon-arrow-r"></i></a>\n' +
-                          '                </section>';
+                          '                        <ul class="rank-list hot-list"><!---->\n' ;
+                           var count=1;
+                           for(var k=0;k<ranks.length;k++){
+                                   if(count<=7) {
+                                       appendhtml +=
+                                           '<li class="rank-item"><i class="ri-num">' + count+ '</i><a class="ri-info-wrap clearfix"\n' +
+                                           '           href="/user/video.html?videoId='+ranks[k].id+'" target="_blank">\n' +
+                                           '    <div class="ri-detail"><p class="ri-title">' + ranks[k].name + '</p>\n' +
+                                           '        <p class="ri-point">播放量：' + ranks[k].vv + '</p></div><!----></a></li>';
+                                   }
+                                  count=count+1;
+                           }
+                                       appendhtml +='</ul>\n' +
+                                       '                        <ul class="rank-list origin-list">\n' +
+                                       '                            <li class="state">\n' +
+                                       '                                <div class="b-loading"><!----><!----></div>\n' +
+                                       '                            </li>\n' ;
+                                   appendhtml +=' </ul>\n' +
+                                       '                    </div>\n' +
+                                       '                    <a class="more-link" href="填入分区地址" target="_blank">查看更多<i\n' +
+                                       '                            class="icon icon-arrow-r"></i></a>\n';
+
+                            appendhtml +='</section>';
             appendhtml +='</div>';
             appendhtml +='</div>';
 
