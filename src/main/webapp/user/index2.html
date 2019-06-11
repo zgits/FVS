@@ -108,12 +108,7 @@
             </a>
 
             </li>
-            <li><a href="//www.bilibili.com/anime/">
-                <div class="num-wrap"><span>163</span></div>
-                <div class="nav-name">番剧</div>
-            </a>
 
-            </li>
             <li><a href="//www.bilibili.com/guochuang/">
                 <div class="num-wrap"><span>274</span></div>
                 <div class="nav-name">国创</div>
@@ -202,15 +197,15 @@
 </div>
 
 <!--展示-->
-<div class="up clearfix">
+<div class="up clearfix" id="display">
 
     <!--各分区-->
-    <div class="bili-wrapper">
-        <div class="zone-wrap-module report-wrap-module report-scroll-module clearfix" id="free_donghua"
+    <div class="bili-wrapper" >
+        <div class="zone-wrap-module report-wrap-module report-scroll-module clearfix"
              scrollshow="true">
             <div class="zone-module">
                 <!--展示栏-->
-                <div class="new-comers-module l-con">
+                <div class="new-comers-module l-con" id="i_head">
                     <div class="zone-title">
                         <div class="headline clearfix "><a class="name" href="./caetoon.html">动画</a>
                             <div class="bili-tab bili-tab">
@@ -220,11 +215,11 @@
                             <a class="link-more" href="/v/douga" target="_blank">
                                 更多
                                 <i class="icon"></i></a>
-                            <div class="read-push"><span class="info"><b>41241</b>条新动态</span>
+                            <div class="read-push"><span class="info"><b>41241</b>条周更新</span>
                             </div>
                         </div>
                     </div>
-                    <div class="storey-box clearfix" id="introduce">
+                    <div class="storey-box clearfix" id="introduce1">
 
                         <!--各视频介绍-->
                         <div class="spread-module" >
@@ -381,7 +376,7 @@
                         <div class="bili-tab rank-tab">
                         </div>
                     </header>
-                    <div class="rank-list-wrap">
+                    <div class="rank-list-wrap" id="rank">
                         <ul class="rank-list hot-list"><!---->
                             <li class="rank-item  highlight"><i class="ri-num">1</i><a
                                     title="野兽巨人就由我来解决！巨人史上最巅峰的一集！ 播放:230524 4:12" class="ri-info-wrap clearfix"
@@ -945,54 +940,189 @@
 </script>
 <script>
     $(function () {
-        SelectAllVideo();
+        //SelectAllVideo();
 
 
     });
 
-    function SelectAllVideo() {
+
+
         $.ajax({
             url: "/video/getAllVideo",
             type: "get",
             dataType: "json",
             success: function (data) {
                 console.log(data.data);
-                showAllvideo(data);
+                var types=[];
+                 var typess=[];
+               for (var i=0;i<data.data.length;i++){
+                   types[i]=data.data[i].typeId;
+                   types.push(types[i]);
+               }
+               for(var i=0;i<types.length;i++){
+                   if(typess.indexOf(types[i])<0){
+                       typess.push(types[i])
+                   }
+               }
+               //alert(typess.length);
+
+                showAllvideo(data,typess);
 
             }
         });
-
+    function getTypeName(typeId) {
+        var typename;
+        $.ajax({
+            url: '/video/getTypeName',
+            type: 'get',
+            dataType: 'json',
+            data: {
+                typeId: typeId
+            },
+            async: false,
+            success: function (data) {
+                if (data.code == 0) {
+                    typename = data.data;
+                }
+            }
+        });
+        return typename;
+    }
+    function getAllType() {
+        var type;
+        $.ajax({
+            url:'/video/getAllType',
+            type:'get',
+            dataType:'json',
+            async:false,
+            success:function (Type) {
+                if (Type.code == 0) {
+                    type = Type.data;
+                }
+            }
+        });
+        return type;
 
     }
 
-    function showAllvideo(data) {
-        $("#introduce").empty();
+
+    function showAllvideo(data,typess) {
+        $("#display").empty();
         console.log("第一次：" + data.data.length);
         var appendhtml='';
-        for (var i = 0; i < data.data.length; i++) {
-             if(data.data[i].typeId==1) {
-                 appendhtml += '<div class="spread-module" >' +
-                     '<a href="/video.html?videoId=1" target="_blank">\n' +
-                     '            <div class="pic">\n' +
-                     '            <div class="lazy-img"><img alt=""\n' +
-                     '        src="..' + data.data[i].firstImagePath + '">\n' +
-                     '            </div>\n' +
-                     '\n' +
-                     '            <div class="mask-video"></div>\n' +
-                     '            <span class="dur"><p>'+data.data[i].videoLength+'</p></span><!--播放时长-->\n' +
-                     '        <div class="watch-later-trigger w-later"></div>\n' +
-                     '            </div>\n' +
-                     '            <p title="' + data.data[i].name + '" class="t">' + data.data[i].name + '</p>\n' +
-                     '            <p class="num"><span class="play"><i class="icon"></i><!--播放量-->' + data.data[i].vv + '</span>\n' +
-                     '        <span class="danmu"><i class="icon"></i>'+data.data[i].commentCount+'</span><!--评论数-->\n' +
-                     '        </p></a>' +
-                     '</div>';
-             }
-        }
+        var type=[];
+        type=getAllType();
+        alert(type[0].id);
+        for(var i=0;i<type.length;i++) {
+            //var typename=getTypeName(typess[i]);
+             appendhtml +='<div class="bili-wrapper" >\n' +
+                 '        <div class="zone-wrap-module report-wrap-module report-scroll-module clearfix"\n' +
+                 '             scrollshow="true">\n' +
+                 '            <div class="zone-module">\n' +
+                 '                <!--展示栏-->\n' +
+                 '                <div class="new-comers-module l-con">\n' +
+                 '                    <div class="zone-title">\n' +
+                 '                        <div class="headline clearfix "><a class="name" href="./caetoon.html">'+type[i].name+'</a>\n' +
+                 '                            <div class="bili-tab bili-tab">\n' +
+                 '\n' +
+                 '                                <div class="bili-tab-item"><a  href="www.baidu.com">最新投稿</a></div>\n' +
+                 '                            </div>\n' +
+                 '                            <a class="link-more" href="/v/douga" target="_blank">\n' +
+                 '                                更多\n' +
+                 '                                <i class="icon"></i></a>\n' +
+                 '                            <div class="read-push"><span class="info"><b>41241</b>条周更新</span>\n' +
+                 '                            </div>\n' +
+                 '                        </div>\n' +
+                 '                    </div>\n' +
+                 '                    <div class="storey-box clearfix">\n' ;
 
-        $("#introduce").append(appendhtml);
+                  for(var j=0;j<data.data.length;j++) {
+                      if(data.data[j].typeId==type[i].id) {
+                          appendhtml += '<div class="spread-module" >' +
+                              '<a href="/video.html?videoId=' + data.data[j].videoId + '" target="_blank">\n' +
+                              '            <div class="pic">\n' +
+                              '            <div class="lazy-img"><img alt=""\n' +
+                              '        src="..' + data.data[j].firstImagePath + '">\n' +
+                              '            </div>\n' +
+                              '\n' +
+                              '            <div class="mask-video"></div>\n' +
+                              '            <span class="dur"><p>' + data.data[j].videoLength + '</p></span><!--播放时长-->\n' +
+                              '        <div class="watch-later-trigger w-later"></div>\n' +
+                              '            </div>\n' +
+                              '            <p title="' + data.data[i].name + '" class="t">' + data.data[j].name + '</p>\n' +
+                              '            <p class="num"><span class="play"><i class="icon"></i><!--播放量-->' + data.data[j].vv + '</span>\n' +
+                              '        <span class="danmu"><i class="icon"></i>' + data.data[j].commentCount + '</span><!--评论数-->\n' +
+                              '        </p></a>' +
+                              '</div>';}
+                  }
+                           appendhtml +='</div>';
+                           appendhtml +='</div>';
+                      appendhtml +=' <!--分区排行-->\n' +
+                          '                <section class="sec-rank report-wrap-module zone-rank">\n' +
+                          '                    <header class="rank-head"><h3>排行</h3>\n' +
+                          '                        <div class="bili-tab rank-tab">\n' +
+                          '                        </div>\n' +
+                          '                    </header>\n' +
+                          '                    <div class="rank-list-wrap">\n' +
+                          '                        <ul class="rank-list hot-list"><!---->\n' +
+                          '                            <li class="rank-item  highlight"><i class="ri-num">1</i><a\n' +
+                          '                                    title="野兽巨人就由我来解决！巨人史上最巅峰的一集！ 播放:230524 4:12" class="ri-info-wrap clearfix"\n' +
+                          '                                    href="/video/av53793138/" target="_blank"><!---->\n' +
+                          '                                <div class="ri-detail"><p class="ri-title">野兽巨人就由我来解决！巨人史上最巅峰的一集！</p>\n' +
+                          '                                    <p class="ri-point">综合评分：30.4万</p></div><!----></a>\n' +
+                          '                            </li>\n' +
+                          '                            <li class="rank-item  highlight"><i class="ri-num">2</i><a\n' +
+                          '                                    title="野兽巨人就由我来解决！巨人史上最巅峰的一集！ 播放:230524 4:12" class="ri-info-wrap clearfix"\n' +
+                          '                                    href="/video/av53793138/" target="_blank"><!---->\n' +
+                          '                                <div class="ri-detail"><p class="ri-title">野兽巨人就由我来解决！巨人史上最巅峰的一集！</p>\n' +
+                          '                                    <p class="ri-point">综合评分：30.4万</p></div><!----></a>\n' +
+                          '                            </li>\n' +
+                          '\n' +
+                          '                            <li class="rank-item  highlight"><i class="ri-num">3</i><a\n' +
+                          '                                    title="【巴啦啦小魔仙】摸仙等级全国统一考试，测试一下你的摸仙等级！ 播放:248210 3:20" class="ri-info-wrap clearfix"\n' +
+                          '                                    href="/video/av53809073/" target="_blank"><!---->\n' +
+                          '                                <div class="ri-detail"><p class="ri-title">【巴啦啦小魔仙】摸仙等级全国统一考试，测试一下你的摸仙等级！</p>\n' +
+                          '                                    <p class="ri-point">综合评分：26.2万</p></div><!----></a></li>\n' +
+                          '                            <li class="rank-item"><i class="ri-num">4</i><a title="【明日方舟手书】银灰和刀客塔的罰ゲーム 播放:85377 4:07"\n' +
+                          '                                                                            class="ri-info-wrap clearfix"\n' +
+                          '                                                                            href="/video/av53920958/" target="_blank">\n' +
+                          '                                <!---->\n' +
+                          '                                <div class="ri-detail"><p class="ri-title">【明日方舟手书】银灰和刀客塔的罰ゲーム</p>\n' +
+                          '                                    <p class="ri-point">综合评分：22.6万</p></div><!----></a></li>\n' +
+                          '                            <li class="rank-item"><i class="ri-num">5</i><a title="领导强行给你分配对象，你愿意吗？ 播放:176585 5:45"\n' +
+                          '                                                                            class="ri-info-wrap clearfix"\n' +
+                          '                                                                            href="/video/av53869241/" target="_blank">\n' +
+                          '                                <!---->\n' +
+                          '                                <div class="ri-detail"><p class="ri-title">领导强行给你分配对象，你愿意吗？</p>\n' +
+                          '                                    <p class="ri-point">综合评分：20.9万</p></div><!----></a></li>\n' +
+                          '                            <li class="rank-item"><i class="ri-num">6</i><a\n' +
+                          '                                    title="爱尔敏：我不入地狱谁入地狱，利威尔秒杀野兽巨人，铠之巨人又双叒被放到了 播放:194345 5:54"\n' +
+                          '                                    class="ri-info-wrap clearfix"\n' +
+                          '                                    href="/video/av53888366/" target="_blank"><!---->\n' +
+                          '                                <div class="ri-detail"><p class="ri-title">爱尔敏：我不入地狱谁入地狱，利威尔秒杀野兽巨人，铠之巨人又双叒被放到了</p>\n' +
+                          '                                    <p class="ri-point">综合评分：17.8万</p></div><!----></a></li>\n' +
+                          '                            <li class="rank-item"><i class="ri-num">7</i><a title="【夏季新番】2019年7月新番介绍 播放:80548 28:11"\n' +
+                          '                                                                            class="ri-info-wrap clearfix"\n' +
+                          '                                                                            href="/video/av53867002/" target="_blank">\n' +
+                          '                                <!---->\n' +
+                          '                                <div class="ri-detail"><p class="ri-title">【夏季新番】2019年7月新番介绍</p>\n' +
+                          '                                    <p class="ri-point">综合评分：14.9万</p></div><!----></a></li>\n' +
+                          '                        </ul>\n' +
+                          '                        <ul class="rank-list origin-list">\n' +
+                          '                            <li class="state">\n' +
+                          '                                <div class="b-loading"><!----><!----></div>\n' +
+                          '                            </li>\n' +
+                          '                        </ul>\n' +
+                          '                    </div>\n' +
+                          '                    <a class="more-link" href="/ranking/all/1/1/3/" target="_blank">查看更多<i\n' +
+                          '                            class="icon icon-arrow-r"></i></a>\n' +
+                          '                </section>';
+            appendhtml +='</div>';
+            appendhtml +='</div>';
 
-    }
+                   }
+            $("#display").append(appendhtml);
+                  }
 
 
 </script>
