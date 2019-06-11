@@ -135,6 +135,11 @@ public class VideoCommentServiceImpl implements VideoCommentService {
         return videoCommentDao.delVideoCommentDao(videoCommentId)>0;
     }
 
+    @Override
+    public Integer getCountById(Integer videoId,Integer type){
+        return  videoCommentDao.getCount(videoId,type);
+    }
+
 }
 
 

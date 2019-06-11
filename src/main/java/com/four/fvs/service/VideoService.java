@@ -2,7 +2,10 @@ package com.four.fvs.service;
 
 import com.four.fvs.model.Video;
 import com.four.fvs.model.VideoOpRecord;
+import com.four.fvs.vo.VideoIndexVo;
 import com.four.fvs.vo.VideoVo;
+
+import java.util.List;
 
 import java.util.List;
 
@@ -44,6 +47,12 @@ public interface VideoService {
      * @return
      */
     public boolean giveCollection(VideoOpRecord videoOpRecord);
+
+    /**
+     *获取首页视频信息
+     * @return
+     */
+    public List<VideoIndexVo> getAllVideo();
 
 
     /**

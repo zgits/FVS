@@ -2,6 +2,7 @@ package com.four.fvs.controller;
 
 import com.four.fvs.common.Result;
 import com.four.fvs.common.ResultUtils;
+import com.four.fvs.model.Video;
 import com.four.fvs.service.PassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,7 +36,7 @@ public class PassController {
 
     /**
      * 删除视频
-     * @param
+     * @RequestParam("id"):获取选中视频id
      * @return
      *
      */
@@ -43,6 +44,29 @@ public class PassController {
     @GetMapping("delVideo")
     public Result<Object> delVideo(@RequestParam("id")Integer videoId){
         passService.delVideoService(videoId);
+        return getPass();
+    }
+
+    /*
+     * 查询指定审核通过的视频信息
+     *@RequestParam("searchContent")：获取用户要查询的信息
+     * 返回查询信息
+     *
+     * */
+    @ResponseBody
+    @GetMapping("searchPassAuditing")
+    public Result<Object> searchPassAuditing(@RequestParam("id")Integer id){
+        return ResultUtils.success(passService.searchPassServicel(id));
+    }
+
+    /*
+     * 编辑视频信息
+     *@RequestParam("searchContent")：获取用户要查询的信息
+     * 返回查询信息
+     *
+     * */
+    public Result<Object> editPassAuditing(Video video){
+        passService.editVideoServicel(video);
         return getPass();
     }
 }

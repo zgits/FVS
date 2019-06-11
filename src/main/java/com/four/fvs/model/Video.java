@@ -26,6 +26,8 @@ public class Video {
 
     private Integer vv;//视频播放量
 
+    private String videoLength;//视频长度
+
     private Integer collectNumber;//视频收藏数，数据库中无该字段
 
     private Integer shareNumber;//视频分享数，数据库中无该字段
@@ -206,5 +208,12 @@ public class Video {
 
     public void setUser(User user) {
         this.user = user;
+    }
+    public String getVideoLength() {
+        return videoLength;
+    }
+
+    public void setVideoLength(String videoLength) {
+        this.videoLength = videoLength;
     }
 }

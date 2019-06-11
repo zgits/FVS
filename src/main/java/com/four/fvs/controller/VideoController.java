@@ -3,6 +3,7 @@ package com.four.fvs.controller;
 import com.four.fvs.common.Result;
 import com.four.fvs.common.ResultUtils;
 import com.four.fvs.model.VideoOpRecord;
+import com.four.fvs.service.VideoCommentService;
 import com.four.fvs.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,8 @@ public class VideoController {
 
     @Autowired
     private VideoService videoService;
+    @Autowired
+    private VideoCommentService videoCommentService;
 
 
     @GetMapping(value = "/getVideo",params = {"id"})
@@ -27,6 +30,11 @@ public class VideoController {
         return ResultUtils.success(videoService.getOneVideoById(id));
     }
 
+    @GetMapping(value = "/getCount",params={"id,type"})
+    @ResponseBody
+    public Result<Object>getCountById(Integer videoId,Integer type){
+        return ResultUtils.success(videoCommentService.getCountById(videoId,type));
+    }
 
     @PatchMapping("/givePraise")
     @ResponseBody
@@ -46,6 +54,12 @@ public class VideoController {
     @ResponseBody
     public Result<Object> giveShare(@RequestBody VideoOpRecord videoOpRecord){
         return ResultUtils.success(videoService.giveShare(videoOpRecord));
+    }
+
+    @GetMapping("/getAllVideo")
+    @ResponseBody
+    public  Result<Object> getAllVideo(){
+        return ResultUtils.success(videoService.getAllVideo());
     }
 
     @GetMapping("/getTheSameVideo")

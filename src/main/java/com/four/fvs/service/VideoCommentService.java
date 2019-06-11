@@ -75,4 +75,9 @@ public interface VideoCommentService {
      * @return
      */
     public boolean delVideoCommentService(Integer videoCommentId);
+
+    /**
+     * 获取视频评论数
+     */
+   public Integer getCountById(Integer videoId,Integer type);
 }
