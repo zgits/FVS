@@ -41,7 +41,7 @@ public class AuditingController {
      *
      */
     @ResponseBody
-    @GetMapping("passAuditing")
+    @RequestMapping("passAuditing")
     public Result<Object> passAuditing(@RequestParam("id")Integer videoId){
         auditingService.passAuditingServicel(videoId);
         return getAuditing();

@@ -34,7 +34,7 @@ public interface PassDao {
      * 返回查询信息
      *
      * */
-    public List<Video> searchPassDao(@Param("searchContent")String searchContent);
+    public Video searchPassDao(@Param("id")Integer id);
 
     /*
      * 编辑视频信息

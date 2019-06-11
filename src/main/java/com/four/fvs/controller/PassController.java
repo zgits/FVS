@@ -55,8 +55,8 @@ public class PassController {
      * */
     @ResponseBody
     @GetMapping("searchPassAuditing")
-    public Result<Object> searchPassAuditing(@RequestParam("searchContent")String searchContent){
-        return ResultUtils.success(passService.searchPassServicel(searchContent));
+    public Result<Object> searchPassAuditing(@RequestParam("id")Integer id){
+        return ResultUtils.success(passService.searchPassServicel(id));
     }
 
     /*

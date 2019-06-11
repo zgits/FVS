@@ -42,12 +42,18 @@
         del = 2 where id=#{id}
     </update>
 
-    <select id="searchPassDao" resultMap="video">
+    <select id="" resultMap="video">
         select v.*,u.userName from (
                         select * from video where status = 2 and del = 1
                         ) v left join user u on v.userId = u.id
                         where v.name like CONCAT('%',#{searchContent},'%') or u.userName like CONCAT('%',#{searchContent},'%')
 
+    </select>
+
+    <select id="searchPassDao" resultMap="video">
+         select v.*,u.userName from (
+                        select * from video where status = 2 and del = 1
+                        ) v left join user u on v.userId = u.id where u.id = #{id};
     </select>
 
     <update id="editVideoDao" parameterType="com.four.fvs.model.Video">

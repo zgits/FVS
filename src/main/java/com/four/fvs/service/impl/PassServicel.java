@@ -46,8 +46,8 @@ public class PassServicel implements PassService {
      *
      * */
 
-    public List<Video> searchPassServicel(String searchContent){
-        return passDao.searchPassDao(searchContent);
+    public Video searchPassServicel(Integer id){
+        return passDao.searchPassDao(id);
     }
 
     /*

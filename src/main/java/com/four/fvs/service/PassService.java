@@ -31,7 +31,7 @@ public interface PassService {
      * 返回查询信息
      *
      * */
-    public List<Video> searchPassServicel(String searchContent);
+    public Video searchPassServicel(Integer id);
 
     /*
      * 编辑视频信息
