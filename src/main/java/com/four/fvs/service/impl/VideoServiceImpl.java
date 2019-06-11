@@ -171,4 +171,26 @@ public class VideoServiceImpl implements VideoService {
     public boolean getIfExistOpRecord(VideoOpRecord videoOpRecord) {
         return videoOpRecordDao.getRecord(videoOpRecord)!=null;
     }
+
+
+    /**
+     * 通过id得到cOLLECTVIDEO
+     *
+     * @param id
+     * @return
+     */
+    public List<Video> getCollectVideoService(Integer id) {
+        return videoDao.getCollectVideo(id);
+    }
+
+    /**
+     * 通过id得到cOLLECTVIDEO
+     *
+     * @param id
+     * @return
+     */
+    public List<Video> getShoucangVideoService(Integer id) {
+        return videoDao.getShoucangVideo(id);
+    }
+
 }

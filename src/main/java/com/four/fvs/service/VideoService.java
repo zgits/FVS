@@ -70,4 +70,9 @@ public interface VideoService {
      * @return
      */
     public boolean getIfExistOpRecord(VideoOpRecord videoOpRecord);
+
+
+    public List<Video> getCollectVideoService(Integer id);
+
+    public List<Video> getShoucangVideoService(Integer id);
 }

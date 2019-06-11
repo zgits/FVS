@@ -14,17 +14,17 @@
     <legend>水平导航菜单</legend>
 </fieldset>
 <ul class="layui-nav">
-    <li class="layui-nav-item"><a href="../bg/personalcenter.html">主页</a></li>
-    <li class="layui-nav-item"><a href="../bg/personalcenter_submit.html">投稿</a></li>
-    <li class="layui-nav-item"><a href="../bg/personalcenter_collect.html">收藏<span class="layui-badge">1</a></li>
+    <li class="layui-nav-item"><a href="personcenter.html">主页</a></li>
+    <li class="layui-nav-item"><a href="personalcenter_submit.html">投稿</a></li>
+    <li class="layui-nav-item"><a href="personalcenter_collect.html">收藏<span class="layui-badge">1</a></li>
 
-    <li class="layui-nav-item"><a href="../bg/viewhistory.html">历史纪录</a></li>
-    <li class="layui-nav-item"><a href="../bg/edit.html">编辑个人资料</a></li>
+    <li class="layui-nav-item"><a href="viewhistory.html">历史纪录</a></li>
+    <li class="layui-nav-item"><a href="edit.html">编辑个人资料</a></li>
 
 
-    <li class="layui-nav-normol" style="float:right"><a href="../bg/fans.html">1.1W</a></li>
+    <li class="layui-nav-normol" style="float:right"><a href="fans.html">1.1W</a></li>
     <li class="layui-nav-item" style="float:right">粉丝数</a></li>
-    <li class="layui-nav-normol" style="float:right"><a href="../bg/focus.html">8711</a></li>
+    <li class="layui-nav-normol" style="float:right"><a href="focus.html">8711</a></li>
     <li class="layui-nav-item" style="float:right">关注</a></li>
 
 </ul>
@@ -35,38 +35,12 @@
         <div class="wrapper" id="page-video">
             <div class="col-full clearfix">
 
-                <div class="main-content">
-                    <div class="row page-head clearfix">
-                        <div class="breadcrumb"><p class="item cur">我的投稿</p></div>
-                        <div class="v-filter-line clearfix">
-                            <div class="be-tab">
-                                <ul class="be-tab-inner clearfix">
-                                    <li class="be-tab-item is-active">  <!--bottomcolor-->
-                                        <input name="be-tab-2" class="be-tab-input" type="radio" value="pubdate">
-                                        <span>最新发布</span>
-                                    </li>
-                                    <li class="be-tab-item">
-                                        <input name="be-tab-2" class="be-tab-input" type="radio" value="click">
-                                        <span>最多播放</span>
-                                    </li>
-                                    <li class="be-tab-item">
-                                        <input name="be-tab-2" class="be-tab-input" type="radio" value="stow">
-                                        <span>最多收藏</span>
-                                    </li>
-                                    <li class="be-tab-item">
-                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                <div class="main-content" id="Reset3">
 
 
+                    <div class="row page-head clearfix"><div class="breadcrumb"><p class="item cur">我的投稿</p></div><div class="v-filter-line clearfix"><div class="be-tab"><ul class="be-tab-inner clearfix"></ul></div></div></div><div class="fav-main section"></div>
 
 
-
-
-                    <div class="fav-main section"></div>
                     <li class="small-item" data-aid="41998222">
                         <a class="cover cover-normal" href="//www.bilibili.com/video/av41998222" target="_blank"
                            data-v-69542162="">
@@ -219,9 +193,15 @@
          data-ad-client="ca-pub-6111334333458862"></ins>
 
 </div>
+<!-- jQuery 3 -->
+<script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
 
+<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../static/plugins/sweetalert/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../static/plugins/sweetalert/sweetalert.css">
+<script type="text/javascript" src="../static/resources/js/login.js?v=20175131017 "></script>
+<link href="../static/resources/css/login.css" rel="stylesheet" type="text/css"/>
 <script src="../static/layui/layui.js"></script>
-<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 <script>
     layui.use('element', function () {
         var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
@@ -234,5 +214,71 @@
     });
 </script>
 
+
+
+
+
+
+<script>
+
+    var userId = $.cookie('userId');
+    $(function () {
+        //静态数据置空
+        $("#Reset3").empty();
+        SelectCollectVideo();
+    });
+    function SelectCollectVideo() {
+        $.ajax({
+            url: "/video/getCollectVideo",
+            type: "get",
+            dataType: "json",
+            data: {
+                userId: userId
+            },
+            //默认执行成功
+            success: function (data) {
+                alert("获取用户信息成功！");
+                //控制台打印
+                console.log(data.data);
+                showCollectVideo(data);
+            },
+            error: function(data){
+                alert("获取用户信息失败！");
+            }
+        });
+
+    }
+
+
+    function showCollectVideo(data) {
+        //控制台打印
+        console.log("第一次：" + data.data.length);
+        //按格式从数据库取数据
+
+        var appendhtml = " <div class=\"row page-head clearfix\"><div class=\"breadcrumb\"><p class=\"item cur\">我的投稿</p></div><div class=\"v-filter-line clearfix\"><div class=\"be-tab\"><ul class=\"be-tab-inner clearfix\"></ul></div></div></div><div class=\"fav-main section\"></div>"
+
+        for(var i = 0; i < data.data.length; i++){
+            appendhtml +=
+
+                "                                    <li class=\"small-item\" >\n" +
+                "                                        <a class=\"cover cover-normal\" href=\" "  +   data.data[i].videoSrc + " \" target=\"_blank\">\n" +
+                "                                            <img alt=\"   " + data.data[i].name+ "  \" src=\" "  + data.data[i].firstImagePath + " \">\n" +
+                "                                            <span class=\"length\" >" +    data.data[i].videoLength     + "</span>\n" +
+                "                                            <div class=\"be-tags-container\" ></div>\n" +
+                "                                        </a>\n" +
+
+                "                                        <a title=\"  "   + data.data[i].name+   "   \" class=\"title\"\n" +
+                "                                           href=\" "+    data.data[i].videoSrc + "  \" target=\"_blank\">"+    data.data[i].name  +"</a>\n" +
+                "                                    </li>"}
+        //将取得的数据追加进去
+        $("#Reset3").append(appendhtml);
+
+    }
+
+
+
+
+
+</script>
 </body>
 </html>

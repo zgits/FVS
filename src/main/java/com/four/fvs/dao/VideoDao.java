@@ -65,6 +65,18 @@ public interface VideoDao {
 
 
 
+    /**
+     * 根据id获取CollectVideo
+     * @param id
+     * @return
+     */
+    public List<Video> getCollectVideo(@Param("id") Integer id);
 
+    /**
+     * 根据id获取收藏Video
+     * @param id
+     * @return
+     */
+    public List<Video> getShoucangVideo(@Param("id") Integer id);
 
 }
