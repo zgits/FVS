@@ -55,7 +55,10 @@ public class VideoServiceImpl implements VideoService {
 
         Video video=videoDao.getOneVideoById(videoId);
         VideoVo videoVo=new VideoVo();
+
+        System.out.println(video);
         User user=userService.getUserInfo(video.getUserId());
+
         videoVo.setVideo(video);
         videoVo.setFocus(focusService.getFocusNumber(video.getUserId()));
 
@@ -64,6 +67,11 @@ public class VideoServiceImpl implements VideoService {
         videoVo.setUserId(user.getId());
         videoVo.setType(typeService.getTypeName(video.getTypeId()));
         return videoVo;
+    }
+
+    @Override
+    public Integer updateVideovv(Integer id) {
+        return videoDao.updateVideovv(id);
     }
 
     @Override
