@@ -53,12 +53,14 @@
     <select id="searchPassDao" resultMap="video">
          select v.*,u.userName from (
                         select * from video where status = 2 and del = 1
-                        ) v left join user u on v.userId = u.id where u.id = #{id};
+                        ) v left join user u on v.userId = u.id where v.id = #{id};
     </select>
 
     <update id="editVideoDao" parameterType="com.four.fvs.model.Video">
         update video set
-        typeId = #{typeId}
+        name = #{name},
+        typeId = #{typeId},
+        simpleIntroduce = #{simpleIntroduce}
         where id=#{id}
     </update>
 </mapper>

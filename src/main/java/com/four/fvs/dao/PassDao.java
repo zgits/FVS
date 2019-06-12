@@ -15,7 +15,7 @@ import java.util.List;
 public interface PassDao {
 
     /**
-     * 遍历未审核视频信息
+     * 遍历审核通过视频信息
      * @param
      * @return
      */
