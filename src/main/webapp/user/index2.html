@@ -94,20 +94,12 @@
 <!--类别-->
 <div class="bili-wrapper">
     <div class="primary-menu report-wrap-module report-scroll-module " id="primary_menu" scrollshow="true">
-        <ul class="nav-menu">
-
-            <!--<li class="home"><a href="//www.bilibili.com">
-                <div class="nav-name">首页</div>
-            </a>
-                <ul class="sub-nav"></ul>
-            </li>-->
+        <ul class="nav-menu" id="sort">
 
             <li><a href="//www.bilibili.com/v/douga/">
                 <div class="num-wrap"><span>999+</span></div>
                 <div class="nav-name">动画</div>
-            </a>
-
-            </li>
+            </a></li>
 
             <li><a href="//www.bilibili.com/guochuang/">
                 <div class="num-wrap"><span>274</span></div>
@@ -187,11 +179,6 @@
             </a>
 
             </li>
-            <!--
-            <li class="side-nav zl"><a class="side-link" href="//www.bilibili.com/read/home"><i
-                    class="zhuanlan"></i><span>专栏</span></a></li>-->
-        </ul>
-        </li>
         </ul>
     </div>
 </div>
@@ -207,7 +194,7 @@
                 <!--展示栏-->
                 <div class="new-comers-module l-con" id="i_head">
                     <div class="zone-title">
-                        <div class="headline clearfix "><a class="name" href="./caetoon.html">动画</a>
+                        <div class="headline clearfix "><a class="name" href="sort.html">动画</a>
                             <div class="bili-tab bili-tab">
 
                                 <div class="bili-tab-item"><a  href="www.baidu.com">最新投稿</a></div>
@@ -957,37 +944,53 @@
 </script>
 <script>
     $(function () {
-        //SelectAllVideo();
+        showAllSort();
 
 
     });
 
 
-
-        $.ajax({
-            url: "/video/getAllVideo",
-            type: "get",
-            dataType: "json",
-            success: function (data) {
-                console.log(data.data);
-                var types=[];
-                 var typess=[];
-               for (var i=0;i<data.data.length;i++){
-                   types[i]=data.data[i].typeId;
-                   types.push(types[i]);
-               }
-               for(var i=0;i<types.length;i++){
-                   if(typess.indexOf(types[i])<0){
-                       typess.push(types[i])
-                   }
-               }
-               //alert(typess.length);
-
-                showAllvideo(data,typess);
-
+    $.ajax({
+        url: "/video/getAllVideo",
+        type: "get",
+        dataType: "json",
+        success: function (data) {
+            console.log(data.data);
+            var types=[];
+            var typess=[];
+            for (var i=0;i<data.data.length;i++){
+                types[i]=data.data[i].typeId;
+                types.push(types[i]);
             }
-        });
+            for(var i=0;i<types.length;i++){
+                if(typess.indexOf(types[i])<0){
+                    typess.push(types[i])
+                }
+            }
+            //alert(typess.length);
 
+            showAllvideo(data,typess);
+
+        }
+    });
+
+        //获取各分区视频数量
+   function getAllCount(){
+       var allcount;
+       $.ajax({
+           url: '/video/getAllCount',
+           type: 'get',
+           dataType:'json',
+           async: false,
+           success:function (data) {
+               if(data.code==0){
+                   allcount=data.data;
+               }
+               //showAllSort(allcount);
+           }
+       });
+       return allcount;
+   }
         //根据id获取类型名
     function getTypeName(typeId) {
         var typename;
@@ -1044,7 +1047,25 @@
         });
         return ranks;
     }
+    //显示分区个视频数量
+    function showAllSort(){
+        $("#sort").empty();
+        var appendhtml='';
+        var counts=[];
+        var type=[];
+        counts=getAllCount();//调用获取分区内视频数的function
+        type=getAllType();//调用获取分区类型的function
 
+
+        for(var i=0;i<type.length;i++){
+            appendhtml +='<li><a href="//www.bilibili.com/v/douga/">\n' +
+                '                <div class="num-wrap"><span>'+counts[i]+'</span></div>\n' +
+                '                <div class="nav-name">'+type[i].name+'</div>\n' +
+                '            </a></li>';
+        }
+        $("#sort").append(appendhtml);
+
+    }
     //首页主要内容
     function showAllvideo(data,typess) {
         $("#display").empty();
@@ -1052,9 +1073,8 @@
         var appendhtml='';
         var type=[];
         var ranks=[];
-        type=getAllType();
+        type=getAllType();//获取全部分区类型
         for(var i=0;i<type.length;i++) {
-            //var typename=getTypeName(typess[i]);
             ranks=getVideoRank(type[i].id);
              appendhtml +='<div class="bili-wrapper" >\n' +
                  '        <div class="zone-wrap-module report-wrap-module report-scroll-module clearfix"\n' +
@@ -1063,7 +1083,7 @@
                  '                <!--展示栏-->\n' +
                  '                <div class="new-comers-module l-con">\n' +
                  '                    <div class="zone-title">\n' +
-                 '                        <div class="headline clearfix "><a class="name" href="./caetoon.html">'+type[i].name+'</a>\n' +
+                 '                        <div class="headline clearfix "><a class="name" href="/user/sort.html?sortId='+type[i].id+'">'+type[i].name+'</a>\n' +
                  '                            <div class="bili-tab bili-tab">\n' +
                  '\n' +
                  '                                <div class="bili-tab-item"><a  href="www.baidu.com">最新投稿</a></div>\n' +
