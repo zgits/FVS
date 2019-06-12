@@ -82,4 +82,26 @@ public class VideoController {
         return ResultUtils.success(videoService.getIfExistOpRecord(videoOpRecord));
     }
 
+
+    /**
+     * 遍历CollectVideo信息
+     * @param
+     * @return
+     */
+    @ResponseBody
+    @GetMapping(value = "/getCollectVideo")
+    public Result<Object> getCollectVideo(Integer userId){
+        return ResultUtils.success(videoService.getCollectVideoService(userId));
+    }
+
+    /**
+     * 遍历收藏的视频信息
+     * @param
+     * @return
+     */
+    @ResponseBody
+    @GetMapping(value = "/getShoucangVideo")
+    public Result<Object> getShoucangVideo(Integer userId){
+        return ResultUtils.success(videoService.getShoucangVideoService(userId));
+    }
 }
