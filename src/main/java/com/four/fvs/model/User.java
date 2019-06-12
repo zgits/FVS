@@ -1,5 +1,7 @@
 package com.four.fvs.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 /**
@@ -21,6 +23,8 @@ public class User {
 
     private String introduce;//自我介绍
 
+    //防止显示时间乱码,前端有个tool.js文件，里面可以将时间戳转换为特定格式的字符串
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date createTime;//创建账号时间
 
     private Integer roleId;//默认为2，普通用户。2.普通用户 3.VIP 4.管理员

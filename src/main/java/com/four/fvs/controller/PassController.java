@@ -54,8 +54,8 @@ public class PassController {
      *
      * */
     @ResponseBody
-    @GetMapping("searchPassAuditing")
-    public Result<Object> searchPassAuditing(@RequestParam("id")Integer id){
+    @GetMapping("getOnePassAuditing")
+    public Result<Object> getOnePassAuditing(@RequestParam("id")Integer id){
         return ResultUtils.success(passService.searchPassServicel(id));
     }
 
@@ -65,8 +65,11 @@ public class PassController {
      * 返回查询信息
      *
      * */
+    @ResponseBody
+    @GetMapping("editPassAuditing")
     public Result<Object> editPassAuditing(Video video){
         passService.editVideoServicel(video);
+        System.out.println(video.toString());
         return getPass();
     }
 }

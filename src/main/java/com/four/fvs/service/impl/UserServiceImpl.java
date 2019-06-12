@@ -78,12 +78,9 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 通过id得到某个用戶的信息
-     *
      * @param id
      * @return
      */
-
-
     public User getUserService(Integer id) {
         User user = userDao.getUserDao(id);
         //判断用户是否存在
@@ -93,4 +90,7 @@ public class UserServiceImpl implements UserService {
         return user;
 
     }
+
+
+
 }
