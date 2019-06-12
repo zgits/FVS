@@ -663,7 +663,6 @@
     }
 
     function Submit(){
-        console.log("00000id:" + $("#videoIntroduce").val());
         $.ajax({
             url: "/Pass/editPassAuditing",
             type: "get",
@@ -671,7 +670,7 @@
             data: {
                 id: $("#videoId").val(),
                 name : $("#videoName").val(),
-                typeId : 4,
+                typeId : $("#videoTypeId").val(),
                 simpleIntroduce : $("#videoIntroduce").val(),
             },
             success: function (data) {
