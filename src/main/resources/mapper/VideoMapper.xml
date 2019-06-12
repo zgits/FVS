@@ -19,6 +19,7 @@
         <result property="status" column="status"></result>
         <result property="firstImagePath" column="firstImagePath"></result>
         <result property="del" column="del"></result>
+        <result property="videoLength" column="videoLength"></result>
         <collection property="bulletScreenList" ofType="com.four.fvs.model.BulletScreen" columnPrefix="b_">
             <result property="id" column="id"></result>
             <result property="color" column="color"></result>

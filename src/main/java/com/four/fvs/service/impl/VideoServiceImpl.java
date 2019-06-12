@@ -53,10 +53,14 @@ public class VideoServiceImpl implements VideoService {
     @Override
     public VideoVo getOneVideoById(Integer videoId) {
 
+
+        System.out.println(videoId);
         Video video=videoDao.getOneVideoById(videoId);
+        if(video==null){
+            return null;
+        }
         VideoVo videoVo=new VideoVo();
 
-        System.out.println(video);
         User user=userService.getUserInfo(video.getUserId());
 
         videoVo.setVideo(video);
