@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,13 +14,12 @@
     <link rel="stylesheet" href="../static/bower_components/Ionicons/css/ionicons.min.css">
     <!-- DataTables -->
     <link rel="stylesheet" href="../static/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-
-    <!--<link rel="stylesheet" href="../static/plugins/iCheck/all.css">-->
     <!-- Theme style -->
     <link rel="stylesheet" href="../static/dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../static/dist/css/skins/_all-skins.min.css">
+
 
     <!--    -->
 
@@ -46,7 +45,6 @@
     <script src="../static/dist/Admin/label/bootstrap-table-zh-CN.js" charset="UTF-8"
             type="text/javascript"></script>
     <!--    -->
-
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -379,7 +377,7 @@
                     </ul>
                 </li>
                 <!--                用户管理-->
-                <li>
+                <li class="active">
                     <a href="manageruser.html">
                         <i class="fa fa-th"></i> <span>用户管理</span>
 
@@ -393,7 +391,7 @@
                     </a>
                 </li>
                 <!--                评论管理-->
-                <li class="active">
+                <li>
                     <a href="comment.html">
                         <i class="fa fa-laptop"></i>
                         <span>评论管理</span>
@@ -416,13 +414,14 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                评论管理
+                用户基本信息
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li class="active">评论管理</li>
+                <li class="active">用户基本信息</li>
             </ol>
         </section>
+
 
         <!-- Main content -->
         <section class="content">
@@ -430,42 +429,59 @@
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header">
-                            <!--<button type="button" class="btn btn-success">删除</button>-->
-                            <h3 class="box-title">用户评论信息</h3>
+                            <h3 class="box-title">用户信息</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            <div id="reportTableDiv">
-                                <table id="reportTable"></table>
-                            </div>
+                            <!--<div id="reportTableDiv">-->
+                            <!--<table id="reportTable"></table>-->
+                            <table id="example3" border="1" align="center">
+
+                                <tr>
+                                    <td colspan="2" width="500px" height="60" align="center" bgcolor="#f5f5dc"
+                                        style="font-size:24px;color:blue;">用户个人信息
+                                    </td>
+                                </tr>
+                                <tr height="45" bgcolor="#faebd7" align="center" style="font-size:18px;color:black;">
+                                    <td>用户名</td>
+                                    <td>yzh</td>
+                                </tr>
+                                <tr height="45" bgcolor="#faebd7" align="center" style="font-size:18px;color:black;">
+                                    <td>头像</td>
+                                    <td>image</td>
+                                </tr>
+                                <tr height="45" bgcolor="#faebd7" align="center" style="font-size:18px;color:black;">
+                                    <td>性别</td>
+                                    <td>男</td>
+                                </tr>
+                                <tr height="45" bgcolor="#faebd7" align="center" style="font-size:18px;color:black;">
+                                    <td>自我介绍</td>
+                                    <td>全面屏敢越级</td>
+                                </tr>
+                                <tr height="45" bgcolor="#faebd7" align="center" style="font-size:18px;color:black;">
+                                    <td>创建时间</td>
+                                    <td>2019.6.9</td>
+                                </tr>
+                                <tr height="45" bgcolor="#faebd7" align="center" style="font-size:18px;color:black;">
+                                    <td>角色</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr height="45" bgcolor="#faebd7" align="center" style="font-size:18px;color:black;">
+                                    <td>状态</td>
+                                    <td>1</td>
+                                </tr>
+                                </tr>
+
+                            </table>
+                            <!--</div>-->
                         </div>
                         <!-- /.box-body -->
                     </div>
                 </div>
-            </div>
 
+            </div>
 
         </section>
-        <!-- /.content -->
-
-        <!--        删除模态框-->
-        <div class="modal modal-warning fade" id="modal-warning">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">确定删除吗？</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">关闭</button>
-                        <button id="del-event" type="button" class="btn btn-outline">确认</button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
     </div>
 
     <!--    页脚-->
@@ -498,246 +514,82 @@
     <!-- Add the sidebar's background. This div must be placed
          immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
+
 </div>
-<!-- ./wrapper -->
 
-<!--&lt;!&ndash; jQuery 3 &ndash;&gt;-->
-<!--<script src="../static/bower_components/jquery/dist/jquery.min.js"></script>-->
-<!--&lt;!&ndash; Bootstrap 3.3.7 &ndash;&gt;-->
-<!--<script src="../static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
-<!--&lt;!&ndash; DataTables &ndash;&gt;-->
-<!--<script src="../static/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>-->
-<!--<script src="../static/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>-->
-<!--SlimScroll -->
-<!--<script src="../static/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>-->
-<!--&lt;!&ndash; FastClick &ndash;&gt;-->
-<!--<script src="../static/bower_components/fastclick/lib/fastclick.js"></script>-->
-
-<!--&lt;!&ndash; iCheck 1.0.1 &ndash;&gt;-->
-<!--<script src="../static/plugins/iCheck/icheck.min.js"></script>-->
-<!--&lt;!&ndash; AdminLTE App &ndash;&gt;-->
-<!--<script src="../static/dist/js/adminlte.min.js"></script>-->
-<!--&lt;!&ndash; AdminLTE for demo purposes &ndash;&gt;-->
-<!--<script src="../static/dist/js/color.js"></script>-->
-<!-- page script -->
-
-<!--<script>-->
-<!--$(function () {-->
-<!--$('#example1').DataTable()-->
-<!--$('#example2').DataTable({-->
-<!--'paging': true,-->
-<!--'lengthChange': false,-->
-<!--'searching': true,-->
-<!--'ordering': false,-->
-<!--'info': true,-->
-<!--'autoWidth': false-->
-<!--})-->
-<!--});-->
-<!--</script>-->
-<!--<script>-->
-<!--$(function () {-->
-<!--//Flat red color scheme for iCheck-->
-<!--$('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({-->
-<!--checkboxClass: 'icheckbox_flat-green',-->
-<!--radioClass: 'iradio_flat-green'-->
-<!--})-->
-<!--});-->
-<!--$("#selectAll").click(function () {-->
-<!--alert('sd');-->
-<!--$("#tablebody input:checkbox").each(function () {-->
-<!--$(this).prop('checked', true);//-->
-
-<!--});-->
-<!--});-->
-<!--</script>-->
 
 <!--
 * @Author: yzh
-* @Date: 2019/6/6 17:14
+* @Date: 2019/6/10 23:09
 * @Description： 评论信息的管理
 -->
 
-<!--未分页实现-->
-<!--<script>-->
-<!--$(function () {-->
-<!--//把前面的静态数据置空-->
-<!--$("#example3").empty();-->
-<!--VideoCommentSelect();-->
 
-<!--});-->
-<!--function VideoCommentSelect() {-->
-<!--$.ajax({-->
-<!--url: "/videoComment/getVideoComment",-->
-<!--type: "get",-->
-<!--dataType: "json",-->
-<!--//默认执行成功-->
-<!--success: function (data) {-->
-<!--//控制台打印-->
-<!--console.log(data.data);-->
-<!--showVideoComment(data);-->
-<!--alert("获取评论信息成功！");-->
-<!--},-->
-<!--error: function(){-->
-<!--alert("获取评论信息失败！");-->
-<!--}-->
-<!--});-->
+<script>
 
-<!--}-->
 
-<!--function showVideoComment(data) {-->
-<!--//控制台打印-->
-<!--console.log("第一次：" + data.data.length);-->
-<!--//按格式从数据库取数据-->
-<!--var appendhtml =-->
-<!--"<thead>\n" +-->
-<!--"<tr>\n" +-->
-<!--"<th>" + "评论者" + "</th>" +-->
-<!--"<th>" + "评论内容" + "</th>" +-->
-<!--"<th>" + "评论时间" + "</th>" +-->
-<!--"<th>" + "操作" + "</th>" +-->
-<!--"</tr>" +-->
-<!--"</thead>";-->
-<!--for (var i = 0; i < data.data.length; i++) {-->
-<!--appendhtml += "<tbody>\n" +-->
-<!--"<tr>\n" +-->
-<!--"<td>" + data.data[i].user.userName + "</td>" +-->
-<!--"<td>" + data.data[i].content + "</td>" +-->
-<!--"<td>" + data.data[i].createTime + "</td>" +-->
-<!--"<td>\n" +-->
-<!--"<div class=\"btn-group\">" +-->
-<!--"<button type=\"button\" class=\"btn btn-warning\"  data-toggle=\"modal\" data-target=\"#modal-warning\">删除</button>\n" +-->
-<!--"</div>\n" +-->
-<!--"</td>" +-->
-<!--"</tr>"-->
-<!--"</tbody>";-->
-<!--}-->
-<!--//将取得的数据追加进去-->
-<!--$("#example3").append(appendhtml);-->
+    window.onload = function () {
+        var userId = window.location.href.split("=")[1];
 
-<!--}-->
-<!--</script>-->
+        $(function () {
+            //把前面的静态数据置空
+            $("#example3").empty();
+            console.log("第0次：" + userId);
+            UserInfoget(userId);
 
-<!-- ./wrapper -->
 
-<!--
-* @Author: yzh
-* @Date: 2019/6/10 14:14
-* @Description： 评论信息的管理
--->
-
-<!--有分页实现-->
-<script type="text/javascript">
-
-    $(function () {
-        $('#reportTable').bootstrapTable({
-
-            url: '/videoComment/getVideoComment', // 请求后台的URL（*）
-            dataType: "json",
-            pagination: true, //前端处理分页
-            singleSelect: true,//是否只能单选
-            search: true, //显示搜索框，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
-            //toolbar: '#toolbar1', //工具按钮用哪个容器
-            striped: true, //是否显示行间隔色
-            cache: false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
-            pageNumber: 1, //初始化加载第10页，默认第一页
-            pageSize: 7, //每页的记录行数（*）
-            pageList: [5, 10, 20, 50], //可供选择的每页的行数（*）
-            strictSearch: true,//设置为 true启用 全匹配搜索，false为模糊搜索
-            showColumns: true, //显示内容列下拉框
-            showRefresh: true, //显示刷新按钮
-            minimumCountColumns: 2, //当列数小于此值时，将隐藏内容列下拉框
-            clickToSelect: true, //设置true， 将在点击某行时，自动勾选rediobox 和 checkbox
-            // height: 450, //表格高度，如果没有设置height属性，表格自动根据记录条数决定表格高度#}
-            uniqueId: "id", //每一行的唯一标识，一般为主键列
-            showToggle: true, //是否显示详细视图和列表视图的切换按钮
-            cardView: false, //是否显示详细视图
-            //detailView: true, //是否显示父子表，设置为 true 可以显示详细页面模式,在每行最前边显示+号#}
-            sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
-
-            responseHandler: function (res) {
-                return {
-                    "rows": res.data   //数据
-                };
-            },
-
-            columns: [
-                {
-                    checkbox: true
-                },
-                //定义表头,这个表头必须定义,下边field后边跟的字段名字必须与后端传递的字段名字相同.如:id、name、price
-                //跟后端的字段名id  name price是完全一样的
-
-                {
-                    field: 'user.userName',
-                    title: '评论者',
-                    align: 'center'
-                },
-                {
-                    field: 'content',
-                    title: '评论内容',
-                    align: 'center',
-                },
-                {
-                    field: 'createTime',
-                    title: "评论时间",
-                    align: 'center'
-                },
-
-                {
-                    field: 'id',
-                    title: "操作",
-                    align: 'center',
-                    formatter: function (value, row, index) {
-                        //通过formatter可以自定义列显示的内容
-                        //value：当前field的值，即id
-                        //row：当前行的数据
-                        console.log("获取评论信息成功value:" + value);
-                        var a = '<button id="delButton" type="button" class="btn btn-warning" >删除</button>';
-
-                        return a;
-                    },
-                    events: {
-                        "click #delButton": function (value, row, index) {
-                            //location.reload();    //操作完成后马上刷新页面
-                            console.log("row.id: " + row);
-                            console.log(value);
-                            $.ajax({
-                                url: '/videoComment/delVideoComment',
-                                type: 'get',
-                                data: {id: row},
-                                success: function (data) {
-                                    alert("删除成功！");
-                                    location.reload();
-                                    console.log("删除成功！");
-                                },
-                                error: function () {
-                                    alert("删除失败！");
-
-                                },
-                            });
-                        },
-
-                    }
-                },
-
-            ],
         });
-    });
-    alert("获取评论信息成功！");
+
+        function UserInfoget(userId) {
+            $.ajax({
+                url: "/user/getUser",
+                type: "get",
+                data: {
+                    id: userId
+                },
+                //默认执行成功
+
+                success: function (data) {
+
+                    //控制台打印
+                    console.log("第1次：" + userId);
+                    showUserInfo(data);
+                    alert("获取用户信息成功！");
+
+                }
+            })
+
+        }
+
+        function showUserInfo(data) {
+            //控制台打印
+            console.log("第2次：" + userId);
+            //按格式从数据库取数据
+            var appendhtml = '';
+            appendhtml +=
+                "<tr>\n" + "<td colspan=\"2\" width=\"500px\" height=\"60\" align=\"center\" bgcolor=\"#f5f5dc\" " +
+                "style=\"font-size:24px;color:blue;\">" + "用户个人信息" + "</td> " + "</tr>" +
+            "<tr  height=\"45\" bgcolor=\"#faebd7\" align=\"center\" style=\"font-size:18px;color:black;\">" +
+            "<td>" + "用户名" + "</td>" + "<td>" + data.data.userName + "<td>" + "</tr>" +
+            "<tr height=\"45\" bgcolor=\"#faebd7\" align=\"center\" style=\"font-size:18px;color:black;\">" +
+            "<td>" + "头像" + "</td>" + "<td>" + data.data.icon + "<td>" + "</tr>" +
+            "<tr height=\"45\" bgcolor=\"#faebd7\" align=\"center\" style=\"font-size:18px;color:black;\">" +
+            "<td>" + "性别" + "</td>" + "<td>"+ data.data.sex + "<td>" + "</tr>"+
+            "<tr height=\"45\" bgcolor=\"#faebd7\" align=\"center\" style=\"font-size:18px;color:black;\">" +
+            "<td>" + "自我介绍" + "</td>" + "<td>"+ data.data.introduce + "<td>" + "</tr>" +
+            "<tr height=\"45\" bgcolor=\"#faebd7\" align=\"center\" style=\"font-size:18px;color:black;\">" +
+            "<td>" + "创建时间" + "</td>" + "<td>" + data.data.createTime + "<td>" + "</tr>" +
+            "<tr height=\"45\" bgcolor=\"#faebd7\" align=\"center\" style=\"font-size:18px;color:black;\">" +
+            "<td>" + "角色" + "</td>" + "<td>" + data.data.roleId + "<td>" + "</tr>";
+            // "<tr height=\"45\" bgcolor=\"#faebd7\" align=\"center\" style=\"font-size:18px;color:black;\">" +
+            // "<td>" + "状态" + "</td>" + "<td>" + data.data.del + "<td>" + "</tr>";
+            console.log(data.data.sex );
+            console.log(data.data.introduce );
+            //将取得的数据追加进去
+            $("#example3").append(appendhtml);
+
+        }
+    }
 </script>
-
-<!-- SlimScroll -->
-<script src="../static/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="../static/bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="../static/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../static/dist/js/color.js"></script>
-
-
-<!-- page script -->
-
-
 </body>
 </html>

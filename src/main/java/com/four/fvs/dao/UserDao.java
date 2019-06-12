@@ -4,6 +4,7 @@ import com.four.fvs.model.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -74,4 +75,7 @@ public interface UserDao {
      * @return
      */
     public User getUserDao(@Param("id") Integer id);
+
+
 }
+

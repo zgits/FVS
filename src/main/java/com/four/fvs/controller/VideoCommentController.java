@@ -78,7 +78,7 @@ public class VideoCommentController {
      */
 
     @ResponseBody
-    @DeleteMapping("/delVideoComment")
+    @GetMapping("/delVideoComment")
     public Result<Object> delVideoComment(@RequestParam("id")Integer videoCommentId){
         videoCommentService.delVideoCommentService(videoCommentId);
         return getVideoComment();
