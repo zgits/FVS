@@ -30,6 +30,13 @@ public class VideoController {
         return ResultUtils.success(videoService.getOneVideoById(id));
     }
 
+
+    @PatchMapping(value = "/updateVideovv/{id}")
+    @ResponseBody
+    public Result<Object> updateVideovv(@PathVariable("id") Integer id){
+        return ResultUtils.success(videoService.updateVideovv(id));
+    }
+
     @GetMapping(value = "/getCount",params={"id,type"})
     @ResponseBody
     public Result<Object>getCountById(Integer videoId,Integer type){
@@ -75,4 +82,26 @@ public class VideoController {
         return ResultUtils.success(videoService.getIfExistOpRecord(videoOpRecord));
     }
 
+
+    /**
+     * 遍历CollectVideo信息
+     * @param
+     * @return
+     */
+    @ResponseBody
+    @GetMapping(value = "/getCollectVideo")
+    public Result<Object> getCollectVideo(Integer userId){
+        return ResultUtils.success(videoService.getCollectVideoService(userId));
+    }
+
+    /**
+     * 遍历收藏的视频信息
+     * @param
+     * @return
+     */
+    @ResponseBody
+    @GetMapping(value = "/getShoucangVideo")
+    public Result<Object> getShoucangVideo(Integer userId){
+        return ResultUtils.success(videoService.getShoucangVideoService(userId));
+    }
 }

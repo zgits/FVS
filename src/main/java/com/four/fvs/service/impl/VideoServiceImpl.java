@@ -53,9 +53,16 @@ public class VideoServiceImpl implements VideoService {
     @Override
     public VideoVo getOneVideoById(Integer videoId) {
 
+
+        System.out.println(videoId);
         Video video=videoDao.getOneVideoById(videoId);
+        if(video==null){
+            return null;
+        }
         VideoVo videoVo=new VideoVo();
+
         User user=userService.getUserInfo(video.getUserId());
+
         videoVo.setVideo(video);
         videoVo.setFocus(focusService.getFocusNumber(video.getUserId()));
 
@@ -64,6 +71,11 @@ public class VideoServiceImpl implements VideoService {
         videoVo.setUserId(user.getId());
         videoVo.setType(typeService.getTypeName(video.getTypeId()));
         return videoVo;
+    }
+
+    @Override
+    public Integer updateVideovv(Integer id) {
+        return videoDao.updateVideovv(id);
     }
 
     @Override
@@ -171,4 +183,26 @@ public class VideoServiceImpl implements VideoService {
     public boolean getIfExistOpRecord(VideoOpRecord videoOpRecord) {
         return videoOpRecordDao.getRecord(videoOpRecord)!=null;
     }
+
+
+    /**
+     * 通过id得到cOLLECTVIDEO
+     *
+     * @param id
+     * @return
+     */
+    public List<Video> getCollectVideoService(Integer id) {
+        return videoDao.getCollectVideo(id);
+    }
+
+    /**
+     * 通过id得到cOLLECTVIDEO
+     *
+     * @param id
+     * @return
+     */
+    public List<Video> getShoucangVideoService(Integer id) {
+        return videoDao.getShoucangVideo(id);
+    }
+
 }
