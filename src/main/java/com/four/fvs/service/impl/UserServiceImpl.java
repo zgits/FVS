@@ -66,7 +66,7 @@ public class UserServiceImpl implements UserService {
      * @param
      * @return
      */
-    public List<User> getAllUserService() {
+    public List<User>  getAllUserService() {
         return userDao.getAllUserDao();
     }
 
@@ -88,6 +88,7 @@ public class UserServiceImpl implements UserService {
             //不把密码信息传过去
             user.setPassword("");
         return user;
+
     }
 
 

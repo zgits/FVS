@@ -21,7 +21,7 @@ public class AuditingServicel implements AuditingService {
     private AuditingDao auditingDao;
 
     /**
-     * 遍历审核通过视频信息
+     * 遍历未审核通过视频信息
      * @param
      * @return
      */

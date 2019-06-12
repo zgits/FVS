@@ -415,57 +415,9 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box">
-                        <div class="box-header">
-                            <h3 class="box-title">编辑视频</h3>
-                        </div>
                         <!-- /.box-header -->
-                        <div class="box-body">
-                            <div class="box box-info">
-                                <div class="box-header">
-                                    <h3 class="box-title">Color &amp; Time Picker</h3>
-                                </div>
-                                <div class="box-body">
-                                    <!-- Color Picker -->
-                                    <div class="form-group">
-                                        <label>Color picker:</label>
-                                        <input type="text" class="form-control my-colorpicker1 colorpicker-element">
-                                    </div>
-                                    <!-- /.form group -->
+                        <div class="box-body" id="editForm">
 
-                                    <!-- Color Picker -->
-                                    <div class="form-group">
-                                        <label>Color picker with addon:</label>
-
-                                        <div class="input-group my-colorpicker2 colorpicker-element">
-                                            <input type="text" class="form-control">
-
-                                            <div class="input-group-addon">
-                                                <i></i>
-                                            </div>
-                                        </div>
-                                        <!-- /.input group -->
-                                    </div>
-                                    <!-- /.form group -->
-
-                                    <!-- time Picker -->
-                                    <div class="bootstrap-timepicker">
-                                        <div class="form-group">
-                                            <label>Time picker:</label>
-
-                                            <div class="input-group">
-                                                <input type="text" class="form-control timepicker">
-
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-clock-o"></i>
-                                                </div>
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-                                        <!-- /.form group -->
-                                    </div>
-                                </div>
-                                <!-- /.box-body -->
-                            </div>
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -570,8 +522,165 @@
 
     $(function () {
         var id = window.location.href.split("=")[1];
-        console.log("00id:" + id);
+        console.log("id:" + id);
+
+        AuditingSelect(id);
     });
+
+
+    function AuditingSelect(id){
+        console.log("第一次：");
+        $.ajax({
+            url: "/Pass/getOnePassAuditing",
+            type: "get",
+            dataType:"json",
+            data: {id: id},
+            success: function (data) {
+                console.log(data.data);
+                showVideoAuditing(data);
+            }
+        });
+    }
+    function showVideoAuditing(data) {
+        console.log("editPass第二次：" + data.data.id);
+        var appendhtml = " <div class=\"box box-info\">\n" +
+            "                                <div class=\"box-header\">\n" +
+            "                                    <h3 class=\"box-title\">编辑视频</h3>\n" +
+            "                                </div>\n" +
+            "                                <div class=\"box-body\">\n" +
+            "                                    <!-- Color Picker -->\n" +
+            "                                    <div class=\"form-group\">\n" +
+            "                                        <label>视频名</label>\n" +
+            "                                        <input type=\"text\" id=\"videoName\" class=\"form-control my-colorpicker1 colorpicker-element\" value=" + data.data.name + ">\n" +
+            "                                    </div>\n" +
+            "                                    <!-- /.form group -->\n" +
+            "\n" +
+            "                                    <!-- Color Picker -->\n" +
+            "                                    <!-- time Picker -->\n" +
+            "                                    <div class=\"bootstrap-timepicker\">\n" +
+            "                                        <div class=\"form-group\">\n" +
+            "                                            <label>视频作者：&nbsp;&nbsp;&nbsp;&nbsp;</label>\n" +
+            "\n" +
+            "                                            <span>" + data.data.user.userName + "</span>\n" +
+            "                                            <!-- /.input group -->\n" +
+            "                                        </div>\n" +
+            "                                        <!-- /.form group -->\n" +
+            "                                    </div>\n" +
+            "                                    <!-- /.form group -->\n" +
+            "\n" +
+            "                                    <!-- time Picker -->\n" +
+            "                                    <div class=\"bootstrap-timepicker\">\n" +
+            "                                        <div class=\"form-group\">\n" +
+            "                                            <label>视频分类</label>\n" +
+            "                                             <span>（1代表鬼畜&nbsp;&nbsp;&nbsp;&nbsp;" +
+            "2代表数码&nbsp;&nbsp;&nbsp;&nbsp;" +
+            "3代表电影&nbsp;&nbsp;&nbsp;&nbsp;" +
+            "4代表生活）</span>\n" +
+            "\n" +
+            "                                            <div class=\"input-group\">\n" +
+            "                                                <input type=\"text\" id=\"videoTypeId\" class=\"form-control timepicker\" value=" +  data.data.typeId + ">\n" +
+            "\n" +
+            "                                                <div class=\"input-group-addon\">\n" +
+            "                                                    <i class=\"fa fa-clock-o\"></i>\n" +
+            "                                                </div>\n" +
+            "                                            </div>\n" +
+            "                                            <!-- /.input group -->\n" +
+            "                                        </div>\n" +
+            "                                        <!-- /.form group -->\n" +
+            "                                    </div>\n" +
+            "\n" +
+            "                                    <!-- time Picker -->\n" +
+            "                                    <div class=\"bootstrap-timepicker\">\n" +
+            "                                        <div class=\"form-group\">\n" +
+            "                                            <label>视频上传时间</label>\n" +
+            "\n" +
+            "                                            <div class=\"input-group\">\n" +
+            "                                                <input type=\"date\" readonly=\"readonly\" class=\"form-control timepicker\" value=" + data.data.upTime + ">\n" +
+            "\n" +
+            "                                                <div class=\"input-group-addon\">\n" +
+            "                                                    <i class=\"fa fa-clock-o\"></i>\n" +
+            "                                                </div>\n" +
+            "                                            </div>\n" +
+            "                                            <!-- /.input group -->\n" +
+            "                                        </div>\n" +
+            "                                        <!-- /.form group -->\n" +
+            "                                    </div>\n" +
+            "\n" +
+            "                                    <!-- time Picker -->\n" +
+            "                                    <div class=\"bootstrap-timepicker\">\n" +
+            "                                        <div class=\"form-group\">\n" +
+            "                                            <label>视频播放量:&nbsp;&nbsp;</label>\n" +
+            "                                            <span>" +  data.data.vv + "</span>\n" +
+            "                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n" +
+            "                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n" +
+            "                                            <label>视频收藏量:&nbsp;&nbsp;</label>\n" +
+            "                                            <span>" +  data.data.collectNumber + "</span>\n" +
+            "                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n" +
+            "                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n" +
+            "                                            <label>视频点赞量:&nbsp;&nbsp;</label>\n" +
+            "                                            <span>" +  data.data.praiseNumber + "</span>\n" +
+            "                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n" +
+            "                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n" +
+            "                                            <label>视频存放位置:&nbsp;&nbsp;</label>\n" +
+            "                                            <span>" +  data.data.videoSrc + "</span>\n" +
+            "                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n" +
+            "                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n" +
+            "                                            <label>视频状态:&nbsp;&nbsp;</label>\n" +
+            "                                            <span>" +  data.data.status + "</span>\n" +
+            "                                            <!-- /.input group -->\n" +
+            "                                        </div>\n" +
+            "                                        <!-- /.form group -->\n" +
+            "                                    </div>\n" +
+            "\n" +
+            "                                    <!-- time Picker -->\n" +
+            "                                    <div class=\"bootstrap-timepicker\">\n" +
+            "                                        <div class=\"form-group\">\n" +
+            "                                            <label>视频简介</label>\n" +
+            "\n" +
+            "                                            <div class=\"input-group\">\n" +
+            "                                                <input type=\"text\" id=\"videoIntroduce\" class=\"form-control timepicker\" value=" + data.data.simpleIntroduce + ">\n" +
+            "\n" +
+            "                                                <div class=\"input-group-addon\">\n" +
+            "                                                    <i class=\"fa fa-clock-o\"></i>\n" +
+            "                                                </div>\n" +
+            "                                            </div>\n" +
+            "                                            <!-- /.input group -->\n" +
+            "                                        </div>\n" +
+            "                                        <!-- /.form group -->\n" +
+            "                                    </div>\n" +
+            "\n" +
+            "\n" +
+            "                                </div>\n" +
+            "                                <!-- /.box-body  $(\"#videoName\").val() -->\n"+
+            "                            </div>" +
+            "                               <div class=\"box-footer\">\n" +
+            "                                <button type=\"button\" class=\"btn btn-primary\" style=\"margin-left: 90%;width: 70px;\" onclick=\"Submit()\" >提交</button>\n" +
+            "                            </div>" +
+            "<input type=\"text\" id=\"videoId\" class=\"form-control my-colorpicker1 colorpicker-element\" value=" + data.data.id + ">";
+
+        $("#editForm").append(appendhtml);
+
+    }
+
+    function Submit(){
+        console.log("00000id:" + $("#videoIntroduce").val());
+        $.ajax({
+            url: "/Pass/editPassAuditing",
+            type: "get",
+            dataType:"json",
+            data: {
+                id: $("#videoId").val(),
+                name : $("#videoName").val(),
+                typeId : 4,
+                simpleIntroduce : $("#videoIntroduce").val(),
+            },
+            success: function (data) {
+                console.log("更新成功" );
+                window.location.href="pass.html";
+            }
+        });
+
+    }
 
 </script>
 
