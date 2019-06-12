@@ -528,80 +528,67 @@
 <script>
 
 
+    window.onload = function () {
+        var userId = window.location.href.split("=")[1];
 
-    var userId = $.cookie('userId');
-    // var userId = getUrlParam("id");
+        $(function () {
+            //把前面的静态数据置空
+            $("#example3").empty();
+            console.log("第0次：" + userId);
+            UserInfoget(userId);
 
 
-    $(function () {
-        //把前面的静态数据置空
-        $("#example3").empty();
-        UserInfoget(10);
+        });
 
+        function UserInfoget(userId) {
+            $.ajax({
+                url: "/user/getUser",
+                type: "get",
+                data: {
+                    id: userId
+                },
+                //默认执行成功
 
-    });
-
-    function UserInfoget(userId) {
-        $.ajax({
-            url: "/user/getUser",
-            type: "get",
-            data: {
-                id: 10
-            },
-            //默认执行成功
-            success: function (data) {
-
-                if(code==0){
-                    var data = data.data;
-
-                    var userName = data.userName;
-                    var icon = data.icon;
-                    var sex = data.sex;
-                    var introduce = data.introduce;
-                    var createTime = data.createTime;
-                    var roleId = data.roleId;
-                    var del = data.del;
+                success: function (data) {
 
                     //控制台打印
-                    console.log(data.userId);
+                    console.log("第1次：" + userId);
                     showUserInfo(data);
                     alert("获取用户信息成功！");
+
                 }
-            }
-        })
+            })
 
-    }
+        }
 
-    function showUserInfo(data) {
-        //控制台打印
-        console.log("第一次：" + data.userId);
-        //按格式从数据库取数据
-        var appendhtml = '';
-        appendhtml +=
-            "<tr>\n" + "<td>\"用户个人信息\"</td> " + "</tr>" +
-            "<tr>\n" + "<td>" + "用户名" + "</td>" +"</tr>" +
-            "<tr>\n" + "<td>" + "头像" + "</td>" +"</tr>" +
-            "<tr>\n" + "<td>" + "性别" + "</td>" +"</tr>" +
-            "<tr>\n" + "<td>" + "自我介绍" + "</td>" +"</tr>" +
-            "<tr>\n" + "<td>" + "创建时间" + "</td>" +"</tr>" +
-            "<tr>\n" + "<td>" + "角色" + "</td>" +"</tr>" +
-            "<tr>\n" + "<td>" + "状态" + "</td>"+"</tr>",
+        function showUserInfo(data) {
+            //控制台打印
+            console.log("第2次：" + userId);
+            //按格式从数据库取数据
+            var appendhtml = '';
+            appendhtml +=
+                "<tr>\n" + "<td colspan=\"2\" width=\"500px\" height=\"60\" align=\"center\" bgcolor=\"#f5f5dc\" " +
+                "style=\"font-size:24px;color:blue;\">" + "用户个人信息" + "</td> " + "</tr>" +
+            "<tr  height=\"45\" bgcolor=\"#faebd7\" align=\"center\" style=\"font-size:18px;color:black;\">" +
+            "<td>" + "用户名" + "</td>" + "<td>" + data.data.userName + "<td>" + "</tr>" +
+            "<tr height=\"45\" bgcolor=\"#faebd7\" align=\"center\" style=\"font-size:18px;color:black;\">" +
+            "<td>" + "头像" + "</td>" + "<td>" + data.data.icon + "<td>" + "</tr>" +
+            "<tr height=\"45\" bgcolor=\"#faebd7\" align=\"center\" style=\"font-size:18px;color:black;\">" +
+            "<td>" + "性别" + "</td>" + "<td>"+ data.data.sex + "<td>" + "</tr>"+
+            "<tr height=\"45\" bgcolor=\"#faebd7\" align=\"center\" style=\"font-size:18px;color:black;\">" +
+            "<td>" + "自我介绍" + "</td>" + "<td>"+ data.data.introduce + "<td>" + "</tr>" +
+            "<tr height=\"45\" bgcolor=\"#faebd7\" align=\"center\" style=\"font-size:18px;color:black;\">" +
+            "<td>" + "创建时间" + "</td>" + "<td>" + data.data.createTime + "<td>" + "</tr>" +
+            "<tr height=\"45\" bgcolor=\"#faebd7\" align=\"center\" style=\"font-size:18px;color:black;\">" +
+            "<td>" + "角色" + "</td>" + "<td>" + data.data.roleId + "<td>" + "</tr>";
+            // "<tr height=\"45\" bgcolor=\"#faebd7\" align=\"center\" style=\"font-size:18px;color:black;\">" +
+            // "<td>" + "状态" + "</td>" + "<td>" + data.data.del + "<td>" + "</tr>";
+            console.log(data.data.sex );
+            console.log(data.data.introduce );
+            //将取得的数据追加进去
+            $("#example3").append(appendhtml);
 
-
-        appendhtml +=
-            "<tr>\n" + "<td>\"用户个人信息\"</td> " + "</tr>" +
-            "<tr>" + "<td>" + data.userId.userName + "<td>" + "</tr>"
-        "<tr>" + "<td>" + data.userId.icon + "<td>" + "</tr>"
-        "<tr>" + "<td>" + data.userId.sex + "<td>" + "</tr>"
-        "<tr>" + "<td>" + data.userId.introduce + "<td>" + "</tr>"
-        "<tr>" + "<td>" + data.userId.createTime + "<td>" + "</tr>"
-        "<tr>" + "<td>" + data.userId.roleId+ "<td>" + "</tr>"
-        "<tr>" + "<td>" + data.userId.del + "<td>" + "</tr>"
-
-
-        //将取得的数据追加进去
-        $("#example3").append(appendhtml);
-
+        }
     }
 </script>
 </body>

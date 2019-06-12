@@ -76,14 +76,5 @@
     </select>
 
 
-    <!--
-    * 禁言某个用户
-    * @param
-    * @return
-    -->
-   <insert id="banUserDao" >
-    insert into banned (startTime,endTime,days,reason)
-    values(#{startTime},#{endTime},#{days}#{reason})
-    where userId=user.id;
-   </insert>
+
 </mapper>

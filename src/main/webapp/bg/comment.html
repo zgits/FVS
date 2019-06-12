@@ -630,6 +630,7 @@
 
     $(function () {
         $('#reportTable').bootstrapTable({
+
             url: '/videoComment/getVideoComment', // 请求后台的URL（*）
             dataType: "json",
             pagination: true, //前端处理分页
@@ -652,11 +653,13 @@
             cardView: false, //是否显示详细视图
             //detailView: true, //是否显示父子表，设置为 true 可以显示详细页面模式,在每行最前边显示+号#}
             sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
+
             responseHandler: function (res) {
                 return {
                     "rows": res.data   //数据
                 };
             },
+
             columns: [
                 {
                     checkbox: true
@@ -679,50 +682,48 @@
                     title: "评论时间",
                     align: 'center'
                 },
+
                 {
+                    field: 'id',
                     title: "操作",
                     align: 'center',
                     formatter: function (value, row, index) {
                         //通过formatter可以自定义列显示的内容
                         //value：当前field的值，即id
                         //row：当前行的数据
-                        var a = '<button id="delButton" type="button" class="btn btn-warning"  data-toggle="modal" ' +
-                            'data-target="#modal-warning" onclick="delete (' + row.id + ');">删除</button>';
+                        console.log("获取评论信息成功value:" + value);
+                        var a = '<button id="delButton" type="button" class="btn btn-warning" >删除</button>';
 
                         return a;
+                    },
+                    events: {
+                        "click #delButton": function (value, row, index) {
+                            //location.reload();    //操作完成后马上刷新页面
+                            console.log("row.id: " + row);
+                            console.log(value);
+                            $.ajax({
+                                url: '/videoComment/delVideoComment',
+                                type: 'get',
+                                data: {id: row},
+                                success: function (data) {
+                                    alert("删除成功！");
+                                    location.reload();
+                                    console.log("删除成功！");
+                                },
+                                error: function () {
+                                    alert("删除失败！");
+
+                                },
+                            });
+                        },
+
                     }
                 },
-                event,{
-                    //             event
-// :
-//     {
-//         "click #delButton"
-//     :
-//
-//         function (value, row, index) {
-//             location.reload();
-//             console.log("row.id: " + row);
-//             $ajax({
-//                 url: '/videoComment/delVideoComment?id=' + row,
-//                 type: 'get',
-//                 data: {id: row},
-//                 success: function (data) {
-//                     console.log("删除成功！");
-//                 },
-//                 error: function () {
-//                     alert("删除失败！");
-//
-//                 },
-//             });
-//         },
-//     },
-
-        }
 
             ],
         });
     });
-
+    alert("获取评论信息成功！");
 </script>
 
 <!-- SlimScroll -->

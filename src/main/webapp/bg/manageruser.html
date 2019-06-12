@@ -661,8 +661,8 @@
                     align: 'center',
                 },
                 {
-                    field: 'banned.endTime',
-                    title: "禁言状态",
+                    field: 'createTime',
+                    title: "注册时间",
                     align: 'center'
                 },
                 {
@@ -673,18 +673,22 @@
                         //value：当前field的值，即id
                         //row：当前行的数据
 
-                        var a = '<button type="button" class="btn btn-info" onclick="window.location.href=\'../bg/userinfo.html\'">查看</button>';
-                        var b = '<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-warning">禁言</button>';
-                        var c = '<button type="button" class="btn btn-success" onclick="delete(' + row.id + ');">解禁</button>';
+                        var a = '<button id="scan" type="button" class="btn btn-info" >查看</button>';
 
-                        return a + b + c;
+                        return a ;
+                    },
+                    events: {
+                        "click #scan":function(e,value,row,index){
+                            window.open("userinfo.html?id="+row.id)
+                        }
+
                     }
                 }
 
             ],
         });
     });
-
+    alert("获取用户信息成功！");
 </script>
 
 

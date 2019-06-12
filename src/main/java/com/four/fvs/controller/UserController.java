@@ -142,23 +142,6 @@ public class UserController {
         return ResultUtils.success(userService.getUserService(id));
     }
 
-    /**
-     * 禁言某个用户
-     * @param
-     * @return
-     */
-//    @ResponseBody
-//    @RequestMapping(value = "/banUser")
-//    public Result<Object> banUser(Integer userId,String startTime, String endTime,Integer days,String reason){
-//
-//        return ResultUtils.success(userService.banUserService(userId,startTime,endTime,days,reason));
-//
-//    }
-    @ResponseBody
-    @RequestMapping(value = "/banUser")
-    public Result<Object> banUser(Integer id){
-        userService.banUserService(id);
-        return getAllUser();
-    }
+
 
 }
