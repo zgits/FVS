@@ -25,4 +25,16 @@
         insert into systemmessage(content,sendType,receiveId,title)
           values (#{content}, #{sendType}, #{receiveId}, #{title})
     </insert>
+
+    <update id="deleteMessage">
+        update systemmessage set del = 2 where id = #{id}
+    </update>
+
+    <select id="listMessages" resultType="systemMessage">
+        select id, content, sendTime, title from systemmessage where del = 1 limit #{begin },#{size }
+    </select>
+
+    <select id="countMessage">
+        select count(id) from systemmessage
+    </select>
 </mapper>
