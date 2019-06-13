@@ -143,16 +143,18 @@
                 var code = data.code;
                 if (code==0) {
                     console.log("登录成功");
-                    $.cookie('userId',data.data.id);
-                    $(location).attr('href', '/user/news.html');
-                    // $("#login_form").submit();
-
+                    if(data.data.roleId==2){
+                        $.cookie('userId',data.data.id);
+                        $(location).attr('href', '/user/news.html');
+                    }else if(data.data.roleId==1){
+                        $(location).attr('href', '/bg/index.html');
+                    }
                 } else {
                     if (code == 10) {
-                        sweetAlert("出错了","用户名或密码错误", "error");
+                        swal('', '用户名或密码错误！', 'error');
                         return;
                     } else {
-                        sweetAlert("出错了","服务器出现未知错误~", "error");
+                        swal('', '服务器出错！', 'error');
                         return;
                     }
                 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.HashSet;
 
 /**
@@ -138,12 +139,6 @@ public class UserController {
     }
 
     /**
-     * @Author: yzh
-     * @Date: 2019/6/8 23:04
-     * @Description: 用户信息的管理
-     */
-
-    /**
      * 得到某个用户的信息
      * @param
      * @return
@@ -151,9 +146,9 @@ public class UserController {
 
     @ResponseBody
     @GetMapping(value = "/getUser")
-    public Result<Object> getUser(Integer userId){
-            return ResultUtils.success(userService.getUserService(userId));
+    public Result<Object> getUser(Integer id){
 
+        return ResultUtils.success(userService.getUserService(id));
     }
     /**
      * @Author: DWH
@@ -185,5 +180,7 @@ public class UserController {
         return ResultUtils.success(userService.getFocusService(userId));
 
     }
+
+
 
 }

@@ -24,6 +24,14 @@ public interface VideoDao {
 
 
     /**
+     * 视频播放数量的增加
+     * @param id
+     * @return
+     */
+    public Integer updateVideovv(Integer id);
+
+
+    /**
      * 点赞数量增加
      * @param videoId
      * @param number +1或者-1，根据是否有点赞记录来决定

@@ -59,12 +59,12 @@ public class WebStatusController {
      * @param type  查询分类
      * @return
      */
-    @RequestMapping(value = "{startTime}/{type}" ,method = RequestMethod.GET)
+    @RequestMapping(value = "{startTime}/{type}/{day}" ,method = RequestMethod.GET)
     @ResponseBody
     public Result<Object> query(@PathVariable("startTime") @DateTimeFormat(pattern = "yyyy-MM-dd HH:ss:mm") Date startTime,
-                                    @PathVariable("type") Integer type){
+                                    @PathVariable("type") Integer type, @PathVariable("day") Integer day){
         if(type == 1){
-            int result = webStatusService.countVisitForWeek(startTime);
+            int result = webStatusService.countVisitForWeek(startTime,day);
             return result >= 0 ? ResultUtils.success(result) : ResultUtils.serviceerror();
         }
         if(type == 2){
@@ -89,9 +89,18 @@ public class WebStatusController {
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public Result<Object> get(HttpServletRequest request){
+        System.out.println("开始进入在线人数统计!");
         HttpSession session = request.getSession();
         ServletContext servletContext = session.getServletContext();
-        return ResultUtils.success(servletContext.getAttribute("linecount"));
+        int count = 0;
+        if(servletContext.getAttribute("linecount") == null){
+            count = 0;
+        }
+        else{
+            count = (int) servletContext.getAttribute("linecount");
+        }
+        System.out.println(count);
+        return ResultUtils.success(count);
     }
 
 

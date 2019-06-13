@@ -2,6 +2,7 @@ package com.four.fvs.service;
 
 import com.four.fvs.model.User;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -78,6 +79,8 @@ public interface UserService {
 
     public User getUserService(Integer id);
 
+
+
     /**
      * 通过用户id得到某个用户的Fans信息
      * @param id
@@ -87,3 +90,4 @@ public interface UserService {
     public List<User> getFansService(Integer id);
     public List<User> getFocusService(Integer id);
 }
+

@@ -121,9 +121,6 @@
     * @return
     */-->
     <select id="getVideoCommentDao" resultMap="videocomment">
---         select v.content,v.createTime,(
---         select userName from user where u.id = v.userId) u
---         from user,videocommnet;
            select v.*,u.userName from (
            select * from videocomment where del = 1
            ) v left join user u on v.userId = u.id
@@ -134,7 +131,7 @@
      * @param videoCommentId
      * @return
      */-->
-    <update id="delVideoCommentDao">
+    <update id="delVideoCommentDao" >
         update videocomment
         set del = 2
         where id=#{id}

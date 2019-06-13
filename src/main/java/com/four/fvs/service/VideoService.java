@@ -25,6 +25,14 @@ public interface VideoService {
 
 
     /**
+     * 增加视频播放量
+     * @param id
+     * @return
+     */
+    public Integer updateVideovv(Integer id);
+
+
+    /**
      *判断之前是否已点赞来决定赞数的加减
      * 所需参数 userId，recordId，type，opType
      * @param videoOpRecord

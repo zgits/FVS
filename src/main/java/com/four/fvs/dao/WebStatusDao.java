@@ -29,9 +29,10 @@ public interface WebStatusDao {
      * 一周网站访问量
      *
      * @param startTime 开始时间
+     * @param day 周几
      * @return  返回访问量
      */
-    Integer countVisitForWeek(@Param("visitTime") Date startTime);
+    Integer countVisitForWeek(@Param("visitTime") Date startTime , @Param("day") Integer day);
 
     /**
      * 某天时刻访问量

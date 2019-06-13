@@ -30,6 +30,13 @@ public class VideoController {
         return ResultUtils.success(videoService.getOneVideoById(id));
     }
 
+
+    @PatchMapping(value = "/updateVideovv/{id}")
+    @ResponseBody
+    public Result<Object> updateVideovv(@PathVariable("id") Integer id){
+        return ResultUtils.success(videoService.updateVideovv(id));
+    }
+
     @GetMapping(value = "/getCount",params={"id,type"})
     @ResponseBody
     public Result<Object>getCountById(Integer videoId,Integer type){

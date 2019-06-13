@@ -3,6 +3,7 @@ package com.four.fvs.dao;
 import com.four.fvs.model.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+import java.util.Date;
 
 import java.util.List;
 
@@ -88,4 +89,7 @@ public interface UserDao {
      */
     public List<User> getFansDao(@Param("id") Integer id);
     public List<User> getFocusDao(@Param("id") Integer id);
+
+
 }
+
