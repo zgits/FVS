@@ -61,9 +61,9 @@
 
         </div>
         <ul class="catalog-ul" id="catalog-ul">
-            <li class="active"><a href="#">回复我的</a></li>
-            <li><a href="#">收到的赞</a></li>
-            <li><a href="#" onclick="getSystemMessage(4,1)">系统通知</a></li>
+            <li><a href="#" onclick="getCommentReplyData(1)">回复我的</a></li>
+            <li><a href="#" onclick="getPraiseData(1)">收到的赞</a></li>
+            <li><a href="#" onclick="getSystemMessage(1)">系统通知</a></li>
             <li><a href="#" onclick="getMessageBox()">我的消息</a></li>
         </ul>
     </div>
@@ -89,30 +89,8 @@
             </div>
         </div>
 
-        <div class="comment comment-onclick">
-            <div class="comment-catalog">&nbsp;&nbsp;收到的赞</div>
-            <div class="comment-content comment-content-praise" style="width: 900px">
-                <div class="comment-content-img" style="margin-top: 10px">
-                    <a href="#"><img style="width: 50px; height: 50px;" src="../static/dist/img/praise.png"></a>
-                </div>
-                <div class="comment-content-user" style="margin-top: 10px">
-                    <span class="comment-content-user-username"><b><a href="#">科学声音</a></b></span>
-                    <span class="comment-content-response" style="color: #0b58a2">不科学，1.百度了一下，没找到全国有机大米促进会，2.据研究，没有表明研究出处，
-                            3.被长期赞美大米比普通大米更有益健康，违反常识，没有科学依据，4.95％未标明。</span>
-                    <span class="comment-content-user-time">2019年3月19日&nbsp;09:18</span>
-                </div>
-            </div>
-            <div class="comment-content comment-content-praise"  style="width: 900px">
-                <div class="comment-content-img" style="margin-top: 10px">
-                    <a href="#"><img style="width: 50px; height: 50px;" src="../static/dist/img/praise.png"></a>
-                </div>
-                <div class="comment-content-user" style="margin-top: 10px">
-                    <span class="comment-content-user-username"><b><a href="#">科学声音</a></b></span>
-                    <span class="comment-content-response" style="color: #0b58a2">不科学，1.百度了一下，没找到全国有机大米促进会，2.据研究，没有表明研究出处，
-                            3.被长期赞美大米比普通大米更有益健康，违反常识，没有科学依据，4.95％未标明。</span>
-                    <span class="comment-content-user-time">2019年3月19日&nbsp;09:18</span>
-                </div>
-            </div>
+        <div class="comment comment-onclick" id="myPraise">
+
         </div>
 
         <div class="comment comment-onclick" id="systemMessage">
@@ -130,7 +108,7 @@
 
         </div>
 
-        <div class="comment comment-onclick">
+        <div class="comment comment-onclick" id="myMessage">
             <div class="comment-catalog" style="width: 900px;">&nbsp;&nbsp;我的消息</div>
             <div class="comment-content" style="height: 620px; padding: 0px 0px;width: 900px;">
 
@@ -201,126 +179,10 @@
                 <div>
                     <!--                    聊天框-->
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-9">
                             <!-- DIRECT CHAT SUCCESS -->
                             <div class="box box-success direct-chat direct-chat-success" id="messageshow">
-                                <div class="box-header with-border">
-                                    <h3 class="box-title">对面的用户名</h3>
-                                </div>
-                                <!-- /.box-header -->
-                                <div class="box-body">
-                                    <!-- 聊天消息框 -->
-                                    <div class="direct-chat-messages" id="showMessage">
-                                        <!-- 消息显示，默认在左边 -->
-                                        <div class="direct-chat-msg">
-                                            <div class="direct-chat-info clearfix">
-                                                <span class="direct-chat-timestamp pull-right">2019-06-03 18:41:41</span>
-                                            </div>
-                                            <!-- /.direct-chat-info -->
-                                            <img class="direct-chat-img" src="../static/dist/img/user1-128x128.jpg"
-                                                 alt="Message User Image"><!-- /.direct-chat-img -->
-                                            <div class="direct-chat-text">
-                                                测试发送消息
-                                            </div>
-                                            <!-- /.direct-chat-text -->
-                                        </div>
-                                        <!-- /.direct-chat-msg -->
-
-                                        <!-- 消息显示，默认在左边 -->
-                                        <div class="direct-chat-msg">
-                                            <div class="direct-chat-info clearfix">
-                                                <span class="direct-chat-timestamp pull-right">2019-06-03 18:41:41</span>
-                                            </div>
-                                            <!-- /.direct-chat-info -->
-                                            <img class="direct-chat-img" src="../static/dist/img/user1-128x128.jpg"
-                                                 alt="Message User Image"><!-- /.direct-chat-img -->
-                                            <div class="direct-chat-text">
-                                                测试发送消息
-                                            </div>
-                                            <!-- /.direct-chat-text -->
-                                        </div>
-                                        <!-- /.direct-chat-msg -->
-
-                                        <!-- 消息显示，右边 -->
-                                        <div class="direct-chat-msg right">
-                                            <div class="direct-chat-info clearfix">
-                                                <span class="direct-chat-timestamp pull-left">2019-06-03 18:43:43</span>
-                                            </div>
-                                            <!-- /.direct-chat-info -->
-                                            <img class="direct-chat-img" src="../static/dist/img/user3-128x128.jpg"
-                                                 alt="Message User Image"><!-- /.direct-chat-img -->
-                                            <div class="direct-chat-text">
-                                                You better believe it!
-                                            </div>
-                                            <!-- /.direct-chat-text -->
-                                        </div>
-                                        <!-- /.direct-chat-msg -->
-
-                                        <!-- Message to the right -->
-                                        <div class="direct-chat-msg right">
-                                            <div class="direct-chat-info clearfix">
-                                                <span class="direct-chat-timestamp pull-left">2019-06-03 18:43:43</span>
-                                            </div>
-                                            <!-- /.direct-chat-info -->
-                                            <img class="direct-chat-img" src="../static/dist/img/user3-128x128.jpg"
-                                                 alt="Message User Image"><!-- /.direct-chat-img -->
-                                            <div class="direct-chat-text">
-                                                You better believe it!
-                                            </div>
-                                            <!-- /.direct-chat-text -->
-                                        </div>
-                                        <!-- /.direct-chat-msg -->
-
-                                        <!-- Message to the right -->
-                                        <div class="direct-chat-msg right">
-                                            <div class="direct-chat-info clearfix">
-                                                <span class="direct-chat-timestamp pull-left">2019-06-03 18:43:43</span>
-                                            </div>
-                                            <!-- /.direct-chat-info -->
-                                            <img class="direct-chat-img" src="../static/dist/img/user3-128x128.jpg"
-                                                 alt="Message User Image"><!-- /.direct-chat-img -->
-                                            <div class="direct-chat-text">
-                                                You better believe it!
-                                            </div>
-                                            <!-- /.direct-chat-text -->
-                                        </div>
-                                        <!-- /.direct-chat-msg -->
-
-
-                                        <!-- 消息显示，默认在左边 -->
-                                        <div class="direct-chat-msg">
-                                            <div class="direct-chat-info clearfix">
-                                                <span class="direct-chat-timestamp pull-right">2019-06-03 18:41:41</span>
-                                            </div>
-                                            <!-- /.direct-chat-info -->
-                                            <img class="direct-chat-img" src="../static/dist/img/user1-128x128.jpg"
-                                                 alt="Message User Image"><!-- /.direct-chat-img -->
-                                            <div class="direct-chat-text">
-                                                测试发送消息，这条消息很长长长长长长长长长长长长长长长长长长
-                                                长长长长长长长长长长长长长长长长长长长长长长长长
-                                            </div>
-                                            <!-- /.direct-chat-text -->
-                                        </div>
-                                        <!-- /.direct-chat-msg -->
-
-
-                                    </div>
-                                    <!--/.direct-chat-messages-->
-
-                                </div>
-                                <!-- /.box-body -->
-                                <div class="box-footer">
-                                    <form action="#" method="post">
-                                        <div class="input-group">
-                                            <input type="text" name="message" placeholder="Type Message ..."
-                                                   class="form-control">
-                                            <span class="input-group-btn">
-                        <button type="submit" class="btn btn-success btn-flat">Send</button>
-                      </span>
-                                        </div>
-                                    </form>
-                                </div>
-                                <!-- /.box-footer-->
+                                <span>没有更多消息了</span>
                             </div>
                             <!--/.direct-chat -->
                         </div>
@@ -342,7 +204,7 @@
 <!--sockJS cdn-->
 <script src="https://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
 <!--stomp cdn-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="../static/plugins/stomp/stomp.min.js"></script>
 
 <!-- Bootstrap 3.3.7 -->
 <script src="../static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -356,14 +218,36 @@
 <script>
     var userId = $.cookie('userId');
 
-    console.log(userId);
+    var rId=getUrlParam("rId");
+
+    var userIcon;
     $(function () {
-        //getCommentReplyData(userId, 1);
+
         connect();
+
+        $.ajax({
+            url: '/user/getUserInfo',
+            type: 'get',
+            data: {
+                userId: userId
+            },
+            success:function (data) {
+                userIcon=data.data.icon;
+            }
+
+        });
+
+        if(rId!=null){
+            $("#myMessage").removeClass("comment-onclick");
+            $("#commentReply").addClass("comment-onclick");
+            addMessageBox(rId);
+        }else{
+            getCommentReplyData(1);
+        }
     })
 
     //从后台得到评论数据
-    function getCommentReplyData(userId, currPage) {
+    function getCommentReplyData(currPage) {
         $.ajax({
             url: "/commentReply/getUserReply",
             type: "get",
@@ -388,7 +272,7 @@
             var commentReply = data[i].commentReply;
             appendhtml += "<div class=\"comment-content\">\n" +
                 "                <div class=\"comment-content-img\">\n" +
-                "                    <a href=\"usercenter.html?id=" + data[i].userId + "\"><img style=\"width: 50px; height: 50px;\" src=\"../static/dist/img/head-portrait.png\"></a>\n" +
+                "                    <a href=\"usercenter.html?id=" + data[i].userId + "\"><img style=\"width: 50px; height: 50px;\" src=\".."+data[i].icon+"\"></a>\n" +
                 "                </div>\n" +
                 "                <div class=\"comment-content-user\">\n" +
                 "                    <span class=\"comment-content-user-username\"><b><a href=\"usercenter.html?id=" + data[i].userId + "\">" + data[i].userName + "</a></b></span>\n" +
@@ -406,8 +290,46 @@
     }
 
 
+    function getPraiseData(currPage) {
+        $.ajax({
+            url: "/user/getPraiseInfo",
+            type: "get",
+            dataType: "json",
+            data: {
+                userId: userId,
+                currPage: currPage
+            },
+            success: function (data) {
+                console.log(data);
+                console.log(data.data.lists.length);
+                showPraiseData(data.data.lists);
+            }
+        });
+    }
+
+    function showPraiseData(data) {
+        $("#myPraise").empty();
+
+        var appendhtml='<div class="comment-catalog">&nbsp;&nbsp;收到的赞</div>';
+        for (var i=0;i<data.length;i++){
+            appendhtml+='<div class="comment-content comment-content-praise"  style="width: 900px">\n' +
+                '                <div class="comment-content-img" style="margin-top: 10px">\n' +
+                '                    <a href="#"><img style="width: 50px; height: 50px;" src="../static/dist/img/praise.png"></a>\n' +
+                '                </div>\n' +
+                '                <div class="comment-content-user" style="margin-top: 10px">\n' +
+                '                    <span class="comment-content-user-username"><b><a href="#">'+data[i].userName+'</a></b></span>\n' +
+                '                    <span class="comment-content-response" style="color: #0b58a2"><a href="#">'+data[i].comment+'</a></span>\n' +
+                '                    <span class="comment-content-user-time">'+changeDateFormat(data[i].time)+'</span>\n' +
+                '                </div>\n' +
+                '            </div>';
+        }
+        $("#myPraise").append(appendhtml);
+
+    }
+
+
     //从后台得到系统通知数据
-    function getSystemMessage(userId, currPage) {
+    function getSystemMessage(currPage) {
 
         $.ajax({
             url: "/systemmessage/getMessage",
@@ -428,6 +350,8 @@
     function showSystemMessage(data) {
         $("#systemMessage").empty();
         var appendhtml = '<div class="comment-catalog">&nbsp;&nbsp;系统通知</div>';
+
+
         for (var i = 0; i < data.length; i++) {
             appendhtml += '<div class="comment-content comment-content-praise">\n' +
                 '                <div class="comment-content-user">\n' +
@@ -481,7 +405,7 @@
                         '                                                <span class="direct-chat-timestamp pull-right">' + changeDateFormat(chatMessage.sendTime) + '</span>\n' +
                         '                                            </div>\n' +
                         '                                            <!-- /.direct-chat-info -->\n' +
-                        '                                            <img class="direct-chat-img" src="../static/dist/img/user1-128x128.jpg"\n' +
+                        '                                            <img class="direct-chat-img" src="..'+icon+'"\n' +
                         '                                                 alt="Message User Image"><!-- /.direct-chat-img -->\n' +
                         '                                            <div class="direct-chat-text">\n' +
                         '                                                ' + chatMessage.message + '\n' +
@@ -490,33 +414,19 @@
                         '                                        </div>'
                 }
 
-                var divid = sendId + "_" + receiveId;
-                $("#messagesbox").append(appendhtml);
-                var container = document.getElementById("messagesbox");
+                var messagenumber=Number($("#"+sendId+"span").text());
+                $("#"+sendId+"span").remove();
+                messagenumber+=1;
+                $("#"+sendId).append('<span id="'+sendId+'span" data-toggle="tooltip" class="badge bg-aqua-active">'+messagenumber+'</span>');
+                var divid=sendId<receiveId?sendId+'_'+receiveId:receiveId+'_'+sendId;
+                $("#"+divid).append(appendhtml);
+                var container = document.getElementById(divid);
                 container.scrollTop = container.scrollHeight;
 
             })
         });
     }
 
-    /**
-     * 显示新消息
-     * @param user 发消息的用户或者‘系统消息’
-     * @param date 发消息的时间（未格式化）
-     * @param msg  消息内容
-     */
-    function showNewMessage(user, date, msg) {
-        var container = document.getElementById("historyMsg");
-        var msgToDisplay = document.createElement('p');
-        if (user == "系统消息") {
-            msgToDisplay.style.color = 'red';
-        }
-        var dateTime = formatDate(date);
-        msg = showEmoji(msg);
-        msgToDisplay.innerHTML = '<span class="timespan">' + dateTime + '</span><br/>[' + user + "] : " + msg;
-        container.append(msgToDisplay);
-        container.scrollTop = container.scrollHeight;
-    }
 
     /**
      * 发送输入框中的信息
@@ -532,14 +442,12 @@
                 'sendId': sendId
             }));
 
-            console.log(new Date());
-
             var appendhtml = '<div class="direct-chat-msg right">\n' +
                 '                                            <div class="direct-chat-info clearfix">\n' +
                 '                                                <span class="direct-chat-timestamp pull-left">' + changeDateFormat(new Date().getTime()) + '</span>\n' +
                 '                                            </div>\n' +
                 '                                            <!-- /.direct-chat-info -->\n' +
-                '                                            <img class="direct-chat-img" src="../static/dist/img/user3-128x128.jpg"\n' +
+                '                                            <img class="direct-chat-img" src="..'+userIcon+'"\n' +
                 '                                                 alt="Message User Image"><!-- /.direct-chat-img -->\n' +
                 '                                            <div class="direct-chat-text">\n' +
                 '                                                ' + content + '\n' +
@@ -548,9 +456,9 @@
                 '                                        </div>'
 
 
-            var divid = sendId + "_" + receiveId;
-            $("#messagesbox").append(appendhtml);
-            var container = document.getElementById("messagesbox");
+            var divid=sendId<receiveId?sendId+'_'+receiveId:receiveId+'_'+sendId;
+            $("#"+divid).append(appendhtml);
+            var container = document.getElementById(divid);
             container.scrollTop = container.scrollHeight;
 
         }
@@ -583,13 +491,16 @@
                     var receiveName = data.receiveName;
                     var receiveIcon = data.receiveIcon;
 
+
+                    var divid=sendId<receiveId?sendId+'_'+receiveId:receiveId+'_'+sendId;
+
                     var appendhtml = '<div class="box-header with-border">\n' +
                         '                                    <h3 class="box-title">' + receiveName + '</h3>\n' +
                         '                                </div>\n' +
                         '                                <!-- /.box-header -->\n' +
                         '                                <div class="box-body">\n' +
                         '                                    <!-- 聊天消息框 -->\n' +
-                        '                                    <div class="direct-chat-messages" id="messagesbox">';
+                        '                                    <div class="direct-chat-messages" id="'+divid+'">';
 
                     for (var i = 0; i < chatMessages.length; i++) {
                         var chatMessage = chatMessages[i];
@@ -600,7 +511,7 @@
                                 '                                                <span class="direct-chat-timestamp pull-left">' + changeDateFormat(chatMessage.sendTime) + '</span>\n' +
                                 '                                            </div>\n' +
                                 '                                            <!-- /.direct-chat-info -->\n' +
-                                '                                            <img class="direct-chat-img" src="../static/dist/img/user3-128x128.jpg"\n' +
+                                '                                            <img class="direct-chat-img" src="..'+icon+'"\n' +
                                 '                                                 alt="Message User Image"><!-- /.direct-chat-img -->\n' +
                                 '                                            <div class="direct-chat-text">\n' +
                                 '                                                ' + chatMessage.message + '\n' +
@@ -613,7 +524,7 @@
                                 '                                                <span class="direct-chat-timestamp pull-right">' + changeDateFormat(chatMessage.sendTime) + '</span>\n' +
                                 '                                            </div>\n' +
                                 '                                            <!-- /.direct-chat-info -->\n' +
-                                '                                            <img class="direct-chat-img" src="../static/dist/img/user1-128x128.jpg"\n' +
+                                '                                            <img class="direct-chat-img" src="..'+receiveIcon+'"\n' +
                                 '                                                 alt="Message User Image"><!-- /.direct-chat-img -->\n' +
                                 '                                            <div class="direct-chat-text">\n' +
                                 '                                                ' + chatMessage.message + '\n' +
@@ -644,7 +555,10 @@
 
 
                     $("#messageshow").append(appendhtml);
-                    var container = document.getElementById("messagesbox");
+
+                    $("#"+receiveId+"span").remove();
+                    $("#"+sendId).append('<span id="'+receiveId+'span" data-toggle="tooltip" class="badge bg-aqua-active" style="display: none">0</span>')
+                    var container = document.getElementById(divid);
                     container.scrollTop = container.scrollHeight;
                 }
 
@@ -662,33 +576,95 @@
                 userId:userId
             },
             success:function (data) {
-                var data=data.data;
-                console.log(data);
+                if(data.code==0) {
+                    if (data.data.length>0) {
+                        var data=data.data;
+                        console.log(data);
 
-                var receiveId;
+                        var receiveId;
 
-                $("#showUser").empty();
-                var appendhtml='';
-                for (var i = 0; i < data.length; i++) {
-                    receiveId=data[0].receiveId;
-                    appendhtml+='<a href="#">\n' +
-                        '                        <div class="my-news-user-name">\n' +
-                        '                            <div class="comment-content-img"\n' +
-                        '                                 style="margin-top: 5px; width: 40px; height: 40px;margin-left: 10px;">\n' +
-                        '                                <img style="width: 40px; height: 40px;" src="../static/dist/img/head-portrait.png">\n' +
-                        '                            </div>\n' +
-                        '                            <div style="padding-top: 15px;">\n' +
-                        '                                <span style="margin-left: 10px;font-size: 15px;">'+data[i].receiveName+'</span>\n' +
-                        '                            </div>\n' +
-                        '                        </div>\n' +
-                        '                    </a>';
+                        $("#showUser").empty();
+                        var appendhtml='';
+                        for (var i = 0; i < data.length; i++) {
+                            receiveId=data[0].receiveId;
+                            appendhtml+='<a href="#">\n' +
+                                '                        <div class="my-news-user-name">\n' +
+                                '                            <div class="comment-content-img"\n' +
+                                '                                 style="margin-top: 5px; width: 40px; height: 40px;margin-left: 10px;">\n' +
+                                '                                <img style="width: 40px; height: 40px;" src="..'+data[i].receiveIcon+'">\n' +
+                                '                            </div>\n' +
+                                '                            <div id="'+data[i].receiveId+'" onclick="showHistoryMessage('+userId+','+data[i].receiveId+')" style="padding-top: 15px;">\n' +
+                                '                                <span style="margin-left: 10px;font-size: 15px;">'+data[i].receiveName+'</span>\n' +
+                                '                                <span id="'+data[i].receiveId+'span" data-toggle="tooltip" class="badge bg-aqua-active" style="display: none">0</span>\n'+
+                                '                            </div>\n' +
+                                '                        </div>\n' +
+                                '                    </a>';
+                        }
+
+                        $("#showUser").append(appendhtml);
+
+                        if(rId!=null){
+                            if(!$("#"+rId)[0]){
+                                var user;
+                                $.ajax({
+                                    url: '/user/getUserInfo',
+                                    type: 'get',
+                                    data: {
+                                        userId: rId
+                                    },
+                                    success:function (data) {
+                                        user=data.data;
+                                        console.log(user);
+                                        if(user!=null){
+                                            var appendhtml='';
+                                            appendhtml+='<a href="#">\n' +
+                                                '                        <div class="my-news-user-name">\n' +
+                                                '                            <div class="comment-content-img"\n' +
+                                                '                                 style="margin-top: 5px; width: 40px; height: 40px;margin-left: 10px;">\n' +
+                                                '                                <img style="width: 40px; height: 40px;" src="..'+user.icon+'">\n' +
+                                                '                            </div>\n' +
+                                                '                            <div id="'+rId+'" onclick="showHistoryMessage('+userId+','+rId+')" style="padding-top: 15px;">\n' +
+                                                '                                <span style="margin-left: 10px;font-size: 15px;">'+user.userName+'</span>\n' +
+                                                '                                <span id="'+rId+'span" data-toggle="tooltip" class="badge bg-aqua-active" style="display: none">0</span>\n'+
+                                                '                            </div>\n' +
+                                                '                        </div>\n' +
+                                                '                    </a>';
+
+
+                                            $("#showUser").append(appendhtml);
+                                            showHistoryMessage(userId,rId);
+                                            rId=null;
+                                        }else{
+                                            showHistoryMessage(userId,receiveId);
+                                            rId=null;
+                                        }
+                                    }
+                                });
+
+                            }
+
+                        }
+
+                        else{
+                            showHistoryMessage(userId,receiveId);
+                        }
+                    }
+                    else{
+                        $("#showUser").empty();
+                    }
                 }
-
-                $("#showUser").append(appendhtml);
-                showHistoryMessage(userId,receiveId);
             }
         });
     }
+
+
+
+    function addMessageBox(receiveId) {
+        getMessageBox();
+    }
+
+
+
 
 
 </script>

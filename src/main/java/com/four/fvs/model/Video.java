@@ -20,11 +20,13 @@ public class Video {
 
     private Integer userId;//视频上传人
 
-    //防止显示时间乱码
+    //防止显示时间乱码,前端有个tool.js文件，里面可以将时间戳转换为特定格式的字符串
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date upTime;//视频上传时间
 
     private Integer vv;//视频播放量
+
+    private String videoLength;//视频长度
 
     private Integer collectNumber;//视频收藏数，数据库中无该字段
 
@@ -41,6 +43,7 @@ public class Video {
     private String firstImagePath;//视频封面地址
 
     private Integer del;//删除标志 1 未删除，2 已删除
+
 
     private List<VideoComment> videoCommentList;//视频的评论
 
@@ -206,5 +209,12 @@ public class Video {
 
     public void setUser(User user) {
         this.user = user;
+    }
+    public String getVideoLength() {
+        return videoLength;
+    }
+
+    public void setVideoLength(String videoLength) {
+        this.videoLength = videoLength;
     }
 }

@@ -1,5 +1,8 @@
 package com.four.fvs.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,6 +17,9 @@ public class HisPlay {
     private String name;//番剧名称
 
     private Integer playNumber;//播放量
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    private Date time;//番剧上架时间
 
     private String introduce;//描述
 
@@ -69,7 +75,6 @@ public class HisPlay {
         this.playNumber = playNumber;
     }
 
-
     public String getIntroduce() {
         return introduce;
     }
@@ -92,5 +97,12 @@ public class HisPlay {
 
     public void setVideoForHisPlayList(List<VideoForHisPlay> videoForHisPlayList) {
         this.videoForHisPlayList = videoForHisPlayList;
+    }
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
     }
 }

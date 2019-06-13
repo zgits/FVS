@@ -1,5 +1,7 @@
 package com.four.fvs.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 import java.util.List;
 
@@ -14,6 +16,8 @@ public class VideoComment {
 
     private String content;//评论内容
 
+    //防止显示时间乱码,前端有个tool.js文件，里面可以将时间戳转换为特定格式的字符串
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date createTime;//发表时间
 
     private Integer userId;//评论人id
@@ -27,6 +31,8 @@ public class VideoComment {
     private Integer del;//删除标志 1 未删除，2 已删除
 
     private List<CommentReply> commentReplyList;//评论回复的集合
+
+    private User user;   //调用的用户信息
 
     @Override
     public String toString() {
@@ -113,5 +119,13 @@ public class VideoComment {
 
     public void setPraiseNumber(Integer praiseNumber) {
         this.praiseNumber = praiseNumber;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

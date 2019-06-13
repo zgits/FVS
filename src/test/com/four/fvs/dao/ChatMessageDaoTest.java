@@ -17,10 +17,11 @@ public class ChatMessageDaoTest extends BaseTest {
     private ChatMessageDao chatMessageDao;
 
 
+
     @Test
     public void getChatMessageBox() {
 
-        System.out.println(chatMessageDao.getChatMessageBox(1));
+       // System.out.println(chatMessageDao.getChatMessageBox());
 
     }
 }

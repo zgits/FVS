@@ -25,7 +25,7 @@ var browsers = {
   'ie11Win8.1': {
     base: 'BrowserStack',
     os: 'Windows',
-    os_version: '8.1',
+    os_version: '1',
     browser: 'IE',
     browser_version: '11.0'
   },
@@ -53,21 +53,21 @@ var browsers = {
   'chromeWin8.1': {
     base: 'BrowserStack',
     os: 'Windows',
-    os_version: '8.1',
+    os_version: '1',
     browser: 'Chrome',
     browser_version: 'latest'
   },
   'firefoxWin8.1': {
     base: 'BrowserStack',
     os: 'Windows',
-    os_version: '8.1',
+    os_version: '1',
     browser: 'Firefox',
     browser_version: 'latest'
   },
   iphone6: {
     base: 'BrowserStack',
     os: 'ios',
-    os_version: '11.2',
+    os_version: '2',
     device: 'iPhone 6',
     real_mobile: true
   },

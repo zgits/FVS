@@ -16,7 +16,7 @@
 
     <select id="getHistorySystemMessage" resultType="com.four.fvs.model.SystemMessage">
         select * from systemmessage
-        where (receiveId=#{receiveId} or receiveId is null) and sendTime>#{createTime} and del=1
+        where (receiveId=#{receiveId} or receiveId is null) and #{createTime}>sendTime and del=1
         order by sendTime desc
         limit #{begin},#{size}
     </select>

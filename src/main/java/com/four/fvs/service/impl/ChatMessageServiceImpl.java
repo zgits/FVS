@@ -37,21 +37,21 @@ public class ChatMessageServiceImpl implements ChatMessageService {
         chatMessage.setDel(1);
         chatMessage.setReceiveChatStatus(1);
         chatMessage.setSendChatStatus(1);
-        String msgId=String.valueOf(chatMessage.getSendId())+"_"+String.valueOf(chatMessage.getReceiveId());
+        String msgId = String.valueOf(chatMessage.getSendId()) + "_" + String.valueOf(chatMessage.getReceiveId());
 
         chatMessage.setMesId(msgId);
 
         chatMessageDao.insertChatMessage(chatMessage);
 
-        ChatMessageVo chatMessageVo=new ChatMessageVo();
+        ChatMessageVo chatMessageVo = new ChatMessageVo();
 
-        List<ChatMessage> chatMessages=new ArrayList<>();
+        List<ChatMessage> chatMessages = new ArrayList<>();
         chatMessages.add(chatMessage);
         chatMessageVo.setChatMessages(chatMessages);
 
-        User user1=userService.getUserInfo(chatMessage.getSendId());//得到发送者的用户基本信息
+        User user1 = userService.getUserInfo(chatMessage.getSendId());//得到发送者的用户基本信息
 
-        User user2=userService.getUserInfo(chatMessage.getReceiveId());//得到接收者的用户基本信息
+        User user2 = userService.getUserInfo(chatMessage.getReceiveId());//得到接收者的用户基本信息
 
         //设置发送者的基本信息
         chatMessageVo.setIcon(user1.getIcon());
@@ -74,23 +74,59 @@ public class ChatMessageServiceImpl implements ChatMessageService {
     @Override
     public List<ChatMessageVo> getChatMessageBox(Integer userId) {
 
-        List<ChatMessage> chatMessages=chatMessageDao.getChatMessageBox(userId);
+        String regexp="^"+userId+"|"+userId+"$";
+        List<ChatMessage> chatMessages = chatMessageDao.getChatMessageBox(regexp);
 
         //set集合保存的是引用不同地址的对象
         Set<ChatMessage> ts = new HashSet<ChatMessage>();
         ts.addAll(chatMessages);
-        String mesId=chatMessages.get(0).getMesId();
+        String mesId;
+
+        if (chatMessages.size() > 0) {
+            mesId = chatMessages.get(0).getMesId();
+        }
+
+        System.out.println("1**********");
+        for (ChatMessage chatMessage : ts) {
+
+            String[] ids = chatMessage.getMesId().split("_");
+
+            if (Integer.valueOf(ids[1]) == (userId)) {
+                System.out.println("等于");
+                chatMessage.setSendId(Integer.valueOf(ids[1]));
+                chatMessage.setReceiveId(Integer.valueOf(ids[0]));
+            }
+            System.out.println(chatMessage);
+        }
+        System.out.println("1**********");
+
+        Set<ChatMessage> chatMessages1 = new HashSet<>();
+        chatMessages1.addAll(ts);
+
+        System.out.println("2**********");
+        for (ChatMessage chatMessage : chatMessages1) {
+
+            String[] ids = chatMessage.getMesId().split("_");
+
+            if (Integer.valueOf(ids[1]) == (userId)) {
+                System.out.println("等于");
+                chatMessage.setSendId(Integer.valueOf(ids[1]));
+                chatMessage.setReceiveId(Integer.valueOf(ids[0]));
+            }
+            System.out.println(chatMessage);
+        }
+        System.out.println("2**********");
 
 
-        User user1=userService.getUserInfo(userId);//得到发送者的用户基本信息
+        User user1 = userService.getUserInfo(userId);//得到发送者的用户基本信息
 
-        List<ChatMessageVo> chatMessageVos=new ArrayList<>();
+        List<ChatMessageVo> chatMessageVos = new ArrayList<>();
 
         ChatMessageVo chatMessageVo;
 
-        for (ChatMessage chatMessage : ts) {
-            chatMessageVo=new ChatMessageVo();
-            User user2=userService.getUserInfo(chatMessage.getReceiveId());//得到接收者的用户基本信息
+        for (ChatMessage chatMessage : chatMessages1) {
+            chatMessageVo = new ChatMessageVo();
+            User user2 = userService.getUserInfo(chatMessage.getReceiveId());//得到接收者的用户基本信息
 
             //设置发送者的基本信息
             chatMessageVo.setIcon(user1.getIcon());
@@ -110,30 +146,31 @@ public class ChatMessageServiceImpl implements ChatMessageService {
             chatMessageVos.add(chatMessageVo);
         }
 
+
         return chatMessageVos;
     }
 
     @Override
     public boolean updateChatMessageBox(Integer mesId) {
-        return chatMessageDao.updateChatMessageBox(mesId)>0;
+        return chatMessageDao.updateChatMessageBox(mesId) > 0;
     }
 
     @Override
     public ChatMessageVo getChatMessages(String mesId) {
-        String[] ids=mesId.split("_");
+        String[] ids = mesId.split("_");
         System.out.println(ids[0]);
 
-        String mesId1=ids[0]+"_"+ids[1];
-        String mesId2=ids[1]+"_"+ids[0];
+        String mesId1 = ids[0] + "_" + ids[1];
+        String mesId2 = ids[1] + "_" + ids[0];
 
-        User user1=userService.getUserInfo(Integer.valueOf(ids[0]));//得到发送者的用户基本信息
+        User user1 = userService.getUserInfo(Integer.valueOf(ids[0]));//得到发送者的用户基本信息
 
-        User user2=userService.getUserInfo(Integer.valueOf(ids[1]));//得到接收者的用户基本信息
+        User user2 = userService.getUserInfo(Integer.valueOf(ids[1]));//得到接收者的用户基本信息
 
-        List<ChatMessage> chatMessages=chatMessageDao.getChatMessages(mesId1,mesId2);
+        List<ChatMessage> chatMessages = chatMessageDao.getChatMessages(mesId1, mesId2);
 
 
-        ChatMessageVo chatMessageVo=new ChatMessageVo();
+        ChatMessageVo chatMessageVo = new ChatMessageVo();
 
         chatMessageVo.setChatMessages(chatMessages);
 
@@ -155,7 +192,6 @@ public class ChatMessageServiceImpl implements ChatMessageService {
 
         return chatMessageVo;
     }
-
 
 
 }

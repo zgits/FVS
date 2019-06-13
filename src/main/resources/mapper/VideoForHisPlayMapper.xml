@@ -5,15 +5,42 @@
 <mapper namespace="com.four.fvs.dao.VideoForHisPlayDao">
 
     <select id="getOneHisPlayById" resultType="com.four.fvs.model.VideoForHisPlay">
-        select * from videoforhispay
+        select * from videoforhisplay
         where id=#{id} and del=1
     </select>
 
 
     <select id="getTheSameHisPlayInfo" resultType="com.four.fvs.model.VideoForHisPlay">
-        select id,hisPlayId,name,sort from videoforhispay
+        select id,hisPlayId,name,sort from videoforhisplay
         where hisPlayId=#{hisPlayId} and del=1
     </select>
 
+    <select id="getVideoForHisPlayDao" resultType="com.four.fvs.model.VideoForHisPlay">
+        select * from videoforhisplay where hisPlayId = #{id} and del=1
+    </select>
 
+    <insert id="addVideoForHisPlayDao" parameterType="com.four.fvs.model.VideoForHisPlay">
+        insert into videoforhisplay
+        (hisPlayId, path, name, sort, commentNumber, del, firstImagePath)
+        values
+        (#{hisPlayId}, #{path}, #{name}, #{sort}, #{commentNumber}, 1, #{firstImagePath})
+    </insert>
+
+    <update id="editVideoForHisPlayDao" parameterType="com.four.fvs.model.VideoForHisPlay">
+        update videoforhisplay set
+        hisPlayId=#{hisPlayId},
+        path=#{path},
+        name=#{name},
+        sort=#{sort}，
+        commentNumber=#{commentNumber}，
+        firstImagePath=#{firstImagePath}
+        where id=#{id}
+    </update>
+
+    <update id="deldelVideoForHisPlayDao">
+        update videoforhisplay set
+        del = 2
+        where
+        id = #{id}
+    </update>
 </mapper>

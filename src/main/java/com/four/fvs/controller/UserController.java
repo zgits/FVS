@@ -4,6 +4,7 @@ import com.four.fvs.common.Result;
 import com.four.fvs.common.ResultUtils;
 import com.four.fvs.model.User;
 import com.four.fvs.service.UserService;
+import com.four.fvs.service.VideoOpRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.HashSet;
 
 /**
@@ -24,6 +26,10 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+
+    @Autowired
+    private VideoOpRecordService videoOpRecordService;
 
 
     @PostMapping(value="/userlogin")
@@ -91,5 +97,51 @@ public class UserController {
         }
         return ResultUtils.success(null);
     }
+
+    @GetMapping(value = "/getUserInfo")
+    @ResponseBody
+    public Result<Object> getUserInfo(Integer userId){
+        return ResultUtils.success(userService.getUserInfo(userId));
+    }
+
+
+
+    @GetMapping(value = "/getPraiseInfo")
+    @ResponseBody
+    public Result<Object> getPraiseInfo(@RequestParam(defaultValue = "1") Integer currPage,Integer userId){
+        return ResultUtils.success(videoOpRecordService.getUserPraise(currPage,userId));
+    }
+
+    /**
+     * @Author: yzh
+     * @Date: 2019/6/8 16:32
+     * @Description: 用户信息的管理
+     */
+
+    /**
+     * 遍历所有的用户信息
+     * @param
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/getAllUser")
+    public Result<Object> getAllUser(){
+        return ResultUtils.success(userService.getAllUserService());
+    }
+
+    /**
+     * 得到某个用户的信息
+     * @param
+     * @return
+     */
+
+    @ResponseBody
+    @GetMapping(value = "/getUser")
+    public Result<Object> getUser(Integer id){
+
+        return ResultUtils.success(userService.getUserService(id));
+    }
+
+
 
 }

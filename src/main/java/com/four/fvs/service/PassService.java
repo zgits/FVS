@@ -18,4 +18,26 @@ public interface PassService {
      */
     public List<Video> getPassService();
 
+    /**
+     * 删除视频
+     * @param
+     * @return
+     */
+    public boolean delVideoService(Integer videoId);
+
+    /*
+     * 查询指定审核通过的视频信息
+     *@RequestParam("searchContent")：获取用户要查询的信息
+     * 返回查询信息
+     *
+     * */
+    public Video searchPassServicel(Integer id);
+
+    /*
+     * 编辑视频信息
+     *@RequestParam("searchContent")：获取用户要查询的信息
+     * 返回查询信息
+     *
+     * */
+    public boolean editVideoServicel(Video video);
 }

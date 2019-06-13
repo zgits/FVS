@@ -31,7 +31,7 @@
         </association >
     </resultMap>
 
-
+    <!--sql标签作用，为对象的属性命名别名-->
     <sql id="video_sql">
       id,
       name,
@@ -49,14 +49,37 @@
       firstImagePath,
     </sql>
 
-    <!--sql标签作用，为对象的属性命名别名-->
 
-
+    <!--获取未审核通过的视频信息-->
     <select id="getAuditingDao" resultMap="video">
 
                         select v.*,u.userName from (
-                        select * from video where status = 1
+                        select * from video where status = 1 and del = 1
                         ) v left join user u on v.userId = u.id;
 
-            </select>
-        </mapper>
+    </select>
+
+    <!--未审核视频审核通过-->
+    <update id="passAuditingDao">
+        update video set
+        status = 2,
+        del = 1
+        where id=#{id}
+    </update>
+
+    <!--未审核视频审核不通过-->
+    <update id="notPassAuditingDao">
+        update video set
+        status = 3,
+        del = 2
+        where id=#{id}
+    </update>
+
+    <!--查询未审核视频信息-->
+    <select id="searchAuditingDao" resultMap="video">
+        select v.*,u.userName from (
+        select * from video where status = 1 and del = 1
+        ) v left join user u on v.userId = u.id
+        where v.name like CONCAT('%',#{searchContent},'%') or u.userName like CONCAT('%',#{searchContent},'%')
+    </select>
+</mapper>

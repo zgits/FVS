@@ -2,6 +2,12 @@ package com.four.fvs.service;
 
 import com.four.fvs.model.Video;
 import com.four.fvs.model.VideoOpRecord;
+import com.four.fvs.vo.VideoIndexVo;
+import com.four.fvs.vo.VideoVo;
+
+import java.util.List;
+
+import java.util.List;
 
 /**
  * @Author: zjf
@@ -15,7 +21,15 @@ public interface VideoService {
      * @param videoId
      * @return
      */
-    public Video getOneVideoById(Integer videoId);
+    public VideoVo getOneVideoById(Integer videoId);
+
+
+    /**
+     * 增加视频播放量
+     * @param id
+     * @return
+     */
+    public Integer updateVideovv(Integer id);
 
 
     /**
@@ -41,4 +55,32 @@ public interface VideoService {
      * @return
      */
     public boolean giveCollection(VideoOpRecord videoOpRecord);
+
+    /**
+     *获取首页视频信息
+     * @return
+     */
+    public List<VideoIndexVo> getAllVideo();
+
+
+    /**
+     *得到相同类型的视频信息
+     * @param userId
+     * @param type
+     * @return
+     */
+    public List<VideoVo> getTheSameVideo(Integer userId,Integer type);
+
+
+    /**
+     * 查询某个操作记录是否存在
+     * @param videoOpRecord
+     * @return
+     */
+    public boolean getIfExistOpRecord(VideoOpRecord videoOpRecord);
+
+
+    public List<Video> getCollectVideoService(Integer id);
+
+    public List<Video> getShoucangVideoService(Integer id);
 }

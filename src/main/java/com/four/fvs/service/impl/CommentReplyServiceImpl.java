@@ -43,8 +43,30 @@ public class CommentReplyServiceImpl implements CommentReplyService {
     }
 
     @Override
-    public List<CommentReply> getCommentReply(Integer commentId) {
-        return commentReplyDao.getCommentReply(commentId);
+    public List<CommentReplyVo> getCommentReply(Integer commentId) {
+        List<CommentReplyVo> commentReplyVos=new ArrayList<>();
+        List<CommentReply> commentReplies=commentReplyDao.getCommentReply(commentId);
+
+        CommentReplyVo commentReplyVo;
+
+        for (CommentReply commentReply : commentReplies) {
+            commentReplyVo=new CommentReplyVo();
+            commentReplyVo.setCommentReply(commentReply);
+            User user=userService.getUserInfo(commentReply.getReplyId());
+            commentReplyVo.setIcon(user.getIcon());
+            commentReplyVo.setUserId(user.getId());
+            commentReplyVo.setUserName(user.getUserName());
+
+            User user1=userService.getUserInfo(commentReply.getBeReplyId());
+
+            commentReplyVo.setBeIcon(user1.getIcon());
+            commentReplyVo.setBeUserId(user1.getId());
+            commentReplyVo.setBeUserName(user1.getUserName());
+
+            commentReplyVos.add(commentReplyVo);
+        }
+
+        return commentReplyVos;
     }
 
     @Override

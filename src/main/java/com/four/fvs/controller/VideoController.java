@@ -3,13 +3,11 @@ package com.four.fvs.controller;
 import com.four.fvs.common.Result;
 import com.four.fvs.common.ResultUtils;
 import com.four.fvs.model.VideoOpRecord;
+import com.four.fvs.service.VideoCommentService;
 import com.four.fvs.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author: zjf
@@ -22,6 +20,8 @@ public class VideoController {
 
     @Autowired
     private VideoService videoService;
+    @Autowired
+    private VideoCommentService videoCommentService;
 
 
     @GetMapping(value = "/getVideo",params = {"id"})
@@ -31,24 +31,77 @@ public class VideoController {
     }
 
 
+    @PatchMapping(value = "/updateVideovv/{id}")
+    @ResponseBody
+    public Result<Object> updateVideovv(@PathVariable("id") Integer id){
+        return ResultUtils.success(videoService.updateVideovv(id));
+    }
+
+    @GetMapping(value = "/getCount",params={"id,type"})
+    @ResponseBody
+    public Result<Object>getCountById(Integer videoId,Integer type){
+        return ResultUtils.success(videoCommentService.getCountById(videoId,type));
+    }
+
     @PatchMapping("/givePraise")
     @ResponseBody
-    public Result<Object> givePraise(VideoOpRecord videoOpRecord){
+    public Result<Object> givePraise(@RequestBody VideoOpRecord videoOpRecord){
         return ResultUtils.success(videoService.givePraise(videoOpRecord));
     }
 
 
     @PatchMapping("/giveCollection")
     @ResponseBody
-    public Result<Object> giveCollection(VideoOpRecord videoOpRecord){
+    public Result<Object> giveCollection(@RequestBody VideoOpRecord videoOpRecord){
         return ResultUtils.success(videoService.giveCollection(videoOpRecord));
     }
 
 
     @PatchMapping("/giveShare")
     @ResponseBody
-    public Result<Object> giveShare(VideoOpRecord videoOpRecord){
+    public Result<Object> giveShare(@RequestBody VideoOpRecord videoOpRecord){
         return ResultUtils.success(videoService.giveShare(videoOpRecord));
     }
 
+    @GetMapping("/getAllVideo")
+    @ResponseBody
+    public  Result<Object> getAllVideo(){
+        return ResultUtils.success(videoService.getAllVideo());
+    }
+
+    @GetMapping("/getTheSameVideo")
+    @ResponseBody
+    public Result<Object> getTheSameVideo(Integer userId,Integer type){
+        return ResultUtils.success(videoService.getTheSameVideo(userId, type));
+    }
+
+
+    @GetMapping("/ifExistOp")
+    @ResponseBody
+    public Result<Object> ifExistOp(VideoOpRecord videoOpRecord){
+        return ResultUtils.success(videoService.getIfExistOpRecord(videoOpRecord));
+    }
+
+
+    /**
+     * 遍历CollectVideo信息
+     * @param
+     * @return
+     */
+    @ResponseBody
+    @GetMapping(value = "/getCollectVideo")
+    public Result<Object> getCollectVideo(Integer userId){
+        return ResultUtils.success(videoService.getCollectVideoService(userId));
+    }
+
+    /**
+     * 遍历收藏的视频信息
+     * @param
+     * @return
+     */
+    @ResponseBody
+    @GetMapping(value = "/getShoucangVideo")
+    public Result<Object> getShoucangVideo(Integer userId){
+        return ResultUtils.success(videoService.getShoucangVideoService(userId));
+    }
 }

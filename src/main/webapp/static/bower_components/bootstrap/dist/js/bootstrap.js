@@ -96,7 +96,7 @@ if (typeof jQuery === 'undefined') {
     $(el).on('click', dismiss, this.close)
   }
 
-  Alert.VERSION = '3.4.1'
+  Alert.VERSION = '1'
 
   Alert.TRANSITION_DURATION = 150
 
@@ -193,7 +193,7 @@ if (typeof jQuery === 'undefined') {
     this.isLoading = false
   }
 
-  Button.VERSION  = '3.4.1'
+  Button.VERSION  = '1'
 
   Button.DEFAULTS = {
     loadingText: 'loading...'
@@ -330,7 +330,7 @@ if (typeof jQuery === 'undefined') {
       .on('mouseleave.bs.carousel', $.proxy(this.cycle, this))
   }
 
-  Carousel.VERSION  = '3.4.1'
+  Carousel.VERSION  = '1'
 
   Carousel.TRANSITION_DURATION = 600
 
@@ -577,7 +577,7 @@ if (typeof jQuery === 'undefined') {
     if (this.options.toggle) this.toggle()
   }
 
-  Collapse.VERSION  = '3.4.1'
+  Collapse.VERSION  = '1'
 
   Collapse.TRANSITION_DURATION = 350
 
@@ -779,7 +779,7 @@ if (typeof jQuery === 'undefined') {
     $(element).on('click.bs.dropdown', this.toggle)
   }
 
-  Dropdown.VERSION = '3.4.1'
+  Dropdown.VERSION = '1'
 
   function getParent($this) {
     var selector = $this.attr('data-target')
@@ -960,7 +960,7 @@ if (typeof jQuery === 'undefined') {
     }
   }
 
-  Modal.VERSION = '3.4.1'
+  Modal.VERSION = '1'
 
   Modal.TRANSITION_DURATION = 300
   Modal.BACKDROP_TRANSITION_DURATION = 150
@@ -1441,7 +1441,7 @@ if (typeof jQuery === 'undefined') {
     this.init('tooltip', element, options)
   }
 
-  Tooltip.VERSION  = '3.4.1'
+  Tooltip.VERSION  = '1'
 
   Tooltip.TRANSITION_DURATION = 150
 
@@ -1982,7 +1982,7 @@ if (typeof jQuery === 'undefined') {
 
   if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js')
 
-  Popover.VERSION  = '3.4.1'
+  Popover.VERSION  = '1'
 
   Popover.DEFAULTS = $.extend({}, $.fn.tooltip.Constructor.DEFAULTS, {
     placement: 'right',
@@ -2115,7 +2115,7 @@ if (typeof jQuery === 'undefined') {
     this.process()
   }
 
-  ScrollSpy.VERSION  = '3.4.1'
+  ScrollSpy.VERSION  = '1'
 
   ScrollSpy.DEFAULTS = {
     offset: 10
@@ -2279,7 +2279,7 @@ if (typeof jQuery === 'undefined') {
     // jscs:enable requireDollarBeforejQueryAssignment
   }
 
-  Tab.VERSION = '3.4.1'
+  Tab.VERSION = '1'
 
   Tab.TRANSITION_DURATION = 150
 
@@ -2446,7 +2446,7 @@ if (typeof jQuery === 'undefined') {
     this.checkPosition()
   }
 
-  Affix.VERSION  = '3.4.1'
+  Affix.VERSION  = '1'
 
   Affix.RESET    = 'affix affix-top affix-bottom'
 

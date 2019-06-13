@@ -4,6 +4,9 @@ import com.four.fvs.model.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
+import java.util.List;
+
 /**
  * @Author: zjf
  * @Date: 2019/5/21 16:30
@@ -46,4 +49,33 @@ public interface UserDao {
      */
     public User getUserInfo(@Param("id") Integer id);
 
+
+    /**
+     * @Author: yzh
+     * @Date: 2019/6/8 18:04
+     * @Description: 用戶信息的管理
+     */
+
+    /**
+     * 遍历所有的用戶信息
+     * @param
+     * @return
+     */
+    public List<User> getAllUserDao();
+
+    /**
+     * @Author: yzh
+     * @Date: 2019/6/8 23:16
+     * @Description: 用戶信息的管理
+     */
+
+    /**
+     * 通过id得到某个用戶的信息
+     * @param id
+     * @return
+     */
+    public User getUserDao(@Param("id") Integer id);
+
+
 }
+

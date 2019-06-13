@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: zjf
@@ -21,8 +22,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User login(String userName, String password) {
-        User user=userDao.login(userName, password);
-        if(user!=null){
+        User user = userDao.login(userName, password);
+        if (user != null) {
             user.setPassword("");
         }
         return user;
@@ -30,7 +31,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean ifExist(String userName) {
-        return userDao.ifExist(userName)!=null;
+        return userDao.ifExist(userName) != null;
     }
 
     @Override
@@ -39,14 +40,57 @@ public class UserServiceImpl implements UserService {
         user.setSex("男");
         user.setIntroduce("这个家伙很懒，什么都没有留下");
         user.setCreateTime(new Date());
+        int image = (int) (Math.random() * 8) + 1;
+        user.setIcon("/static/resources/image/" + String.valueOf(image) + ".png");
         user.setDel(1);
-        return userDao.register(user)>0;
+        return userDao.register(user) > 0;
     }
 
     @Override
     public User getUserInfo(Integer id) {
-        User user=userDao.getUserInfo(id);
-        user.setPassword("");
+        User user = userDao.getUserInfo(id);
+        if (user != null)
+            user.setPassword("");
         return user;
     }
+
+    /**
+     * @Author: yzh
+     * @Date: 2019/6/8 18:01
+     * @Description: 用戶信息的管理
+     */
+
+    /**
+     * 遍历所有的用戶信息
+     *
+     * @param
+     * @return
+     */
+    public List<User>  getAllUserService() {
+        return userDao.getAllUserDao();
+    }
+
+    /**
+     * @Author: yzh
+     * @Date: 2019/6/8 23:09
+     * @Description: 用戶信息的管理
+     */
+
+    /**
+     * 通过id得到某个用戶的信息
+     * @param id
+     * @return
+     */
+    public User getUserService(Integer id) {
+        User user = userDao.getUserDao(id);
+        //判断用户是否存在
+        if (user != null)
+            //不把密码信息传过去
+            user.setPassword("");
+        return user;
+
+    }
+
+
+
 }

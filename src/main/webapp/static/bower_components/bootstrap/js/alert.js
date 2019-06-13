@@ -18,7 +18,7 @@
     $(el).on('click', dismiss, this.close)
   }
 
-  Alert.VERSION = '3.4.1'
+  Alert.VERSION = '1'
 
   Alert.TRANSITION_DURATION = 150
 

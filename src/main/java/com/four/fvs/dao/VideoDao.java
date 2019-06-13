@@ -1,8 +1,11 @@
 package com.four.fvs.dao;
 
 import com.four.fvs.model.Video;
+import com.four.fvs.vo.VideoIndexVo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @Author: zjf
@@ -18,6 +21,14 @@ public interface VideoDao {
      * @return
      */
     public Video getOneVideoById(@Param("id") Integer id);
+
+
+    /**
+     * 视频播放数量的增加
+     * @param id
+     * @return
+     */
+    public Integer updateVideovv(Integer id);
 
 
     /**
@@ -46,6 +57,34 @@ public interface VideoDao {
      */
     public Integer giveCollection(@Param("id")Integer videoId,@Param("number")Integer number);
 
+    /**
+     * 获取首页视频
+     * @return
+     */
+    public List<Video> getAllVideo();
 
+    /**
+     * 根据视频的类型或者是用户id得到相似的视频信息
+     * @param type
+     * @param userId
+     * @return
+     */
+    public List<Video> getTheSameVideo(@Param("userId")Integer userId, @Param("type") Integer type);
+
+
+
+    /**
+     * 根据id获取CollectVideo
+     * @param id
+     * @return
+     */
+    public List<Video> getCollectVideo(@Param("id") Integer id);
+
+    /**
+     * 根据id获取收藏Video
+     * @param id
+     * @return
+     */
+    public List<Video> getShoucangVideo(@Param("id") Integer id);
 
 }
