@@ -36,7 +36,7 @@ $(function () {
                         $('#userCue').html("<font color='red'><b>该用户名已经被注册！</b></font>");
                     }
                 }
-            })
+            }）
         }
         $('#user').css({
             border: "1px solid #D7D7D7",
@@ -77,6 +77,29 @@ $(function () {
         }
 
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     $('#switch_qlogin').click(function () {
         $('#switch_login').removeClass("switch_btn_focus").addClass('switch_btn');
         $('#switch_qlogin').removeClass("switch_btn").addClass('switch_btn_focus');

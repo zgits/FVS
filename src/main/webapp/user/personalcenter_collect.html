@@ -16,54 +16,23 @@
 <ul class="layui-nav">
     <li class="layui-nav-item"><a href="personcenter.html">主页</a></li>
     <li class="layui-nav-item"><a href="personalcenter_submit.html">投稿</a></li>
-    <li class="layui-nav-item"><a href="personalcenter_collect.html">收藏<span class="layui-badge">1</a></li>
+    <li class="layui-nav-item"><a href="personalcenter_collect.html">收藏<span class="layui-badge" id="Reset2">1</a></li>
 
     <li class="layui-nav-item"><a href="viewhistory.html">历史纪录</a></li>
     <li class="layui-nav-item"><a href="edit.html">编辑个人资料</a></li>
 
 
-    <li class="layui-nav-normol" style="float:right"><a href="fans.html">1.1W</a></li>
-    <li class="layui-nav-item" style="float:right">粉丝数</a></li>
-    <li class="layui-nav-normol" style="float:right"><a href="focus.html">8711</a></li>
-    <li class="layui-nav-item" style="float:right">关注</a></li>
+    <li class="layui-nav-normol" style="float:right"><a href="fans.html">粉丝</a></li>
+    <li class="layui-nav-normol" style="float:right"><a href="focus.html">关注</a></li>
 </ul>
 
 
 <div class="s-space">
     <div class="wrapper" id="page-fav">
         <div class="col-full clearfix master">
-            <div class="fav-main section"></div>      <!--     --空格--    -->
             <div class="v-filter-line clearfix">
-                <div class="be-tab">
-                    <ul class="layui-nav">
-                        <li class="layui-nav-item"><a href="">最多播放</a></li>
-                        <li class="layui-nav-item"><a href="">最新投稿</a></li>
-                        <li class="layui-nav-item ">
-                            <a href="javascript:;">全部分区</a>
-                            <dl class="layui-nav-child">
-                                <dd><a href="">aa</a></dd>
-                                <dd><a href="">aa</a></dd>
-                                <dd><a href="">aa</a></dd>
-                                <dd><a href="">aa</a></dd>
-                                <dd><a href="">aa</a></dd>
-                                <dd><a href="">aa</a></dd>
-                                <dd><a href="">aa</a></dd>
-                                <dd><a href="">aa</a></dd>
-                                <dd><a href="">aa</a></dd>
-                                <dd><a href="">aa</a></dd>
-                                <dd><a href="">aa</a></dd>
-                            </dl>
-                        </li>
-                        <li class="layui-nav-item">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a></li>
-                        <div class="clearfix g-search search-container"><input type="text" placeholder="搜索收藏">
-                            <span class="icon search-btn"></span>
-                        </div>
-                    </ul>
-                    <div class="be-tab-cursor" style="width: 56px; transform: translateX(0px);"></div>
-                </div>
-                <div class="fav-main section">
+                <div class="row page-head clearfix"><div class="breadcrumb"><p class="item cur">我的收藏</p></div><div class="v-filter-line clearfix"><div class="be-tab"><ul class="be-tab-inner clearfix"></ul></div></div></div><div class="fav-main section"></div>
 
-                </div>
 
 
 
@@ -176,7 +145,6 @@
     $(function () {
         //静态数据置空
         $("#Reset3").empty();
-        alert(userId);
         SelectCollectVideo();
     });
     function SelectCollectVideo() {
@@ -189,13 +157,13 @@
             },
             //默认执行成功
             success: function (data) {
-                alert("获取用户信息成功！");
+                //alert("获取用户信息成功！");
                 //控制台打印
                 console.log(data.data);
                 showCollectVideo(data);
             },
             error: function(data){
-                alert("获取用户信息失败！");
+               // alert("获取用户信息失败！");
             }
         });
 

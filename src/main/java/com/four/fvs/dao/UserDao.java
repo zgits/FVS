@@ -33,6 +33,12 @@ public interface UserDao {
      */
     public Integer register(User user);
 
+    /**
+     * 用户修改个人信息
+     * @param user
+     * @return
+     */
+    public Integer editxx(User user);
 
     /**
      * 根据用户名查询用户
@@ -74,4 +80,12 @@ public interface UserDao {
      * @return
      */
     public User getUserDao(@Param("id") Integer id);
+
+    /**
+     * 通过id得到某个用戶的信息
+     * @param id
+     * @return
+     */
+    public List<User> getFansDao(@Param("id") Integer id);
+    public List<User> getFocusDao(@Param("id") Integer id);
 }
