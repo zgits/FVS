@@ -215,7 +215,7 @@
                 "                                       \n" +
                 "                                        <li class=\"list-item clearfix\">\n" +
                 "                                            <div class=\"content\">\n" +
-                "                                                <img src=\"   " +  data.data[i].icon   +" \" class=\"layui-nav-img \">\n" +
+                "                                                <img src=\"   " +  data.data[i].icon   +" \" class=\"layui-nav-img \" onclick=\"GetLook(this)\" value=\"    "+ data.data[i].id  +"\">" +
                 "                                                <p style=\"font-size:20px\" > "+  data.data[i].userName +"</p>\n" +
                 "                                            <button class=\"layui-btn layui-btn-disabled layui-btn-xs\" onclick=\"myFunction(this)\" id = \" " +  data.data[i].id +" \"  style=\"float:right\">已关注</button>\n" +
                 "                                                <p class=\"desc\">"+ data.data[i].introduce  +"</p>\n" +
@@ -260,12 +260,17 @@
 
         });
         parent.location.reload();
+        parent.location.reload();
+    }
+    function GetLook(obj){
+        var focusid= $(obj).attr("value")
+        $.cookie('othersId',focusid);
+        window.location.href = "ViewOthers.html";
     }
 
 
 
 </script>
-
 </body>
 </html>
 
