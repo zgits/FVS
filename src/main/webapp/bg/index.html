@@ -37,7 +37,366 @@
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <!--导入JQuery包-->
+    <script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
 </head>
+
+
+<script>
+    /**
+     * yyyy-mm-dd 时间获取
+     */
+    function getFormatDate(){
+        var nowDate = new Date();
+        var year = nowDate.getFullYear();
+        var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;
+        var date = nowDate.getDate() < 10 ? "0" + nowDate.getDate() : nowDate.getDate();
+        return year + "-" + month + "-" + date;
+    }
+
+    /**
+     * 在线人数
+     */
+    $(document).ready(function () {
+        $.ajax({
+            url: "/admin/web/",
+            type: "get",
+            dataType: "json",
+            success: function (data) {
+                $("#onlineCount").html(data.data);
+            }
+        })
+    })
+
+    /**
+     * 00:00 时间段在线人数
+     *
+     * @returns {number}
+     */
+    function day1() {
+        var count = 0;
+        var time = getFormatDate();
+        var startTime = time + " 00:00:00"+"/";
+        $.ajax({
+            url: "/admin/web/" + startTime + "/" + 2+"/"+0,
+            type: "get",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                count = data.data;
+                count = 500;
+
+            }
+        })
+        return count;
+    }
+
+    /**
+     * 02:00 时间段在线人数
+     *
+     * @returns {number}
+     */
+    function day2() {
+        var count = 0;
+        var time = getFormatDate();
+        var startTime = time + " 02:00:00";
+        $.ajax({
+            url: "/admin/web/" + startTime + "/" + 2+"/"+0,
+            type: "get",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                count = data.data;
+            }
+        })
+        return count;
+    }
+
+    /**
+     * 04:00 时间段在线人数
+     *
+     * @returns {number}
+     */
+    function day3() {
+        var count = 0;
+        var time = getFormatDate();
+        var startTime = time + " 04:00:00";
+        $.ajax({
+            url: "/admin/web/" + startTime + "/" + 2+"/"+0,
+            type: "get",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                count = data.data;
+            }
+        })
+        return count;
+    }
+
+    /**
+     * 06:00 时间段在线人数
+     *
+     * @returns {number}
+     */
+    function day4() {
+        var count = 0;
+        var time = getFormatDate();
+        var startTime = time + " 06:00:00";
+        $.ajax({
+            url: "/admin/web/" + startTime + "/" + 2+"/"+0,
+            type: "get",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                count = data.data;
+            }
+        })
+        return count;
+    }
+
+    /**
+     * 08:00 时间段在线人数
+     *
+     * @returns {number}
+     */
+    function day5() {
+        var count = 0;
+        var time = getFormatDate();
+        var startTime = time + " 08:00:00";
+        $.ajax({
+            url: "/admin/web/" + startTime + "/" + 2+"/"+0,
+            type: "get",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                count = data.data;
+            }
+        })
+        return count;
+    }
+
+    /**
+     * 10：00 时间段在线人数
+     *
+     * @returns {number}
+     */
+    function day6() {
+        var count = 0;
+        var time = getFormatDate();
+        var startTime = time + " 10:00:00";
+        $.ajax({
+            url: "/admin/web/" + startTime + "/" + 2+"/"+0,
+            type: "get",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                count = data.data;
+            }
+        })
+        return count;
+    }
+
+    /**
+     * 12：00 时间段在线人数
+     *
+     * @returns {number}
+     */
+    function day7() {
+        var count = 0;
+        var time = getFormatDate();
+        var startTime = time + " 12:00:00";
+        $.ajax({
+            url: "/admin/web/" + startTime + "/" + 2+"/"+0,
+            type: "get",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                count = data.data;
+            }
+        })
+        return count;
+    }
+
+    /**
+     * 14：00 时间段在线人数
+     *
+     * @returns {number}
+     */
+    function day8() {
+        var count = 0;
+        var time = getFormatDate();
+        var startTime = time + " 14:00:00";
+        $.ajax({
+            url: "/admin/web/" + startTime + "/" + 2+"/"+0,
+            type: "get",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                count = data.data;
+            }
+        })
+        return count;
+    }
+
+    /**
+     * 16：00 时间段在线人数
+     *
+     * @returns {number}
+     */
+    function day9() {
+        var count = 0;
+        var time = getFormatDate();
+        var startTime = time + " 16:00:00";
+        $.ajax({
+            url: "/admin/web/" + startTime + "/" + 2+"/"+0,
+            type: "get",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                count = data.data;
+            }
+        })
+        return count;
+    }
+
+    /**
+     * 18：00 时间段在线人数
+     *
+     * @returns {number}
+     */
+    function day10() {
+        var count = 0;
+        var time = getFormatDate();
+        var startTime = time + " 18:00:00";
+        $.ajax({
+            url: "/admin/web/" + startTime + "/" + 2+"/"+0,
+            type: "get",
+            dataType: "json",
+            async : false,
+            success: function (data) {
+                count = data.data;
+            }
+        })
+        return count;
+    }
+
+    /**
+     * 20：00 时间段在线人数
+     *
+     * @returns {number}
+     */
+    function day11() {
+        var count = 0;
+        var time = getFormatDate();
+        var startTime = time + " 20:00:00";
+        $.ajax({
+            url: "/admin/web/" + startTime + "/" + 2+"/"+0,
+            type: "get",
+            dataType: "json",
+            async : false,
+            success: function (data) {
+                count = data.data;
+            }
+        })
+        return count;
+    }
+
+
+    /**
+     * 22：00 时间段在线人数
+     *
+     * @returns {number}
+     */
+    function day12() {
+        var count = 0;
+        var time = getFormatDate();
+        var startTime = time + " 22:00:00";
+        $.ajax({
+            url: "/admin/web/" + startTime + "/" + 2+"/"+0,
+            type: "get",
+            dataType: "json",
+            async : false,
+            success: function (data) {
+                count = data.data;
+            }
+        })
+        return count;
+    }
+
+
+    /**
+     * 视频-获取视频名
+     */
+    /*function listVideos(){
+        var list = null;
+        var arrays = new Array();
+        var time = getFormatDate();
+        var watchTime = time + " 00:00:00";
+        $.ajax({
+            url: "/admin/web/" + watchTime +"/"+3+"/"+0,
+            type: "get",
+            dataType: "json",
+            async : false,
+            success: function (data) {
+                list = data.data;
+                $.each(list,function (i,item) {
+                    arrays[i] = item.name;
+                })
+            }
+        })
+        return arrays;
+    }*/
+
+    /**
+     * 获取视频播放量
+     */
+   /* function listVideosForVV(){
+        var list = null;
+        var arrays = new Array();
+        var time = getFormatDate();
+        var watchTime = time + " 00:00:00";
+        $.ajax({
+            url: "/admin/web/" + watchTime +"/"+3+"/"+0,
+            type: "get",
+            dataType: "json",
+            async : false,
+            success: function (data) {
+                list = data.data;
+                $.each(list,function (i,item) {
+                    arrays[i] = item.vv;
+                })
+            }
+        })
+        return arrays;
+    }*/
+
+
+    /**
+     * week visit
+     */
+    function week(day){
+        var count = 0;
+        var time = getFormatDate();
+        var watchTime = time + " 00:00:00";
+        $.ajax({
+            url: "/admin/web/" + watchTime +"/"+1+"/"+day,
+            type: "get",
+            dataType: "json",
+            async : false,
+            success: function (data) {
+                count = data.data;
+            }
+        })
+        return count;
+    }
+
+
+</script>
+
+
+
+
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -403,7 +762,7 @@
                     <!-- small box -->
                     <div class="small-box bg-green">
                         <div class="inner">
-                            <h3>5365</h3>
+                            <h3 id="onlineCount"></h3>
 
                             <p>当前在线人数</p>
                         </div>
@@ -450,7 +809,7 @@
                     <!-- LINE CHART -->
                     <div class="box box-info">
                         <div class="box-header with-border">
-                            <h3 class="box-title">一周内网站访问量</h3>
+                            <h3 class="box-title">最近7天网站访问量</h3>
 
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -578,7 +937,57 @@
 <!-- page script -->
 <!--图表显示数据脚本-->
 <script>
+
+    /**
+     * 视频-获取视频名
+     */
+
+    function listVideos(){
+        var list = null;
+        videoName = new Array();
+        var time = getFormatDate();
+        var watchTime = time + " 00:00:00";
+        $.ajax({
+            url: "/admin/web/" + watchTime +"/"+3+"/"+0,
+            type: "get",
+            dataType: "json",
+            async : false,
+            success: function (data) {
+                list = data.data;
+                $.each(list,function (i,item) {
+                    videoName[i] = item.name;
+                })
+            }
+        })
+    }
+
+    /**
+     * 获取视频播放量
+     */
+
+    function listVideosForVV(){
+        var list = null;
+        videoVV = new Array();
+        var time = getFormatDate();
+        var watchTime = time + " 00:00:00";
+        $.ajax({
+            url: "/admin/web/" + watchTime +"/"+3+"/"+0,
+            type: "get",
+            dataType: "json",
+            async : false,
+            success: function (data) {
+                list = data.data;
+                $.each(list,function (i,item) {
+                    videoVV[i] = item.vv;
+                })
+            }
+        })
+    }
+
     $(function () {
+        listVideos();
+        listVideosForVV();
+
         /* ChartJS
          * -------
          * Here we will create a few charts using ChartJS
@@ -603,7 +1012,7 @@
                     pointStrokeColor    : 'rgba(60,141,188,1)',
                     pointHighlightFill  : '#fff',
                     pointHighlightStroke: 'rgba(60,141,188,1)',
-                    data                : [2277, 8500, 4000, 1509, 7086, 2007, 950, 8886, 2427, 3190, 2027, 3900]
+                    data                : [day1(), day2(), day3(), day4(), day5(), day6(),day7(), day8(),day9(), day10(), day11(),day12()]
                 }
             ]
         }
@@ -667,7 +1076,8 @@
                     pointStrokeColor    : 'rgba(60,141,188,1)',
                     pointHighlightFill  : '#fff',
                     pointHighlightStroke: 'rgba(60,141,188,1)',
-                    data                : [280, 480, 400, 190, 860, 270, 900]
+                    data                : [ week(1),  week(2),  week(3),  week(4), week(5),
+                         week(6),  week(7)]
                 }
             ]
         }
@@ -682,8 +1092,14 @@
         //-------------
         var barChartCanvas                   = $('#barChart').get(0).getContext('2d')
         var barChart                         = new Chart(barChartCanvas)
+
         var barChartData  = {
-            labels  : ['鸡你太美', '视频2', '视频3', '视频4', '视频5', '视频6', '视频7', '视频8', '视频9', '视频10'],
+            /*labels  : [new listVideos()[0] == null ? "无":new listVideos()[0], new listVideos()[1] == null ? "无":new listVideos()[1],
+                new listVideos()[2] == null ? "无":new listVideos()[2], new listVideos()[3] == null ? "无":new listVideos()[3],
+                new listVideos()[4] == null ? "无":new listVideos()[4], new listVideos()[5] == null ? "无":new listVideos()[5],
+                new listVideos()[6] == null ? "无":new listVideos()[6], new listVideos()[7] == null ? "无":new listVideos()[7],
+                new listVideos()[8] == null ? "无":new listVideos()[8], new listVideos()[9] == null ? "无":new listVideos()[9]],*/
+            labels : [videoName[0], videoName[1], videoName[2], videoName[3], videoName[4], videoName[5], videoName[6],videoName[7], videoName[8],videoName[9]],
             datasets: [
                 {
                     label               : 'Digital Goods',
@@ -693,7 +1109,15 @@
                     pointStrokeColor    : 'rgba(60,141,188,1)',
                     pointHighlightFill  : '#fff',
                     pointHighlightStroke: 'rgba(60,141,188,1)',
-                    data                : [10000, 9000, 8000, 7000, 6000, 5000, 4000, 3000, 2000, 1000]
+                   /* data                : [new listVideosForVV()[0], new listVideosForVV()[1],
+                        new listVideosForVV()[2], new listVideosForVV()[3], new listVideosForVV()[4],
+                        new listVideosForVV()[5], new listVideosForVV()[6], new listVideosForVV()[7],
+                        new listVideosForVV()[8], new listVideosForVV()[9]]*/
+                    /*data  : $.each(new listVideos(),function(item){
+                        "["+item.vv+"]";
+                    })*/
+                    data  : [videoVV[0], videoVV[1], videoVV[2], videoVV[3],videoVV[4], videoVV[5],videoVV[6],
+                    videoVV[7], videoVV[8], videoVV[9]]
                 }
             ]
         }

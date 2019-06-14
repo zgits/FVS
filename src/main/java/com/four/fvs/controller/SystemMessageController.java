@@ -1,5 +1,6 @@
 package com.four.fvs.controller;
 
+import com.four.fvs.common.PageBean;
 import com.four.fvs.common.Result;
 import com.four.fvs.common.ResultUtils;
 import com.four.fvs.model.SystemMessage;
@@ -55,7 +56,31 @@ public class SystemMessageController {
         return ResultUtils.paramerror();
     }
 
+    /**
+     * 删除消息
+     *
+     * @param id 消息id
+     * @return
+     */
+    @RequestMapping(value = "{id}" ,method = RequestMethod.DELETE)
+    @ResponseBody
+    public Result<Object> delete(@PathVariable("id") Integer id){
+        int result = systemMessageService.deleteMessage(id);
+        return result >= 0 ? ResultUtils.success(result) : ResultUtils.serviceerror();
+    }
 
+    /**
+     * 展示消息
+     *
+     * @param start 第几页开始
+     * @param size 每页显示多少数据
+     * @return
+     */
+    public Result<Object> query(@RequestParam(value = "start",defaultValue = "1") int start,
+                                @RequestParam(value = "size",defaultValue = "5") int size){
+        PageBean<SystemMessage> pageBean = systemMessageService.listMessages(start, size);
+        return pageBean == null ? ResultUtils.success(0) : ResultUtils.success(pageBean);
+    }
 
 
 }

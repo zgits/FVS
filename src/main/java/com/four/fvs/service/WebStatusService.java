@@ -27,9 +27,10 @@ public interface WebStatusService {
      * 一周网站访问量
      *
      * @param startTime 开始时间
+     * @param day 周几
      * @return  返回访问量
      */
-    Integer countVisitForWeek(Date startTime);
+    Integer countVisitForWeek(Date startTime, Integer day);
 
     /**
      * 某天时刻访问量
