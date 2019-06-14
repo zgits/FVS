@@ -42,7 +42,7 @@
     <div class="fav-main section"></div>
     <div class="layui-form-item">
         <label class="layui-form-label">当前头像</label>
-        <div class="layui-input-block">
+        <div class="layui-input-block" id="Reset3">
             <img class="layui-nav-img" src="//t.cn/RCzsdCq">
         </div>
         <div class="layui-upload">
@@ -71,6 +71,12 @@
                    lay-verify="pass">
         </div>
         <div class="layui-form-mid layui-word-aux">请填写6到12位密码</div>
+        <label class="layui-form-label">确认密码</label>
+        <div class="layui-input-inline">
+            <input name="password" class="layui-input" type="password" id="password1" placeholder="请确认密码" autocomplete="off"
+                   lay-verify="pass">
+        </div>
+        <div class="layui-form-mid layui-word-aux">请确认密码</div>
     </div>
 
 
@@ -132,16 +138,64 @@
 
 
 <script>
+
+    var userId = $.cookie('userId');
+    $("#Reset3").empty();
+    SelectIcon();
+
+
+
+    function SelectIcon() {
+        $.ajax({
+            url: "/user/getUserInfo",
+            type: "get",
+            dataType: "json",
+            data: {
+                userId: userId
+            },
+            //默认执行成功
+            success: function (data) {
+               // alert("获取用户信息成功！");
+                //控制台打印
+                console.log(data.data);
+                showIcon(data);
+            },
+            error: function(data){
+                //alert("获取用户信息失败！");
+            }
+        });
+
+    }
+
+
+    function showIcon(data) {
+
+
+        var appendhtml =" <img class=\"layui-nav-img\" src=\"     "+ data.data.icon  +"   \"> ";
+
+
+
+
+        $("#Reset3").append(appendhtml);
+
+    }
+
+
+
+
     /**
      * 按钮点击事件
      */
-    var userId = $.cookie('userId');
+
     $("#submit").click(function () {
         var userName = $("#name").val().trim();
         var pwd1 = $("#password").val().trim();
         var introduce = $("#introduce").val().trim();
+        var pwd2=$("#password1").val().trim();
         if (userName.length == 0 || pwd1.length == 0 || introduce.length == 0){
-            sweetAlert("出错了", "您还有些内容未填写~", "error");
+            alert("您还有些内容未填写~", "error");
+        }else if (pwd1 != pwd2){
+            alert("两次密码输入不一致，请重新填写~", "error");
         }else {
             var sendData = JSON.stringify({"userName" : userName, "password": pwd1 , "introduce":introduce,"userId":userId });
             alert(sendData);
@@ -168,60 +222,5 @@
 </script>
 
 
-
-
-<script>
-    layui.use(['form', 'layedit', 'laydate'], function () {
-        var form = layui.form
-            , layer = layui.layer
-            , layedit = layui.layedit
-            , laydate = layui.laydate;
-
-        //日期
-        laydate.render({
-            elem: '#date'
-        });
-        laydate.render({
-            elem: '#date1'
-        });
-
-        //创建一个编辑器
-        var editIndex = layedit.build('LAY_demo_editor');
-
-        //自定义验证规则
-        form.verify({
-            title: function (value) {
-                if (value.length < 5) {
-                    return '至少得5个字符啊';
-                }
-            }
-            , pass: [
-                /^[\S]{6,12}$/
-                , '密码必须6到12位，且不能出现空格'
-            ]
-            , content: function (value) {
-                layedit.sync(editIndex);
-            }
-        });
-
-        //监听指定开关
-        form.on('switch(switchTest)', function (data) {
-            layer.msg('开关checked：' + (this.checked ? 'true' : 'false'), {
-                offset: '6px'
-            });
-            layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
-        });
-
-        //监听提交
-        form.on('submit(demo1)', function (data) {
-            layer.alert(JSON.stringify(data.field), {
-                title: '最终的提交信息'
-            })
-            return false;
-        });
-
-
-    });
-</script>
 </body>
 </html>
