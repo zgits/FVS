@@ -97,9 +97,9 @@
     </div>
 </div>
 <!--筛选栏-->
-<div class="filter-wrap" style="margin-left: 25%; width: 60%">
+<div class="filter-wrap" style="margin-left: 25%; width: 60%" id="videotype">
     <!--流量排序-->
-    <ul class="filter-type clearfix order">
+    <ul class="filter-type clearfix order" id="select">
         <li class="filter-item active"><a href="javascript:;">最多播放</a></li>
         <li class="filter-item"><a href="javascript:;">最新投稿</a></li>
     </ul>
@@ -591,11 +591,13 @@
 
 <script>
     var videoname = getUrlParam("VideoName");
-    var username = getUrlParam("videoName");
+    var username = getUrlParam("VideoName");
     var currpage = 1;
     $(function () {
         showAllType();
+        showAllselect();
         getVideoByName(videoname, 1);
+        showResultType();
 
     })
 
@@ -618,7 +620,7 @@
 
     }
 
-    //获取指定分页分区的所有视频
+    //按播放量全部分区分页的搜索结果
     function getVideoByName(videoname, currpage) {
         $.ajax({
             url: '/video/getVideoByName',
@@ -630,12 +632,90 @@
             },
             success: function (data) {
                 if (data.code == 0) {
-                    var data = data.data;
+                    var data = data.data.lists;
                     showAllVideo(data);
                 }
             }
 
         });
+    }
+    //按关键字查询用户
+    function getUserByName(username,currpage){
+        $.ajax({
+            url:'/video/getUserByName',
+            type:'get',
+            dataType:'json',
+            data:{
+                name:username,
+                currPage:currpage
+            },
+            success:function (data) {
+                if(data.code==0){
+                    var data=data.data.lists;
+
+                    showUserResult(data);
+                }
+            }
+        });
+    }
+
+    //按上传时间展示全部分区分页的搜索结果
+    function getVideoByNameRank(videoname, currpage) {
+        $.ajax({
+            url: '/video/getVideoByName',
+            type: 'get',
+            dataType: 'json',
+            data: {
+                name: videoname,
+                currPage: currpage
+            },
+            success: function (data) {
+                if (data.code == 0) {
+                    var data = data.data.lists;
+                    var result=[];
+                    for(var i=0;i<data.length-1;i++){
+                        for(var j=i+1;j<data.length;j++){
+                            if(data[i].upTime<data[j].upTime){
+                                var temp=data[i];
+                                data[i]=data[j];
+                                data[j]=temp;
+                            }
+                        }
+
+                    }
+
+                    showAllVideo(data);
+                }
+            }
+
+        });
+    }
+
+        //获取指定分区分页的搜索结果
+        function getVideoByNameAndType(videoname,typeId, currpage) {
+            $.ajax({
+                url: '/video/getVideoByName',
+                type: 'get',
+                dataType: 'json',
+                data: {
+                    name: videoname,
+                    currPage: currpage
+                },
+                success: function (data) {
+                    if (data.code == 0) {
+                        var data = data.data.lists;
+                        var result=[];
+                        for(var i=0;i<data.length;i++){
+                            if(data[i].typeId==typeId){
+                                result.push(data[i]);
+                            }
+                        }
+                    }
+                        showAllVideo(result);
+                    }
+
+
+            });
 
     }
 
@@ -652,10 +732,10 @@
             '                        <!--<li class="v-switcher-header-item is-active" style="width:12.5%;"><a href="">\n' +
             '                            综合\n' +
             '                            <span class="num"></span></a></li>-->\n' +
-            '                        <li class="v-switcher-header-item" style="width:30%;"><a href="/user/searchresult.html?VideoName=' + videoname + '">\n' +
+            '                        <li class="v-switcher-header-item" style="width:30%;"><a href="#" onclick="getVideoByName('+videoname+','+currpage+')">\n' +
             '                            视频\n' +
             '                            <span class="num"></span></a></li>\n' +
-            '                        <li class="v-switcher-header-item" style="width:30%;"><a href="/user/searchresult.html?VideoName=' + username + '">\n' +
+            '                        <li class="v-switcher-header-item" style="width:30%;"><a href="#" onclick="getUserByName('+username+','+currpage+')">\n' +
             '                            用户\n' +
             '                            <span class="num"></span></a></li>\n' +
             '                        <li class="v-switcher-header-anchor"></li>\n' +
@@ -664,7 +744,16 @@
             '                <div class="v-switcher-header-after"></div>\n' +
             '            </div><!----></div>\n' +
             '    </div>';
+        $("#result_type").append(appenhtml);
 
+    }
+    //筛选条件
+    function showAllselect(){
+        $("#select").empty();
+        var appendhtml='';
+        appendhtml+='<li class="filter-item active"><a href="#" onclick="getVideoByName('+videoname+','+currpage+')">最多播放</a></li>\n' +
+            '        <li class="filter-item"><a href="#" onclick="getVideoByNameRank('+videoname+','+currpage+')">最新投稿</a></li>';
+        $("#select").append(appendhtml);
     }
 
     //展示所有分区类型
@@ -673,19 +762,20 @@
         var appendhtml = '';
         var type = [];
         type = getAllType();
-        appendhtml += '<li class="filter-item active"><a href="/user/searchresult.html?VideoName=' + videoname + '">综合类型</a></li>';
+        appendhtml += '<li class="filter-item active"><a href="#" onclick="getVideoByName('+videoname+','+currpage+')">综合类型</a></li>';
         for (var i = 0; i < type.length; i++) {
-            appendhtml += ' <li class="filter-item"><a href="/user/searchBytype.html?VideoName=' + videoname + '&typeId=' + type[i].id + '">' + type[i].name + '</a></li>';
+            var typeId=type[i].id;//显示全部分区
+            appendhtml += ' <li class="filter-item"><a href="#" onclick="getVideoByNameAndType('+videoname+',\''+typeId+'\','+currpage+')">' + type[i].name + '</a></li>';
         }
         $("#sort").append(appendhtml);
 
     }
 
-    //显示搜索结果
+    //显示视频搜索结果
     function showAllVideo(data) {
-        $("#display").empty();
+        $("#videotype").empty();
         var appendhtml = '';
-        var lists = data.lists;
+        var lists = data;
         for (var i = 0; i < lists.length; i++) {
             appendhtml += '<li class="video matrix">\n' +
                 '                    <a\n' +
@@ -714,9 +804,53 @@
                 '                </li>';
 
         }
-        $("#display").append(appendhtml);
+        $("#videotype").append(appendhtml);
 
+    }
 
+    function showUserResult(data){
+        $("#videotype").empty();
+        var appendhtml='';
+        var lists=data;
+        appendhtml+='<div class="contain">\n' +
+            '<div class="body-contain">\n' +
+            '    <div class="user-wrap">\n' +
+            '        <div class="dropdown-wrap clearfix">\n' +
+            '\n' +
+            '        </div>\n' +
+            '        <div class="result-wrap">\n' +
+            '            <ul class="user-list">\n' ;
+             for(var i=0;i<lists.length;i++){
+        appendhtml+= '                <li class="up-item">\n' +
+            '                <div class="up-face"><a title="'+lists[i].userName+'" class="face-img"\n' +
+            '                                        href=""\n' +
+            '                                        target="_blank">\n' +
+            '                    <div class="lazy-img"><img alt=""\n' +
+            '                                               src="..'+lists[i].icon+'">\n' +
+            '                    </div>\n' +
+            '                </a><i class="verify-icon"></i></div>\n' +
+            '                <div class="info-wrap">\n' +
+            '                    <div class="headline"><!----><a title="'+lists[i].userName+'" class="title"\n' +
+            '                                                    href="查看他人页面"\n' +
+            '                                                    target="_blank">'+lists[i].userName+'</a>' +
+            '                   <!----></div>\n' +
+            '                    <div class="up-info clearfix"><span>稿件：'+lists[i].videocount+'</span><span>粉丝：'+lists[i].fans+'</span></div>\n' +
+            '                    <div class="desc">\n' +
+            '                       '+lists[i].introduce+'\n' +
+            '                    </div>\n' +
+            '                    <div class="up-videos clearfix">\n' +
+            '                    </div>\n' +
+            '                </div>\n' +
+            '            </li>\n';}
+
+            appendhtml+='            </ul><!---->\n' +
+            '\n' +
+            '        </div><!----><!---->\n' +
+            '\n' +
+            '    </div>\n' +
+            '</div>\n' +
+            '</div>';
+        $("#videotype").append(appendhtml);
     }
 
 </script>
