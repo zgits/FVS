@@ -107,7 +107,7 @@ public class VideoCommentServiceImpl implements VideoCommentService {
 
     @Override
     public boolean ifPraised(VideoOpRecord videoOpRecord) {
-        videoOpRecord.setOpType(1);
+        //videoOpRecord.setOpType(1);
         videoOpRecord.setTime(new Date());
         VideoOpRecord videoOpRecord1=videoOpRecordDao.getRecord(videoOpRecord);
         return videoOpRecord1!=null?true:false;

@@ -79,18 +79,18 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
-    public boolean givePraise(VideoOpRecord videoOpRecord) {
+    public String givePraise(VideoOpRecord videoOpRecord) {
         videoOpRecord.setOpType(1);
         videoOpRecord.setTime(new Date());
         VideoOpRecord videoOpRecord1=videoOpRecordDao.getRecord(videoOpRecord);
-        System.out.println(videoOpRecord1);
         int number=videoOpRecord1!=null?-1:1;
         if(videoOpRecord1!=null){
             videoOpRecordDao.delRecord(videoOpRecord);
         }else{
             videoOpRecordDao.addRecord(videoOpRecord);
         }
-        return videoDao.givePraise(videoOpRecord.getVideoId(),number)>0;
+        videoDao.givePraise(videoOpRecord.getVideoId(),number);
+        return videoOpRecord1!=null?"del":"add";
     }
 
     @Override
@@ -107,7 +107,7 @@ public class VideoServiceImpl implements VideoService {
      * @return
      */
     @Override
-    public boolean giveCollection(VideoOpRecord videoOpRecord) {
+    public String giveCollection(VideoOpRecord videoOpRecord) {
         videoOpRecord.setOpType(3);
         videoOpRecord.setTime(new Date());
         VideoOpRecord videoOpRecord1=videoOpRecordDao.getRecord(videoOpRecord);
@@ -118,7 +118,8 @@ public class VideoServiceImpl implements VideoService {
             videoOpRecordDao.addRecord(videoOpRecord);
         }
         int number=videoOpRecord1!=null?-1:1;
-        return videoDao.giveCollection(videoOpRecord.getVideoId(),number)>0;
+        videoDao.giveCollection(videoOpRecord.getVideoId(),number);
+        return videoOpRecord1!=null?"del":"add";
     }
 
     /**
