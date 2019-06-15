@@ -44,6 +44,7 @@ public class Video {
 
     private Integer del;//删除标志 1 未删除，2 已删除
 
+
     private List<VideoComment> videoCommentList;//视频的评论
 
     private List<BulletScreen> bulletScreenList;//弹幕集合

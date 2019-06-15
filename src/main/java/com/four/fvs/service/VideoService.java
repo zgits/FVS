@@ -25,12 +25,20 @@ public interface VideoService {
 
 
     /**
+     * 增加视频播放量
+     * @param id
+     * @return
+     */
+    public Integer updateVideovv(Integer id);
+
+
+    /**
      *判断之前是否已点赞来决定赞数的加减
      * 所需参数 userId，recordId，type，opType
      * @param videoOpRecord
      * @return
      */
-    public boolean givePraise(VideoOpRecord videoOpRecord);
+    public String givePraise(VideoOpRecord videoOpRecord);
 
     /**
      *记录分享的操作记录,分享数+1
@@ -46,7 +54,7 @@ public interface VideoService {
      * @param videoOpRecord
      * @return
      */
-    public boolean giveCollection(VideoOpRecord videoOpRecord);
+    public String giveCollection(VideoOpRecord videoOpRecord);
 
     /**
      *获取首页视频信息
@@ -70,4 +78,9 @@ public interface VideoService {
      * @return
      */
     public boolean getIfExistOpRecord(VideoOpRecord videoOpRecord);
+
+
+    public List<Video> getCollectVideoService(Integer id);
+
+    public List<Video> getShoucangVideoService(Integer id);
 }

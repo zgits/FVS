@@ -2,6 +2,7 @@ package com.four.fvs.service;
 
 import com.four.fvs.model.User;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -36,6 +37,12 @@ public interface UserService {
      */
     public boolean register(User user);
 
+    /**
+     * 修改是否成功 成功则返回1
+     * @param user
+     * @return
+     */
+    public boolean editxx(User user);
 
     /**
      * 根据用户id得到用户信息
@@ -71,4 +78,16 @@ public interface UserService {
      */
 
     public User getUserService(Integer id);
+
+
+
+    /**
+     * 通过用户id得到某个用户的Fans信息
+     * @param id
+     * @return
+     */
+
+    public List<User> getFansService(Integer id);
+    public List<User> getFocusService(Integer id);
 }
+

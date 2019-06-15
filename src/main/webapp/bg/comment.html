@@ -15,19 +15,44 @@
     <!-- DataTables -->
     <link rel="stylesheet" href="../static/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 
-    <link rel="stylesheet" href="../static/plugins/iCheck/all.css">
+    <!--<link rel="stylesheet" href="../static/plugins/iCheck/all.css">-->
     <!-- Theme style -->
     <link rel="stylesheet" href="../static/dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../static/dist/css/skins/_all-skins.min.css">
 
+    <!--    -->
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="../static/dist/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <!--    <script src="../static/dist/bootstrap/jquery/jquery.min.js"></script>-->
+    <script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="../static/dist/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <link href="../static/dist/Admin/nav/fonts/iconfont.css" rel="stylesheet">
+
+    <script src="../static/dist/Admin/nav/js/nav.js"></script>
+
+    <!--table需要的静态资源-->
+
+    <link href="../static/dist/Admin/label/bootstrap-table.css" rel="stylesheet" media="screen">
+    <script src="../static/dist/Admin/label/bootstrap-table.js" type="text/javascript"></script>
+    <script src="../static/dist/Admin/label/bootstrap-table-zh-CN.js" charset="UTF-8"
+            type="text/javascript"></script>
+    <!--    -->
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="../static/dist/js/html5shiv.min.js"></script>
+    <script src="../static/dist/js/respond.min.js"></script>
     <![endif]-->
 
     <!-- Google Font -->
@@ -410,541 +435,13 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-
-                            <table id="example3" class="table table-bordered table-striped">
-                                <thead>
-                                <tr>
-                                    <th>
-                                        <!-- checkbox -->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red" id="selectAll">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    </th>
-                                    <th>评论者</th>
-                                    <th>评论内容</th>
-                                    <th>评论时间</th>
-                                    <th>操作</th>
-                                </tr>
-                                </thead>
-                                <tbody >
-                                <tr>
-                                    <!--<td>-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Internet
-                                        Explorer 4.0
-                                    </td>
-                                    <td>Win 95+</td>
-
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Internet
-                                        Explorer 5.0
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Internet
-                                        Explorer 5.5
-                                    </td>
-                                    <td>Win 95+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Internet
-                                        Explorer 6
-                                    </td>
-                                    <td>Win 98+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Internet Explorer 7</td>
-                                    <td>Win XP SP2+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>AOL browser (AOL desktop)</td>
-                                    <td>Win XP</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Firefox 1.0</td>
-                                    <td>Win 98+ / OSX.2+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Firefox 1.5</td>
-                                    <td>Win 98+ / OSX.2+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Firefox 2.0</td>
-                                    <td>Win 98+ / OSX.2+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Firefox 3.0</td>
-                                    <td>Win 2k+ / OSX.3+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Camino 1.0</td>
-                                    <td>OSX.2+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Camino 1.5</td>
-                                    <td>OSX.3+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Netscape 7.2</td>
-                                    <td>Win 95+ / Mac OS 8.6-9.2</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Netscape Browser 8</td>
-                                    <td>Win 98SE+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Netscape Navigator 9</td>
-                                    <td>Win 98+ / OSX.2+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Mozilla 1.0</td>
-                                    <td>Win 95+ / OSX.1+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Mozilla 1.1</td>
-                                    <td>Win 95+ / OSX.1+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Mozilla 1.2</td>
-                                    <td>Win 95+ / OSX.1+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Mozilla 1.3</td>
-                                    <td>Win 95+ / OSX.1+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Mozilla 1.4</td>
-                                    <td>Win 95+ / OSX.1+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Mozilla 1.5</td>
-                                    <td>Win 95+ / OSX.1+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Mozilla 1.6</td>
-                                    <td>Win 95+ / OSX.1+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Mozilla 1.7</td>
-                                    <td>Win 98+ / OSX.1+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Mozilla 1.8</td>
-                                    <td>Win 98+ / OSX.1+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <!--<td>&lt;!&ndash; checkbox &ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label>-->
-                                                <!--<input type="checkbox" class="flat-red">-->
-                                            <!--</label>-->
-                                        <!--</div>-->
-                                    <!--</td>-->
-                                    <td>Seamonkey 1.1</td>
-                                    <td>Win 98+ / OSX.2+</td>
-                                    <td>9000</td>
-                                    <td>
-                                        <div class="btn-group">
-
-                                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modal-warning">删除
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
-
-                            </table>
+                            <div id="reportTableDiv">
+                                <table id="reportTable"></table>
+                            </div>
                         </div>
                         <!-- /.box-body -->
                     </div>
                 </div>
-
             </div>
 
 
@@ -962,7 +459,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">关闭</button>
-                        <button type="button" class="btn btn-outline">确认</button>
+                        <button id="del-event" type="button" class="btn btn-outline">确认</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
@@ -1004,54 +501,54 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery 3 -->
-<script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="../static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- DataTables -->
-<script src="../static/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="../static/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="../static/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="../static/bower_components/fastclick/lib/fastclick.js"></script>
+<!--&lt;!&ndash; jQuery 3 &ndash;&gt;-->
+<!--<script src="../static/bower_components/jquery/dist/jquery.min.js"></script>-->
+<!--&lt;!&ndash; Bootstrap 3.3.7 &ndash;&gt;-->
+<!--<script src="../static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
+<!--&lt;!&ndash; DataTables &ndash;&gt;-->
+<!--<script src="../static/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>-->
+<!--<script src="../static/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>-->
+<!--SlimScroll -->
+<!--<script src="../static/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>-->
+<!--&lt;!&ndash; FastClick &ndash;&gt;-->
+<!--<script src="../static/bower_components/fastclick/lib/fastclick.js"></script>-->
 
-<!-- iCheck 1.0.1 -->
-<script src="../static/plugins/iCheck/icheck.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../static/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../static/dist/js/color.js"></script>
+<!--&lt;!&ndash; iCheck 1.0.1 &ndash;&gt;-->
+<!--<script src="../static/plugins/iCheck/icheck.min.js"></script>-->
+<!--&lt;!&ndash; AdminLTE App &ndash;&gt;-->
+<!--<script src="../static/dist/js/adminlte.min.js"></script>-->
+<!--&lt;!&ndash; AdminLTE for demo purposes &ndash;&gt;-->
+<!--<script src="../static/dist/js/color.js"></script>-->
 <!-- page script -->
 
 <!--<script>-->
-    <!--$(function () {-->
-        <!--$('#example1').DataTable()-->
-        <!--$('#example2').DataTable({-->
-            <!--'paging': true,-->
-            <!--'lengthChange': false,-->
-            <!--'searching': true,-->
-            <!--'ordering': false,-->
-            <!--'info': true,-->
-            <!--'autoWidth': false-->
-        <!--})-->
-    <!--});-->
+<!--$(function () {-->
+<!--$('#example1').DataTable()-->
+<!--$('#example2').DataTable({-->
+<!--'paging': true,-->
+<!--'lengthChange': false,-->
+<!--'searching': true,-->
+<!--'ordering': false,-->
+<!--'info': true,-->
+<!--'autoWidth': false-->
+<!--})-->
+<!--});-->
 <!--</script>-->
 <!--<script>-->
-    <!--$(function () {-->
+<!--$(function () {-->
 <!--//Flat red color scheme for iCheck-->
-        <!--$('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({-->
-            <!--checkboxClass: 'icheckbox_flat-green',-->
-            <!--radioClass: 'iradio_flat-green'-->
-        <!--})-->
-    <!--});-->
-    <!--$("#selectAll").click(function () {-->
-        <!--alert('sd');-->
-        <!--$("#tablebody input:checkbox").each(function () {-->
-            <!--$(this).prop('checked', true);//-->
+<!--$('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({-->
+<!--checkboxClass: 'icheckbox_flat-green',-->
+<!--radioClass: 'iradio_flat-green'-->
+<!--})-->
+<!--});-->
+<!--$("#selectAll").click(function () {-->
+<!--alert('sd');-->
+<!--$("#tablebody input:checkbox").each(function () {-->
+<!--$(this).prop('checked', true);//-->
 
-        <!--});-->
-    <!--});-->
+<!--});-->
+<!--});-->
 <!--</script>-->
 
 <!--
@@ -1059,66 +556,187 @@
 * @Date: 2019/6/6 17:14
 * @Description： 评论信息的管理
 -->
-<script>
+
+<!--未分页实现-->
+<!--<script>-->
+<!--$(function () {-->
+<!--//把前面的静态数据置空-->
+<!--$("#example3").empty();-->
+<!--VideoCommentSelect();-->
+
+<!--});-->
+<!--function VideoCommentSelect() {-->
+<!--$.ajax({-->
+<!--url: "/videoComment/getVideoComment",-->
+<!--type: "get",-->
+<!--dataType: "json",-->
+<!--//默认执行成功-->
+<!--success: function (data) {-->
+<!--//控制台打印-->
+<!--console.log(data.data);-->
+<!--showVideoComment(data);-->
+<!--alert("获取评论信息成功！");-->
+<!--},-->
+<!--error: function(){-->
+<!--alert("获取评论信息失败！");-->
+<!--}-->
+<!--});-->
+
+<!--}-->
+
+<!--function showVideoComment(data) {-->
+<!--//控制台打印-->
+<!--console.log("第一次：" + data.data.length);-->
+<!--//按格式从数据库取数据-->
+<!--var appendhtml =-->
+<!--"<thead>\n" +-->
+<!--"<tr>\n" +-->
+<!--"<th>" + "评论者" + "</th>" +-->
+<!--"<th>" + "评论内容" + "</th>" +-->
+<!--"<th>" + "评论时间" + "</th>" +-->
+<!--"<th>" + "操作" + "</th>" +-->
+<!--"</tr>" +-->
+<!--"</thead>";-->
+<!--for (var i = 0; i < data.data.length; i++) {-->
+<!--appendhtml += "<tbody>\n" +-->
+<!--"<tr>\n" +-->
+<!--"<td>" + data.data[i].user.userName + "</td>" +-->
+<!--"<td>" + data.data[i].content + "</td>" +-->
+<!--"<td>" + data.data[i].createTime + "</td>" +-->
+<!--"<td>\n" +-->
+<!--"<div class=\"btn-group\">" +-->
+<!--"<button type=\"button\" class=\"btn btn-warning\"  data-toggle=\"modal\" data-target=\"#modal-warning\">删除</button>\n" +-->
+<!--"</div>\n" +-->
+<!--"</td>" +-->
+<!--"</tr>"-->
+<!--"</tbody>";-->
+<!--}-->
+<!--//将取得的数据追加进去-->
+<!--$("#example3").append(appendhtml);-->
+
+<!--}-->
+<!--</script>-->
+
+<!-- ./wrapper -->
+
+<!--
+* @Author: yzh
+* @Date: 2019/6/10 14:14
+* @Description： 评论信息的管理
+-->
+
+<!--有分页实现-->
+<script type="text/javascript">
+
     $(function () {
-        //把前面的静态数据置空
-        $("#example3").empty();
-        VideoCommentSelect();
+        $('#reportTable').bootstrapTable({
 
-    });
-    function VideoCommentSelect() {
-        $.ajax({
-            url: "/videoComment/getVideoComment",
-            type: "get",
+            url: '/videoComment/getVideoComment', // 请求后台的URL（*）
             dataType: "json",
-            //默认执行成功
-            success: function (data) {
-                //控制台打印
-                console.log(data.data);
-                showVideoComment(data);
-                alert("获取评论信息成功！");
+            pagination: true, //前端处理分页
+            singleSelect: true,//是否只能单选
+            search: true, //显示搜索框，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+            //toolbar: '#toolbar1', //工具按钮用哪个容器
+            striped: true, //是否显示行间隔色
+            cache: false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+            pageNumber: 1, //初始化加载第10页，默认第一页
+            pageSize: 7, //每页的记录行数（*）
+            pageList: [5, 10, 20, 50], //可供选择的每页的行数（*）
+            strictSearch: true,//设置为 true启用 全匹配搜索，false为模糊搜索
+            showColumns: true, //显示内容列下拉框
+            showRefresh: true, //显示刷新按钮
+            minimumCountColumns: 2, //当列数小于此值时，将隐藏内容列下拉框
+            clickToSelect: true, //设置true， 将在点击某行时，自动勾选rediobox 和 checkbox
+            // height: 450, //表格高度，如果没有设置height属性，表格自动根据记录条数决定表格高度#}
+            uniqueId: "id", //每一行的唯一标识，一般为主键列
+            showToggle: true, //是否显示详细视图和列表视图的切换按钮
+            cardView: false, //是否显示详细视图
+            //detailView: true, //是否显示父子表，设置为 true 可以显示详细页面模式,在每行最前边显示+号#}
+            sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
+
+            responseHandler: function (res) {
+                return {
+                    "rows": res.data   //数据
+                };
             },
-            error: function(){
-                alert("获取评论信息失败！");
-            }
+
+            columns: [
+                {
+                    checkbox: true
+                },
+                //定义表头,这个表头必须定义,下边field后边跟的字段名字必须与后端传递的字段名字相同.如:id、name、price
+                //跟后端的字段名id  name price是完全一样的
+
+                {
+                    field: 'user.userName',
+                    title: '评论者',
+                    align: 'center'
+                },
+                {
+                    field: 'content',
+                    title: '评论内容',
+                    align: 'center',
+                },
+                {
+                    field: 'createTime',
+                    title: "评论时间",
+                    align: 'center'
+                },
+
+                {
+                    field: 'id',
+                    title: "操作",
+                    align: 'center',
+                    formatter: function (value, row, index) {
+                        //通过formatter可以自定义列显示的内容
+                        //value：当前field的值，即id
+                        //row：当前行的数据
+                        console.log("获取评论信息成功value:" + value);
+                        var a = '<button id="delButton" type="button" class="btn btn-warning" >删除</button>';
+
+                        return a;
+                    },
+                    events: {
+                        "click #delButton": function (value, row, index) {
+                            //location.reload();    //操作完成后马上刷新页面
+                            console.log("row.id: " + row);
+                            console.log(value);
+                            $.ajax({
+                                url: '/videoComment/delVideoComment',
+                                type: 'get',
+                                data: {id: row},
+                                success: function (data) {
+                                    alert("删除成功！");
+                                    location.reload();
+                                    console.log("删除成功！");
+                                },
+                                error: function () {
+                                    alert("删除失败！");
+
+                                },
+                            });
+                        },
+
+                    }
+                },
+
+            ],
         });
-
-    }
-
-    function showVideoComment(data) {
-        //控制台打印
-        console.log("第一次：" + data.data.length);
-        //按格式从数据库取数据
-        var appendhtml =
-            "<thead>\n" +
-            "<tr>\n" +
-            "<th>" + "评论者" + "</th>" +
-            "<th>" + "评论内容" + "</th>" +
-            "<th>" + "评论时间" + "</th>" +
-            "<th>" + "操作" + "</th>" +
-            "</tr>" +
-            "</thead>";
-        for (var i = 0; i < data.data.length; i++) {
-            appendhtml += "<tbody>\n" +
-                "<tr>\n" +
-                "<td>" + data.data[i].user.userName + "</td>" +
-                "<td>" + data.data[i].content + "</td>" +
-                "<td>" + data.data[i].createTime + "</td>" +
-                "<td>\n" +
-                "<div class=\"btn-group\">" +
-                "<button type=\"button\" class=\"btn btn-warning\"  data-toggle=\"modal\" data-target=\"#modal-warning\">删除</button>\n" +
-                "</div>\n" +
-                "</td>" +
-                "</tr>"
-            "</tbody>";
-        }
-        //将取得的数据追加进去
-        $("#example3").append(appendhtml);
-
-    }
-
-
+    });
+    alert("获取评论信息成功！");
 </script>
+
+<!-- SlimScroll -->
+<script src="../static/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../static/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../static/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../static/dist/js/color.js"></script>
+
+
+<!-- page script -->
 
 
 </body>

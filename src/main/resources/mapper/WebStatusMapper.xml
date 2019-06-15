@@ -32,12 +32,12 @@
 
     <select id="countVisitForWeek" resultType="int">
         select count(id) from web_status
-         where visit_time between DATE_SUB(#{visitTime} ,INTERVAL 1 WEEK) and #{visitTime}
+         where visit_time between DATE_SUB(#{visitTime} ,INTERVAL #{day} DAY) and #{visitTime}
     </select>
 
     <select id="countVisitForTimeQuantum" resultType="int">
         select count(id) from web_status
-         where visit_time between DATE_SUB(#{visitTime} ,INTERVAL 2 hour ) and #{visitTime}
+         where visit_time between DATE_SUB(#{visitTime} ,INTERVAL 2 hour) and #{visitTime}
     </select>
 
     <select id="listTopVideoForVVs" resultType="video">

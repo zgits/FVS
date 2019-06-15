@@ -38,6 +38,7 @@ public class FocusController {
     @DeleteMapping("/delFocus")
     @ResponseBody
     public Result<Object> delFocus(@RequestBody Focus focus){
+        System.out.println(focus);
         return ResultUtils.success(focusService.delFocus(focus));
     }
 

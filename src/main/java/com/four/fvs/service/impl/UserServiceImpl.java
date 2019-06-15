@@ -47,6 +47,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public boolean editxx(User user) {
+
+        return userDao.editxx(user) > 0;
+    }
+
+
+
+    @Override
     public User getUserInfo(Integer id) {
         User user = userDao.getUserInfo(id);
         if (user != null)
@@ -66,7 +74,7 @@ public class UserServiceImpl implements UserService {
      * @param
      * @return
      */
-    public List<User> getAllUserService() {
+    public List<User>  getAllUserService() {
         return userDao.getAllUserDao();
     }
 
@@ -78,12 +86,9 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 通过id得到某个用戶的信息
-     *
      * @param id
      * @return
      */
-
-
     public User getUserService(Integer id) {
         User user = userDao.getUserDao(id);
         //判断用户是否存在
@@ -91,5 +96,29 @@ public class UserServiceImpl implements UserService {
             //不把密码信息传过去
             user.setPassword("");
         return user;
+
     }
+
+    /**
+     * 遍历所有的用戶Fans信息
+     *
+     * @param
+     * @return
+     */
+    public List<User>  getFansService(Integer id) {
+        return userDao.getFansDao(id);
+    }
+
+    /**
+     * 遍历所有的用戶关注人信息
+     *
+     * @param
+     * @return
+     */
+    public List<User>  getFocusService(Integer id) {
+        return userDao.getFocusDao(id);
+    }
+
+
+
 }

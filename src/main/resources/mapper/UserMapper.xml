@@ -5,7 +5,6 @@
 <mapper namespace="com.four.fvs.dao.UserDao">
 
 
-
     <sql id="base_sql">
         userName,
         password,
@@ -34,10 +33,22 @@
         </trim>
     </insert>
 
+    <update id="editxx" parameterType="com.four.fvs.model.User">
+
+        update user  set userName = #{userName},
+                        password = #{password},
+                       introduce = #{introduce}
+        where id=#{id}
+
+    </update>
+
+
+
+
+
     <select id="ifExist" resultType="com.four.fvs.model.User">
         select * from user where userName=#{userName} and del=1
     </select>
-
     <select id="login" resultType="com.four.fvs.model.User">
         select * from user where userName=#{userName} and password=#{password} and del=1
     </select>
@@ -73,7 +84,25 @@
    * @return
     -->
     <select id="getUserDao" resultType="com.four.fvs.model.User">
-         select * from user where id=#{id} and del=1
+        select * from user where id=#{id} and del=1
     </select>
+    <!--
+      * 通过id得到某个用戶的Fans信息
+      * @param id
+      * @return
+       -->
+    <select id="getFansDao" resultType="com.four.fvs.model.User">
+        select * from user where id in (select fansId from focus where userid=#{id} and del = 1)
+    </select>
+    <!--
+     * 通过id得到某个用戶的关注人信息
+     * @param id
+     * @return
+      -->
+    <select id="getFocusDao" resultType="com.four.fvs.model.User">
+        select * from user where id in (select userid from focus where fansId=#{id} and del = 1)
+    </select>
+
+
 
 </mapper>

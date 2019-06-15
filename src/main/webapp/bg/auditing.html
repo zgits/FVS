@@ -42,15 +42,14 @@
 
     <link href="../static/dist/Admin/label/bootstrap-table.css" rel="stylesheet" media="screen">
     <script src="../static/dist/Admin/label/bootstrap-table.js" type="text/javascript"></script>
-    <script src="../static/dist/Admin/label/bootstrap-table-zh-CN.js" charset="UTF-8"
-            type="text/javascript"></script>
+    <script src="../static/dist/Admin/label/bootstrap-table-zh-CN.js" charset="UTF-8" type="text/javascript"></script>
 <!--    -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="../static/dist/js/html5shiv.min.js"></script>
+    <script src="../static/dist/js/respond.min.js"></script>
     <![endif]-->
 
     <!-- Google Font -->
@@ -426,7 +425,6 @@
                                 <table id="reportTable"></table>
                             </div>
 
-
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -511,14 +509,14 @@
             striped: true, //是否显示行间隔色
             cache: false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
             pageNumber: 1, //初始化加载第10页，默认第一页
-            pageSize: 8, //每页的记录行数（*）
+            pageSize: 10, //每页的记录行数（*）
             pageList: [5, 10, 50, 100], //可供选择的每页的行数（*）
             strictSearch: true,//设置为 true启用 全匹配搜索，false为模糊搜索
             showColumns: true, //显示内容列下拉框
             showRefresh: true, //显示刷新按钮
             minimumCountColumns: 2, //当列数小于此值时，将隐藏内容列下拉框
             clickToSelect: true, //设置true， 将在点击某行时，自动勾选rediobox 和 checkbox
-            height: 450, //表格高度，如果没有设置height属性，表格自动根据记录条数决定表格高度#}
+            height: 500, //表格高度，如果没有设置height属性，表格自动根据记录条数决定表格高度#}
             uniqueId: "id", //每一行的唯一标识，一般为主键列
             showToggle: true, //是否显示详细视图和列表视图的切换按钮
             cardView: false, //是否显示详细视图
@@ -535,24 +533,131 @@
                 },
                 //定义表头,这个表头必须定义,下边field后边跟的字段名字必须与后端传递的字段名字相同.如:id、name、price
                 //跟后端的字段名id  name price是完全一样的
+                {
+                    field: 'user.userName',
+                    title: '上传者',
+                    align: 'center',
+                },
 
                 {
                     field: 'name',
                     title: '视频名',
-                    align: 'center'
-                }, {
+                    align: 'center',
+                    formatter: function(value,row,index) {
+                        //通过formatter可以自定义列显示的内容
+                        //value：当前field的值，即id
+                        //row：当前行的数据
+
+                        var videoName = '<a id="videoPlay" style="text-decoration: none;">' + value + '</a>';
+                        return videoName;
+
+                    },
+                    events: {
+                            "click #videoPlay": function (e,value, row, index) {
+                                window.open ("videoPlay.html?id="+row.id, "newwindow", "height=520, width=750, top=150px, " +
+                                    "left=400px, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no")
+
+                        }
+                    }
+                },
+                {
                     field: 'upTime',
                     title: '上传时间',
                     align: 'center',
                 },
                 {
+                    field: 'typeId',
+                    title: '所属分类',
+                    align: 'center',
+                    formatter: function(value,row,index) {
+                        //通过formatter可以自定义列显示的内容
+                        //value：当前field的值，即id
+                        //row：当前行的数据
+                        var type = '';
+                        if(value == 1){
+                            type = "鬼畜"
+                        }else if(value == 2){
+                            type = "数码"
+                        }else if(value == 3){
+                            type = "电影"
+                        }else
+                            type = "生活"
+                        return type;
+
+                    },
+                },
+                {
                     title: "状态",
                     field: 'status',
-                    align: 'center'
+                    align: 'center',
+                    formatter: function(value,row,index) {
+                        //通过formatter可以自定义列显示的内容
+                        //value：当前field的值，即id
+                        //row：当前行的数据
+                        var pass = "";
+                        if(value == 1){
+                            pass = "审核中"
+                        }else if(value == 2){
+                            pass = "审核通过"
+                        }else
+                            pass = "审核失败"
+                        return pass;
+
+                    },
                 },
+                {
+                    title: "操作",
+                    align: 'center',
+                    field: 'id',
+                    formatter: function(value,row,index) {
+                            //通过formatter可以自定义列显示的内容
+                            //value：当前field的值，即id
+                            //row：当前行的数据
+                            var a = '<button id="PassButton" type="button" class="btn btn-success" >通过</button>';
+                            var b = '<button id="NotPassButton" type="button" class="btn btn-warning"  data-toggle="modal"  onclick="">驳回</button>';
+                            return a+b;
+                        },
+                    events: {
+                        "click #PassButton": function (value, row, index) {
+                            location.reload();
+                            console.log("row.id：" + row);
+                            $.ajax({
+                                url: '/Auditing/passAuditing?id=' + row,
+                                type: 'get',
+                                data: {id: row},
+                                success: function (data) {
+                                    console.log("通过成功");
+                                },
+                                error: function () {
+                                    alert("操作失败");
+                                },
+                            });
+                        },
+
+                        "click #NotPassButton": function (value, row, index) {
+                            location.reload();
+                            console.log("row.id：" + row);
+                            $.ajax({
+                                url: '/Auditing/notPassAuditing?id=' + row,
+                                type: 'get',
+                                data: {id: row},
+                                success: function (data) {
+                                    console.log("通过失败");
+                                },
+                                error: function () {
+                                    alert("操作失败");
+                                },
+                            });
+                        },
+                    }
+                },
+                //通过按钮，不通过按钮
             ],
         });
     });
+
+    //通过按钮事件
+
 
 </script>
 
@@ -569,82 +674,7 @@
 <!-- page script -->
 
 <script>
-
-        // $(document).ready(function() {
-        //     $("#example1").dataTable({
-        //         "processing": true,
-        //         "serverSide": true,
-        //         'paging'      : true,
-        //         'lengthChange': false,
-        //         'searching'   : true,
-        //         'ordering'    : true,
-        //         'info'        : true,
-        //         'autoWidth'   : false,
-        //         "ajax" : {
-        //             "url":"/Auditing/getAuditing",
-        //             "data": function (d) {
-        //                 var info = $('#example1').DataTable().page.info();
-        //                 d.pageNo = info.page;
-        //                 d.pageSize = info.pageSize;
-        //                 d.searchValue = info.search;
-        //             }
-        //         },
-        //         "columns": [
-        //             {"data": 'user.userName' },
-        //             {"data": 'name'},
-        //             {"data": 'upTime'},
-        //             {"data": 'typeId'},
-        //             {"data": 'status'},
-        //         ],
-        //         "columnDefs": [
-        //             {
-        //                 "targets": [5],
-        //                 "data": "id",
-        //                 "render": function(data, type, full) {
-        //                     return "<a href='/update?id=" + data + "'>Update</a>";
-        //                 }
-        //             }
-        //         ]
-        //     });
-        //
-        // });
 /*
-    $(function () {
-        SelectInfo();
-    })
-
-    function SelectInfo(){
-        $.ajax({
-            type : "get",
-            url : "/Auditing/getAuditing",
-            dataType : "json",
-            data : {
-                data : "data",
-            },
-            error : function() {
-            },
-            success : function(data) {
-                console.log(data);
-                $('#example1').DataTable( {
-                    'paging'      : true,
-                    'lengthChange': false,
-                    'searching'   : true,
-                    'ordering'    : true,
-                    'info'        : true,
-                    'autoWidth'   : false,
-                    "serverSide"  : true,
-                    columns: [
-                        { data: 'user.userName' },
-                        { data: 'name'},
-                        { data: 'upTime'},
-                        { data: 'typeId'},
-                        { data: 'status'},
-                        { data: 'vv'}
-                    ]
-                } );
-            }
-        });
-    }
 
       $(function () {
           $('#example1').DataTable({

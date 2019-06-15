@@ -53,9 +53,16 @@ public class VideoServiceImpl implements VideoService {
     @Override
     public VideoVo getOneVideoById(Integer videoId) {
 
+
+        System.out.println(videoId);
         Video video=videoDao.getOneVideoById(videoId);
+        if(video==null){
+            return null;
+        }
         VideoVo videoVo=new VideoVo();
+
         User user=userService.getUserInfo(video.getUserId());
+
         videoVo.setVideo(video);
         videoVo.setFocus(focusService.getFocusNumber(video.getUserId()));
 
@@ -67,18 +74,23 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
-    public boolean givePraise(VideoOpRecord videoOpRecord) {
+    public Integer updateVideovv(Integer id) {
+        return videoDao.updateVideovv(id);
+    }
+
+    @Override
+    public String givePraise(VideoOpRecord videoOpRecord) {
         videoOpRecord.setOpType(1);
         videoOpRecord.setTime(new Date());
         VideoOpRecord videoOpRecord1=videoOpRecordDao.getRecord(videoOpRecord);
-        System.out.println(videoOpRecord1);
         int number=videoOpRecord1!=null?-1:1;
         if(videoOpRecord1!=null){
             videoOpRecordDao.delRecord(videoOpRecord);
         }else{
             videoOpRecordDao.addRecord(videoOpRecord);
         }
-        return videoDao.givePraise(videoOpRecord.getVideoId(),number)>0;
+        videoDao.givePraise(videoOpRecord.getVideoId(),number);
+        return videoOpRecord1!=null?"del":"add";
     }
 
     @Override
@@ -95,7 +107,7 @@ public class VideoServiceImpl implements VideoService {
      * @return
      */
     @Override
-    public boolean giveCollection(VideoOpRecord videoOpRecord) {
+    public String giveCollection(VideoOpRecord videoOpRecord) {
         videoOpRecord.setOpType(3);
         videoOpRecord.setTime(new Date());
         VideoOpRecord videoOpRecord1=videoOpRecordDao.getRecord(videoOpRecord);
@@ -106,7 +118,8 @@ public class VideoServiceImpl implements VideoService {
             videoOpRecordDao.addRecord(videoOpRecord);
         }
         int number=videoOpRecord1!=null?-1:1;
-        return videoDao.giveCollection(videoOpRecord.getVideoId(),number)>0;
+        videoDao.giveCollection(videoOpRecord.getVideoId(),number);
+        return videoOpRecord1!=null?"del":"add";
     }
 
     /**
@@ -171,4 +184,26 @@ public class VideoServiceImpl implements VideoService {
     public boolean getIfExistOpRecord(VideoOpRecord videoOpRecord) {
         return videoOpRecordDao.getRecord(videoOpRecord)!=null;
     }
+
+
+    /**
+     * 通过id得到cOLLECTVIDEO
+     *
+     * @param id
+     * @return
+     */
+    public List<Video> getCollectVideoService(Integer id) {
+        return videoDao.getCollectVideo(id);
+    }
+
+    /**
+     * 通过id得到cOLLECTVIDEO
+     *
+     * @param id
+     * @return
+     */
+    public List<Video> getShoucangVideoService(Integer id) {
+        return videoDao.getShoucangVideo(id);
+    }
+
 }

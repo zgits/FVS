@@ -33,8 +33,8 @@ public class WebStatusServiceImpl implements WebStatusService {
 
     @Override
     @Transactional
-    public Integer countVisitForWeek(Date startTime) {
-        return webStatusDao.countVisitForWeek(startTime);
+    public Integer countVisitForWeek(Date startTime, Integer day) {
+        return webStatusDao.countVisitForWeek(startTime,day);
     }
 
     @Override

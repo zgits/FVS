@@ -19,6 +19,7 @@
         <result property="status" column="status"></result>
         <result property="firstImagePath" column="firstImagePath"></result>
         <result property="del" column="del"></result>
+        <result property="videoLength" column="videoLength"></result>
         <collection property="bulletScreenList" ofType="com.four.fvs.model.BulletScreen" columnPrefix="b_">
             <result property="id" column="id"></result>
             <result property="color" column="color"></result>
@@ -70,6 +71,11 @@
     </select>
 
 
+    <update id="updateVideovv">
+        update video set vv=vv+1 where id=#{id}
+    </update>
+
+
     <update id="givePraise">
         update video
         set praiseNumber=praiseNumber+#{number}
@@ -95,6 +101,22 @@
         select * from video
         where (typeId=#{type} or userId=#{userId}) and del =1 and status=2
     </select>
+    <!--
+     * 通过id得到某个用户的投稿视频
+     * @param id
+     * @return
+      -->
+    <select id="getCollectVideo" resultType="com.four.fvs.model.Video">
+        select * from video where userId =#{id} and del=1
 
+    </select>
+    <!--
+     * 通过id得到某个用户的收藏视频
+     * @param id
+     * @return
+      -->
+    <select id="getShoucangVideo" resultType="com.four.fvs.model.Video">
 
+        select * from video where id in (select id from collectvideo where collectUserid =#{id} and del =1 )
+    </select>
 </mapper>
