@@ -49,10 +49,8 @@ public interface SystemMessageService {
     /**
      * 查看历史消息
      *
-     * @param begin 开始位置
-     * @param size 每页大小
      * @return 历史集合
      */
-    PageBean<SystemMessage> listMessages(final Integer begin, final Integer size);
+    List<SystemMessage> listMessages();
 
 }
