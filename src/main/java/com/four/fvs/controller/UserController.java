@@ -3,8 +3,10 @@ package com.four.fvs.controller;
 import com.four.fvs.common.Result;
 import com.four.fvs.common.ResultUtils;
 import com.four.fvs.model.User;
+import com.four.fvs.model.WebStatus;
 import com.four.fvs.service.UserService;
 import com.four.fvs.service.VideoOpRecordService;
+import com.four.fvs.service.WebStatusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +29,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private WebStatusService webStatusService;
 
     @Autowired
     private VideoOpRecordService videoOpRecordService;
@@ -43,8 +47,14 @@ public class UserController {
              * 登录成功
              * 记录用户名，方便做在线人数登记
              */
+            System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaa");
             HttpSession session = request.getSession();
+
             session.setAttribute("nickname",userName);
+            System.out.println(session.getAttribute("nickname")+"zzzzz");
+            WebStatus webStatus = new WebStatus();
+            webStatus.setUserId(user.getId());
+            webStatusService.insertWebStatus(webStatus);
             return ResultUtils.success(user);
         }else{
             /**
@@ -147,7 +157,6 @@ public class UserController {
     @ResponseBody
     @GetMapping(value = "/getUser")
     public Result<Object> getUser(Integer id){
-
         return ResultUtils.success(userService.getUserService(id));
     }
     /**

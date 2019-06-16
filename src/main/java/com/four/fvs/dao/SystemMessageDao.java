@@ -52,11 +52,9 @@ public interface SystemMessageDao {
     /**
      * 历史消息
      *
-     * @param begin 开始位置
-     * @param size 每页大小
      * @return
      */
-    List<SystemMessage> listMessages(@Param("begin") final Integer begin, @Param("size") final Integer size);
+    List<SystemMessage> listMessages();
 
     /**
      * 获取消息条数

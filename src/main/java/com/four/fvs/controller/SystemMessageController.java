@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * @Author: zjf
  * @Date: 2019/5/24 10:31
@@ -62,24 +64,23 @@ public class SystemMessageController {
      * @param id 消息id
      * @return
      */
-    @RequestMapping(value = "{id}" ,method = RequestMethod.DELETE)
+    @RequestMapping(value = "{id}" ,method = RequestMethod.GET)
     @ResponseBody
     public Result<Object> delete(@PathVariable("id") Integer id){
         int result = systemMessageService.deleteMessage(id);
-        return result >= 0 ? ResultUtils.success(result) : ResultUtils.serviceerror();
+        return result > 0 ? ResultUtils.success(result) : ResultUtils.serviceerror();
     }
 
     /**
      * 展示消息
      *
-     * @param start 第几页开始
-     * @param size 每页显示多少数据
      * @return
      */
-    public Result<Object> query(@RequestParam(value = "start",defaultValue = "1") int start,
-                                @RequestParam(value = "size",defaultValue = "5") int size){
-        PageBean<SystemMessage> pageBean = systemMessageService.listMessages(start, size);
-        return pageBean == null ? ResultUtils.success(0) : ResultUtils.success(pageBean);
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
+    public Result<Object> query(){
+        List<SystemMessage> lists = systemMessageService.listMessages();
+        return lists == null ? ResultUtils.success(0) : ResultUtils.success(lists);
     }
 
 

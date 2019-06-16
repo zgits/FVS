@@ -93,11 +93,11 @@ public class WebStatusController {
         HttpSession session = request.getSession();
         ServletContext servletContext = session.getServletContext();
         int count = 0;
-        if(servletContext.getAttribute("linecount") == null){
+        if(servletContext.getAttribute("lineCount") == null){
             count = 0;
         }
         else{
-            count = (int) servletContext.getAttribute("linecount");
+            count = (int) servletContext.getAttribute("lineCount");
         }
         System.out.println(count);
         return ResultUtils.success(count);
