@@ -41,51 +41,17 @@
 			<!--控制器增强，通常用来解决全局异常-->
 			<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
 		</context:component-scan>
+
+
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 设定默认编码 -->
+		<property name="defaultEncoding" value="UTF-8" />
+		<!-- 设定文件上传的最大值200MB，200*1024*1024 -->
+
+		<property name="maxUploadSize" value="209715200" />
+
+		<property name="maxInMemorySize" value="4096" /> </bean>
+
 </beans>
 
 
-
-
-
-
-
-<!--<?xml version="1.0" encoding="UTF-8"?>-->
-<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
-<!--	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
-<!--	xmlns:context="http://www.springframework.org/schema/context"-->
-<!--	xmlns:mvc="http://www.springframework.org/schema/mvc"-->
-<!--	xsi:schemaLocation="http://www.springframework.org/schema/beans-->
-<!--	http://www.springframework.org/schema/beans/spring-beans.xsd-->
-<!--	http://www.springframework.org/schema/context-->
-<!--	http://www.springframework.org/schema/context/spring-context.xsd-->
-<!--	http://www.springframework.org/schema/mvc-->
-<!--	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">-->
-<!--	&lt;!&ndash; 配置SpringMVC &ndash;&gt;-->
-<!--	&lt;!&ndash; 1.开启SpringMVC注解模式 &ndash;&gt;-->
-<!--	&lt;!&ndash; 简化配置： -->
-<!--		(1)自动注册DefaultAnootationHandlerMapping,AnotationMethodHandlerAdapter -->
-<!--		(2)提供一些列：数据绑定，数字和日期的format @NumberFormat, @DateTimeFormat, xml,json默认读写支持 -->
-<!--	&ndash;&gt;-->
-
-<!--	<mvc:annotation-driven></mvc:annotation-driven>-->
-
-<!--	&lt;!&ndash; 2.静态资源默认servlet配置-->
-<!--		(1)加入对静态资源的处理：js,gif,png-->
-<!--		(2)允许使用"/"做整体映射-->
-<!--	 &ndash;&gt;-->
-<!--&lt;!&ndash;	 <mvc:default-servlet-handler/>&ndash;&gt;-->
-<!--	 -->
-<!--	 &lt;!&ndash; 3.配置jsp 显示ViewResolver &ndash;&gt;-->
-<!--	    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-<!--	 	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />-->
-<!--	 	<property name="prefix" value="/WEB-INF/" />-->
-<!--	 	<property name="suffix" value=".html" />-->
-<!--	 </bean>-->
-
-
-
-
-
-
-
-<!--</beans>-->
