@@ -145,7 +145,7 @@
                     console.log("登录成功");
                     if(data.data.roleId==2){
                         $.cookie('userId',data.data.id);
-                        $(location).attr('href', '/user/news.html');
+                        $(location).attr('href', '/user/index2.html');
                     }else if(data.data.roleId==1){
                         $(location).attr('href', '/bg/index.html');
                     }

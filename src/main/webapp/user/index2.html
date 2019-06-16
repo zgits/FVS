@@ -14,7 +14,7 @@
 <body>
 <svg aria-hidden="true" style="width: 0px;height: 0px;overflow:hidden; position: absolute"></svg>
 <!--我来组成头部！！！！ -->
-<li class="layui-lump">
+<li class="layui-lump" id="head">
     <ul class="layui-nav">
         <li class="layui-nav-logo">
             <a href="index2.html"><i class="layui-icon layui-icon-website" style="font-size: 15px"></i>FREE</a>
@@ -28,23 +28,6 @@
         </li>
         <li style="float: right" class="layui-nav-item">
             <a href="">消息</a>
-            <dl class="layui-nav-child">
-                <div style="padding-bottom: 10px">
-                    <dd><a href="javascript:;">回复我的<span class="layui-badge">9</span></a></dd>
-                </div>
-                <div style="padding-bottom: 10px">
-                    <dd><a href="javascript:;">@我的<span class="layui-badge">99</span></a></dd>
-                </div>
-                <div style="padding-bottom: 10px">
-                    <dd><a href="javascript:;">收到的赞<span class="layui-badge">92</span></a></dd>
-                </div>
-                <div style="padding-bottom: 10px">
-                    <dd><a href="javascript:;">系统通知<span class="layui-badge">91</span></a></dd>
-                </div>
-                <div style="padding-bottom: 10px">
-                    <dd><a href="javascript:;">我的消息<span class="layui-badge">93</span></a></dd>
-                </div>
-            </dl>
         </li>
         <li style="float: right" class="layui-nav-item">
             <a href=""><img class="layui-nav-img" src="//t.cn/RCzsdCq">哔了狗了</a>
@@ -53,33 +36,15 @@
 
         <div class="bili-header-m">
             <li style="float: right;height: 15px;right: -30px" class="layui-nav-item">
-                <div class="search">
-                    <form class="searchform"><input class="search-keyword" accesskey="s" type="text"
-                                                    placeholder="听说这是恋爱宝典?"
-                                                    value="" x-webkit-grammar="builtin:translate" x-webkit-speech=""
+                <div class="search" id="search">
+                    <form class="searchform"  method="post">
+                        <input id="searchcomment" class="search-keyword" accesskey="s" type="text"
+                                                    placeholder="搜索内容" value=""
+                                                     x-webkit-grammar="builtin:translate" x-webkit-speech=""
                                                     autocomplete="off">
-                        <button class="search-submit" type="submit"></button>
-                    </form><!---->
-                    <ul class="bilibili-suggest" style="display:none">
-                        <li class="kw">
-                            <div class="b-line"><p><span>历史搜索</span></p></div>
-                        </li>
-                        <li class="suggest-item"><a
-                                href="//search.bilibili.com/all?keyword=%E4%BA%AE%E5%89%91&amp;from_source=banner_search"
-                                target="_blank">亮剑</a>
-                            <div class="cancel"></div>
-                        </li>
-                        <li class="suggest-item"><a
-                                href="//search.bilibili.com/all?keyword=%E9%9B%B7%E9%98%BF%E4%BC%A6%E4%B8%89%E5%88%86&amp;from_source=banner_search"
-                                target="_blank">雷阿伦三分</a>
-                            <div class="cancel"></div>
-                        </li>
-                        <li class="suggest-item"><a
-                                href="//search.bilibili.com/all?keyword=%E8%8F%A0%E8%90%9D%E8%B5%9B%E4%B8%9C&amp;from_source=banner_search"
-                                target="_blank">菠萝赛东</a>
-                            <div class="cancel"></div>
-                        </li>
-                    </ul>
+                        <button class="search-submit" type="button" onclick="Search()" ></button>
+                    </form>
+
                 </div>
             </li>
         </div>
@@ -94,89 +59,12 @@
 <!--类别-->
 <div class="bili-wrapper">
     <div class="primary-menu report-wrap-module report-scroll-module " id="primary_menu" scrollshow="true">
-        <ul class="nav-menu" id="sort">
+        <ul class="nav-menu" id="sort1">
 
-            <li><a href="//www.bilibili.com/v/douga/">
+            <li><a href="">
                 <div class="num-wrap"><span>999+</span></div>
                 <div class="nav-name">动画</div>
             </a></li>
-
-            <li><a href="//www.bilibili.com/guochuang/">
-                <div class="num-wrap"><span>274</span></div>
-                <div class="nav-name">国创</div>
-            </a>
-
-            </li>
-            <li><a href="//www.bilibili.com/v/music/">
-                <div class="num-wrap"><span>999+</span></div>
-                <div class="nav-name">音乐</div>
-            </a>
-
-            </li>
-            <li><a href="//www.bilibili.com/v/dance/">
-                <div class="num-wrap"><span>618</span></div>
-                <div class="nav-name">舞蹈</div>
-            </a>
-
-            </li>
-            <li><a href="//www.bilibili.com/v/game/">
-                <div class="num-wrap"><span>999+</span></div>
-                <div class="nav-name">游戏</div>
-            </a>
-
-            </li>
-            <li><a href="//www.bilibili.com/v/technology/">
-                <div class="num-wrap"><span>999+</span></div>
-                <div class="nav-name">科技</div>
-            </a>
-
-            </li>
-            <li><a href="//www.bilibili.com/v/digital/">
-                <div class="num-wrap"><span>918</span></div>
-                <div class="nav-name">数码</div>
-            </a>
-
-            </li>
-            <li><a href="//www.bilibili.com/v/life/">
-                <div class="num-wrap"><span>999+</span></div>
-                <div class="nav-name">生活</div>
-            </a>
-
-            </li>
-            <li><a href="//www.bilibili.com/v/kichiku/">
-                <div class="num-wrap"><span>247</span></div>
-                <div class="nav-name">鬼畜</div>
-            </a>
-
-            </li>
-            <li><a href="">
-                <div class="num-wrap"><span>999+</span></div>
-                <div class="nav-name">时尚</div>
-            </a>
-
-            </li>
-            <li><a href="">
-                <div class="num-wrap"><span>291</span></div>
-                <div class="nav-name">广告</div>
-            </a>
-
-            </li>
-            <li><a href="">
-                <div class="num-wrap"><span>999+</span></div>
-                <div class="nav-name">娱乐</div>
-            </a>
-
-            </li>
-            <li><a href="">
-                <div class="num-wrap"><span>999+</span></div>
-                <div class="nav-name">影视</div>
-            </a>
-
-            </li>
-            <li><a href="//www.bilibili.com/cinema/">
-                <div class="num-wrap"><span>639</span></div>
-                <div class="nav-name">放映厅</div>
-            </a>
 
             </li>
         </ul>
@@ -927,6 +815,8 @@
 <script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
 
 <script src="../static/layui/layui.js" charset="utf-8"></script>
+<script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script>
     layui.use('element', function () {
         var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
@@ -942,13 +832,87 @@
         document.documentElement.scrollTop = 0;
     }
 </script>
+
+<script language="JavaScript">
+    function Search() {
+        var videoName=$("#searchcomment").val();
+        window.location.href="/user/searchresult.html?VideoName="+videoName;
+    }
+
+</script>
 <script>
+    var userId = $.cookie('userId');
+
     $(function () {
         showAllSort();
-
+        getUserInfo(userId);
 
     });
 
+    /**
+     *获得当前登录用户的用户信息
+     */
+    function getUserInfo(userId) {
+        var result;
+        $.ajax({
+            url: '/user/getUserInfo',
+            type: 'get',
+            data: {
+                userId: userId
+            },
+            success: function (data) {
+                if (data.code == 0) {
+                    result = data.data;
+                    showhead(result);
+                }
+            }
+        });
+    };
+
+    function showhead(data){
+        $("#head").empty();
+        var appendhtml='';
+        var user=data;
+        appendhtml+=' <ul class="layui-nav">\n' +
+            '        <li class="layui-nav-logo">\n' +
+            '            <a href="index2.html"><i class="layui-icon layui-icon-website" style="font-size: 15px"></i>FREE</a>\n' +
+            '        </li>\n' +
+            '\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href="/user/login.html">退出</a>\n' +
+            '        </li>\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href="">历史记录</a>\n' +
+            '        </li>\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href="">消息</a>\n' +
+            '        </li>\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href=""><img class="layui-nav-img" src="..'+user.icon+'">'+user.userName+'</a>\n' +
+            '        </li>\n' +
+            '\n' +
+            '\n' +
+            '        <div class="bili-header-m">\n' +
+            '            <li style="float: right;height: 15px;right: -30px" class="layui-nav-item">\n' +
+            '                <div class="search" id="search">\n' +
+            '                    <form class="searchform"  method="post">\n' +
+            '                        <input id="searchcomment" class="search-keyword" accesskey="s" type="text"\n' +
+            '                                                    placeholder="搜索内容" value=""\n' +
+            '                                                     x-webkit-grammar="builtin:translate" x-webkit-speech=""\n' +
+            '                                                    autocomplete="off">\n' +
+            '                        <button class="search-submit" type="button" onclick="Search()" ></button>\n' +
+            '                    </form>\n' +
+            '\n' +
+            '                </div>\n' +
+            '            </li>\n' +
+            '        </div>\n' +
+            '\n' +
+            '        </li>\n' +
+            '\n' +
+            '\n' +
+            '    </ul>';
+        $("#head").append(appendhtml);
+    }
 
     $.ajax({
         url: "/video/getAllVideo",
@@ -1047,26 +1011,53 @@
         });
         return ranks;
     }
+
+
+
+
     //显示分区个视频数量
     function showAllSort(){
-        $("#sort").empty();
+        $("#sort1").empty();
         var appendhtml='';
         var counts=[];
         var type=[];
         counts=getAllCount();//调用获取分区内视频数的function
         type=getAllType();//调用获取分区类型的function
 
-
         for(var i=0;i<type.length;i++){
-            appendhtml +='<li><a href="//www.bilibili.com/v/douga/">\n' +
+            appendhtml +='<li><a href="/user/sort.html?sortId='+type[i].id+'">\n' +
                 '                <div class="num-wrap"><span>'+counts[i]+'</span></div>\n' +
                 '                <div class="nav-name">'+type[i].name+'</div>\n' +
                 '            </a></li>';
         }
-        $("#sort").append(appendhtml);
+        $("#sort1").append(appendhtml);
 
     }
-    //首页主要内容
+    function getUpdateCount(typeId) {
+       var count;
+       $.ajax({
+           url:'/video/getUpdateCount',
+           type:'get',
+           dataType:'json',
+           data:{
+               typeId:typeId
+           },
+           async:false,
+           success:function(data) {
+               if (data.code == 0) {
+                   count = data.data;
+               }
+           }
+       });
+       return count;
+
+    }
+
+    /**
+     * 显示首页主要内容
+     * @param data
+     * @param typess
+     */
     function showAllvideo(data,typess) {
         $("#display").empty();
         console.log("第一次：" + data.data.length);
@@ -1076,6 +1067,7 @@
         type=getAllType();//获取全部分区类型
         for(var i=0;i<type.length;i++) {
             ranks=getVideoRank(type[i].id);
+            var count=getUpdateCount(type[i].id);
              appendhtml +='<div class="bili-wrapper" >\n' +
                  '        <div class="zone-wrap-module report-wrap-module report-scroll-module clearfix"\n' +
                  '             scrollshow="true">\n' +
@@ -1083,15 +1075,15 @@
                  '                <!--展示栏-->\n' +
                  '                <div class="new-comers-module l-con">\n' +
                  '                    <div class="zone-title">\n' +
-                 '                        <div class="headline clearfix "><a class="name" href="/user/sort.html?sortId='+type[i].id+'">'+type[i].name+'</a>\n' +
+                 '                        <div class="headline clearfix "><a class="name" href="/user/sort.html?sortId='+type[i].id+'">'+type[i].name+'<!--分区名称--></a>\n' +
                  '                            <div class="bili-tab bili-tab">\n' +
                  '\n' +
-                 '                                <div class="bili-tab-item"><a  href="www.baidu.com">最新投稿</a></div>\n' +
+                 '                                <div class="bili-tab-item">最新投稿</div>\n' +
                  '                            </div>\n' +
-                 '                            <a class="link-more" href="/v/douga" target="_blank">\n' +
+                 '                            <a class="link-more" href="/user/sort.html?sortId='+type[i].id+'" target="_blank">\n' +
                  '                                更多\n' +
                  '                                <i class="icon"></i></a>\n' +
-                 '                            <div class="read-push"><span class="info"><b>41241</b>条周更新</span>\n' +
+                 '                            <div class="read-push"><span class="info"><b>'+count+'</b>条日更新</span>\n' +
                  '                            </div>\n' +
                  '                        </div>\n' +
                  '                    </div>\n' +
@@ -1145,7 +1137,7 @@
                                        '                            </li>\n' ;
                                    appendhtml +=' </ul>\n' +
                                        '                    </div>\n' +
-                                       '                    <a class="more-link" href="填入分区地址" target="_blank">查看更多<i\n' +
+                                       '                    <a class="more-link" href="/user/sort.html?sortId='+type[i].id+'" target="_blank">查看更多<i\n' +
                                        '                            class="icon icon-arrow-r"></i></a>\n';
 
                             appendhtml +='</section>';

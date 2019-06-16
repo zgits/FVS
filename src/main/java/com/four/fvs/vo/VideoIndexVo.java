@@ -14,8 +14,10 @@ public class VideoIndexVo {
     private String name;//视频名
 
     private Integer typeId;//分类id
+
+    private String typename;//分类名称
     //防止显示时间乱码,前端有个tool.js文件，里面可以将时间戳转换为特定格式的字符串
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @JsonFormat(pattern="yyyy-MM-dd ",timezone = "GMT+8")
     private Date upTime;//视频上传时间
 
     private Integer vv;//视频播放量
@@ -32,21 +34,30 @@ public class VideoIndexVo {
 
     private  Integer CommentCount;//视频评论数
 
-
     @Override
     public String toString() {
-        return "Video{" +
+        return "VideoIndexVo{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", typeId=" + typeId +
+                ", typename='" + typename + '\'' +
                 ", upTime=" + upTime +
                 ", vv=" + vv +
+                ", videoLength='" + videoLength + '\'' +
                 ", videoSrc='" + videoSrc + '\'' +
                 ", firstImagePath='" + firstImagePath + '\'' +
                 ", del=" + del +
                 ", videoCommentList=" + videoCommentList +
-                ", CommentCount="+CommentCount+
+                ", CommentCount=" + CommentCount +
                 '}';
+    }
+
+    public String getTypename() {
+        return typename;
+    }
+
+    public void setTypename(String typename) {
+        this.typename = typename;
     }
 
     public Integer getCommentCount() {

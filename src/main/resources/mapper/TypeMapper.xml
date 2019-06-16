@@ -8,5 +8,8 @@
         select name from type where id=#{id} and del=1
     </select>
 
+    <select id="getAllType" resultType="com.four.fvs.model.Type">
+        select * from type where del=1
+    </select>
 
 </mapper>

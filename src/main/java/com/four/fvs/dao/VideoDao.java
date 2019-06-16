@@ -1,5 +1,6 @@
 package com.four.fvs.dao;
 
+import com.four.fvs.model.User;
 import com.four.fvs.model.Video;
 import com.four.fvs.vo.VideoIndexVo;
 import org.apache.ibatis.annotations.Param;
@@ -64,6 +65,11 @@ public interface VideoDao {
     public List<Video> getAllVideo();
 
     /**
+     * 获取制定分区排行榜
+     */
+    public List<Video> getVideoRank(@Param("typeId") Integer typeId);
+
+    /**
      * 根据视频的类型或者是用户id得到相似的视频信息
      * @param type
      * @param userId
@@ -71,8 +77,60 @@ public interface VideoDao {
      */
     public List<Video> getTheSameVideo(@Param("userId")Integer userId, @Param("type") Integer type);
 
+    /**
+     * 获取某一分区视频数量
+     */
+    public Integer getVideoCountByType(@Param("typeId") Integer typeId);
 
+    /**
+     * 按分区分页展示视频信息
+     * @param typeId
+     * @param begin
+     * @param size
+     * @return
+     */
+    public List<Video> getVideoByType(@Param("typeId") Integer typeId,
+                                      @Param("begin")Integer begin,
+                                      @Param("size")Integer size);
 
+    public List<Video> getVideoByType1(Integer typeId);
+
+    /**
+     * 根据名称分页查询视频
+     * @param name
+     * @param begin
+     * @param size
+     * @return
+     */
+    public List<Video>getVideoByName(@Param("name") String name,
+                                     @Param("begin")Integer begin,
+                                     @Param("size")Integer size);
+
+    public List<Video>getVideoByName1(@Param("name") String name);
+
+    /**
+     * 根据名字和类型查询视频
+     *
+     */
+    public List<Video>getVideoByNameAndType(@Param("name") String name,
+                                     @Param("typeId")Integer typeId,
+                                     @Param("begin")Integer begin,
+                                     @Param("size")Integer size);
+
+    /**
+     * 根据名称模糊分页查询查询用户
+     */
+    public List<User>getUserByName(@Param("name") String name,
+                                   @Param("begin")Integer begin,
+                                   @Param("size")Integer size);
+    public List<User>getUserByName1(@Param("name") String name);
+
+    /**
+     * 查询分区一天内更新数量
+     * @param typeId
+     * @return
+     */
+    public Integer getUpdateCount(Integer typeId);
     /**
      * 根据id获取CollectVideo
      * @param id
