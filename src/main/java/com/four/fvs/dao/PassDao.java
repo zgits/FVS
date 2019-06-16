@@ -38,7 +38,6 @@ public interface PassDao {
 
     /*
      * 编辑视频信息
-     *@RequestParam("searchContent")：获取用户要查询的信息
      * 返回查询信息
      *
      * */

@@ -68,7 +68,7 @@ public class PassController {
     @ResponseBody
     @GetMapping("editPassAuditing")
     public Result<Object> editPassAuditing(Video video){
-        passService.editVideoServicel(video);
+        System.out.println(passService.editVideoServicel(video));
         System.out.println(video.toString());
         return getPass();
     }
