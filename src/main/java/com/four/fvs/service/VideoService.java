@@ -38,7 +38,7 @@ public interface VideoService {
      * @param videoOpRecord
      * @return
      */
-    public boolean givePraise(VideoOpRecord videoOpRecord);
+    public String givePraise(VideoOpRecord videoOpRecord);
 
     /**
      *记录分享的操作记录,分享数+1
@@ -54,7 +54,7 @@ public interface VideoService {
      * @param videoOpRecord
      * @return
      */
-    public boolean giveCollection(VideoOpRecord videoOpRecord);
+    public String giveCollection(VideoOpRecord videoOpRecord);
 
     /**
      *获取首页视频信息

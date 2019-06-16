@@ -1,82 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>搜索结果</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="../static/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="../static/dist/css/search-contain.css" media="all">
-    <!--<link rel="stylesheet" href="../static/dist/css/boder-style.css" media="all">-->
+    <link rel="stylesheet" href="../tempcss/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../tempcss/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="../tempcss/layui/css/layui.css">
+    <link rel="stylesheet" href="../tempcss/bilibili/bilibili.css">
 </head>
-
 <body>
 
-<!---站栏-->
-<div>
+<!---导航栏-->
+<li class="layui-lump" id="head">
     <ul class="layui-nav">
-        <li class="layui-nav-item">
-            <a href="">FREE主站 </a>
+        <li class="layui-nav-logo">
+            <a href="index2.html"><i class="layui-icon layui-icon-website" style="font-size: 15px"></i>FREE</a>
         </li>
-        <li class="layui-nav-item" style="float:right">
-            <a href="">个人中心</a>
+
+        <li style="float: right" class="layui-nav-item">
+            <a href="">退出</a>
         </li>
-        <li class="layui-nav-item" lay-unselect="" style="float:right">
-            <a href="javascript:;"><img src="//t.cn/RCzsdCq" class="layui-nav-img">昵称</a>
+        <li style="float: right" class="layui-nav-item">
+            <a href="">历史记录</a>
+        </li>
+        <li style="float: right" class="layui-nav-item">
+            <a href="">消息</a>
             <dl class="layui-nav-child">
-                <dd><a href="javascript:;">修改资料</a></dd>
-                <dd><a href="javascript:;">投稿管理</a></dd>
-                <dd><a href="javascript:;">退出登陆</a></dd>
+                <div style="padding-bottom: 10px">
+                    <dd><a href="javascript:;">回复我的<span class="layui-badge">9</span></a></dd>
+                </div>
+                <div style="padding-bottom: 10px">
+                    <dd><a href="javascript:;">@我的<span class="layui-badge">99</span></a></dd>
+                </div>
+                <div style="padding-bottom: 10px">
+                    <dd><a href="javascript:;">收到的赞<span class="layui-badge">92</span></a></dd>
+                </div>
+                <div style="padding-bottom: 10px">
+                    <dd><a href="javascript:;">系统通知<span class="layui-badge">91</span></a></dd>
+                </div>
+                <div style="padding-bottom: 10px">
+                    <dd><a href="javascript:;">我的消息<span class="layui-badge">93</span></a></dd>
+                </div>
             </dl>
         </li>
+        <li style="float: right" class="layui-nav-item">
+            <a href=""><img class="layui-nav-img" src="//t.cn/RCzsdCq">哔了狗了</a>
+        </li>
+
+
+        <div class="bili-header-m">
+            <li style="float: right;height: 15px;right: -30px" class="layui-nav-item">
+                <div class="search">
+                    <form class="searchform"><input class="search-keyword" accesskey="s" type="text"
+                                                    placeholder="搜索内容"
+                                                    value="" x-webkit-grammar="builtin:translate" x-webkit-speech=""
+                                                    autocomplete="off">
+                        <button class="search-submit" type="submit"></button>
+                    </form><!---->
+                </div>
+            </li>
+        </div>
+
+        </li>
+
+
     </ul>
-</div>
+</li>
 
 <!--搜索栏-->
-<div class="head-contain">
-    <div class="search-wrap">
-        <div>
-            <!--srarchlogo改为自己的logo地址就行-->
-            <div class="logo-input clearfix"><a href="javascript:;"></a>
-                <div class="search-block" style="margin-left: 10%">
-                    <div class="input-wrap"><input id="search-keyword" type="text" maxlength="100" autocomplete="off">
-                        <div class="suggest-wrap" style="display:none;">
-                            <div class="hotword-wrap" style="display:;">
-                                <ul class="vertical">
-                                    <li class="title"><span>热搜榜</span></li>
-                                </ul>
-                            </div>
-                            <ul class="keyword-wrap" style="display:none;"></ul>
-                            <ul class="history-wrap" style="display:none;">
-                                <li class="title"><span>搜索历史</span></li>
-                                <li class="clearall"><a>清空搜索历史</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="search-button"><i class="icon-search-white"></i><span class="search-text">搜索</span>
-                    </div>
-                    <div class="search-loupe"><i class="icon-loupe"></i></div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="head-contain" id="result_type">
+
     <div id="navigator">
         <div class="v-switcher" style="margin-left: 31%;">
             <div class="v-switcher-header-wrap">
                 <div class="v-switcher-header-before"></div>
                 <div class="v-switcher-tab-wrap">
                     <ul class="v-switcher-header v-switcher-header-around">
-                        <li class="v-switcher-header-item is-active" style="width:12.5%;"><a href="">
-                            综合
-                            <span class="num"></span></a></li>
-                        <li class="v-switcher-header-item" style="width:12.5%;"><a href="">
+                        <li class="v-switcher-header-item" style="width:30%;"><a href="">
                             视频
                             <span class="num"></span></a></li>
-                        <li class="v-switcher-header-item" style="width:12.5%;"><a href="">
-                            番剧
-                            <span class="num"></span></a></li>
-                        <li class="v-switcher-header-item" style="width:12.5%;"><a href="">
+                        <li class="v-switcher-header-item" style="width:30%;"><a href="">
                             用户
                             <span class="num"></span></a></li>
                         <li class="v-switcher-header-anchor"></li>
@@ -85,249 +92,551 @@
                 <div class="v-switcher-header-after"></div>
             </div><!----></div>
     </div>
+</div>
+<!--筛选栏-->
+<div class="filter-wrap" style="margin-left: 25%; width: 60%" id="videotype">
+    <!--流量排序-->
+    <ul class="filter-type clearfix order" id="select">
+        <li class="filter-item active"><a href="javascript:;">最多播放</a></li>
+        <li class="filter-item"><a href="javascript:;">最新投稿</a></li>
+    </ul>
 
-    <!--筛选栏-->
-    <div class="filter-wrap" style="margin-left: 25%; width: 50%">
-        <ul class="filter-type clearfix order">
-            <li class="filter-item active"><a href="javascript:;">综合排序</a></li>
-            <li class="filter-item"><a href="javascript:;">最多点击</a></li>
-            <li class="filter-item"><a href="javascript:;">最新发布</a></li>
-            <li class="filter-item"><a href="javascript:;">最多弹幕</a></li>
+    <!--类型排序-->
+    <ul class="filter-type clearfix tids_1" id="sort">
+        <li class="filter-item active"><a href="javascript:;">全部分区</a></li>
+        <li class="filter-item"><a href="javascript:;">番剧</a></li>
+        <li class="filter-item"><a href="javascript:;">生活</a></li>
+        <li class="filter-item"><a href="javascript:;">广告</a></li>
+        <li class="filter-item"><a href="javascript:;">影视</a></li>
+        <li class="filter-item"><a href="javascript:;">纪录片</a></li>
+        <li class="filter-item"><a href="javascript:;">电影</a></li>
+        <li class="filter-item"><a href="javascript:;">电视剧</a></li>
+        <li class="filter-item"><a href="javascript:;">番剧</a></li>
+        <li class="filter-item"><a href="javascript:;">生活</a></li>
+        <li class="filter-item"><a href="javascript:;">广告</a></li>
+        <li class="filter-item"><a href="javascript:;">影视</a></li>
+        <li class="filter-item"><a href="javascript:;">纪录片</a></li>
+        <li class="filter-item"><a href="javascript:;">电影</a></li>
+        <li class="filter-item"><a href="javascript:;">电视剧</a></li><!----><!----></ul>
+
+
+    <!--视频内容-->
+    <div class="result-wrap clearfix" id="video">
+        <div class="gather-wrap" data-v-1789ab27=""></div>
+        <ul class="bangumi-list"></ul>
+        <ul class="pgc-list"></ul>
+        <ul class="star-list"></ul>
+        <ul class="user-list">
         </ul>
-        <ul class="filter-type clearfix duration">
-            <li class="filter-item active"><a href="javascript:;">全部时长</a></li>
-            <li class="filter-item"><a href="javascript:;">10分钟以下</a></li>
-            <li class="filter-item"><a href="javascript:;">10-30分钟</a></li>
-            <li class="filter-item"><a href="javascript:;">30分钟以上</a></li>
-        </ul>
-        <ul class="filter-type clearfix tids_1">
-            <li class="filter-item active"><a href="javascript:;">全部分区</a></li>
-            <li class="filter-item"><a href="javascript:;">番剧</a></li>
-            <li class="filter-item"><a href="javascript:;">生活</a></li>
-            <li class="filter-item"><a href="javascript:;">广告</a></li>
-            <li class="filter-item"><a href="javascript:;">影视</a></li>
-            <li class="filter-item"><a href="javascript:;">纪录片</a></li>
-            <li class="filter-item"><a href="javascript:;">电影</a></li>
-            <li class="filter-item"><a href="javascript:;">电视剧</a></li><!----><!----></ul>
-        <!--<a class="fold up">收起-->
-        <!--<i class="arrow-up"></i></a><a class="fold down" style="display: none;">更多筛选-->
-        <!--<i class="arrow-down"></i></a>-->
-        <!--<div class="switch-wrap">-->
-        <!--<div class="aver type active"><i class="icon-aver"></i></div>-->
-        <!--<div class="imgleft type"><i class="icon-imgleft"></i></div>-->
-        <!--</div>&lt;!&ndash;&ndash;&gt;</div>-->
-
-
-        <!--视频内容-->
-        <div class="result-wrap clearfix"><!----><!---->
-            <div class="gather-wrap" data-v-1789ab27=""></div>
-            <ul class="bangumi-list"><!----></ul>
-            <ul class="pgc-list"><!----></ul>
-            <ul class="star-list"></ul>
-            <ul class="user-list">
-                <li class="up-item">
-                    <div class="up-face"><a
-                            href=""
-                            title="成都信息工程大学" target="_blank" class="face-img">
-                        <div class="lazy-img"><img alt=""
-                                                   src="//i2.hdslb.com/bfs/face/770df29e59e32d4221f77f129422640895d23515.jpg@225w_225h.webp">
-                        </div>
-                    </a><i title="企业/团体认证" class="verify-icon icon-official"></i></div>
-                    <div class="info-wrap">
-                        <div class="headline"><!----><a
-                                href="//space.bilibili.com/235570889?from=search&amp;seid=6803024471767838325"
-                                title="成都信息工程大学"
-                                target="_blank" class="title">成都信息工程大学</a><i class="lv icon-lv4"></i><a
-                                class="attention-btn">
-                            + 关注
-                        </a>
-                            <div class="feedback" data-v-90eca1c2="">
-                                <!--<div class="up-feedback" data-v-90eca1c2=""><i class="icon-beta" data-v-90eca1c2=""></i>&lt;!&ndash;&ndash;&gt;-->
-                                <!--</div>&lt;!&ndash;&ndash;&gt;-->
-                                <div class="fb-success-prompt" style="display:none;" data-v-90eca1c2="">
-                                    感谢反馈
-                                </div>
-                            </div>
-                        </div>
-                        <div class="up-info clearfix"><span>稿件：29</span><span>粉丝：8062</span></div>
-                        <div class="desc">
-                            成都信息工程大学官方帐号
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <ul class="video-contain clearfix">
-                <li class="video matrix"><a
-                        href="//www.bilibili.com/video/av39513184?from=search&amp;seid=6803024471767838325"
+        <ul class="video-contain clearfix" id="display">
+            <li class="video matrix">
+                <a
+                        href="video.html?videoId=1"
                         title="【厉害了，我的校】成都信息工程大学" target="_blank" class="img-anchor">
                     <div class="img">
-                        <div class="lazy-img"><img alt=""
-                                                   src="//i2.hdslb.com/bfs/archive/cecb5e83f63687cec0000929d665ffdd2d4c0105.jpg@400w_250h.webp">
-                        </div>
-                        <span class="so-imgTag_rb">04:15</span>
+                        <div class="lazy-img"><img alt="" src="../tempcss/layui/images/timg.jpg"></div>
+                        <span class="so-imgTag_rb">04:15</span><!--视频长度-->
                         <div class="watch-later-trigger watch-later"></div>
-                        <span class="mask-video"></span></div><!----></a>
-                    <div class="info">
-                        <div class="headline clearfix"><span class="type avid">av39513184</span><span
-                                class="type hide">日常</span><a title="【厉害了，我的校】成都信息工程大学"
-                                                              href="//www.bilibili.com/video/av39513184?from=search&amp;seid=6803024471767838325"
-                                                              target="_blank" class="title">【厉害了，我的校】<em
-                                class="keyword">成都信息工程大学</em></a>
-                        </div>
-                        <div class="des hide">
-                            又是老师要求做的视频，话说我真的是在读软件工程专业吗(-_-#)
-                            学校宣传片，前面两个比较low的部分是我负责的，后面比较厉害的是程负责的。
-                        </div>
-                        <div class="tags"><span title="观看" class="so-icon watch-num"><i class="icon-playtime"></i>
-          427
-        </span><span title="弹幕" class="so-icon hide"><i class="icon-subtitle"></i>
-          0
-        </span><span title="上传时间" class="so-icon time"><i class="icon-date"></i>
-          2018-12-31
-        </span><span title="up主" class="so-icon"><i class="icon-uper"></i><a
+                        <span class="mask-video"></span></div>
+                </a>
+                <div class="info">
+                    <div class="headline clearfix"><a title="【厉害了，我的校】成都信息工程大学"
+                                                      href="video.html?videoId=1" target="_blank" class="title">【厉害了，我的校】
+                        <em class="keyword">成都信息工程大学</em> erertertrete</a>
+                    </div>
+                    <div class="tags"><span title="观看" class="so-icon watch-num">
+                            <i class="icon-playtime"></i>
+                               427</span><!--播放量-->
+                        <span title="上传时间" class="so-icon time"><i class="icon-date"></i>
+          2018-12-31</span>
+                        <span title="up主" class="so-icon"><i class="icon-uper"></i><a
                                 href="//space.bilibili.com/107109594?from=search&amp;seid=6803024471767838325"
                                 target="_blank"
                                 class="up-name">寻几回</a></span></div>
-                    </div>
-                </li>
-                <li class="video matrix"><a
-                        href="//www.bilibili.com/video/av39109437?from=search&amp;seid=6803024471767838325"
-                        title="厉害了我的校-成都信息工程大学" target="_blank" class="img-anchor">
+                </div>
+            </li>
+            <li class="video matrix">
+                <a
+                        href="video.html?videoId=1"
+                        title="【厉害了，我的校】成都信息工程大学" target="_blank" class="img-anchor">
                     <div class="img">
-                        <div class="lazy-img"><img alt=""
-                                                   src="//i2.hdslb.com/bfs/archive/f212a19778f78b81a2373d9bec3810160d294c63.jpg@400w_250h.webp">
-                        </div>
-                        <span class="so-imgTag_rb">05:44</span>
+                        <div class="lazy-img"><img alt="" src="../tempcss/layui/images/timg.jpg"></div>
+                        <span class="so-imgTag_rb">04:15</span><!--视频长度-->
                         <div class="watch-later-trigger watch-later"></div>
-                        <span class="mask-video"></span></div><!----></a>
-                    <div class="info">
-                        <div class="headline clearfix"><span class="type avid">av39109437</span><span
-                                class="type hide">日常</span><a title="厉害了我的校-成都信息工程大学"
-                                                              href="//www.bilibili.com/video/av39109437?from=search&amp;seid=6803024471767838325"
-                                                              target="_blank" class="title">厉害了我的校-<em
-                                class="keyword">成都信息工程大学</em></a></div>
-                        <div class="des hide">
-                            原本吧，是个视频小作业，但是吧我jio的吧，自己剪的还能那么一丢丢说的过的去，分享一下~
-                            身为成信人，厉害了的当然不止这么点风景。。。毕竟校园是那么的“精致”是吧2333
-                            记录下来很少，平时冰山一角，只是“仅供参考”，yoooooo~
-                            但是...
-                        </div>
-                        <div class="tags"><span title="观看" class="so-icon watch-num"><i class="icon-playtime"></i>
-          534
-        </span><span title="弹幕" class="so-icon hide"><i class="icon-subtitle"></i>
-          0
-        </span><span title="上传时间" class="so-icon time"><i class="icon-date"></i>
-          2018-12-27
-        </span><span title="up主" class="so-icon"><i class="icon-uper"></i><a
-                                href="//space.bilibili.com/33162301?from=search&amp;seid=6803024471767838325"
-                                target="_blank"
-                                class="up-name">醒醒该投稿啦</a></span></div>
+                        <span class="mask-video"></span></div>
+                </a>
+                <div class="info">
+                    <div class="headline clearfix"><span class="type avid">av39513184</span><span
+                            class="type hide">日常</span><a title="【厉害了，我的校】成都信息工程大学"
+                                                          href="video.html?videoId=1" target="_blank" class="title">【厉害了，我的校】
+                        <em class="keyword">成都信息工程大学</em></a>
                     </div>
+                    <div class="tags"><span title="观看" class="so-icon watch-num">
+                            <i class="icon-playtime"></i>
+                               427</span><!--播放量-->
+                        <span title="上传时间" class="so-icon time"><i class="icon-date"></i>
+          2018-12-31</span>
+                        <span title="up主" class="so-icon"><i class="icon-uper"></i><a
+                                href="//space.bilibili.com/107109594?from=search&amp;seid=6803024471767838325"
+                                target="_blank"
+                                class="up-name">寻几回</a></span></div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+
+    <div>
+        <div class="pager pagination" style="left: 1px;">
+            <ul class="pages">
+                <li class="page-item prev">
+                    <button class="nav-btn iconfont icon-arrowdown2">上一页
+                    </button>
+                </li>
+                <li class="page-item active">
+                    <button class="pagination-btn">1</button>
+                </li>
+                <li class="page-item">
+                    <button class="pagination-btn num-btn">2</button>
+                </li>
+                <li class="page-item ">
+                    <button class="pagination-btn num-btn">3</button>
+                </li>
+                <li class="page-item ">
+                    <button class="pagination-btn num-btn">4</button>
+                </li>
+                <li class="page-item">
+                    <button class="pagination-btn num-btn">5</button>
+                </li>
+                <li class="page-item">
+                    <button class="pagination-btn num-btn">6</button>
+                </li>
+                <strong>...</strong>
+                <li class="page-item last">
+                    <button class="pagination-btn">10</button>
+                </li>
+                <li class="page-item next">
+                    <button class="nav-btn iconfont icon-arrowdown3">
+                        下一页
+                    </button>
                 </li>
             </ul>
         </div>
-
-        <!--翻页-->
-        <div class="page-wrap">
-            <div class="pager"  style="">
-                <ul class="pages"><!----><!----><!---->
-                    <li class="page-item active">
-                        <button class="pagination-btn num-btn">1</button>
-                    </li>
-                    <li class="page-item">
-                        <button class="pagination-btn num-btn">2</button>
-                    </li>
-                    <li class="page-item">
-                        <button class="pagination-btn num-btn">3</button>
-                    </li>
-                    <li class="page-item">
-                        <button class="pagination-btn num-btn">4</button>
-                    </li>
-                    <li class="page-item">
-                        <button class="pagination-btn num-btn">5</button>
-                    </li>
-                    <li class="page-item">
-                        <button class="pagination-btn num-btn">6</button>
-                    </li>
-                    <li class="page-item">
-                        <button class="pagination-btn num-btn">7</button>
-                    </li>
-                    <strong>...</strong>
-                    <li class="page-item last">
-                        <button class="pagination-btn">9</button>
-                    </li>
-                    <li class="page-item next">
-                        <button class="nav-btn iconfont icon-arrowdown3">
-                            下一页
-                        </button>
-                    </li>
-                </ul><!----></div>
+    </div>
+</div>
+<!--底部-->
+<div style="padding-top: 50px">
+    <footer class="main-bottom">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 1.1.0
         </div>
+        <strong>Copyright &copy; 2014-2016 <a href="">Almsaeed Studio</a>.</strong>
+        工程实践IV
+    </footer>
+</div>
+<!--返回顶部-->
+<div class="report-wrap-module elevator-module" style="bottom: 0px;">
+    <div class="nav-bg">
+    </div>
+
+    <button class="back-top icon " onclick="topFunction()" id="myBtn" title="返回顶部">
+        <div class="top-blank"></div>
+    </button>
+    <div class="top-blank"></div>
+
+</div>
+
+<script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../static/layui/layui.js" charset="utf-8"></script>
+<script src="../static/tools.js"></script>
+
+<script>
+    layui.use(['laypage', 'layer'], function () {
+        var laypage = layui.laypage
+            , layer = layui.layer;
 
 
-        <script src="../static/layui/layui.js" charset="utf-8"></script>
-        <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
-        <script>
-            layui.use(['laypage', 'layer'], function () {
-                var laypage = layui.laypage
-                    , layer = layui.layer;
+        //总页数大于页码总数
+        laypage.render({
+            elem: 'demo1'
+            , count: 70 //数据总数
+            , jump: function (obj) {
+
+            }
+        });
 
 
-                //总页数大于页码总数
-                laypage.render({
-                    elem: 'demo1'
-                    , count: 70 //数据总数
-                    , jump: function (obj) {
-                        console.log(obj)
+    });
+</script>
+
+<script>
+    layui.use('element', function () {
+        var $ = layui.jquery
+            , element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+
+    });
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+
+<script>
+    layui.use('element', function () {
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+        //监听导航点击
+        element.on('nav(demo)', function (elem) {
+            //console.log(elem)
+            layer.msg(elem.text());
+        });
+    });
+</script>
+<script type="text/javascript">
+    $('.filter-wrap').on('click', '.filter-item', function () {
+    $(this).addClass("active").siblings().removeClass("active");
+  });
+</script>
+<script language="JavaScript">
+    function Search() {
+        var videoName=$("#searchcomment").val();
+        window.location.href="/user/searchresult.html?VideoName="+videoName;
+    }
+    </script>
+
+
+<script>
+    var videoname = getUrlParam("VideoName");
+    var username = getUrlParam("VideoName");
+    var userId = $.cookie('userId');
+    var currpage = 1;
+    $(function () {
+        getUserInfo(userId);
+        showAllType();
+        showAllselect();
+        getVideoByName(videoname, 1);
+        showResultType();
+
+    })
+
+    /**
+     *获得当前登录用户的用户信息
+     */
+    function getUserInfo(userId) {
+        var result;
+        $.ajax({
+            url: '/user/getUserInfo',
+            type: 'get',
+            data: {
+                userId: userId
+            },
+            success: function (data) {
+                if (data.code == 0) {
+                    result = data.data;
+                    showhead(result);
+                }
+            }
+        });
+    };
+
+    function showhead(data){
+        $("#head").empty();
+        var appendhtml='';
+        var user=data;
+        appendhtml+=' <ul class="layui-nav">\n' +
+            '        <li class="layui-nav-logo">\n' +
+            '            <a href="index2.html"><i class="layui-icon layui-icon-website" style="font-size: 15px"></i>FREE</a>\n' +
+            '        </li>\n' +
+            '\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href="/user/login.html">退出</a>\n' +
+            '        </li>\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href="">历史记录</a>\n' +
+            '        </li>\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href="">消息</a>\n' +
+            '        </li>\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href=""><img class="layui-nav-img" src="..'+user.icon+'">'+user.userName+'</a>\n' +
+            '        </li>\n' +
+            '\n' +
+            '\n' +
+            '        <div class="bili-header-m">\n' +
+            '            <li style="float: right;height: 15px;right: -30px" class="layui-nav-item">\n' +
+            '                <div class="search" id="search">\n' +
+            '                    <form class="searchform"  method="post">\n' +
+            '                        <input id="searchcomment" class="search-keyword" accesskey="s" type="text"\n' +
+            '                                                    placeholder="搜索内容" value=""\n' +
+            '                                                     x-webkit-grammar="builtin:translate" x-webkit-speech=""\n' +
+            '                                                    autocomplete="off">\n' +
+            '                        <button class="search-submit" type="button" onclick="Search()" ></button>\n' +
+            '                    </form>\n' +
+            '\n' +
+            '                </div>\n' +
+            '            </li>\n' +
+            '        </div>\n' +
+            '\n' +
+            '        </li>\n' +
+            '\n' +
+            '\n' +
+            '    </ul>';
+        $("#head").append(appendhtml);
+    }
+    //获取所有分区
+    function getAllType() {
+        var type;
+        $.ajax({
+            url: '/video/getAllType',
+            type: 'get',
+            dataType: 'json',
+            async: false,
+            success: function (Type) {
+                if (Type.code == 0) {
+                    type = Type.data;
+                }
+            }
+        });
+        return type;
+
+    }
+
+    //按播放量全部分区分页的搜索结果
+    function getVideoByName(videoname, currpage) {
+        $.ajax({
+            url: '/video/getVideoByName',
+            type: 'get',
+            dataType: 'json',
+            data: {
+                name: videoname,
+                currPage: currpage
+            },
+            success: function (data) {
+                if (data.code == 0) {
+                    var data = data.data.lists;
+                    showAllVideo(data);
+                }
+            }
+
+        });
+    }
+    //按关键字查询用户
+    function getUserByName(username,currpage){
+        $.ajax({
+            url:'/video/getUserByName',
+            type:'get',
+            dataType:'json',
+            data:{
+                name:username,
+                currPage:currpage
+            },
+            success:function (data) {
+                if(data.code==0){
+                    var data=data.data.lists;
+
+                    showUserResult(data);
+                }
+            }
+        });
+    }
+
+    //按上传时间展示全部分区分页的搜索结果
+    function getVideoByNameRank(videoname, currpage) {
+        $.ajax({
+            url: '/video/getVideoByName',
+            type: 'get',
+            dataType: 'json',
+            data: {
+                name: videoname,
+                currPage: currpage
+            },
+            success: function (data) {
+                if (data.code == 0) {
+                    var data = data.data.lists;
+                    var result=[];
+                    for(var i=0;i<data.length-1;i++){
+                        for(var j=i+1;j<data.length;j++){
+                            if(data[i].upTime<data[j].upTime){
+                                var temp=data[i];
+                                data[i]=data[j];
+                                data[j]=temp;
+                            }
+                        }
+
                     }
-                });
 
-                //将一段数组分页展示
+                    showAllVideo(data);
+                }
+            }
 
-                //测试数据
+        });
+    }
 
+        //获取指定分区分页的搜索结果
+        function getVideoByNameAndType(videoname,typeId, currpage) {
+            $.ajax({
+                url: '/video/getVideoByName',
+                type: 'get',
+                dataType: 'json',
+                data: {
+                    name: videoname,
+                    currPage: currpage
+                },
+                success: function (data) {
+                    if (data.code == 0) {
+                        var data = data.data.lists;
+                        var result=[];
+                        for(var i=0;i<data.length;i++){
+                            if(data[i].typeId==typeId){
+                                result.push(data[i]);
+                            }
+                        }
+                    }
+                        showAllVideo(result);
+                    }
 
-                //调用分页
-                // laypage.render({
-                //     elem: 'demo20'
-                //     ,count: data.length
-                //     ,jump: function(obj){
-                //         //模拟渲染
-                //         document.getElementById('biuuu_city_list').innerHTML = function(){
-                //             var arr = []
-                //                 ,thisData = data.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
-                //             layui.each(thisData, function(index, item){
-                //                 arr.push('<li>'+ item +'</li>');
-                //             });
-                //             return arr.join('');
-                //         }();
-                //     }
-                // });
 
             });
-        </script>
 
+    }
 
-        <script>
-            layui.use('element', function () {
-                var $ = layui.jquery
-                    , element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+    //结果类型（视频 Or 用户）
+    function showResultType() {
+        $("#result_type").empty();
+        var appenhtml = '';
+        appenhtml += '<div id="navigator">\n' +
+            '        <div class="v-switcher" style="margin-left: 31%;">\n' +
+            '            <div class="v-switcher-header-wrap">\n' +
+            '                <div class="v-switcher-header-before"></div>\n' +
+            '                <div class="v-switcher-tab-wrap">\n' +
+            '                    <ul class="v-switcher-header v-switcher-header-around">\n' +
+            '                        <li class="v-switcher-header-item" style="width:30%;"><a href="#" onclick="getVideoByName('+videoname+','+currpage+')">\n' +
+            '                            视频\n' +
+            '                            <span class="num"></span></a></li>\n' +
+            '                        <li class="v-switcher-header-item" style="width:30%;"><a href="#" onclick="getUserByName('+username+','+currpage+')">\n' +
+            '                            用户\n' +
+            '                            <span class="num"></span></a></li>\n' +
+            '                        <li class="v-switcher-header-anchor"></li>\n' +
+            '                    </ul>\n' +
+            '                </div>\n' +
+            '                <div class="v-switcher-header-after"></div>\n' +
+            '            </div><!----></div>\n' +
+            '    </div>';
+        $("#result_type").append(appenhtml);
 
-            });
-        </script>
+    }
+    //筛选条件
+    function showAllselect(){
+        $("#select").empty();
+        var appendhtml='';
+        appendhtml+='<li class="filter-item active"><a href="#" onclick="getVideoByName('+videoname+','+currpage+')">最多播放</a></li>\n' +
+            '        <li class="filter-item"><a href="#" onclick="getVideoByNameRank('+videoname+','+currpage+')">最新投稿</a></li>';
+        $("#select").append(appendhtml);
+    }
 
+    //展示所有分区类型
+    function showAllType() {
+       $("#sort").empty();
+        var appendhtml = '';
+        var type = [];
+        type = getAllType();
+        appendhtml += '<li class="filter-item active"><a href="#" onclick="getVideoByName('+videoname+','+currpage+')">综合类型</a></li>';
+        for (var i = 0; i < type.length; i++) {
+            var typeId=type[i].id;//显示全部分区
+            appendhtml += ' <li class="filter-item"><a href="#" onclick="getVideoByNameAndType('+videoname+',\''+typeId+'\','+currpage+')">' + type[i].name + '</a></li>';
+        }
+        $("#sort").append(appendhtml);
 
-        <script>
-            layui.use('element', function () {
-                var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+    }
 
-                //监听导航点击
-                element.on('nav(demo)', function (elem) {
-                    //console.log(elem)
-                    layer.msg(elem.text());
-                });
-            });
-        </script>
+    //显示视频搜索结果
+    function showAllVideo(data) {
+        $("#display").empty();
+        var appendhtml = '';
+        var lists = data;
+        for (var i = 0; i < lists.length; i++) {
+            appendhtml += '<li class="video matrix">\n' +
+                '                    <a\n' +
+                '                        href="video.html?videoId=' + lists[i].id + '"\n' +
+                '                        title="' + lists[i].name + '" target="_blank" class="img-anchor">\n' +
+                '                    <div class="img">\n' +
+                '                        <div class="lazy-img"><img alt="" src="..' + lists[i].firstImagePath + '"></div>\n' +
+                '                        <span class="so-imgTag_rb">' + lists[i].videoLength + '</span><!--视频长度-->\n' +
+                '                        <div class="watch-later-trigger watch-later"></div>\n' +
+                '                        <span class="mask-video"></span></div></a>\n' +
+                '                    <div class="info">\n' +
+                '                        <div class="headline clearfix">\n';
+            var str_before = lists[i].name.split(videoname)[0];
+            var str_after = lists[i].name.split(videoname)[1];
+
+            appendhtml += '  <a title="' + lists[i].name + '" class="title" href="" target="_blank">' + str_before + '<em class="keyword">' + videoname + '</em>' + str_after + '</a>' +
+                '                        </div>\n' +
+                '                        <div class="tags"><span title="观看" class="so-icon watch-num">\n' +
+                '                            <i class="icon-playtime"></i>\n' +
+                '                               ' + lists[i].vv + '</span><!--播放量-->\n' +
+                '                          <span title="上传时间" class="so-icon time"><i class="icon-date"></i>\n' +
+                '          ' + lists[i].upTime + '</span>\n' +
+
+                '                               </div>\n' +
+                '                    </div>\n' +
+                '                </li>';
+
+        }
+        $("#display").append(appendhtml);
+
+    }
+
+    //显示用户搜索结果
+    function showUserResult(data){
+        $("#videotype").empty();
+        var appendhtml='';
+        var lists=data;
+        appendhtml+='<div class="contain">\n' +
+            '<div class="body-contain">\n' +
+            '    <div class="user-wrap">\n' +
+            '        <div class="dropdown-wrap clearfix">\n' +
+            '\n' +
+            '        </div>\n' +
+            '        <div class="result-wrap">\n' +
+            '            <ul class="user-list">\n' ;
+             for(var i=0;i<lists.length;i++){
+        appendhtml+= '                <li class="up-item">\n' +
+            '                <div class="up-face"><a title="'+lists[i].userName+'" class="face-img"\n' +
+            '                                        href=""\n' +
+            '                                        target="_blank">\n' +
+            '                    <div class="lazy-img"><img alt=""\n' +
+            '                                               src="..'+lists[i].icon+'">\n' +
+            '                    </div>\n' +
+            '                </a><i class="verify-icon"></i></div>\n' +
+            '                <div class="info-wrap">\n' +
+            '                    <div class="headline"><!----><a title="'+lists[i].userName+'" class="title"\n' +
+            '                                                    href="查看他人页面"\n' +
+            '                                                    target="_blank">'+lists[i].userName+'</a>' +
+            '                   <!----></div>\n' +
+            '                    <div class="up-info clearfix"><span>稿件：'+lists[i].videocount+'</span><span>粉丝：'+lists[i].fans+'</span></div>\n' +
+            '                    <div class="desc">\n' +
+            '                       '+lists[i].introduce+'\n' +
+            '                    </div>\n' +
+            '                    <div class="up-videos clearfix">\n' +
+            '                    </div>\n' +
+            '                </div>\n' +
+            '            </li>\n';}
+
+            appendhtml+='            </ul>\n' +
+            '\n' +
+            '        </div>\n' +
+            '\n' +
+            '    </div>\n' +
+            '</div>\n' +
+            '</div>';
+        $("#videotype").append(appendhtml);
+    }
+
+</script>
+
 
 </body>
 </html>

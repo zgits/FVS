@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>layui</title>
+    <title>个人中心</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="../static/layui/css/layui.css">
     <link rel="stylesheet" href="../static/layui/space.3.98e2ebbf40cd5cc7ab0f9fd3e1cfbaae44f79b97.css">
@@ -22,10 +22,8 @@
     <li class="layui-nav-item"><a href="edit.html">编辑个人资料</a></li>
 
 
-    <li class="layui-nav-normol" style="float:right"><a href="fans.html">1.1W</a></li>
-    <li class="layui-nav-item" style="float:right">粉丝数</a></li>
-    <li class="layui-nav-normol" style="float:right"><a href="focus.html">8711</a></li>
-    <li class="layui-nav-item" style="float:right">关注</a></li>
+    <li class="layui-nav-normol" style="float:right"><a href="fans.html">粉丝</a></li>
+    <li class="layui-nav-normol" style="float:right"><a href="focus.html">关注</a></li>
 
 </ul>
 <div class="s-space">
@@ -99,7 +97,7 @@
     <!-- jQuery 3 -->
     <script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
 
-    <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="../static/plugins/cookie/jquery.cookie.min.js"></script>
     <script src="../static/plugins/sweetalert/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/plugins/sweetalert/sweetalert.css">
     <script type="text/javascript" src="../static/resources/js/login.js?v=20175131017 "></script>
@@ -142,13 +140,13 @@
                 },
                 //默认执行成功
                 success: function (data) {
-                    alert("获取用户信息成功！");
+                 //   alert("获取用户信息成功！");
                     //控制台打印
                     console.log(data.data);
                     showCollectVideo(data);
                 },
                 error: function(data){
-                    alert("获取用户信息失败！");
+                //   alert("获取用户信息失败！");
                 }
             });
 

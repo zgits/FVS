@@ -15,16 +15,15 @@
 <ul class="layui-nav">
     <li class="layui-nav-item"><a href="personcenter.html">主页</a></li>
     <li class="layui-nav-item"><a href="personalcenter_submit.html">投稿</a></li>
-    <li class="layui-nav-item"><a href="personalcenter_collect.html">收藏<span class="layui-badge">1</a></li>
+    <li class="layui-nav-item"><a href="personalcenter_collect.html">收藏<span class="layui-badge">1</span></a></li>
 
     <li class="layui-nav-item"><a href="viewhistory.html">历史纪录</a></li>
     <li class="layui-nav-item"><a href="edit.html">编辑个人资料</a></li>
 
 
-    <li class="layui-nav-normol" style="float:right"><a href="fans.html">1.1W</a></li>
-    <li class="layui-nav-item" style="float:right">粉丝数</a></li>
-    <li class="layui-nav-normol" style="float:right"><a href="focus.html">8711</a></li>
-    <li class="layui-nav-item" style="float:right">关注</a></li>
+    <li class="layui-nav-normol" style="float:right"><a href="fans.html">粉丝</a></li>
+    <li class="layui-nav-normol" style="float:right"><a href="focus.html">关注</a></li>
+
 </ul>
 
 
@@ -36,23 +35,13 @@
 
 
                 <div class="layui-container">
-                    <div class="layui-row">
+                    <div class="layui-row" id="Reset3">
                         <div class="layui-col-md3">
 
                             <ul class="layui-nav layui-nav-tree layui-inline" style="margin-right: 10px;"
                                 lay-filter="demo">
-                                <li class="layui-nav-item layui-nav-itemed">
-                                    <a href="javascript:;">我的关注</a>
-                                    <dl class="layui-nav-child">
-                                        <dd><a href="javascript:;"><i class="layui-icon layui-icon-group"></i>全部关注</a>
-                                        </dd>
-                                        <dd><a href="javascript:;"><i class="layui-icon layui-icon-rate-solid"></i> 特别关注</a>
-                                        </dd>
-                                        <dd><a href="javascript:;"><i
-                                                class="layui-icon layui-icon-menu-fill"></i>悄悄关注</a></dd>
-                                    </dl>
-                                </li>
-                                <li class="layui-nav-item"><a href="">我的粉丝</a></li>
+                                <li class="layui-nav-item layui-nav-itemed"><a href="focus.html">我的关注</a></li>
+                                <li class="layui-nav-item layui-nav-itemed"><a href="fans.html">我的粉丝</a></li>
                             </ul>
 
                         </div>
@@ -65,9 +54,12 @@
 
 
                             <div class="fav-main section"></div>
+
                             <div class="follow-content section">
-                                <div class="content" style="padding-bottom: 10px;">
+                                <div class="content"  style="padding-bottom: 10px;">
+
                                     <ul class="relation-list">
+
                                         <li class="list-item clearfix">
                                             <div class="content">
                                                 <img src="../b2b6f3c65ff0fe374d261003ab63c97a1cb5c4ed.jpg" class="layui-nav-img ">
@@ -102,6 +94,17 @@
 
 
                 </div>
+
+
+
+
+
+
+
+
+
+
+
             </div>
         </div>
     </div>
@@ -122,9 +125,18 @@
          data-ad-client="ca-pub-6111334333458862"></ins>
 
 </div>
+<!-- jQuery 3 -->
+<script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
+
+<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../static/plugins/sweetalert/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../static/plugins/sweetalert/sweetalert.css">
+<script type="text/javascript" src="../static/resources/js/login.js?v=20175131017 "></script>
+<link href="../static/resources/css/login.css" rel="stylesheet" type="text/css"/>
+
+
 
 <script src="../static/layui/layui.js"></script>
-<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 <script>
     layui.use('element', function () {
         var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
@@ -137,6 +149,128 @@
     });
 </script>
 
+
+
+
+<script>
+
+    var userId = $.cookie('userId');
+    $(function () {
+        //静态数据置空
+        $("#Reset3").empty();
+        SelectFocus();
+    });
+    function SelectFocus() {
+        $.ajax({
+            url: "/user/getFocus",
+            type: "get",
+            dataType: "json",
+            data: {
+                userId: userId
+            },
+            //默认执行成功
+            success: function (data) {
+             //   alert("获取用户信息成功！");
+                //控制台打印
+                console.log(data.data);
+                showFocus(data);
+            },
+            error: function(data){
+              //  alert("获取用户信息失败！");
+            }
+        });
+
+    }
+    function showFocus(data) {
+        //控制台打印
+        console.log("第一次：" + data.data.length);
+        //按格式从数据库取数据
+
+        var appendhtml ="                  <div class=\"layui-col-md3\">\n" +
+            "\n" +
+            "                            <ul class=\"layui-nav layui-nav-tree layui-inline\" style=\"margin-right: 10px;\"\n" +
+            "                                lay-filter=\"demo\">\n" +
+            "                                <li class=\"layui-nav-item layui-nav-itemed\"><a href=\"focus.html\">我的关注<span class=\"layui-badge\">   "+data.data.length+"     </span></a></li>\n" +
+            "                                <li class=\"layui-nav-item layui-nav-itemed\"><a href=\"fans.html\">我的粉丝</a></li>\n" +
+            "                            </ul>\n" +
+            "\n" +
+            "                        </div>\n" +
+            "\n" +
+            "                        <div class=\"layui-col-md9\">\n" +
+            "\n" +
+            "\n" +
+            "                            <div class=\"follow-header follow-header-info\">\n" +
+            "                                <div class=\"breadcrumb clearfix\"><p class=\"item cur\">我的关注</p><!----></div><!----></div>\n" +
+            "\n" +
+            "\n" +
+            "                            <div class=\"fav-main section\"></div>\n" +
+            "\n" +
+            "                            <div class=\"follow-content section\">\n" +
+            "                                <div class=\"content\"  style=\"padding-bottom: 10px;\">                ";
+
+
+        for(var i = 0; i < data.data.length; i++) {
+            appendhtml +=
+                "                                    <ul class=\"relation-list\">\n" +
+                "                                       \n" +
+                "                                        <li class=\"list-item clearfix\">\n" +
+                "                                            <div class=\"content\">\n" +
+                "                                                <img src=\"   " +  data.data[i].icon   +" \" class=\"layui-nav-img \" onclick=\"GetLook(this)\" value=\"    "+ data.data[i].id  +"\">" +
+                "                                                <p style=\"font-size:20px\" > "+  data.data[i].userName +"</p>\n" +
+                "                                            <button class=\"layui-btn layui-btn-disabled layui-btn-xs\" onclick=\"myFunction(this)\" id = \" " +  data.data[i].id +" \"  style=\"float:right\">已关注</button>\n" +
+                "                                                <p class=\"desc\">"+ data.data[i].introduce  +"</p>\n" +
+                "                                            </div>\n" +
+                "                                        </li>\n"
+        }
+
+        appendhtml += "                                    </ul> "
+
+        appendhtml +=  "   </div>\n" +
+        "\n" +
+        "                            </div>\n" +
+        "\n" +
+        "\n" +
+        "                        </div>\n" +
+        "                    </div>\n" +
+        "\n" +
+        "\n" +
+        "                </div>\n" +
+        "                "
+        $("#Reset3").append(appendhtml);
+
+
+    }
+
+
+    function myFunction(obj){
+        var focusid=obj.id;  //想取关的用户的id
+        var json={"userId":focusid,"fansId":userId};
+        $.ajax({
+            type: "delete",
+            url: "/focus/delFocus",
+            contentType: 'application/json',
+            data: JSON.stringify(json),
+            success : function (data) {
+                if (data.code==0){
+                    sweetAlert("成功取关", "success");
+                }else {
+                    sweetAlert("出错了~~", "取关失败，请再次尝试~", "error");
+                }
+            }
+
+        });
+        parent.location.reload();
+        parent.location.reload();
+    }
+    function GetLook(obj){
+        var focusid= $(obj).attr("value")
+        $.cookie('othersId',focusid);
+        window.location.href = "ViewOthers.html";
+    }
+
+
+
+</script>
 </body>
 </html>
 

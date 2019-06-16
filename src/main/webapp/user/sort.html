@@ -14,7 +14,7 @@
 <body>
 <svg aria-hidden="true" style="width: 0px;height: 0px;overflow:hidden; position: absolute"></svg>
 <!--我来组成头部！！！！ -->
-<li class="layui-lump">
+<li class="layui-lump"id="head">
     <ul class="layui-nav">
         <li class="layui-nav-logo">
             <a href="index2.html"><i class="layui-icon layui-icon-website" style="font-size: 15px"></i>FREE</a>
@@ -28,23 +28,7 @@
         </li>
         <li style="float: right" class="layui-nav-item">
             <a href="">消息</a>
-            <dl class="layui-nav-child">
-                <div style="padding-bottom: 10px">
-                    <dd><a href="javascript:;">回复我的<span class="layui-badge">9</span></a></dd>
-                </div>
-                <div style="padding-bottom: 10px">
-                    <dd><a href="javascript:;">@我的<span class="layui-badge">99</span></a></dd>
-                </div>
-                <div style="padding-bottom: 10px">
-                    <dd><a href="javascript:;">收到的赞<span class="layui-badge">92</span></a></dd>
-                </div>
-                <div style="padding-bottom: 10px">
-                    <dd><a href="javascript:;">系统通知<span class="layui-badge">91</span></a></dd>
-                </div>
-                <div style="padding-bottom: 10px">
-                    <dd><a href="javascript:;">我的消息<span class="layui-badge">93</span></a></dd>
-                </div>
-            </dl>
+
         </li>
         <li style="float: right" class="layui-nav-item">
             <a href=""><img class="layui-nav-img" src="//t.cn/RCzsdCq">哔了狗了</a>
@@ -55,31 +39,11 @@
             <li style="float: right;height: 15px;right: -30px" class="layui-nav-item">
                 <div class="search">
                     <form class="searchform"><input class="search-keyword" accesskey="s" type="text"
-                                                    placeholder="听说这是恋爱宝典?"
+                                                    placeholder="搜索内容"
                                                     value="" x-webkit-grammar="builtin:translate" x-webkit-speech=""
                                                     autocomplete="off">
                         <button class="search-submit" type="submit"></button>
-                    </form><!---->
-                    <ul class="bilibili-suggest" style="display:none">
-                        <li class="kw">
-                            <div class="b-line"><p><span>历史搜索</span></p></div>
-                        </li>
-                        <li class="suggest-item"><a
-                                href="//search.bilibili.com/all?keyword=%E4%BA%AE%E5%89%91&amp;from_source=banner_search"
-                                target="_blank">亮剑</a>
-                            <div class="cancel"></div>
-                        </li>
-                        <li class="suggest-item"><a
-                                href="//search.bilibili.com/all?keyword=%E9%9B%B7%E9%98%BF%E4%BC%A6%E4%B8%89%E5%88%86&amp;from_source=banner_search"
-                                target="_blank">雷阿伦三分</a>
-                            <div class="cancel"></div>
-                        </li>
-                        <li class="suggest-item"><a
-                                href="//search.bilibili.com/all?keyword=%E8%8F%A0%E8%90%9D%E8%B5%9B%E4%B8%9C&amp;from_source=banner_search"
-                                target="_blank">菠萝赛东</a>
-                            <div class="cancel"></div>
-                        </li>
-                    </ul>
+                    </form><!--搜索框-->
                 </div>
             </li>
         </div>
@@ -94,7 +58,7 @@
 <!--类别-->
 <div class="bili-wrapper">
     <div class="primary-menu report-wrap-module report-scroll-module " id="primary_menu" scrollshow="true">
-        <ul class="nav-menu">
+        <ul class="nav-menu" id="sort">
 
             <!--<li class="home"><a href="//www.bilibili.com">
                 <div class="nav-name">首页</div>
@@ -205,27 +169,15 @@
 
     <!--各分区-->
     <div class="bili-wrapper">
-        <div class="zone-wrap-module report-wrap-module report-scroll-module clearfix" id="free_donghua"
+        <div class="zone-wrap-module report-wrap-module report-scroll-module clearfix"
              scrollshow="true">
             <div class="zone-module">
                 <!--展示栏-->
                 <div class="new-comers-module l-con">
 
-                    <!-- <div class="zone-title">
-                         <div class="headline clearfix "><a class="name" href="/v/douga">动画</a>
-                             <div class="bili-tab bili-tab">
 
-                                 <div class="bili-tab-item"><a  href="www.baidu.com">最新投稿</a></div>
-                             </div>
-                             <a class="link-more" href="/v/douga" target="_blank">
-                                 更多
-                                 <i class="icon"></i></a>
-                             <div class="read-push"><span class="info"><b>41241</b>条新动态</span>
-                             </div>
-                         </div>
-                     </div>-->
 
-                    <div class="sort-box clearfix">
+                    <div class="sort-box clearfix" id="display">
 
                         <!--各视频介绍-->
                         <div class="spread-module"><a href="/video/av52546182" target="_blank">
@@ -675,55 +627,7 @@
                         </div>
                     </header>
                     <div class="rank-list-wrap">
-                        <ul class="rank-list hot-list"><!---->
-
-                            <li class="rank-item  highlight"><i class="ri-num">1</i><a
-                                    title="野兽巨人就由我来解决！巨人史上最巅峰的一集！ 播放:230524 4:12" class="ri-info-wrap clearfix"
-                                    href="/video/av53793138/" target="_blank"><!---->
-                                <div class="ri-detail"><p class="ri-title">野兽巨人就由我来解决！巨人史上最巅峰的一集！</p>
-                                    <p class="ri-point">综合评分：30.4万</p></div><!----></a></li>
-
-                            <li class="rank-item  highlight"><i class="ri-num">2</i><a
-                                    title="野兽巨人就由我来解决！巨人史上最巅峰的一集！ 播放:230524 4:12" class="ri-info-wrap clearfix"
-                                    href="/video/av53793138/" target="_blank"><!---->
-                                <div class="ri-detail"><p class="ri-title">野兽巨人就由我来解决！巨人史上最巅峰的一集！</p>
-                                    <p class="ri-point">综合评分：30.4万</p></div><!----></a></li>
-
-                            <li class="rank-item  highlight"><i class="ri-num">3</i><a
-                                    title="【巴啦啦小魔仙】摸仙等级全国统一考试，测试一下你的摸仙等级！ 播放:248210 3:20" class="ri-info-wrap clearfix"
-                                    href="/video/av53809073/" target="_blank"><!---->
-                                <div class="ri-detail"><p class="ri-title">【巴啦啦小魔仙】摸仙等级全国统一考试，测试一下你的摸仙等级！</p>
-                                    <p class="ri-point">综合评分：26.2万</p></div><!----></a></li>
-                            <li class="rank-item"><i class="ri-num">4</i><a title="【明日方舟手书】银灰和刀客塔的罰ゲーム 播放:85377 4:07"
-                                                                            class="ri-info-wrap clearfix"
-                                                                            href="/video/av53920958/" target="_blank">
-                                <!---->
-                                <div class="ri-detail"><p class="ri-title">【明日方舟手书】银灰和刀客塔的罰ゲーム</p>
-                                    <p class="ri-point">综合评分：22.6万</p></div><!----></a></li>
-                            <li class="rank-item"><i class="ri-num">5</i><a title="领导强行给你分配对象，你愿意吗？ 播放:176585 5:45"
-                                                                            class="ri-info-wrap clearfix"
-                                                                            href="/video/av53869241/" target="_blank">
-                                <!---->
-                                <div class="ri-detail"><p class="ri-title">领导强行给你分配对象，你愿意吗？</p>
-                                    <p class="ri-point">综合评分：20.9万</p></div><!----></a></li>
-                            <li class="rank-item"><i class="ri-num">6</i><a
-                                    title="爱尔敏：我不入地狱谁入地狱，利威尔秒杀野兽巨人，铠之巨人又双叒被放到了 播放:194345 5:54"
-                                    class="ri-info-wrap clearfix"
-                                    href="/video/av53888366/" target="_blank"><!---->
-                                <div class="ri-detail"><p class="ri-title">爱尔敏：我不入地狱谁入地狱，利威尔秒杀野兽巨人，铠之巨人又双叒被放到了</p>
-                                    <p class="ri-point">综合评分：17.8万</p></div><!----></a></li>
-                            <li class="rank-item"><i class="ri-num">7</i><a title="【夏季新番】2019年7月新番介绍 播放:80548 28:11"
-                                                                            class="ri-info-wrap clearfix"
-                                                                            href="/video/av53867002/" target="_blank">
-                                <!---->
-                                <div class="ri-detail"><p class="ri-title">【夏季新番】2019年7月新番介绍</p>
-                                    <p class="ri-point">综合评分：14.9万</p></div><!----></a></li>
-                            <li class="rank-item"><i class="ri-num">8</i><a title="领导强行给你分配对象，你愿意吗？ 播放:176585 5:45"
-                                                                            class="ri-info-wrap clearfix"
-                                                                            href="/video/av53869241/" target="_blank">
-                                <!---->
-                                <div class="ri-detail"><p class="ri-title">领导强行给你分配对象，你愿意吗？</p>
-                                    <p class="ri-point">综合评分：20.9万</p></div><!----></a></li>
+                        <ul class="rank-list hot-list" id="rank">
                             <li class="rank-item"><i class="ri-num">9</i><a
                                     title="爱尔敏：我不入地狱谁入地狱，利威尔秒杀野兽巨人，铠之巨人又双叒被放到了 播放:194345 5:54"
                                     class="ri-info-wrap clearfix"
@@ -743,12 +647,10 @@
                             </li>
                         </ul>
                     </div>
-                    <a class="more-link" href="/ranking/all/1/1/3/" target="_blank">查看更多<i
-                            class="icon icon-arrow-r"></i></a>
                 </section>
 
-                <!--分页-->
-                <div >
+
+                <!--<div >
                 <div class="pager pagination" style="left: 1px;">
                     <ul class="pages">
                         <li class="page-item prev">
@@ -757,7 +659,7 @@
                         </li>
                         <li class="page-item first">
                             <button class="pagination-btn">1</button>
-                        </li><!---->
+                        </li>
                         <li class="page-item">
                             <button class="pagination-btn num-btn">2</button>
                         </li>
@@ -784,10 +686,23 @@
                         </li>
                     </ul>
                     <div class="jump-pager">
-                        <div class="page-total"><!----><span class="pagination-btn count">共 15392 页/ 307825 个 ，</span></div>
+                        <div class="page-total"><span class="pagination-btn count">共 15392 页/ 307825 个 ，</span></div>
                         <span>跳至</span><input class="jump-pager-input no-spin" type="text" min="1"><span>页</span></div>
                 </div>
-            </div>
+            </div>-->
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="dataTables_info center-block" id="example2_info" role="status" aria-live="polite"></div>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                            <ul class="pagination" id="page">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -818,8 +733,17 @@
 
 </div>
 
-
+<script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="../static/layui/layui.js" charset="utf-8"></script>
+<script src="../static/tools.js"></script>
+<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script language="JavaScript">
+    function Search() {
+        var videoName=$("#searchcomment").val();
+        window.location.href="/user/searchresult.html?VideoName="+videoName;
+    }
+    </script>
+<!--layui-->
 <script>
     layui.use('element', function () {
         var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
@@ -835,6 +759,229 @@
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     }
+</script>
+
+<script>
+
+    var sortId = getUrlParam("sortId");
+    var userId = $.cookie('userId');
+    var currpage=1;
+
+
+    $(function () {
+        getUserInfo(userId);
+        showAllSort();
+        getVideoByType(sortId,currpage);
+        showVideoRank()
+
+
+    });
+    /**
+     *获得当前登录用户的用户信息
+     */
+    function getUserInfo(userId) {
+        var result;
+        $.ajax({
+            url: '/user/getUserInfo',
+            type: 'get',
+            data: {
+                userId: userId
+            },
+            success: function (data) {
+                if (data.code == 0) {
+                    result = data.data;
+                    showhead(result);
+                }
+            }
+        });
+    };
+
+    function showhead(data){
+        $("#head").empty();
+        var appendhtml='';
+        var user=data;
+        appendhtml+=' <ul class="layui-nav">\n' +
+            '        <li class="layui-nav-logo">\n' +
+            '            <a href="index2.html"><i class="layui-icon layui-icon-website" style="font-size: 15px"></i>FREE</a>\n' +
+            '        </li>\n' +
+            '\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href="/user/login.html">退出</a>\n' +
+            '        </li>\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href="">历史记录</a>\n' +
+            '        </li>\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href="">消息</a>\n' +
+            '        </li>\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href=""><img class="layui-nav-img" src="..'+user.icon+'">'+user.userName+'</a>\n' +
+            '        </li>\n' +
+            '\n' +
+            '\n' +
+            '        <div class="bili-header-m">\n' +
+            '            <li style="float: right;height: 15px;right: -30px" class="layui-nav-item">\n' +
+            '                <div class="search" id="search">\n' +
+            '                    <form class="searchform"  method="post">\n' +
+            '                        <input id="searchcomment" class="search-keyword" accesskey="s" type="text"\n' +
+            '                                                    placeholder="搜索内容" value=""\n' +
+            '                                                     x-webkit-grammar="builtin:translate" x-webkit-speech=""\n' +
+            '                                                    autocomplete="off">\n' +
+            '                        <button class="search-submit" type="button" onclick="Search()" ></button>\n' +
+            '                    </form>\n' +
+            '\n' +
+            '                </div>\n' +
+            '            </li>\n' +
+            '        </div>\n' +
+            '\n' +
+            '        </li>\n' +
+            '\n' +
+            '\n' +
+            '    </ul>';
+        $("#head").append(appendhtml);
+    }
+    //获取各分区视频数量
+    function getAllCount(){
+        var allcount;
+        $.ajax({
+            url: '/video/getAllCount',
+            type: 'get',
+            dataType:'json',
+            async: false,
+            success:function (data) {
+                if( data.code==0){
+                    allcount=data.data;
+                }
+            }
+        });
+        return allcount;
+    }
+    //获取所有分区
+    function getAllType() {
+        var type;
+        $.ajax({
+            url:'/video/getAllType',
+            type:'get',
+            dataType:'json',
+            async:false,
+            success:function (Type) {
+                if (Type.code == 0) {
+                    type = Type.data;
+                }
+            }
+        });
+        return type;
+
+    }
+    //获取指定分页分区的所有视频
+    function getVideoByType(sortId,currpage){
+        $.ajax({
+            url:'/video/getVideoByType',
+            type:'get',
+            dataType:'json',
+            data:{
+                typeId:sortId,
+                currPage:currpage
+            },
+            success:function(data) {
+                if (data.code == 0) {
+                    var data = data.data;
+                    showAllVideo(data);
+                }
+            }
+
+        });
+
+    }
+    //分区播放量排行榜
+    function getVideoRank(sortId){
+        var ranks;
+        $.ajax({
+            url:'/video/getVideoRank',
+            type:'get',
+            dataType:'json',
+            data:{
+                typeId:sortId
+            },
+            async:false,
+            success:function(rank){
+                if(rank.code==0){
+                    ranks=rank.data;
+                }
+            }
+
+        });
+        return ranks;
+    }
+
+    //显示分区个视频数量
+    function showAllSort(){
+        $("#sort").empty();
+        var appendhtml='';
+        var counts=[];
+        var type=[];
+        counts=getAllCount();//调用获取分区内视频数的function
+        type=getAllType();//调用获取分区类型的function
+
+
+        for(var i=0;i<type.length;i++){
+            appendhtml +='<li><a href="/user/sort.html?sortId='+type[i].id+'">\n' +
+                '                <div class="num-wrap"><span>'+counts[i]+'</span></div>\n' +
+                '                <div class="nav-name">'+type[i].name+'</div>\n' +
+                '            </a></li>';
+        }
+        $("#sort").append(appendhtml);
+
+    }
+    //显示全部视频信息
+    function showAllVideo(data){
+        $("#display").empty();
+        var appendhtml='';
+        var lists =data.lists;
+
+        for(var i=0;i<lists.length;i++){
+            appendhtml +=' <div class="spread-module" >\n' +
+                '                            <a href="/user/video.html?videoId='+lists[i].id+'" target="_blank">\n' +
+                '                            <div class="pic">\n' +
+                '                                <div class="lazy-img"><img alt=""\n' +
+                '                                                           src="..' + lists[i].firstImagePath +'">\n' +
+                '                                </div>\n' +
+                '\n' +
+                '                                <div class="mask-video"></div>\n' +
+                '                                <span class="dur"><p>'+lists[i].videoLength+'</p></span><!--播放时长-->\n' +
+                '                                <div class="watch-later-trigger w-later"></div>\n' +
+                '                            </div>\n' +
+                '                            <p title="'+lists[i].name+'" class="t">'+lists[i].name+'</p>\n' +
+                '                            <p class="num"><span class="play"><i class="icon"></i><!--播放量-->'+lists[i].vv+'</span>\n' +
+                '                                <span class="danmu"><i class="icon"></i>'+lists[i].commentCount+'</span>\n' +
+                '                            </p></a></div>';
+        }
+        $("#display").append(appendhtml);
+       commonPage1(data, sortId);
+    }
+
+    //右侧排行榜展示
+    function showVideoRank(){
+        $("#rank").empty();
+        var appendhtml='';
+        var ranks=[];
+        ranks=getVideoRank(sortId);
+        var count=1;
+        for(var i=0;i<ranks.length;i++){
+            if(count<=10){
+                appendhtml+='<li class="rank-item"><i class="ri-num">'+count+'</i><a class="ri-info-wrap clearfix"\n' +
+                    '                                          href="/user/video.html?videoId='+ranks[i].id+'" target="_blank">\n' +
+                    '                                <!---->\n' +
+                    '                                <div class="ri-detail"><p class="ri-title">'+ranks[i].name+'</p>\n' +
+                    '                                    <p class="ri-point">播放量：'+ranks[i].vv+'</p></div><!----></a></li>';
+            }
+            count=count+1;
+        }
+        $("#rank").append(appendhtml);
+
+    }
+
+
 </script>
 </body>
 </html>
