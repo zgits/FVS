@@ -3489,7 +3489,7 @@ body .layui-table-tips .layui-layer-content {
 .layui-lump {
     position: relative;
     height: 180px;
-    background:url(../images/timg2.jpg);
+    /*background:url(../images/timg2.jpg);*/
     color: #fff;
     border-radius: 2px;
     font-size: 0;
