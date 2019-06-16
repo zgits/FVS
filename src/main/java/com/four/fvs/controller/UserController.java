@@ -157,7 +157,6 @@ public class UserController {
     @ResponseBody
     @GetMapping(value = "/getUser")
     public Result<Object> getUser(Integer id){
-
         return ResultUtils.success(userService.getUserService(id));
     }
     /**

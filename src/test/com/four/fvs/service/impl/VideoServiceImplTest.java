@@ -1,6 +1,7 @@
 package com.four.fvs.service.impl;
 
 import com.four.fvs.BaseTest;
+import com.four.fvs.service.TypeService;
 import com.four.fvs.service.VideoService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +14,8 @@ public class VideoServiceImplTest extends BaseTest {
 
     @Autowired
     private VideoService videoService;
+    @Autowired
+    private TypeService typeService;
 
     @Test
     public void getOneVideoById() {
@@ -31,8 +34,12 @@ public class VideoServiceImplTest extends BaseTest {
     }
 
     @Test
-    public void getAllVideo() {
+    public void getAllVideo()throws Exception{
        // videoService.getAllVideo();
-        System.out.println(videoService.getAllVideo());
+       //System.out.println(videoService.getUpdateCount(1));
+    }
+    @Test
+    public void getVideoRank(){
+      //  System.out.println(videoService.getVideoByType(1,1).getLists().size());
     }
 }

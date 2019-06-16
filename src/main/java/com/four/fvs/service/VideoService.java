@@ -1,10 +1,15 @@
 package com.four.fvs.service;
 
+import com.four.fvs.common.PageBean;
+import com.four.fvs.model.User;
 import com.four.fvs.model.Video;
 import com.four.fvs.model.VideoOpRecord;
+import com.four.fvs.vo.UserVo;
 import com.four.fvs.vo.VideoIndexVo;
 import com.four.fvs.vo.VideoVo;
+import org.apache.ibatis.annotations.Param;
 
+import java.text.ParseException;
 import java.util.List;
 
 import java.util.List;
@@ -62,6 +67,11 @@ public interface VideoService {
      */
     public List<VideoIndexVo> getAllVideo();
 
+    /**
+     * 获取排行榜
+     */
+    public List<Video> getVideoRank(Integer typeId);
+
 
     /**
      *得到相同类型的视频信息
@@ -78,6 +88,44 @@ public interface VideoService {
      * @return
      */
     public boolean getIfExistOpRecord(VideoOpRecord videoOpRecord);
+
+    /**
+     * 获取各分区视频数量
+     */
+    public List<Integer> getAllCount();
+
+    /**
+     *各分区全部视频展示
+     * @param typeId
+     * @return
+     */
+    public PageBean<VideoIndexVo> getVideoByType(Integer currPage,Integer typeId);
+
+    /**
+     * 根据名称模糊查询视频
+     */
+    public PageBean<VideoIndexVo>getVideoByName(Integer currage, String name);
+
+    /**
+     * 根据名称模糊查询用户
+     * @param currpage
+     * @param name
+     * @return
+     */
+    public PageBean<UserVo> getUserByName(Integer currpage, String name);
+
+    /**
+     * 视频更新数量
+     * @param typeId
+     * @return
+     */
+    public Integer getUpdateCount(Integer typeId);
+
+
+
+
+
+
 
 
     public List<Video> getCollectVideoService(Integer id);

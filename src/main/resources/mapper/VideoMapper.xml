@@ -68,13 +68,83 @@
         ) a
         left JOIN bulletscreen b on a.id=b.videoId and b.type=1 and b.del=1
     </select>
+    <!--获取某分区昨天到今天更新条数-->
+    <select id="getUpdateCount" resultType="integer">
+        SELECT count(*) FROm video
+        WHERE TO_DAYS(NOW())-TO_DAYS(upTime)&lt;=1 and typeId=#{typeId} and del=1;
 
+    </select>
     <!--首页获取-->
     <select id="getAllVideo" resultType="com.four.fvs.model.Video" >
         select id,vv,name,typeId,firstImagepath,videoSrc,videoLength,upTime
         from video
         where del=1
         ORDER BY upTime desc
+    </select>
+
+    <!--排行榜-->
+    <select id="getVideoRank" resultType="com.four.fvs.model.Video">
+        select id,typeId,vv,name,upTime
+        from video
+        where del=1 and typeId=#{typeId}
+        order by vv desc
+    </select>
+    <!--获取各分区视频数量-->
+    <select id="getVideoCountByType" resultType="integer">
+        select count(*) from video
+        where del=1 and typeId=#{typeId}
+    </select>
+
+    <!--分页获取分区的视频信息-->
+    <select id="getVideoByType" resultType="com.four.fvs.model.Video">
+        select id,vv,name,firstImagepath,videoSrc,videoLength,upTime,typeId
+        from video
+        where del=1 and typeId=#{typeId}
+        ORDER BY upTime desc
+        limit #{begin},#{size}
+    </select>
+    <select id="getVideoByType1" resultType="com.four.fvs.model.Video">
+        select id,vv,name,firstImagepath,videoSrc,videoLength,upTime,typeId
+        from video
+        where del=1 and typeId=#{typeId}
+        ORDER BY upTime desc
+    </select>
+
+
+    <!--根据名字模糊搜索视频-->
+    <select id="getVideoByName" resultType="com.four.fvs.model.Video">
+        <bind name="videoname" value="'%'+name+'%'"/>
+        select id,vv,name,firstImagepath,videoSrc,videoLength,upTime,typeId
+        from video
+        where name like #{videoname} and del=1
+        order by (vv)desc
+        limit #{begin},#{size}
+    </select>
+
+    <select id="getVideoByName1" resultType="com.four.fvs.model.Video">
+        <bind name="videoname" value="'%'+name+'%'"/>
+        select id,vv,name,firstImagepath,videoSrc,videoLength,upTime,typeId
+        from video
+        where name like #{videoname} and del=1
+        order by (vv)desc
+    </select>
+
+    <!--根据名字模糊搜索用户-->
+    <select id="getUserByName" resultType="com.four.fvs.model.User">
+        <bind name="username" value="'%'+name+'%'"/>
+        select *
+        from user
+        where userName like #{username} and del=1
+        ORDER BY LENGTH(userName)
+        limit #{begin},#{size}
+    </select>
+
+    <select id="getUserByName1" resultType="com.four.fvs.model.User">
+        <bind name="username" value="'%'+name+'%'"/>
+        select *
+        from user
+        where userName like #{username} and del=1
+        ORDER BY LENGTH(userName)
     </select>
 
 

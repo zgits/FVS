@@ -10,6 +10,7 @@ import java.util.List;
  * @Date: 2019/5/21 12:26
  * @Description: 视频实体类
  */
+
 public class Video {
 
     private Integer id;//id
@@ -21,7 +22,7 @@ public class Video {
     private Integer userId;//视频上传人
 
     //防止显示时间乱码,前端有个tool.js文件，里面可以将时间戳转换为特定格式的字符串
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss",timezone = "GMT+8")
     private Date upTime;//视频上传时间
 
     private Integer vv;//视频播放量
