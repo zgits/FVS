@@ -42,7 +42,7 @@
 
     <select id="listTopVideoForVVs" resultType="video">
         select a.id,a.name,a.typeId,a.userId,a.vv,a.videoSrc from video a ,video_play_list b
-          where  watch_time between DATE_SUB(#{watchTime} ,INTERVAL 1 WEEK) and #{watchTime}
+          where  watch_time between DATE_SUB(#{watchTime} ,INTERVAL 7 day ) and #{watchTime}
             and a.id = b.video_id group by a.id order by count(a.id) desc limit 10
     </select>
 </mapper>

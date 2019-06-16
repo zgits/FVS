@@ -48,6 +48,13 @@
     </sql>
 
 
+    <insert id="addVideoPlayList" parameterType="com.four.fvs.model.VideoPlayList">
+        insert into video_play_list (video_id, watch_time)
+        values (#{videoId} ,#{watchTime} )
+    </insert>
+
+
+
     <select id="getOneVideoById" resultMap="video">
         select
         a.*,
