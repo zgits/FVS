@@ -35,6 +35,10 @@
         height: 450px;
         overflow: auto
     }
+
+    html{
+        background: #F6F6F6;
+    }
 </style>
 <script type="text/javascript">
 
@@ -58,7 +62,7 @@
 
     }
 </script>
-<body>
+<body style="background: #F6F6F6">
 <header class="main-header">
     <li class="layui-lump" id="head">
         <ul class="layui-nav">
@@ -103,7 +107,7 @@
 </header>
 
 
-<div class="content">
+<div class="content" style="margin-top: 80px;">
     <div class="catalog">
         <div class="catalog-head">
             <img style="width: 20px; height: 20px;" src="../static/dist/img/news-logo.png">
@@ -426,7 +430,6 @@
                 "                <div class=\"comment-content-user\">\n" +
                 "                    <span class=\"comment-content-user-username\"><b><a href=\"usercenter.html?id=" + data[i].userId + "\">" + data[i].userName + "</a></b></span>\n" +
                 "                    <span class=\"comment-content-user-time\">" + changeDateFormat(commentReply.replyTime) + "</span>\n" +
-                "                    <span class=\"comment-content-user-delete\"><a href=\"#\">删除</a> </span>\n" +
                 "                    <br>\n" +
                 "                    <span class=\"comment-content-response\"><span style=\"color: #00a65a\">回复我</span> :" + commentReply.content + "</span>\n" +
                 "                </div>\n" +
