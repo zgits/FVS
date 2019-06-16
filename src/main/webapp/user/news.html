@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>消息中心</title>
-    <link rel="stylesheet" href="../static/dist/css/news.css">
+
 
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="../static/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="../static/bower_components/Ionicons/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../static/dist/css/AdminLTE.min.css">
+
+    <link rel="stylesheet" href="../tempcss/layui/css/layui.css">
+    <link rel="stylesheet" href="../tempcss/bilibili/bilibili.css">
+
+    <link rel="stylesheet" href="../static/dist/css/news.css">
+
+
 </head>
 <style>
     .comment-onclick {
@@ -27,6 +34,10 @@
         padding: 10px;
         height: 450px;
         overflow: auto
+    }
+
+    html{
+        background: #F6F6F6;
     }
 </style>
 <script type="text/javascript">
@@ -51,9 +62,52 @@
 
     }
 </script>
-<body>
-<div class="nav"></div>
-<div class="content">
+<body style="background: #F6F6F6">
+<header class="main-header">
+    <li class="layui-lump" id="head">
+        <ul class="layui-nav">
+            <li class="layui-nav-logo">
+                <a href="index2.html"><i class="layui-icon layui-icon-website" style="font-size: 15px"></i>FREE</a>
+            </li>
+
+            <li style="float: right" class="layui-nav-item">
+                <a href="">退出</a>
+            </li>
+            <li style="float: right" class="layui-nav-item">
+                <a href="">历史记录</a>
+            </li>
+            <li style="float: right" class="layui-nav-item">
+                <a href="">消息</a>
+            </li>
+            <li style="float: right" class="layui-nav-item">
+                <a href=""><img class="layui-nav-img" src="//t.cn/RCzsdCq">哔了狗了</a>
+            </li>
+
+
+            <div class="bili-header-m">
+                <li style="float: right;height: 15px;right: -30px" class="layui-nav-item">
+                    <div class="search" id="search">
+                        <form class="searchform"  method="post">
+                            <input id="searchcomment" class="search-keyword" accesskey="s" type="text"
+                                   placeholder="搜索内容" value=""
+                                   x-webkit-grammar="builtin:translate" x-webkit-speech=""
+                                   autocomplete="off">
+                            <button class="search-submit" type="button" onclick="Search()" ></button>
+                        </form>
+
+                    </div>
+                </li>
+            </div>
+
+            </li>
+
+
+        </ul>
+    </li>
+</header>
+
+
+<div class="content" style="margin-top: 80px;">
     <div class="catalog">
         <div class="catalog-head">
             <img style="width: 20px; height: 20px;" src="../static/dist/img/news-logo.png">
@@ -71,6 +125,7 @@
     <div class="new-comment" id="new-comment" style="position: fixed;">
         <div class="comment" id="commentReply">
             <div class="comment-catalog">&nbsp;&nbsp;回复我的</div>
+
             <div class="comment-content">
                 <div class="comment-content-img">
                     <a href="#"><img style="width: 50px; height: 50px;" src="../static/dist/img/head-portrait.png"></a>
@@ -201,6 +256,8 @@
 
 <script src="../static/tools.js"></script>
 
+<script src="../static/layui/layui.js" charset="utf-8"></script>
+
 <!--sockJS cdn-->
 <script src="../static/plugins/stomp/sockjs.min.js"></script>
 <!--stomp cdn-->
@@ -216,14 +273,108 @@
 <script src="../static/dist/js/adminlte.min.js"></script>
 
 <script>
+    layui.use('element', function () {
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+        //监听导航点击
+        element.on('nav(demo)', function (elem) {
+            //console.log(elem)
+            layer.msg(elem.text());
+        });
+    });
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+
+<script language="JavaScript">
+    function Search() {
+        var videoName=$("#searchcomment").val();
+        window.location.href="/user/searchresult.html?VideoName="+videoName;
+    }
+
+</script>
+
+<script>
     var userId = $.cookie('userId');
 
     var rId=getUrlParam("rId");
 
     var userIcon;
+
+
+    /**
+     *获得当前登录用户的用户信息
+     */
+    function getUserInfo(userId) {
+        var result;
+        $.ajax({
+            url: '/user/getUserInfo',
+            type: 'get',
+            data: {
+                userId: userId
+            },
+            success: function (data) {
+                if (data.code == 0) {
+                    result = data.data;
+                    showhead(result);
+                }
+            }
+        });
+    };
+
+    function showhead(data){
+        $("#head").empty();
+        var appendhtml='';
+        var user=data;
+        appendhtml+=' <ul class="layui-nav">\n' +
+            '        <li class="layui-nav-logo">\n' +
+            '            <a href="index2.html"><i class="layui-icon layui-icon-website" style="font-size: 15px"></i>FREE</a>\n' +
+            '        </li>\n' +
+            '\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href="/user/login.html">退出</a>\n' +
+            '        </li>\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href="">历史记录</a>\n' +
+            '        </li>\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href="/user/news.html">消息</a>\n' +
+            '        </li>\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href=""><img class="layui-nav-img" src="..'+user.icon+'">'+user.userName+'</a>\n' +
+            '        </li>\n' +
+            '\n' +
+            '\n' +
+            '        <div class="bili-header-m">\n' +
+            '            <li style="float: right;height: 15px;right: -30px" class="layui-nav-item">\n' +
+            '                <div class="search" id="search">\n' +
+            '                    <form class="searchform"  method="post">\n' +
+            '                        <input id="searchcomment" class="search-keyword" accesskey="s" type="text"\n' +
+            '                                                    placeholder="搜索内容" value=""\n' +
+            '                                                     x-webkit-grammar="builtin:translate" x-webkit-speech=""\n' +
+            '                                                    autocomplete="off">\n' +
+            '                        <button class="search-submit" type="button" onclick="Search()" ></button>\n' +
+            '                    </form>\n' +
+            '\n' +
+            '                </div>\n' +
+            '            </li>\n' +
+            '        </div>\n' +
+            '\n' +
+            '        </li>\n' +
+            '\n' +
+            '\n' +
+            '    </ul>';
+        $("#head").append(appendhtml);
+    }
+
+
     $(function () {
 
         connect();
+
+
 
         $.ajax({
             url: '/user/getUserInfo',
@@ -236,6 +387,8 @@
             }
 
         });
+
+        getUserInfo(userId);
 
         if(rId!=null){
             $("#myMessage").removeClass("comment-onclick");
@@ -277,7 +430,6 @@
                 "                <div class=\"comment-content-user\">\n" +
                 "                    <span class=\"comment-content-user-username\"><b><a href=\"usercenter.html?id=" + data[i].userId + "\">" + data[i].userName + "</a></b></span>\n" +
                 "                    <span class=\"comment-content-user-time\">" + changeDateFormat(commentReply.replyTime) + "</span>\n" +
-                "                    <span class=\"comment-content-user-delete\"><a href=\"#\">删除</a> </span>\n" +
                 "                    <br>\n" +
                 "                    <span class=\"comment-content-response\"><span style=\"color: #00a65a\">回复我</span> :" + commentReply.content + "</span>\n" +
                 "                </div>\n" +

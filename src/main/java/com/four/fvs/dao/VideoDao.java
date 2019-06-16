@@ -2,6 +2,7 @@ package com.four.fvs.dao;
 
 import com.four.fvs.model.User;
 import com.four.fvs.model.Video;
+import com.four.fvs.model.VideoPlayList;
 import com.four.fvs.vo.VideoIndexVo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -15,6 +16,14 @@ import java.util.List;
  */
 @Repository
 public interface VideoDao {
+
+
+    /**
+     * 添加历史观看记录
+     * @param videoPlayList
+     * @return
+     */
+    public Integer addVideoPlayList(VideoPlayList videoPlayList);
 
     /**
      * 用户播放视频时，根据视频id获取视频数据

@@ -5,6 +5,7 @@ import com.four.fvs.dao.*;
 import com.four.fvs.model.User;
 import com.four.fvs.model.Video;
 import com.four.fvs.model.VideoOpRecord;
+import com.four.fvs.model.VideoPlayList;
 import com.four.fvs.service.FocusService;
 import com.four.fvs.service.TypeService;
 import com.four.fvs.service.UserService;
@@ -81,6 +82,11 @@ public class VideoServiceImpl implements VideoService {
 
     @Override
     public Integer updateVideovv(Integer id) {
+        //增加历史记录
+        VideoPlayList videoPlayList=new VideoPlayList();
+        videoPlayList.setVideoId(id);
+        videoPlayList.setWatchTime(new Date());
+        videoDao.addVideoPlayList(videoPlayList);
         return videoDao.updateVideovv(id);
     }
 

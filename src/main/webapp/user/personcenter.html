@@ -38,7 +38,8 @@
                             <div class="layui-col-md9">
                                 <div class="section video empty full-rows host" id="Reset3">
                                     <h3 class="section-title">
-                                        <a class="t" href="personalcenter_submit.html">我的视频</a><span class="count">0</span></h3>
+                                        <a class="t" href="personalcenter_submit.html">我的视频</a><span
+                                            class="count">0</span></h3>
                                     <div class="content clearfix"></div>
                                 </div>
                             </div>
@@ -66,7 +67,8 @@
                                 </div>
                                 <div class="fav-main section"></div>
 
-                                <a href="" class="layui-btn">视频投稿</a> &nbsp; &nbsp; &nbsp; &nbsp;
+                                <button type="button" class="layui-btn" id="test3"><i class="layui-icon"></i>上传文件
+                                </button> &nbsp; &nbsp; &nbsp; &nbsp;
                                 &nbsp;<a href="personalcenter_submit.html" class="layui-btn">稿件管理</a>
                                 <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
@@ -75,7 +77,8 @@
                                 <div class="section i-ann"><h3 class="section-title">个人简介</h3>
                                     <div class="content">
                                         <div class="be-textarea be-input--append" id="i-ann-content"><!---->
-                                            <textarea class="be-textarea_inner" maxlength="200" placeholder="编辑我的个人简介" rows="5" type="textarea">这个人很懒，啥也没留下。
+                                            <textarea class="be-textarea_inner" maxlength="200" placeholder="编辑我的个人简介"
+                                                      rows="5" type="textarea">这个人很懒，啥也没留下。
                                             </textarea>
 
                                             <div class="be-input-word-counter">0/200</div><!----></div>
@@ -87,102 +90,117 @@
                             </div>
 
 
+                        </div>
 
                     </div>
-
                 </div>
             </div>
         </div>
-        </div></div></div>
-    <!-- jQuery 3 -->
-    <script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
+    </div>
+</div>
+<!-- jQuery 3 -->
+<script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
 
-    <script src="../static/plugins/cookie/jquery.cookie.min.js"></script>
-    <script src="../static/plugins/sweetalert/sweetalert.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../static/plugins/sweetalert/sweetalert.css">
-    <script type="text/javascript" src="../static/resources/js/login.js?v=20175131017 "></script>
-    <link href="../static/resources/css/login.css" rel="stylesheet" type="text/css"/>
+<script src="../static/plugins/cookie/jquery.cookie.min.js"></script>
+<script src="../static/plugins/sweetalert/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../static/plugins/sweetalert/sweetalert.css">
+<script type="text/javascript" src="../static/resources/js/login.js?v=20175131017 "></script>
+<link href="../static/resources/css/login.css" rel="stylesheet" type="text/css"/>
 
-    <script src="../static/layui/layui.js"></script>
-    <script>
-        layui.use('element', function () {
-            var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+<script src="../static/layui/layui.js"></script>
 
-            //监听导航点击
-            element.on('nav(demo)', function (elem) {
-                //console.log(elem)
-                layer.msg(elem.text());
-            });
+
+<script>
+    layui.use('upload', function(){
+        var $ = layui.jquery
+            ,upload = layui.upload;
+
+        //指定允许上传的文件类型
+        upload.render({
+            elem: '#test3'
+            ,url: '/video/upload'
+            ,accept: 'file' //普通文件
+            ,done: function(res){
+                console.log(res)
+            }
         });
+    });
+</script>
+<script>
+    layui.use('element', function () {
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
 
-
-
-
-    </script>
-
-
-
-    <script>
-
-        var userId = $.cookie('userId');
-        $(function () {
-            //静态数据置空
-            $("#Reset3").empty();
-            SelectCollectVideo();
+        //监听导航点击
+        element.on('nav(demo)', function (elem) {
+            //console.log(elem)
+            layer.msg(elem.text());
         });
-        function SelectCollectVideo() {
-            $.ajax({
-                url: "/video/getCollectVideo",
-                type: "get",
-                dataType: "json",
-                data: {
-                    userId: userId
-                },
-                //默认执行成功
-                success: function (data) {
-                 //   alert("获取用户信息成功！");
-                    //控制台打印
-                    console.log(data.data);
-                    showCollectVideo(data);
-                },
-                error: function(data){
+    });
+
+
+</script>
+
+
+<script>
+
+    var userId = $.cookie('userId');
+    $(function () {
+        //静态数据置空
+        $("#Reset3").empty();
+        SelectCollectVideo();
+    });
+
+    function SelectCollectVideo() {
+        $.ajax({
+            url: "/video/getCollectVideo",
+            type: "get",
+            dataType: "json",
+            data: {
+                userId: userId
+            },
+            //默认执行成功
+            success: function (data) {
+                //   alert("获取用户信息成功！");
+                //控制台打印
+                console.log(data.data);
+                showCollectVideo(data);
+            },
+            error: function (data) {
                 //   alert("获取用户信息失败！");
-                }
-            });
+            }
+        });
 
+    }
+
+
+    function showCollectVideo(data) {
+        //控制台打印
+        console.log("第一次：" + data.data.length);
+        //按格式从数据库取数据
+
+        var appendhtml =
+            "   <h3 class=\"section-title\"><a class=\"t\" href=\"personalcenter_submit.html\">我的视频</a><span class=\"count\">0</span></h3>\n" +
+            "                                    <div class=\"content clearfix\"></div>\n";
+        for (var i = 0; i < 4; i++) {
+            appendhtml +=
+
+                "                                    <li class=\"small-item\" >\n" +
+                "                                        <a class=\"cover cover-normal\" href=\" " + data.data[i].videoSrc + " \" target=\"_blank\">\n" +
+                "                                            <img alt=\"   " + data.data[i].name + "  \" src=\" " + data.data[i].firstImagePath + " \">\n" +
+                "                                            <span class=\"length\" >" + data.data[i].videoLength + "</span>\n" +
+                "                                            <div class=\"be-tags-container\" ></div>\n" +
+                "                                        </a>\n" +
+
+                "                                        <a title=\"  " + data.data[i].name + "   \" class=\"title\"\n" +
+                "                                           href=\" " + data.data[i].videoSrc + "  \" target=\"_blank\">" + data.data[i].name + "</a>\n" +
+                "                                    </li>"
         }
+        //将取得的数据追加进去
+        $("#Reset3").append(appendhtml);
+
+    }
 
 
-        function showCollectVideo(data) {
-            //控制台打印
-            console.log("第一次：" + data.data.length);
-            //按格式从数据库取数据
-
-            var appendhtml =
-                "   <h3 class=\"section-title\"><a class=\"t\" href=\"personalcenter_submit.html\">我的视频</a><span class=\"count\">0</span></h3>\n" +
-                "                                    <div class=\"content clearfix\"></div>\n" ;
-            for(var i = 0; i < 4; i++){
-                appendhtml +=
-
-                    "                                    <li class=\"small-item\" >\n" +
-                    "                                        <a class=\"cover cover-normal\" href=\" "  +   data.data[i].videoSrc + " \" target=\"_blank\">\n" +
-                    "                                            <img alt=\"   " + data.data[i].name+ "  \" src=\" "  + data.data[i].firstImagePath + " \">\n" +
-                    "                                            <span class=\"length\" >" +    data.data[i].videoLength     + "</span>\n" +
-                    "                                            <div class=\"be-tags-container\" ></div>\n" +
-                    "                                        </a>\n" +
-
-                    "                                        <a title=\"  "   + data.data[i].name+   "   \" class=\"title\"\n" +
-                    "                                           href=\" "+    data.data[i].videoSrc + "  \" target=\"_blank\">"+    data.data[i].name  +"</a>\n" +
-                    "                                    </li>"}
-            //将取得的数据追加进去
-            $("#Reset3").append(appendhtml);
-
-        }
-
-
-
-
-
-    </script>
+</script>
 </body>
 </html>
