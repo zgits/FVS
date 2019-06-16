@@ -109,8 +109,8 @@ public class SystemMessageServiceImpl implements SystemMessageService {
 
     @Override
     @Transactional
-    public PageBean<SystemMessage> listMessages(Integer begin, Integer size) {
-        PageBean<SystemMessage> pageBean = new PageBean<SystemMessage>();
+    public List<SystemMessage> listMessages() {
+       /* PageBean<SystemMessage> pageBean = new PageBean<SystemMessage>();
         //设置每页显示的数量
         pageBean.setPageSize(size);
         Integer totalCount= systemMessageDao.countMessage();
@@ -124,8 +124,8 @@ public class SystemMessageServiceImpl implements SystemMessageService {
         Double num=Math.ceil(tc/size);
         pageBean.setTotalPage(num.intValue());
         //设置开始的位置
-        Integer start =(begin-1)*size;
-        pageBean.setLists(systemMessageDao.listMessages(begin, size));
-        return pageBean;
+        Integer start =(begin-1)*size;*/
+        //pageBean.setLists(systemMessageDao.listMessages(begin, size));
+        return systemMessageDao.listMessages();
     }
 }

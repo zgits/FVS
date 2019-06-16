@@ -31,10 +31,10 @@
     </update>
 
     <select id="listMessages" resultType="systemMessage">
-        select id, content, sendTime, title from systemmessage where del = 1 limit #{begin },#{size }
+        select id, content, sendTime, title from systemmessage where del = 1
     </select>
 
-    <select id="countMessage">
+    <select id="countMessage" resultType="int">
         select count(id) from systemmessage
     </select>
 </mapper>
