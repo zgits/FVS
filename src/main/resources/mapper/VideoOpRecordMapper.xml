@@ -55,14 +55,14 @@
 
     <select id="getRecord" resultType="com.four.fvs.model.VideoOpRecord">
         select * from videooprecord
-        where userId=#{userId}
-        <if test="commentId != null">
+        where userId=#{userId} and type=#{type}
+        <if test="commentId != null and commentId != ''">
             and commentId=#{commentId}
         </if>
-        <if test="hisplayId != null">
+        <if test="hisplayId != null and hisplayId != ''">
             and hisplayId=#{hisplayId}
         </if>
-        <if test="videoId != null">
+        <if test="videoId != null and videoId != ''">
             and videoId=#{videoId}
         </if>
         and opType=#{opType} and del=1

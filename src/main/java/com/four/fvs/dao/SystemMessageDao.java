@@ -40,4 +40,26 @@ public interface SystemMessageDao {
     Integer insertSystemMessage(SystemMessage systemMessage);
 
 
+    /**
+     * 删除消息
+     *
+     * @param id 消息id
+     * @return
+     */
+    Integer deleteMessage(@Param("id") Integer id);
+
+
+    /**
+     * 历史消息
+     *
+     * @return
+     */
+    List<SystemMessage> listMessages();
+
+    /**
+     * 获取消息条数
+     *
+     * @return 返回消息条数
+     */
+    Integer countMessage();
 }

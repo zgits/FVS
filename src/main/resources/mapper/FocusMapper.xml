@@ -28,10 +28,8 @@
     </insert>
 
 
-    <update id="delFocus">
-        update focus set
-        del=2
-        where userId=#{userId} and fansId=#{fansId}
+    <update id="delFocus" parameterType="com.four.fvs.model.Focus">
+        update focus set del = 2 where userId=#{userId} and fansId=#{fansId}
     </update>
 
 

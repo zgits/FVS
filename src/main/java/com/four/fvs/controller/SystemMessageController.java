@@ -1,5 +1,6 @@
 package com.four.fvs.controller;
 
+import com.four.fvs.common.PageBean;
 import com.four.fvs.common.Result;
 import com.four.fvs.common.ResultUtils;
 import com.four.fvs.model.SystemMessage;
@@ -7,6 +8,8 @@ import com.four.fvs.service.SystemMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @Author: zjf
@@ -55,7 +58,30 @@ public class SystemMessageController {
         return ResultUtils.paramerror();
     }
 
+    /**
+     * 删除消息
+     *
+     * @param id 消息id
+     * @return
+     */
+    @RequestMapping(value = "{id}" ,method = RequestMethod.GET)
+    @ResponseBody
+    public Result<Object> delete(@PathVariable("id") Integer id){
+        int result = systemMessageService.deleteMessage(id);
+        return result > 0 ? ResultUtils.success(result) : ResultUtils.serviceerror();
+    }
 
+    /**
+     * 展示消息
+     *
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
+    public Result<Object> query(){
+        List<SystemMessage> lists = systemMessageService.listMessages();
+        return lists == null ? ResultUtils.success(0) : ResultUtils.success(lists);
+    }
 
 
 }

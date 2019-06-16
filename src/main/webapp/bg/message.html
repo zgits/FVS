@@ -26,8 +26,8 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="../static/dist/js/html5shiv.min.js"></script>
+    <script src="../static/dist/js/respond.min.js"></script>
     <![endif]-->
 
     <!-- Google Font -->
@@ -411,18 +411,18 @@
                         <div class="box-body">
 
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-12" id="data1">
                                     <!-- The time line -->
-                                    <ul class="timeline">
+                                    <!--<ul class="timeline" >-->
                                         <!-- timeline time label -->
-                                        <li class="time-label">
-                  <span class="bg-red">
-                    2019-5-17
-                  </span>
-                                        </li>
+                                      <!-- <li class="time-label">
+                                          <span class="bg-red">
+                                            2019-5-17
+                                          </span>
+                                        </li>-->
                                         <!-- /.timeline-label -->
                                         <!-- timeline item -->
-                                        <li>
+                                       <!-- <li>
                                             <i class="fa fa-envelope bg-blue"></i>
 
                                             <div class="timeline-item">
@@ -437,18 +437,18 @@
                                                     <a class="btn btn-danger btn-xs">删除</a>
                                                 </div>
                                             </div>
-                                        </li>
+                                        </li>-->
                                         <!-- END timeline item -->
                                         <!-- timeline item -->
 
                                         <!-- timeline time label -->
-                                        <li class="time-label">
+                                       <!-- <li class="time-label">
                                             <span class="bg-green">
                                                 2019-5-16
                                             </span>
-                                        </li>
+                                        </li>-->
                                         <!-- /.timeline-label -->
-                                        <li>
+                                       <!-- <li>
                                             <i class="fa fa-envelope bg-aqua"></i>
 
                                             <div class="timeline-item">
@@ -462,10 +462,10 @@
                                                     <a class="btn btn-danger btn-xs">删除</a>
                                                 </div>
                                             </div>
-                                        </li>
+                                        </li> -->
                                         <!-- END timeline item -->
                                         <!-- timeline item -->
-                                        <li>
+                                      <!--  <li>
                                             <i class="fa fa-envelope bg-yellow"></i>
 
                                             <div class="timeline-item">
@@ -483,13 +483,13 @@
                                                     <a class="btn btn-warning btn-flat btn-xs">View comment</a>
                                                 </div>
                                             </div>
-                                        </li>
+                                        </li>-->
                                         <!-- END timeline item -->
                                         <!-- timeline time label -->
-                                        <li>
+                                       <!-- <li>
                                             <i class="fa fa-clock-o bg-gray"></i>
-                                        </li>
-                                    </ul>
+                                        </li>-->
+                                   <!-- </ul>-->
                                 </div>
                                 <!-- /.col -->
                             </div>
@@ -600,6 +600,28 @@
 </script>
 
 <script>
+
+    function timeStamp2String(time){
+        var datetime = new Date();
+        datetime.setTime(time);
+        var year = datetime.getFullYear();
+        var month = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+        var date = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+       /* var hour = datetime.getHours()< 10 ? "0" + datetime.getHours() : datetime.getHours();
+        var minute = datetime.getMinutes()< 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+        var second = datetime.getSeconds()< 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();*/
+        return year + "-" + month + "-" + date;
+    }
+
+    function timeStampDay(time){
+        var datetime = new Date();
+        datetime.setTime(time);
+        var hour = datetime.getHours()< 10 ? "0" + datetime.getHours() : datetime.getHours();
+        var minute = datetime.getMinutes()< 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+        var second = datetime.getSeconds()< 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
+        return hour + ":" + minute + ":" + second;
+    }
+
     $(function () {
         //Flat red color scheme for iCheck
         $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
@@ -614,6 +636,73 @@
 
         });
     });
+
+    /**
+     * 显示数据
+     *
+     * @returns
+     */
+    window.onload = function () {
+        var htmls = "";
+        $.ajax({
+            url: "/systemmessage",
+            type: "get",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                var list = data.data;
+                $.each(list,function(i,content){
+                        htmls += "<ul class=\"timeline\" >\n"+
+                        "<li class=\"time-label\">\n" +
+                            "                  <span class=\"bg-red\">\n" +
+                            timeStamp2String(content.sendTime)+"\n" +
+                            "                  </span>\n" +
+                            "                                        </li>\n" +
+                            "\n" +
+                            "                                        <li>\n" +
+                            "                                            <i class=\"fa fa-envelope bg-blue\"></i>\n" +
+                            "\n" +
+                            "                                            <div class=\"timeline-item\">\n" +
+                            "                                                <span class=\"time\"><i class=\"fa fa-clock-o\"></i>" + timeStampDay(content.sendTime) + "</span>\n" +
+                            "\n" +
+                            "                                                <h3 class=\"timeline-header\">" + content.title + "</h3>\n" +
+                            "\n" +
+                            "                                                <div class=\"timeline-body\">\n" +
+                            content.content +
+                            "                                                </div>\n" +
+                            "                                                <div class=\"timeline-footer\">\n" +
+                            "                                                    <a class=\"btn btn-danger btn-xs\" onclick='deletes("+content.id+",this)'>删除</a>\n" +
+                            "                                                </div>\n" +
+                            "                                            </div>\n" +
+                            "    </li>"+"</ul>";
+                })
+                $("#data1").append(htmls);
+            }
+        })
+    }
+
+
+    /**
+     * 删除
+     */
+    function deletes(id,trs){
+        if(window.confirm("是否删除?")) {
+            var $this = $(trs).parent().parent().parent().parent();
+            $.ajax({
+                type: "get",
+                url:"/systemmessage/"+id,
+                dataType: "json",
+                success: function (data) {
+                    if(data.data > 0){
+                        $this.remove();
+                        alert("删除成功")
+                    }
+                }
+            })
+        }
+    }
+
+
 </script>
 
 

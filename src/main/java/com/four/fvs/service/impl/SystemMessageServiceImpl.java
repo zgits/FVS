@@ -10,8 +10,10 @@ import io.goeasy.publish.GoEasyError;
 import io.goeasy.publish.PublishListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: zjf
@@ -68,6 +70,7 @@ public class SystemMessageServiceImpl implements SystemMessageService {
 
 
     @Override
+    @Transactional
     public Integer insertSystemMessage(SystemMessage systemMessage) {
         return systemMessageDao.insertSystemMessage(systemMessage);
     }
@@ -96,5 +99,33 @@ public class SystemMessageServiceImpl implements SystemMessageService {
         }catch(Exception e){
            System.out.println("转化失败");
         }
+    }
+
+    @Override
+    @Transactional
+    public Integer deleteMessage(Integer id) {
+        return systemMessageDao.deleteMessage(id);
+    }
+
+    @Override
+    @Transactional
+    public List<SystemMessage> listMessages() {
+       /* PageBean<SystemMessage> pageBean = new PageBean<SystemMessage>();
+        //设置每页显示的数量
+        pageBean.setPageSize(size);
+        Integer totalCount= systemMessageDao.countMessage();
+        //设置总记录数
+        pageBean.setTotalCount(totalCount);
+        //设置当前页
+        pageBean.setCurrPage(begin);
+        //封装总页数
+        double tc=totalCount;
+        //向上取整
+        Double num=Math.ceil(tc/size);
+        pageBean.setTotalPage(num.intValue());
+        //设置开始的位置
+        Integer start =(begin-1)*size;*/
+        //pageBean.setLists(systemMessageDao.listMessages(begin, size));
+        return systemMessageDao.listMessages();
     }
 }

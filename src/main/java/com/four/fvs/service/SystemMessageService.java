@@ -2,7 +2,8 @@ package com.four.fvs.service;
 
 import com.four.fvs.common.PageBean;
 import com.four.fvs.model.SystemMessage;
-import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @Author: zjf
@@ -36,5 +37,20 @@ public interface SystemMessageService {
      * @param content 消息内容
      */
     void sendMes( Integer userId, String content);
+
+    /**
+     * 删除消息
+     *
+     * @param id 消息id
+     * @return
+     */
+    Integer deleteMessage(Integer id);
+
+    /**
+     * 查看历史消息
+     *
+     * @return 历史集合
+     */
+    List<SystemMessage> listMessages();
 
 }

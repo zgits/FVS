@@ -46,7 +46,15 @@ public interface VideoCommentService {
      * @param videoOpRecord
      * @return
      */
-    public boolean givePraise(VideoOpRecord videoOpRecord);
+    public String givePraise(VideoOpRecord videoOpRecord);
+
+
+    /**
+     * 判断点赞是否存在
+     * @param videoOpRecord
+     * @return
+     */
+    public boolean ifPraised(VideoOpRecord videoOpRecord);
 
 
     /**

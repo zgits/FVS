@@ -91,17 +91,26 @@ public class VideoCommentServiceImpl implements VideoCommentService {
     }
 
     @Override
-    public boolean givePraise(VideoOpRecord videoOpRecord) {
-        videoOpRecord.setOpType(3);
+    public String givePraise(VideoOpRecord videoOpRecord) {
+        videoOpRecord.setOpType(1);
+        videoOpRecord.setTime(new Date());
         VideoOpRecord videoOpRecord1=videoOpRecordDao.getRecord(videoOpRecord);
-        System.out.println(videoOpRecord1);
         int number=videoOpRecord1!=null?-1:1;
         if(videoOpRecord1!=null){
             videoOpRecordDao.delRecord(videoOpRecord);
         }else{
             videoOpRecordDao.addRecord(videoOpRecord);
         }
-        return videoCommentDao.givePraise(videoOpRecord.getCommentId(),number)>0;
+        videoCommentDao.givePraise(videoOpRecord.getCommentId(),number);
+        return videoOpRecord1!=null?"del":"add";
+    }
+
+    @Override
+    public boolean ifPraised(VideoOpRecord videoOpRecord) {
+        //videoOpRecord.setOpType(1);
+        videoOpRecord.setTime(new Date());
+        VideoOpRecord videoOpRecord1=videoOpRecordDao.getRecord(videoOpRecord);
+        return videoOpRecord1!=null?true:false;
     }
 
     @Override

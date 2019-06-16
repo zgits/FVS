@@ -54,6 +54,13 @@ public class VideoCommentController {
         return ResultUtils.success(videoCommentService.givePraise(videoOpRecord));
     }
 
+
+    @GetMapping("/ifPraised")
+    @ResponseBody
+    public Result<Object> ifPraised(VideoOpRecord videoOpRecord){
+        return ResultUtils.success(videoCommentService.ifPraised(videoOpRecord));
+    }
+
     /**
      * @Author: yzh
      * @Date: 2019/6/6 13:49
