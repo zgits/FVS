@@ -939,34 +939,12 @@
 <script>
 
     /**
-     * 视频-获取视频名
+     * 视频-获取视频名，播放量
      */
 
     function listVideos(){
         var list = null;
         videoName = new Array();
-        var time = getFormatDate();
-        var watchTime = time + " 00:00:00";
-        $.ajax({
-            url: "/admin/web/" + watchTime +"/"+3+"/"+0,
-            type: "get",
-            dataType: "json",
-            async : false,
-            success: function (data) {
-                list = data.data;
-                $.each(list,function (i,item) {
-                    videoName[i] = item.name;
-                })
-            }
-        })
-    }
-
-    /**
-     * 获取视频播放量
-     */
-
-    function listVideosForVV(){
-        var list = null;
         videoVV = new Array();
         var time = getFormatDate();
         var watchTime = time + " 00:00:00";
@@ -979,14 +957,16 @@
                 list = data.data;
                 $.each(list,function (i,item) {
                     videoVV[i] = item.vv;
+                    videoName[i] = item.name;
+
                 })
             }
         })
     }
 
+
     $(function () {
         listVideos();
-        listVideosForVV();
 
         /* ChartJS
          * -------
@@ -1116,8 +1096,9 @@
                     /*data  : $.each(new listVideos(),function(item){
                         "["+item.vv+"]";
                     })*/
-                    data  : [videoVV[0], videoVV[1], videoVV[2], videoVV[3],videoVV[4], videoVV[5],videoVV[6],
-                    videoVV[7], videoVV[8], videoVV[9]]
+                  data                : [videoVV[0], videoVV[1], videoVV[2], videoVV[3], videoVV[4], videoVV[5], videoVV[6], videoVV[7],videoVV[8],videoVV[9]]
+                    //data  : ['500', videoVV[1], videoVV[2], videoVV[3],videoVV[4], videoVV[5],videoVV[6],
+                    //videoVV[7], videoVV[8], videoVV[9]]
                 }
             ]
         }

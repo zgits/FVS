@@ -24,6 +24,7 @@
         <result property="userId" column="userId"/>
         <result property="vv" column="vv"/>
         <result property="videoSrc" column="videoSrc"/>
+        <result property="del" column="del"/>
     </resultMap>
 
     <insert id="insertWebStatus" parameterType="webStatus">
@@ -42,7 +43,7 @@
 
     <select id="listTopVideoForVVs" resultType="video">
         select a.id,a.name,a.typeId,a.userId,a.vv,a.videoSrc from video a ,video_play_list b
-          where  watch_time between DATE_SUB(#{watchTime} ,INTERVAL 1 WEEK) and #{watchTime}
+          where  watch_time between DATE_SUB(#{watchTime} ,INTERVAL 1 WEEK) and #{watchTime} and del = 1
             and a.id = b.video_id group by a.id order by count(a.id) desc limit 10
     </select>
 </mapper>
