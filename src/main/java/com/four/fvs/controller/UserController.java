@@ -47,14 +47,17 @@ public class UserController {
              * 登录成功
              * 记录用户名，方便做在线人数登记
              */
-            System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            System.out.println("在线人数记录....");
             HttpSession session = request.getSession();
-
+            ServletContext servletContext = session.getServletContext();
             session.setAttribute("nickname",userName);
-            System.out.println(session.getAttribute("nickname")+"zzzzz");
+            System.out.println(servletContext.getAttribute("lineCount")+"个人在线");
+            System.out.println("session id 为"+session.getId());
+            //登录信息录入
             WebStatus webStatus = new WebStatus();
             webStatus.setUserId(user.getId());
             webStatusService.insertWebStatus(webStatus);
+
             return ResultUtils.success(user);
         }else{
             /**
@@ -70,14 +73,17 @@ public class UserController {
      * @param request
      * @return
      */
-    @PostMapping(value="/loginOut")
+    @RequestMapping(value="/loginOut")
     @ResponseBody
     public Result<Object> loginOut(HttpServletRequest request){
         HttpSession session = request.getSession();
         ServletContext context = session.getServletContext();
         //在线人数减1
-        Integer lineCount = (Integer) context.getAttribute("linecount");
-        context.setAttribute("linecount",lineCount-1);
+        int lineCount = (int) context.getAttribute("lineCount");
+        System.out.println("loginout 现在人数还有:"+lineCount);
+        if(lineCount > 0) {
+            context.setAttribute("lineCount", lineCount - 1);
+        }
         //移除session
         HashSet<HttpSession> httpSessions = (HashSet<HttpSession>) context.getAttribute("sessionHashSet");
         if (httpSessions != null){

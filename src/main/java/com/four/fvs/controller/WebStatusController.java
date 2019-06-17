@@ -99,7 +99,7 @@ public class WebStatusController {
         else{
             count = (int) servletContext.getAttribute("lineCount");
         }
-        System.out.println(count);
+        System.out.println("当前在线人数为:"+count);
         return ResultUtils.success(count);
     }
 
