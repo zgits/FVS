@@ -1,6 +1,10 @@
 package com.four.fvs.dao;
 
+import com.four.fvs.model.Type;
+import com.four.fvs.model.Video;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @Author: zjf
@@ -16,4 +20,10 @@ public interface TypeDao {
      * @return
      */
     public String getTypeName(Integer id);
+
+    /**
+     * 获取全部分类
+     */
+    public List<Type> getAllType();
+
 }

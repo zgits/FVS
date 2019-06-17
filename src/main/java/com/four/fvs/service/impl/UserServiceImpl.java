@@ -1,11 +1,17 @@
 package com.four.fvs.service.impl;
 
+import com.four.fvs.common.PageBean;
+import com.four.fvs.dao.FocusDao;
 import com.four.fvs.dao.UserDao;
+import com.four.fvs.dao.VideoDao;
 import com.four.fvs.model.User;
+import com.four.fvs.model.Video;
 import com.four.fvs.service.UserService;
+import com.four.fvs.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,6 +25,10 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private VideoDao videoDao;
+    @Autowired
+    private FocusDao focusDao;
 
     @Override
     public User login(String userName, String password) {
@@ -86,9 +96,12 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 通过id得到某个用戶的信息
+     *
      * @param id
      * @return
      */
+
+
     public User getUserService(Integer id) {
         User user = userDao.getUserDao(id);
         //判断用户是否存在

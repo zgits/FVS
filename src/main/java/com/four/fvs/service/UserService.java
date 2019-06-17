@@ -1,6 +1,8 @@
 package com.four.fvs.service;
 
+import com.four.fvs.common.PageBean;
 import com.four.fvs.model.User;
+import com.four.fvs.vo.UserVo;
 
 import java.util.Date;
 import java.util.List;
@@ -90,4 +92,3 @@ public interface UserService {
     public List<User> getFansService(Integer id);
     public List<User> getFocusService(Integer id);
 }
-

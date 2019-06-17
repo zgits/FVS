@@ -1,20 +1,23 @@
 package com.four.fvs.service.impl;
 
-import com.four.fvs.dao.VideoCommentDao;
-import com.four.fvs.dao.VideoDao;
-import com.four.fvs.dao.VideoOpRecordDao;
+import com.four.fvs.common.PageBean;
+import com.four.fvs.dao.*;
 import com.four.fvs.model.User;
 import com.four.fvs.model.Video;
 import com.four.fvs.model.VideoOpRecord;
+import com.four.fvs.model.VideoPlayList;
 import com.four.fvs.service.FocusService;
 import com.four.fvs.service.TypeService;
 import com.four.fvs.service.UserService;
 import com.four.fvs.service.VideoService;
+import com.four.fvs.vo.UserVo;
 import com.four.fvs.vo.VideoIndexVo;
 import com.four.fvs.vo.VideoVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -31,6 +34,10 @@ public class VideoServiceImpl implements VideoService {
     private VideoDao videoDao;
     @Autowired
     private VideoCommentDao videoCommentDao;
+    @Autowired
+    private FocusDao focusDao;
+    @Autowired
+    private UserDao userDao;
 
     @Autowired
     private VideoService videoService;
@@ -75,6 +82,11 @@ public class VideoServiceImpl implements VideoService {
 
     @Override
     public Integer updateVideovv(Integer id) {
+        //增加历史记录
+        VideoPlayList videoPlayList=new VideoPlayList();
+        videoPlayList.setVideoId(id);
+        videoPlayList.setWatchTime(new Date());
+        videoDao.addVideoPlayList(videoPlayList);
         return videoDao.updateVideovv(id);
     }
 
@@ -123,7 +135,7 @@ public class VideoServiceImpl implements VideoService {
     }
 
     /**
-     * 首页获取信息
+     * 首页视频信息
      * @return
      */
     @Override
@@ -151,9 +163,10 @@ public class VideoServiceImpl implements VideoService {
 
             //type=videoCommentDao.getOneVideoCommentById(videoId).getType();
             vi.setCommentCount(videoCommentDao.getCount(videoId,1));
+            vi.setTypename(typeService.getTypeName(video.get(i).getTypeId()));
 
             videoIndexVo.add(vi);
-            System.out.println(video.get(i).getVv());
+
         }
         /*for(VideoIndexVo vii: videoIndexVo){
             System.out.println(vii);
@@ -185,6 +198,171 @@ public class VideoServiceImpl implements VideoService {
         return videoOpRecordDao.getRecord(videoOpRecord)!=null;
     }
 
+    /**
+     * 获取分区排行榜
+     * @param typeId
+     * @return
+     */
+    @Override
+    public List<Video> getVideoRank(Integer typeId){
+        return videoDao.getVideoRank(typeId);
+    }
+
+    /**
+     *获取各分区视频数量
+     * @return
+     */
+    @Override
+     public List<Integer> getAllCount(){
+        List<Integer>counts=new ArrayList<>();
+        Integer count;
+        Integer num=typeService.getAllType().size();
+        for(int i=0;i<num;i++){
+            count=videoDao.getVideoCountByType(typeService.getAllType().get(i).getId());
+            counts.add(count);
+        }
+
+        return counts;
+
+    }
+
+    /**
+     *分页展示各分区视频内容
+     * @param typeId
+     * @param currPage
+     * @return
+     */
+    public PageBean<VideoIndexVo> getVideoByType(Integer currPage, Integer typeId){
+        PageBean<VideoIndexVo> videos=new PageBean<>();
+        List<VideoIndexVo> videolist=new ArrayList<>();
+        Integer size=30;//默认每页展示30条视频
+        Integer count=videoDao.getVideoByType1(typeId).size();//该分区下总视频数
+        videos.setCurrPage(currPage);
+        videos.setPageSize(size);
+        videos.setTotalCount(count);
+        Integer begin=(currPage-1)*30;//下一页开始位置
+        double tc=count;
+        Double pageCount=Math.ceil(tc/size);
+        videos.setTotalPage(pageCount.intValue());
+
+        List<Video> video=videoDao.getVideoByType(typeId,begin,size);
+
+        Integer videoId;
+        for(int i=0;i<video.size();i++){
+            VideoIndexVo vi=new VideoIndexVo();
+            videoId=video.get(i).getId();
+            if(video.get(i).getVv()==null){
+                video.get(i).setVv(0);
+            }
+
+            vi.setDel(video.get(i).getDel());
+            vi.setTypeId(video.get(i).getTypeId());
+            vi.setFirstImagePath(video.get(i).getFirstImagePath());
+            vi.setId(video.get(i).getId());
+            vi.setName(video.get(i).getName());
+            vi.setUpTime(video.get(i).getUpTime());
+            vi.setVv(video.get(i).getVv());
+            vi.setVideoLength(video.get(i).getVideoLength());
+            vi.setVideoSrc(video.get(i).getVideoSrc());
+
+            vi.setCommentCount(videoCommentDao.getCount(videoId,1));
+            vi.setTypename(typeService.getTypeName(video.get(i).getTypeId()));
+
+            videolist.add(vi);
+
+        }
+        videos.setLists(videolist);
+        return videos;
+    }
+
+    /**
+     * 根据名称模糊查询视频
+     */
+    @Override
+    public PageBean<VideoIndexVo>getVideoByName( Integer currPage, String name) {
+        PageBean<VideoIndexVo> videos=new PageBean<>();
+        List<VideoIndexVo> videolist=new ArrayList<>();
+        Integer size=20;//默认每页展示20条视频
+        Integer count=videoDao.getVideoByName1(name).size();//该分区下总视频数
+        videos.setCurrPage(currPage);
+        videos.setPageSize(size);
+        videos.setTotalCount(count);
+        Integer begin=(currPage-1)*20;//下一页开始位置
+        double tc=count;
+        Double pageCount=Math.ceil(tc/size);
+        videos.setTotalPage(pageCount.intValue());
+
+        List<Video> video=videoDao.getVideoByName(name,begin,size);
+        Integer videoId;
+        for(int i=0;i<video.size();i++){
+            VideoIndexVo vi=new VideoIndexVo();
+            videoId=video.get(i).getId();
+
+            if(video.get(i).getVv()==null){
+                video.get(i).setVv(0);
+            }
+
+            vi.setDel(video.get(i).getDel());
+            vi.setTypeId(video.get(i).getTypeId());
+            vi.setFirstImagePath(video.get(i).getFirstImagePath());
+            vi.setId(video.get(i).getId());
+            vi.setName(video.get(i).getName());
+            vi.setUpTime(video.get(i).getUpTime());
+            vi.setVv(video.get(i).getVv());
+            vi.setVideoLength(video.get(i).getVideoLength());
+            vi.setVideoSrc(video.get(i).getVideoSrc());
+            vi.setCommentCount(videoCommentDao.getCount(videoId,1));
+            vi.setTypename(typeService.getTypeName(video.get(i).getTypeId()));
+
+            videolist.add(vi);
+
+        }
+        videos.setLists(videolist);
+        return videos;
+
+    }
+
+    public PageBean<UserVo> getUserByName(Integer currpage, String name){
+        PageBean<UserVo> users=new PageBean<>();
+        List<UserVo> userlist=new ArrayList<>();
+        Integer size=7;//默认每页展示7条用户信息
+        Integer count=videoDao.getUserByName1(name).size();//该分区下总视频数
+        users.setCurrPage(currpage);
+        users.setPageSize(size);
+        users.setTotalCount(count);
+        Integer begin=(currpage-1)*7;//下一页开始位置
+        double tc=count;
+        Double pageCount=Math.ceil(tc/size);
+        users.setTotalPage(pageCount.intValue());
+
+        List<User> user=videoDao.getUserByName(name,begin,size);
+        Integer UserId;
+        for(int i=0;i<user.size();i++){
+            UserVo uv=new UserVo();
+            UserId=user.get(i).getId();
+
+           /* if(user.get(i).getVv()==null){
+                video.get(i).setVv(0);
+            }*/
+            uv.setCreateTime(user.get(i).getCreateTime());
+            uv.setDel(user.get(i).getDel());
+            uv.setId(user.get(i).getId());
+            uv.setDel(user.get(i).getDel());
+            uv.setIcon(user.get(i).getIcon());
+            uv.setUserName(user.get(i).getUserName());
+            uv.setIntroduce(user.get(i).getIntroduce());
+            uv.setRoleId(user.get(i).getRoleId());
+            uv.setSex(user.get(i).getSex());
+            uv.setFans(focusDao.getCountFocus(UserId));
+            uv.setVideocount(userDao.getVideoCount(UserId));
+
+            userlist.add(uv);
+
+        }
+        users.setLists(userlist);
+        return users;
+    }
+
 
     /**
      * 通过id得到cOLLECTVIDEO
@@ -206,4 +384,17 @@ public class VideoServiceImpl implements VideoService {
         return videoDao.getShoucangVideo(id);
     }
 
+
+
+    /**
+     * 获取一天的更新数量
+     * @param typeId
+     * @return
+     */
+    @Override
+    public Integer getUpdateCount(Integer typeId){
+        return videoDao.getUpdateCount(typeId);
+
+    }
 }
+

@@ -91,5 +91,11 @@ public interface UserDao {
     public List<User> getFocusDao(@Param("id") Integer id);
 
 
+    /**
+     * 获得用户上传视频数量
+     * @param id
+     * @return
+     */
+    public Integer getVideoCount(Integer id);
 }
 

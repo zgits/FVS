@@ -1138,7 +1138,7 @@ i {
     border: 1px solid #e5e9ef;
     border-radius: 4px;
     float: left;
-    margin-right: 32px;
+    margin-right: 32px !important;
     margin-top: 20px;
     position: relative
 }
@@ -1161,7 +1161,7 @@ i {
 }
 
 .video.matrix .info .so-icon {
-    margin-right: 8px;
+    margin-right: 12px!important;
     margin-bottom: 12px;
     float: left
 }
@@ -1173,7 +1173,7 @@ i {
 
 .video.matrix .info .time {
     margin-right: 0;
-    width: 67px
+    width: 80px;
 }
 
 .video.matrix .headline {
@@ -4788,6 +4788,7 @@ i {
 
 .contain {
     width: 980px;
+    height: 1000px;
     margin: 0 auto
 }
 
@@ -4796,7 +4797,7 @@ i {
 }
 
 .result-wrap {
-    padding-bottom: 10px
+    padding-bottom: 220px!important;
 }
 
 .gif-menu .random-p {
@@ -6426,92 +6427,6 @@ i {
     color: #00a1d6
 }
 
-.bili-header-m .search {
-    position: absolute;
-    bottom: 20px;
-    right: 0;
-    width: 268px;
-    height: 32px;
-    padding: 2px 2px 2px 72px;
-    background-color: #e5e9ef;
-    background-color: rgba(0, 0, 0, .12);
-    border-radius: 6px;
-    font-size: 12px;
-    z-index: 10
-}
-
-.bili-header-m .search.search-focus .searchform {
-    background-color: #fff
-}
-
-.bili-header-m .search .searchform {
-    background-color: #fff;
-    background-color: hsla(0, 0%, 100%, .88);
-    display: block;
-    height: 32px;
-    border-radius: 4px;
-    transition: background-color .2s
-}
-
-.bili-header-m .search .searchform:hover {
-    background-color: #fff
-}
-
-.bili-header-m .search .link-ranking {
-    position: absolute;
-    left: 2px;
-    top: 2px;
-    height: 32px;
-    line-height: 32px;
-    background-color: #fff;
-    background-color: hsla(0, 0%, 100%, .88);
-    border-radius: 4px;
-    width: 68px;
-    transition: background-color .2s
-}
-
-.bili-header-m .search .link-ranking span {
-    padding-left: 26px;
-    color: #f25d8e;
-    display: inline-block;
-    background: url(//static.hdslb.com/images/base/icons.png) -659px -655px no-repeat
-}
-
-.bili-header-m .search .link-ranking:hover {
-    background-color: #fff
-}
-
-.bili-header-m .search .search-keyword {
-    float: left;
-    width: 200px;
-    color: #222;
-    font-size: 12px;
-    overflow: hidden;
-    height: 32px;
-    line-height: 32px;
-    padding: 0 12px;
-    border: 0;
-    box-shadow: none;
-    background-color: transparent
-}
-
-.bili-header-m .search button.search-submit {
-    display: block;
-    position: absolute;
-    right: 0;
-    width: 48px;
-    min-width: 0;
-    cursor: pointer;
-    height: 32px;
-    background: url(//static.hdslb.com/images/base/icons.png) -653px -720px;
-    margin: 0;
-    padding: 0;
-    border: 0
-}
-
-.bili-header-m .search button.search-submit:hover {
-    background-position: -718px -720px
-}
 
 @font-face {
     font-family: header-iconfont;

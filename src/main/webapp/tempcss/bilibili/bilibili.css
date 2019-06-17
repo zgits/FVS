@@ -575,7 +575,7 @@ a, a:hover, ins {
     border-radius: 3px;
     height: 15px;
     line-height: 14px;
-    max-width: 29px;
+    max-width: 33px;
     padding: 1px 3px;
     font-family: sans-serif, sans-serifsans-serif, Calibri, Arial, Helvetica
 }
@@ -5043,7 +5043,7 @@ a, a:hover, ins {
 .sec-rank .rank-list-wrap .rank-list {
     padding-bottom: 15px;
     min-height: 278px;
-    padding-top: 20px;
+    padding-top: 15px;
     position: relative
 
 }
@@ -6311,7 +6311,7 @@ a, a:hover, ins {
 .elevator-module {
     position: fixed;
     z-index: 10;
-    left: 730px;
+    left: 810px;
     margin-left: 590px;
     transition: top .3s
 }

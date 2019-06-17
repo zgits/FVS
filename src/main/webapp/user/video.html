@@ -33,6 +33,10 @@
     <link rel="stylesheet" href="../src/css/main.css">
     <!--<link rel="stylesheet" href="../dist/css/danmuplayer.css">-->
 
+
+    <link rel="stylesheet" href="../tempcss/layui/css/layui.css">
+    <link rel="stylesheet" href="../tempcss/bilibili/bilibili.css">
+
     <style>
         .colorflag {
             color: #fc9521;
@@ -59,61 +63,46 @@
     </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+<li class="layui-lump" id="head">
+    <ul class="layui-nav">
+        <li class="layui-nav-logo">
+            <a href="index2.html"><i class="layui-icon layui-icon-website" style="font-size: 15px"></i>FREE</a>
+        </li>
 
-<header class="main-header">
-    <a href="index.html" class="logo">
-        <!-- LOGO -->
-        Free
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top" role="navigation">
-        <!-- Navbar Right Menu -->
-        <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
+        <li style="float: right" class="layui-nav-item">
+            <a href="">退出</a>
+        </li>
+        <li style="float: right" class="layui-nav-item">
+            <a href="">历史记录</a>
+        </li>
+        <li style="float: right" class="layui-nav-item">
+            <a href="">消息</a>
+        </li>
+        <li style="float: right" class="layui-nav-item">
+            <a href=""><img class="layui-nav-img" src="//t.cn/RCzsdCq">哔了狗了</a>
+        </li>
 
-                <li class="dropdown">
-                    <form class="navbar-form navbar-right" role="search">
-                        <div class="form-group">
-                            <input type="search" autocomplete="true" class="form-control" id="navbar-search-input"
-                                   placeholder="搜索内容">
 
-                        </div>
+        <div class="bili-header-m">
+            <li style="float: right;height: 15px;right: -30px" class="layui-nav-item">
+                <div class="search" id="search">
+                    <form class="searchform"  method="post">
+                        <input id="searchcomment" class="search-keyword" accesskey="s" type="text"
+                               placeholder="搜索内容" value=""
+                               x-webkit-grammar="builtin:translate" x-webkit-speech=""
+                               autocomplete="off">
+                        <button class="search-submit" type="button" onclick="Search()" ></button>
                     </form>
-                </li>
 
-                <li class="dropdown user user-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="../static/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                        <span class="hidden-xs">用户名</span>
-                    </a>
-                </li>
-                <!-- Messages: style can be found in dropdown.less-->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-envelope-o"></i>
-                        消息
-                        <span class="label label-success">4</span>
-                    </a>
-                </li>
-                <!-- Notifications: style can be found in dropdown.less -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-bell-o"></i>
-                        历史记录
-                    </a>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa  fa-power-off"></i>
-                        退出
-                    </a>
-                </li>
-
-            </ul>
+                </div>
+            </li>
         </div>
-    </nav>
-</header>
+
+        </li>
+
+
+    </ul>
+</li>
 
 <section class="content">
     <div class="row col-md-offset-2">
@@ -307,6 +296,7 @@
 <!-- AdminLTE App -->
 <script src="../static/dist/js/adminlte.min.js"></script>
 
+<script src="../static/layui/layui.js" charset="utf-8"></script>
 
 <script src="../static/plugins/sweetalert/sweetalert.min.js"></script>
 
@@ -323,8 +313,75 @@
 
     $(function () {
         getVideoInfo(videoId);
+        getUserInfo1(userId);
         updateVideovv();
     })
+
+
+    /**
+     *获得当前登录用户的用户信息
+     */
+    function getUserInfo1(userId) {
+        var result;
+        $.ajax({
+            url: '/user/getUserInfo',
+            type: 'get',
+            data: {
+                userId: userId
+            },
+            success: function (data) {
+                if (data.code == 0) {
+                    result = data.data;
+                    showhead(result);
+                }
+            }
+        });
+    };
+
+    function showhead(data){
+        $("#head").empty();
+        var appendhtml='';
+        var user=data;
+        appendhtml+=' <ul class="layui-nav">\n' +
+            '        <li class="layui-nav-logo">\n' +
+            '            <a href="index2.html"><i class="layui-icon layui-icon-website" style="font-size: 15px"></i>FREE</a>\n' +
+            '        </li>\n' +
+            '\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href="/user/login.html">退出</a>\n' +
+            '        </li>\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href="">历史记录</a>\n' +
+            '        </li>\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href="/user/news.html">消息</a>\n' +
+            '        </li>\n' +
+            '        <li style="float: right" class="layui-nav-item">\n' +
+            '            <a href=""><img class="layui-nav-img" src="..'+user.icon+'">'+user.userName+'</a>\n' +
+            '        </li>\n' +
+            '\n' +
+            '\n' +
+            '        <div class="bili-header-m">\n' +
+            '            <li style="float: right;height: 15px;right: -30px" class="layui-nav-item">\n' +
+            '                <div class="search" id="search">\n' +
+            '                    <form class="searchform"  method="post">\n' +
+            '                        <input id="searchcomment" class="search-keyword" accesskey="s" type="text"\n' +
+            '                                                    placeholder="搜索内容" value=""\n' +
+            '                                                     x-webkit-grammar="builtin:translate" x-webkit-speech=""\n' +
+            '                                                    autocomplete="off">\n' +
+            '                        <button class="search-submit" type="button" onclick="Search()" ></button>\n' +
+            '                    </form>\n' +
+            '\n' +
+            '                </div>\n' +
+            '            </li>\n' +
+            '        </div>\n' +
+            '\n' +
+            '        </li>\n' +
+            '\n' +
+            '\n' +
+            '    </ul>';
+        $("#head").append(appendhtml);
+    }
 
 
     function updateVideovv() {
@@ -788,6 +845,7 @@
                     } else if (data.data == "add") {
                         $("#videoCollectionNumber").text(number+1);
                     }
+
                 }
             }
 

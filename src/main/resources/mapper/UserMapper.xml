@@ -105,4 +105,8 @@
 
 
 
+    <select id="getVideoCount" resultType="Integer">
+        select count(*) from video where userId=#{userId} and del=1
+    </select>
+
 </mapper>
